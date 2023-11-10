@@ -42,8 +42,8 @@ const ThemeGlobalGitbook = createContext()
 export const useGitBookGlobal = () => useContext(ThemeGlobalGitbook)
 
 /**
- * 基础布局
- * 采用左右两侧布局，移动端使用顶部导航栏
+ * 기본 레이아웃
+ * 왼쪽, 오른쪽 레이아웃을 채택하고, 모바일 단말기 상단 내비게이션 바를 활용하세요.
  * @returns {JSX.Element}
  * @constructor
  */
@@ -81,7 +81,7 @@ const LayoutBase = props => {
         id="theme-gitbook"
         className="bg-white dark:bg-hexo-black-gray w-full h-full min-h-screen justify-center dark:text-gray-300"
       >
-        {/* 顶部导航栏 */}
+        {/* 상단 네비게이션 바 */}
         <TopNavBar {...props} />
 
         <main
@@ -101,7 +101,7 @@ const LayoutBase = props => {
               {slotLeft}
               <SearchInput className="my-3 rounded-md" />
               <div className="mb-20">
-                {/* 所有文章列表 */}
+                {/* 모든 기사 목록 */}
                 <NavPostList filteredNavPages={filteredNavPages} />
               </div>
             </div>
@@ -150,7 +150,7 @@ const LayoutBase = props => {
             </div>
           </div>
 
-          {/*  右侧侧推拉抽屉 */}
+          {/*  오른쪽 슬라이딩 서랍 */}
           <div
             style={{ width: '32rem' }}
             className={'hidden xl:block dark:border-transparent relative z-10 '}
@@ -168,7 +168,7 @@ const LayoutBase = props => {
                     <Live2D />
                   </>
                 )}
-                {/* gitbook主题首页只显示公告 */}
+                {/* gitbook 테마 홈페이지에는 공지사항만 표시됩니다. */}
                 <Announcement {...props} />
               </div>
 
@@ -185,10 +185,10 @@ const LayoutBase = props => {
           </div>
         )}
 
-        {/* 移动端导航抽屉 */}
+        {/* 모바일 탐색 창 */}
         <PageNavDrawer {...props} filteredNavPages={filteredNavPages} />
 
-        {/* 移动端底部导航栏 */}
+        {/* 모바일 하단 탐색 메뉴 */}
         {/* <BottomMenuBar {...props} className='block md:hidden' /> */}
       </div>
     </ThemeGlobalGitbook.Provider>
@@ -196,8 +196,8 @@ const LayoutBase = props => {
 }
 
 /**
- * 首页
- * 重定向到某个文章详情页
+ * 첫 장
+ * 기사 세부정보 페이지로 리디렉션
  * @param {*} props
  * @returns
  */
@@ -205,7 +205,7 @@ const LayoutIndex = props => {
   const router = useRouter()
   useEffect(() => {
     router.push(CONFIG.INDEX_PAGE).then(() => {
-      // console.log('跳转到指定首页', CONFIG.INDEX_PAGE)
+      // console.log('지정된 홈페이지로 이동', CONFIG.INDEX_PAGE)
       setTimeout(() => {
         if (isBrowser) {
           const article = document.getElementById('notion-article')
@@ -229,8 +229,8 @@ const LayoutIndex = props => {
 }
 
 /**
- * 文章列表 无
- * 全靠页面导航
+ * 기사 목록 없음
+ * 모두 페이지 탐색에 따라 다릅니다.
  * @param {*} props
  * @returns
  */
@@ -245,7 +245,7 @@ const LayoutPostList = props => {
 }
 
 /**
- * 文章详情
+ * 기사 세부정보
  * @param {*} props
  * @returns
  */
@@ -254,7 +254,7 @@ const LayoutSlug = props => {
 
   return (
     <LayoutBase {...props}>
-      {/* 文章锁 */}
+      {/* 기사 잠금 */}
       {lock && <ArticleLock validPassword={validPassword} />}
 
       {!lock && (
@@ -262,7 +262,7 @@ const LayoutSlug = props => {
           {/* title */}
           <h1 className="text-3xl pt-12  dark:text-gray-300">{post?.title}</h1>
 
-          {/* Notion文章主体 */}
+          {/* Notion기사 본문 */}
           {post && (
             <section id="article-wrapper" className="px-1">
               <NotionPage post={post} />
@@ -301,8 +301,8 @@ const LayoutSlug = props => {
 }
 
 /**
- * 没有搜索
- * 全靠页面导航
+ * 검색 없음
+ * All depends on page navigation
  * @param {*} props
  * @returns
  */
@@ -311,8 +311,8 @@ const LayoutSearch = props => {
 }
 
 /**
- * 归档页面基本不会用到
- * 全靠页面导航
+ * 아카이브 페이지는 거의 사용되지 않습니다.
+ * All depends on page navigation
  * @param {*} props
  * @returns
  */
@@ -348,7 +348,7 @@ const Layout404 = props => {
 }
 
 /**
- * 分类列表
+ * Category List
  */
 const LayoutCategoryIndex = props => {
   const { categoryOptions } = props
@@ -387,7 +387,7 @@ const LayoutCategoryIndex = props => {
 }
 
 /**
- * 标签列表
+ * tag list
  */
 const LayoutTagIndex = props => {
   const { tagOptions } = props
