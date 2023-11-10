@@ -79,7 +79,7 @@ const LayoutBase = props => {
 
       <div
         id="theme-gitbook"
-        className="bg-white dark:bg-hexo-black-gray w-full h-full min-h-screen justify-center dark:text-gray-300"
+        className="bg-white dark:bg-hexo-black-gray w-full h-full min-h-screen justify-center dark:text-gray-300 dark:bg-black"
       >
         {/* 상단 네비게이션 바 */}
         <TopNavBar {...props} />
@@ -106,7 +106,7 @@ const LayoutBase = props => {
               </div>
             </div>
 
-            <div className="w-72 fixed left-0 bottom-0 z-20 bg-white">
+            <div className="w-72 fixed left-0 bottom-0 z-20 bg-white dark:bg-black">
               <Footer {...props} />
             </div>
           </div>

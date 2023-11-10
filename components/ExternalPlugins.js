@@ -90,7 +90,9 @@ const ExternalPlugin = props => {
         <TwikooCommentCounter {...props} />
       )}
       {JSON.parse(BLOG.RIBBON) && <Ribbon />}
-      {/* {JSON.parse(BLOG.CUSTOM_RIGHT_CLICK_CONTEXT_MENU) && <CustomContextMenu {...props} />} */}
+      {JSON.parse(BLOG.CUSTOM_RIGHT_CLICK_CONTEXT_MENU) && (
+        <CustomContextMenu {...props} />
+      )}
       {!JSON.parse(BLOG.CAN_COPY) && <DisableCopy />}
       {JSON.parse(BLOG.WEB_WHIZ_ENABLED) && <WebWhiz />}
       {JSON.parse(BLOG.AD_WWADS_BLOCK_DETECT) && <AdBlockDetect />}
