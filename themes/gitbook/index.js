@@ -1,40 +1,39 @@
 'use client'
 
-import CONFIG from './config'
-import { useRouter } from 'next/router'
-import { useEffect, useState, createContext, useContext } from 'react'
-import { isBrowser } from '@/lib/utils'
-import Footer from './components/Footer'
-import InfoCard from './components/InfoCard'
-import RevolverMaps from './components/RevolverMaps'
-import TopNavBar from './components/TopNavBar'
-import SearchInput from './components/SearchInput'
-import { useGlobal } from '@/lib/global'
-import Live2D from '@/components/Live2D'
 import BLOG from '@/blog.config'
-import NavPostList from './components/NavPostList'
-import ArticleInfo from './components/ArticleInfo'
-import Catalog from './components/Catalog'
-import Announcement from './components/Announcement'
-import PageNavDrawer from './components/PageNavDrawer'
-import FloatTocButton from './components/FloatTocButton'
-import { AdSlot } from '@/components/GoogleAdsense'
-import JumpToTopButton from './components/JumpToTopButton'
-import ShareBar from '@/components/ShareBar'
-import CategoryItem from './components/CategoryItem'
-import TagItemMini from './components/TagItemMini'
-import ArticleAround from './components/ArticleAround'
 import Comment from '@/components/Comment'
-import TocDrawer from './components/TocDrawer'
-import NotionPage from '@/components/NotionPage'
-import { ArticleLock } from './components/ArticleLock'
-import { Transition } from '@headlessui/react'
-import { Style } from './style'
 import CommonHead from '@/components/CommonHead'
+import { AdSlot } from '@/components/GoogleAdsense'
+import NotionPage from '@/components/NotionPage'
+import ShareBar from '@/components/ShareBar'
+import { useGlobal } from '@/lib/global'
+import { isBrowser } from '@/lib/utils'
+import { Transition } from '@headlessui/react'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { createContext, useContext, useEffect, useState } from 'react'
+import Announcement from './components/Announcement'
+import ArticleAround from './components/ArticleAround'
+import ArticleInfo from './components/ArticleInfo'
+import { ArticleLock } from './components/ArticleLock'
 import BlogArchiveItem from './components/BlogArchiveItem'
 import BlogPostListPage from './components/BlogPostListPage'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
+import Catalog from './components/Catalog'
+import CategoryItem from './components/CategoryItem'
+import FloatTocButton from './components/FloatTocButton'
+import Footer from './components/Footer'
+import InfoCard from './components/InfoCard'
+import JumpToTopButton from './components/JumpToTopButton'
+import NavPostList from './components/NavPostList'
+import PageNavDrawer from './components/PageNavDrawer'
+import RevolverMaps from './components/RevolverMaps'
+import SearchInput from './components/SearchInput'
+import TagItemMini from './components/TagItemMini'
+import TocDrawer from './components/TocDrawer'
+import TopNavBar from './components/TopNavBar'
+import CONFIG from './config'
+import { Style } from './style'
 const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
 // 主题全局变量
@@ -165,7 +164,7 @@ const LayoutBase = props => {
                   <>
                     <InfoCard {...props} />
                     {CONFIG.WIDGET_REVOLVER_MAPS === 'true' && <RevolverMaps />}
-                    <Live2D />
+                    {/* <Live2D /> */}
                   </>
                 )}
                 {/* gitbook 테마 홈페이지에는 공지사항만 표시됩니다. */}
@@ -173,7 +172,7 @@ const LayoutBase = props => {
               </div>
 
               <AdSlot type="in-article" />
-              <Live2D />
+              {/* <Live2D /> 강아지 주석처리 */}
             </div>
           </div>
         </main>
@@ -415,13 +414,13 @@ const LayoutTagIndex = props => {
 }
 
 export {
-  CONFIG as THEME_CONFIG,
-  LayoutIndex,
-  LayoutSearch,
-  LayoutArchive,
-  LayoutSlug,
   Layout404,
+  LayoutArchive,
   LayoutCategoryIndex,
+  LayoutIndex,
   LayoutPostList,
-  LayoutTagIndex
+  LayoutSearch,
+  LayoutSlug,
+  LayoutTagIndex,
+  CONFIG as THEME_CONFIG
 }

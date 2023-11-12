@@ -1,42 +1,41 @@
 /* eslint-disable multiline-ternary */
 import CONFIG from './config'
 
-import { useState, createContext, useContext, useEffect } from 'react'
-import Footer from './components/Footer'
-import InfoCard from './components/InfoCard'
-import RevolverMaps from './components/RevolverMaps'
-import Tabs from '@/components/Tabs'
-import TopNavBar from './components/TopNavBar'
-import SearchInput from './components/SearchInput'
-import BottomMenuBar from './components/BottomMenuBar'
-import { useGlobal } from '@/lib/global'
-import { useRouter } from 'next/router'
-import Live2D from '@/components/Live2D'
 import BLOG from '@/blog.config'
-import Announcement from './components/Announcement'
-import JumpToTopButton from './components/JumpToTopButton'
-import BlogPostListPage from './components/BlogPostListPage'
-import BlogPostListScroll from './components/BlogPostListScroll'
-import Catalog from './components/Catalog'
-import { ArticleLock } from './components/ArticleLock'
-import TagGroups from './components/TagGroups'
-import CategoryGroup from './components/CategoryGroup'
+import Comment from '@/components/Comment'
+import CommonHead from '@/components/CommonHead'
+import replaceSearchResult from '@/components/Mark'
+import NotionPage from '@/components/NotionPage'
+import ShareBar from '@/components/ShareBar'
+import Tabs from '@/components/Tabs'
+import { useGlobal } from '@/lib/global'
 import { isBrowser } from '@/lib/utils'
+import { Transition } from '@headlessui/react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { createContext, useContext, useEffect, useState } from 'react'
+import Announcement from './components/Announcement'
+import ArticleAround from './components/ArticleAround'
+import ArticleInfo from './components/ArticleInfo'
+import { ArticleLock } from './components/ArticleLock'
 import BlogArchiveItem from './components/BlogArchiveItem'
 import BlogPostBar from './components/BlogPostBar'
-import NotionPage from '@/components/NotionPage'
-import Comment from '@/components/Comment'
-import ArticleAround from './components/ArticleAround'
-import TocDrawer from './components/TocDrawer'
+import BlogPostListPage from './components/BlogPostListPage'
+import BlogPostListScroll from './components/BlogPostListScroll'
+import BottomMenuBar from './components/BottomMenuBar'
+import Catalog from './components/Catalog'
+import CategoryGroup from './components/CategoryGroup'
 import CategoryItem from './components/CategoryItem'
+import Footer from './components/Footer'
+import InfoCard from './components/InfoCard'
+import JumpToTopButton from './components/JumpToTopButton'
+import RevolverMaps from './components/RevolverMaps'
+import SearchInput from './components/SearchInput'
+import TagGroups from './components/TagGroups'
 import TagItemMini from './components/TagItemMini'
-import ShareBar from '@/components/ShareBar'
-import Link from 'next/link'
-import { Transition } from '@headlessui/react'
+import TocDrawer from './components/TocDrawer'
+import TopNavBar from './components/TopNavBar'
 import { Style } from './style'
-import replaceSearchResult from '@/components/Mark'
-import ArticleInfo from './components/ArticleInfo'
-import CommonHead from '@/components/CommonHead'
 
 // 主题全局状态
 const ThemeGlobalMedium = createContext()
@@ -133,7 +132,7 @@ const LayoutBase = props => {
                 </div>
               </Tabs>
               <Announcement post={notice} />
-              <Live2D />
+              {/* <Live2D /> */}
             </div>
           </div>
         </main>
@@ -391,13 +390,13 @@ const LayoutTagIndex = props => {
 }
 
 export {
-  CONFIG as THEME_CONFIG,
+  Layout404,
+  LayoutArchive,
+  LayoutCategoryIndex,
   LayoutIndex,
   LayoutPostList,
   LayoutSearch,
-  LayoutArchive,
   LayoutSlug,
-  Layout404,
-  LayoutCategoryIndex,
-  LayoutTagIndex
+  LayoutTagIndex,
+  CONFIG as THEME_CONFIG
 }

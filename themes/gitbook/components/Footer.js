@@ -39,7 +39,7 @@ const Footer = ({ siteInfo }) => {
         </a>
       </div>
 
-      {BLOG.BEI_AN && (
+      {/* {BLOG.BEI_AN && (
         <>
           <i className="fas fa-shield-alt" />{' '}
           <a href="https://beian.miit.gov.cn/" className="mr-2">
@@ -47,7 +47,7 @@ const Footer = ({ siteInfo }) => {
           </a>
           <br />
         </>
-      )}
+      )} */}
 
       {/* <span className="hidden busuanzi_container_site_pv">
         <i className="fas fa-eye" />
