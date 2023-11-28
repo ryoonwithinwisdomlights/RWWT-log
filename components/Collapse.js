@@ -1,7 +1,7 @@
 import React, { useEffect, useImperativeHandle } from 'react'
 
 /**
- * 折叠面板组件，支持水平折叠、垂直折叠
+ * Folding panel component, supports horizontal folding and vertical folding
  * @param {type:['horizontal','vertical'],isOpen} props
  * @returns
  */
@@ -13,7 +13,9 @@ const Collapse = props => {
   useImperativeHandle(collapseRef, () => {
     return {
       /**
-       * 当子元素高度变化时，可调用此方法更新折叠组件的高度
+       * When the height of the child element changes,
+       *  this method can be called to update the height
+       * of the collapsed component.
        * @param {*} param0
        */
       updateCollapseHeight: ({ height, increase }) => {
@@ -24,9 +26,9 @@ const Collapse = props => {
   })
 
   /**
-     * 折叠
-     * @param {*} element
-     */
+   * fold
+   * @param {*} element
+   */
   const collapseSection = element => {
     const sectionHeight = element.scrollHeight
     const sectionWidth = element.scrollWidth
@@ -49,9 +51,9 @@ const Collapse = props => {
   }
 
   /**
-     * 展开
-     * @param {*} element
-     */
+   * Expand
+   * @param {*} element
+   */
   const expandSection = element => {
     const sectionHeight = element.scrollHeight
     const sectionWidth = element.scrollWidth
@@ -79,14 +81,26 @@ const Collapse = props => {
     } else {
       collapseSection(ref.current)
     }
-    // 通知父组件高度变化
-    props?.onHeightChange && props.onHeightChange({ height: ref.current.scrollHeight, increase: props.isOpen })
+    // Notify parent component of height change
+    props?.onHeightChange &&
+      props.onHeightChange({
+        height: ref.current.scrollHeight,
+        increase: props.isOpen
+      })
   }, [props.isOpen])
 
   return (
-        <div ref={ref} style={type === 'vertical' ? { height: '0px', willChange: 'height' } : { width: '0px', willChange: 'width' }} className={`${props.className || ''} overflow-hidden duration-200 `}>
-            {props.children}
-        </div>
+    <div
+      ref={ref}
+      style={
+        type === 'vertical'
+          ? { height: '0px', willChange: 'height' }
+          : { width: '0px', willChange: 'width' }
+      }
+      className={`${props.className || ''} overflow-hidden duration-200 `}
+    >
+      {props.children}
+    </div>
   )
 }
 Collapse.defaultProps = { isOpen: false }

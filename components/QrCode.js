@@ -3,7 +3,7 @@ import { loadExternalResource } from '@/lib/utils'
 import { useEffect } from 'react'
 
 /**
- * 二维码生成
+ * QR code generation
  */
 export default function QrCode({ value }) {
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function QrCode({ value }) {
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.H
       })
-    //   console.log('二维码', qrcode, value)
+      //   console.log('QR code', qrcode, value)
     })
     return () => {
       if (qrcode) {

@@ -2,11 +2,11 @@
 import { useEffect } from 'react'
 const id = 'canvasNestCreated'
 const Nest = () => {
-  const destroyNest = ()=>{
-      const nest = document.getElementById(id)
-      if(nest && nest.parentNode){
-        nest.parentNode.removeChild(nest)
-      }
+  const destroyNest = () => {
+    const nest = document.getElementById(id)
+    if (nest && nest.parentNode) {
+      nest.parentNode.removeChild(nest)
+    }
   }
 
   useEffect(() => {
@@ -19,12 +19,12 @@ const Nest = () => {
 export default Nest
 
 /**
- * 创建连接点
+ * Create connection point
  * @param config
  */
 function createNest() {
   const e = document.getElementById('__next')
-  if(!e) return
+  if (!e) return
   function n(e, n, t) {
     return e.getAttribute(n) || t
   }
@@ -101,8 +101,12 @@ function createNest() {
   var r,
     s = { x: null, y: null, max: 2e4 }
   ;(i.style.cssText =
-    'position:fixed;top:0;left:0;pointer-events:none;z-index:' + a.z + ';opacity:' + a.o),
-    (r = 'body'), e.appendChild(i),
+    'position:fixed;top:0;left:0;pointer-events:none;z-index:' +
+    a.z +
+    ';opacity:' +
+    a.o),
+    (r = 'body'),
+    e.appendChild(i),
     t(),
     (window.onresize = t),
     (window.onmousemove = function (e) {

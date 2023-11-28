@@ -2,13 +2,13 @@
 import { useEffect } from 'react'
 const id = 'canvas_sakura'
 const Sakura = () => {
-  const destroySakura = ()=>{
+  const destroySakura = () => {
     const sakura = document.getElementById(id)
-    if(sakura && sakura.parentNode){
+    if (sakura && sakura.parentNode) {
       sakura.parentNode.removeChild(sakura)
     }
   }
-      
+
   useEffect(() => {
     createSakura({})
     return () => destroySakura()
@@ -19,7 +19,7 @@ const Sakura = () => {
 export default Sakura
 
 /**
- * 创建樱花雨
+ * Create Sakura Rain
  * @param config
  */
 function createSakura() {

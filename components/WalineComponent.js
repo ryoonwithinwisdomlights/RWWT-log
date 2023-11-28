@@ -11,7 +11,7 @@ let waline = null
  * @param {*} props
  * @returns
  */
-const WalineComponent = (props) => {
+const WalineComponent = props => {
   const containerRef = React.createRef()
   const router = useRouter()
 
@@ -38,15 +38,15 @@ const WalineComponent = (props) => {
       })
     }
 
-    // 跳转评论
+    // Jump to comments
     router.events.on('routeChangeComplete', updateWaline)
     const anchor = window.location.hash
     if (anchor) {
-      // 选择需要观察变动的节点
+      // Select the node where changes need to be observed
       const targetNode = document.getElementsByClassName('wl-cards')[0]
 
-      // 当观察到变动时执行的回调函数
-      const mutationCallback = (mutations) => {
+      // callback function executed when a change is observed
+      const mutationCallback = mutations => {
         for (const mutation of mutations) {
           const type = mutation.type
           if (type === 'childList') {
@@ -63,7 +63,7 @@ const WalineComponent = (props) => {
         }
       }
 
-      // 观察子节点 变化
+      // Observe changes in child nodes
       const observer = new MutationObserver(mutationCallback)
       observer.observe(targetNode, { childList: true })
     }

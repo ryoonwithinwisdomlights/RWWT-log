@@ -2,17 +2,17 @@ import BLOG from '@/blog.config'
 import { useEffect } from 'react'
 
 /**
- * 禁止用户拷贝文章的插件
+ * Plug-in that prevents users from copying articles
  */
 export default function DisableCopy() {
   useEffect(() => {
     if (!JSON.parse(BLOG.CAN_COPY)) {
-      // 全栈添加禁止复制的样式
+      // Add copy-disabled styles to the full stack
       document.getElementsByTagName('html')[0].classList.add('forbid-copy')
-      // 监听复制事件
+      // Listen for replication events
       document.addEventListener('copy', function (event) {
-        event.preventDefault() // 阻止默认复制行为
-        alert('抱歉，本网页内容不可复制！')
+        event.preventDefault() // Prevent default copy behavior
+        alert('Sorry, the content of this page cannot be copied')
       })
     }
   }, [])

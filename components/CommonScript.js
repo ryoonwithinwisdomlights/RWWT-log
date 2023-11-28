@@ -1,7 +1,7 @@
 import BLOG from '@/blog.config'
 
 /**
- * 第三方代码 统计脚本
+ * Third-party code statistics script
  * @returns {JSX.Element}
  * @constructor
  */
@@ -30,7 +30,7 @@ const CommonScript = () => {
 
       {BLOG.COMMENT_DAO_VOICE_ID && (
         <>
-          {/* DaoVoice 反馈 */}
+          {/* DaoVoice feedback */}
           <script
             async
             dangerouslySetInnerHTML={{
@@ -102,8 +102,8 @@ const CommonScript = () => {
         </>
       )}
 
-      {/* 代码统计 */}
-      {/* ackee统计脚本 */}
+      {/* Code statistics */}
+      {/* ackee statistics script */}
       {/* {BLOG.ANALYTICS_ACKEE_TRACKER && (
       <script async src={BLOG.ANALYTICS_ACKEE_TRACKER}
               data-ackee-server={BLOG.ANALYTICS_ACKEE_DATA_SERVER}
@@ -111,7 +111,7 @@ const CommonScript = () => {
       />
     )} */}
 
-      {/* 百度统计 */}
+      {/* Baidu Statistics */}
       {BLOG.ANALYTICS_BAIDU_ID && (
         <script
           async
@@ -129,7 +129,7 @@ const CommonScript = () => {
         />
       )}
 
-      {/* 站长统计 */}
+      {/* Webmaster Statistics */}
       {BLOG.ANALYTICS_CNZZ_ID && (
         <script
           async
@@ -141,7 +141,7 @@ const CommonScript = () => {
         />
       )}
 
-      {/* 谷歌统计 */}
+      {/* Google Statistics */}
       {BLOG.ANALYTICS_GOOGLE_ID && (
         <>
           <script
@@ -164,7 +164,7 @@ const CommonScript = () => {
         </>
       )}
 
-      {/* 引入音乐播放 */}
+      {/* Introducing music playback */}
       {/* {JSON.parse(BLOG.MUSIC_PLAYER) && (
         <script async src={BLOG.MUSIC_PLAYER_CDN_URL} />
       )}

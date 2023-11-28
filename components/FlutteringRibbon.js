@@ -1,27 +1,25 @@
 /* eslint-disable */
 import { useEffect } from 'react'
-const  id = 'canvasFlutteringRibbon'
+const id = 'canvasFlutteringRibbon'
 export const FlutteringRibbon = () => {
-     const destroyRibbon = ()=>{
+  const destroyRibbon = () => {
     const ribbon = document.getElementById(id)
-      if(ribbon && ribbon.parentNode){
-        ribbon.parentNode.removeChild(ribbon)
-      }
+    if (ribbon && ribbon.parentNode) {
+      ribbon.parentNode.removeChild(ribbon)
+    }
   }
-  
+
   useEffect(() => {
     createFlutteringRibbon()
-        return () => destroyRibbon()
-
+    return () => destroyRibbon()
   }, [])
-    return <></>
+  return <></>
 }
 
 export default FlutteringRibbon
 
-
 /**
- * 创建连接点
+ * Create connection point
  * @param config
  */
 function createFlutteringRibbon() {

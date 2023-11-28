@@ -1,5 +1,5 @@
 /* eslint-disable */
-import  { useEffect } from 'react'
+import { useEffect } from 'react'
 
 const StarrySky = () => {
   useEffect(() => {
@@ -7,7 +7,11 @@ const StarrySky = () => {
   }, [])
   return (
     <div className="relative">
-      <canvas id="starry-sky-vixcity" style={{zIndex:5}} className="top-0 fixed pointer-events-none"></canvas>
+      <canvas
+        id="starry-sky-vixcity"
+        style={{ zIndex: 5 }}
+        className="top-0 fixed pointer-events-none"
+      ></canvas>
     </div>
   )
 }
@@ -15,7 +19,7 @@ const StarrySky = () => {
 export default StarrySky
 
 /**
- * 创建星空雨
+ * Create a starry sky shower
  * @param config
  */
 function renderStarrySky() {
@@ -125,7 +129,8 @@ function renderStarrySky() {
       u()
     })(),
     (function t() {
-      document.getElementsByTagName('html')[0].className.indexOf('dark')>=0 && u(),
+      document.getElementsByTagName('html')[0].className.indexOf('dark') >= 0 &&
+        u(),
         window.requestAnimationFrame(t)
     })()
 }

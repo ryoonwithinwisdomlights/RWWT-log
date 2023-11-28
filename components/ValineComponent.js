@@ -9,8 +9,8 @@ const ValineComponent = ({ path }) => {
       const Valine = window.Valine
       // eslint-disable-next-line no-unused-vars
       const valine = new Valine({
-        el: '#valine', // 容器元素
-        lang: BLOG.LANG, // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/client/utils/i18n/index.js
+        el: '#valine', // container element
+        lang: BLOG.LANG, // Used to manually set the language of the comment area, supported language list https://github.com/imaegoo/twikoo/blob/main/src/client/utils/i18n/index.js
         appId: BLOG.COMMENT_VALINE_APP_ID,
         appKey: BLOG.COMMENT_VALINE_APP_KEY,
         avatar: '',
@@ -51,9 +51,9 @@ const ValineComponent = ({ path }) => {
   //     }
   //   }, [])
 
-//   return <div id='v-wrapper'>
-//       <div id='v-comments'></div>
-//   </div>
+  //   return <div id='v-wrapper'>
+  //       <div id='v-comments'></div>
+  //   </div>
 }
 
 export default ValineComponent

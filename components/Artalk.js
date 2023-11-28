@@ -14,17 +14,15 @@ const Artalk = ({ siteInfo }) => {
   useEffect(() => {
     loadExternalResource(BLOG.COMMENT_ARTALK_CSS, 'css')
     window?.Artalk?.init({
-      server: BLOG.COMMENT_ARTALK_SERVER, // 后端地址
-      el: '#artalk', // 容器元素
+      server: BLOG.COMMENT_ARTALK_SERVER, // Backend address
+      el: '#artalk', // container element
       locale: BLOG.LANG,
-      //   pageKey: '/post/1', // 固定链接 (留空自动获取)
-      //   pageTitle: '关于引入 Artalk 的这档子事', // 页面标题 (留空自动获取)
-      site: siteInfo?.title // 你的站点名
+      //   pageKey: '/post/1', // Permalink (leave blank to get automatically)
+      //   pageTitle: 'About the introduction of Artalk', // Page title (leave blank to get automatically)
+      site: siteInfo?.title // your site name
     })
   }, [])
-  return (
-        <div id="artalk"></div>
-  )
+  return <div id="artalk"></div>
 }
 
 export default Artalk

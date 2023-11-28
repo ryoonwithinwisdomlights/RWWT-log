@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import Prism from 'prismjs'
-// 所有语言的prismjs 使用autoloader引入
+// prismjs for all languages Use autoloader to introduce
 // import 'prismjs/plugins/autoloader/prism-autoloader'
 import 'prismjs/plugins/toolbar/prism-toolbar'
 import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
@@ -9,14 +9,14 @@ import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
-// mermaid图
+// mermaid diagram
 import BLOG from '@/blog.config'
 import { loadExternalResource } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 import { useGlobal } from '@/lib/global'
 
 /**
- * 代码美化相关
+ * Code beautification related
  * @author https://github.com/txs/
  * @returns
  */
@@ -28,10 +28,10 @@ const PrismMac = () => {
     if (JSON.parse(BLOG.CODE_MAC_BAR)) {
       loadExternalResource('/css/prism-mac-style.css', 'css')
     }
-    // 加载prism样式
+    // Load prism style
     loadPrismThemeCSS(isDarkMode)
-    // 折叠代码
-    loadExternalResource(BLOG.PRISM_JS_AUTO_LOADER, 'js').then((url) => {
+    // fold code
+    loadExternalResource(BLOG.PRISM_JS_AUTO_LOADER, 'js').then(url => {
       if (window?.Prism?.plugins?.autoloader) {
         window.Prism.plugins.autoloader.languages_path = BLOG.PRISM_JS_PATH
       }
@@ -46,9 +46,9 @@ const PrismMac = () => {
 }
 
 /**
- * 加载样式
+ * Load styles
  */
-const loadPrismThemeCSS = (isDarkMode) => {
+const loadPrismThemeCSS = isDarkMode => {
   let PRISM_THEME
   let PRISM_PREVIOUS
   if (JSON.parse(BLOG.PRISM_THEME_SWITCH)) {
@@ -59,7 +59,9 @@ const loadPrismThemeCSS = (isDarkMode) => {
       PRISM_THEME = BLOG.PRISM_THEME_LIGHT_PATH
       PRISM_PREVIOUS = BLOG.PRISM_THEME_DARK_PATH
     }
-    const previousTheme = document.querySelector(`link[href="${PRISM_PREVIOUS}"]`)
+    const previousTheme = document.querySelector(
+      `link[href="${PRISM_PREVIOUS}"]`
+    )
     if (previousTheme) {
       previousTheme.parentNode.removeChild(previousTheme)
     }
@@ -70,7 +72,7 @@ const loadPrismThemeCSS = (isDarkMode) => {
 }
 
 /*
- * 将代码块转为可折叠对象
+ * Convert a code block into a collapsible object
  */
 const renderCollapseCode = () => {
   if (!JSON.parse(BLOG.CODE_COLLAPSE)) {
@@ -78,9 +80,9 @@ const renderCollapseCode = () => {
   }
   const codeBlocks = document.querySelectorAll('.code-toolbar')
   for (const codeBlock of codeBlocks) {
-    // 判断当前元素是否被包裹
+    // Determine whether the current element is wrapped
     if (codeBlock.closest('.collapse-wrapper')) {
-      continue // 如果被包裹了，跳过当前循环
+      continue // If wrapped, skip the current loop
     }
 
     const code = codeBlock.querySelector('code')
@@ -89,14 +91,17 @@ const renderCollapseCode = () => {
     const collapseWrapper = document.createElement('div')
     collapseWrapper.className = 'collapse-wrapper w-full py-2'
     const panelWrapper = document.createElement('div')
-    panelWrapper.className = 'border dark:border-gray-600 rounded-md hover:border-indigo-500 duration-200 transition-colors'
+    panelWrapper.className =
+      'border dark:border-gray-600 rounded-md hover:border-indigo-500 duration-200 transition-colors'
 
     const header = document.createElement('div')
-    header.className = 'flex justify-between items-center px-4 py-2 cursor-pointer select-none'
+    header.className =
+      'flex justify-between items-center px-4 py-2 cursor-pointer select-none'
     header.innerHTML = `<h3 class="text-lg font-medium">${language}</h3><svg class="transition-all duration-200 w-5 h-5 transform rotate-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6.293 6.293a1 1 0 0 1 1.414 0L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414l-3 3a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 0-1.414z" clip-rule="evenodd"/></svg>`
 
     const panel = document.createElement('div')
-    panel.className = 'invisible h-0 transition-transform duration-200 border-t border-gray-300'
+    panel.className =
+      'invisible h-0 transition-transform duration-200 border-t border-gray-300'
 
     panelWrapper.appendChild(header)
     panelWrapper.appendChild(panel)
@@ -113,9 +118,9 @@ const renderCollapseCode = () => {
       panelWrapper.classList.toggle('border-gray-300')
     }
 
-    // 点击后折叠展开代码
+    // Collapse and expand code after click
     header.addEventListener('click', collapseCode)
-    // 是否自动展开
+    // Whether to automatically expand
     if (JSON.parse(BLOG.CODE_COLLAPSE_EXPAND_DEFAULT)) {
       header.click()
     }
@@ -123,9 +128,9 @@ const renderCollapseCode = () => {
 }
 
 /**
- * 将mermaid语言 渲染成图片
+ * Render mermaid language into pictures
  */
-const renderMermaid = async() => {
+const renderMermaid = async () => {
   const observer = new MutationObserver(async mutationsList => {
     for (const m of mutationsList) {
       if (m.target.className === 'notion-code language-mermaid') {
@@ -158,7 +163,10 @@ const renderMermaid = async() => {
     }
   })
   if (document.querySelector('#notion-article')) {
-    observer.observe(document.querySelector('#notion-article'), { attributes: true, subtree: true })
+    observer.observe(document.querySelector('#notion-article'), {
+      attributes: true,
+      subtree: true
+    })
   }
 }
 
@@ -177,7 +185,7 @@ function renderPrismMac() {
       })
     }
   }
-  // 重新渲染之前检查所有的多余text
+  // Check all redundant text before re-rendering
 
   try {
     Prism.highlightAll()
@@ -199,15 +207,15 @@ function renderPrismMac() {
     })
   }
 
-  // 折叠代码行号bug
+  // Folding code line number bug
   if (JSON.parse(BLOG.CODE_LINE_NUMBERS)) {
     fixCodeLineStyle()
   }
 }
 
 /**
- * 行号样式在首次渲染或被detail折叠后行高判断错误
- * 在此手动resize计算
+ * The row height of the line number style is incorrectly determined after it is first rendered or folded by detail.
+ * Manual resize calculation here
  */
 const fixCodeLineStyle = () => {
   const observer = new MutationObserver(mutationsList => {
@@ -220,7 +228,10 @@ const fixCodeLineStyle = () => {
       }
     }
   })
-  observer.observe(document.querySelector('#notion-article'), { attributes: true, subtree: true })
+  observer.observe(document.querySelector('#notion-article'), {
+    attributes: true,
+    subtree: true
+  })
   setTimeout(() => {
     const preCodes = document.querySelectorAll('pre.notion-code')
     for (const preCode of preCodes) {

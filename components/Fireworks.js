@@ -10,14 +10,14 @@ const Fireworks = () => {
   useEffect(() => {
     createFireworks({})
   }, [])
-  return <canvas id='fireworks' className='fireworks'></canvas>
+  return <canvas id="fireworks" className="fireworks"></canvas>
 }
 export default Fireworks
 
 /**
-   * 创建烟花
-   * @param config
-   */
+ * Create fireworks
+ * @param config
+ */
 function createFireworks(config) {
   const defaultConfig = {
     colors: BLOG.FIREWORKS_COLOR,
@@ -51,8 +51,8 @@ function createFireworks(config) {
   const ctx = canvasEl.getContext('2d')
 
   /**
-     * 设置画布尺寸
-     */
+   * Set canvas size
+   */
   function setCanvasSize(canvasEl) {
     canvasEl.width = window.innerWidth
     canvasEl.height = window.innerHeight
@@ -61,16 +61,16 @@ function createFireworks(config) {
   }
 
   /**
-     * update pointer
-     * @param {TouchEvent} e
-     */
+   * update pointer
+   * @param {TouchEvent} e
+   */
   function updateCoords(e) {
     pointerX =
-        e.clientX ||
-        (e.touches[0] ? e.touches[0].clientX : e.changedTouches[0].clientX)
+      e.clientX ||
+      (e.touches[0] ? e.touches[0].clientX : e.changedTouches[0].clientX)
     pointerY =
-        e.clientY ||
-        (e.touches[0] ? e.touches[0].clientY : e.changedTouches[0].clientY)
+      e.clientY ||
+      (e.touches[0] ? e.touches[0].clientY : e.changedTouches[0].clientY)
   }
 
   function setParticuleDirection(p) {
@@ -87,26 +87,25 @@ function createFireworks(config) {
   }
 
   /**
-     * 在指定位置创建粒子
-     * @param {number} x
-     * @param {number} y
-     * @returns
-     */
+   * 在指定位置创建粒子
+   * @param {number} x
+   * @param {number} y
+   * @returns
+   */
   function createParticule(x, y) {
     const p = {
       x,
       y,
-      color: `rgba(${
-          colors[anime.random(0, colors.length - 1)]
-        },${
-          anime.random(0.2, 0.8)
-        })`,
+      color: `rgba(${colors[anime.random(0, colors.length - 1)]},${anime.random(
+        0.2,
+        0.8
+      )})`,
       radius: anime.random(config.circleRadius.min, config.circleRadius.max),
       endPos: null,
       draw() {}
     }
     p.endPos = setParticuleDirection(p)
-    p.draw = function() {
+    p.draw = function () {
       ctx.beginPath()
       ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true)
       ctx.fillStyle = p.color
@@ -125,7 +124,7 @@ function createFireworks(config) {
       lineWidth: 6,
       draw() {}
     }
-    p.draw = function() {
+    p.draw = function () {
       ctx.globalAlpha = p.alpha
       ctx.beginPath()
       ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true)
@@ -138,13 +137,17 @@ function createFireworks(config) {
   }
 
   function renderParticule(anim) {
-    for (let i = 0; i < anim.animatables.length; i++) { anim.animatables[i].target.draw() }
+    for (let i = 0; i < anim.animatables.length; i++) {
+      anim.animatables[i].target.draw()
+    }
   }
 
   function animateParticules(x, y) {
     const circle = createCircle(x, y)
     const particules = []
-    for (let i = 0; i < config.numberOfParticules; i++) { particules.push(createParticule(x, y)) }
+    for (let i = 0; i < config.numberOfParticules; i++) {
+      particules.push(createParticule(x, y))
+    }
 
     anime
       .timeline()
@@ -191,7 +194,7 @@ function createFireworks(config) {
 
   document.addEventListener(
     'mousedown',
-    (e) => {
+    e => {
       render.play()
       updateCoords(e)
       animateParticules(pointerX, pointerY)

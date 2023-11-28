@@ -3,13 +3,13 @@ import { useEffect } from 'react'
 const id = 'canvasRibbon'
 
 const Ribbon = () => {
- const destroyRibbon = ()=>{
+  const destroyRibbon = () => {
     const ribbon = document.getElementById(id)
-      if(ribbon && ribbon.parentNode){
-        ribbon.parentNode.removeChild(ribbon)
-      }
+    if (ribbon && ribbon.parentNode) {
+      ribbon.parentNode.removeChild(ribbon)
+    }
   }
-  
+
   useEffect(() => {
     createRibbon()
     return () => destroyRibbon()
@@ -20,7 +20,7 @@ const Ribbon = () => {
 export default Ribbon
 
 /**
- * 创建连接点
+ * Create connection point
  * @param config
  */
 function createRibbon() {
@@ -41,7 +41,7 @@ function createRibbon() {
       a = window.innerWidth,
       l = window.innerHeight,
       d = e.s
-    i.id= id
+    i.id = id
     let r, s
     const u = Math
     let h = 0

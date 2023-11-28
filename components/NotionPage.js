@@ -10,22 +10,27 @@ import 'katex/dist/katex.min.css'
 import { mapImgUrl } from '@/lib/notion/mapImage'
 import { isBrowser } from '@/lib/utils'
 
-const Code = dynamic(() =>
-  import('react-notion-x/build/third-party/code').then(async (m) => {
-    return m.Code
-  }), { ssr: false }
+const Code = dynamic(
+  () =>
+    import('react-notion-x/build/third-party/code').then(async m => {
+      return m.Code
+    }),
+  { ssr: false }
 )
 
-const Equation = dynamic(() =>
-  import('@/components/Equation').then(async (m) => {
-    // 化学方程式
-    await import('@/lib/mhchem')
-    return m.Equation
-  }), { ssr: false }
+const Equation = dynamic(
+  () =>
+    import('@/components/Equation').then(async m => {
+      // chemical equation
+
+      await import('@/lib/mhchem')
+      return m.Equation
+    }),
+  { ssr: false }
 )
 
 const Pdf = dynamic(
-  () => import('react-notion-x/build/third-party/pdf').then((m) => m.Pdf),
+  () => import('react-notion-x/build/third-party/pdf').then(m => m.Pdf),
   {
     ssr: false
   }
@@ -37,12 +42,17 @@ const PrismMac = dynamic(() => import('@/components/PrismMac'), {
   ssr: false
 })
 
-const Collection = dynamic(() =>
-  import('react-notion-x/build/third-party/collection').then((m) => m.Collection), { ssr: true }
+const Collection = dynamic(
+  () =>
+    import('react-notion-x/build/third-party/collection').then(
+      m => m.Collection
+    ),
+  { ssr: true }
 )
 
 const Modal = dynamic(
-  () => import('react-notion-x/build/third-party/modal').then((m) => m.Modal), { ssr: false }
+  () => import('react-notion-x/build/third-party/modal').then(m => m.Modal),
+  { ssr: false }
 )
 
 const Tweet = ({ id }) => {
@@ -54,26 +64,32 @@ const NotionPage = ({ post, className }) => {
     autoScrollToTarget()
   }, [])
 
-  const zoom = typeof window !== 'undefined' && mediumZoom({
-    container: '.notion-viewport',
-    background: 'rgba(0, 0, 0, 0.2)',
-    margin: getMediumZoomMargin()
-  })
+  const zoom =
+    typeof window !== 'undefined' &&
+    mediumZoom({
+      container: '.notion-viewport',
+      background: 'rgba(0, 0, 0, 0.2)',
+      margin: getMediumZoomMargin()
+    })
   const zoomRef = useRef(zoom ? zoom.clone() : null)
 
   useEffect(() => {
-    // 将相册gallery下的图片加入放大功能
+    // Add the zoom function to the pictures in the gallery
     if (JSON.parse(BLOG.POST_DISABLE_GALLERY_CLICK)) {
       setTimeout(() => {
         if (isBrowser) {
-          const imgList = document?.querySelectorAll('.notion-collection-card-cover img')
+          const imgList = document?.querySelectorAll(
+            '.notion-collection-card-cover img'
+          )
           if (imgList && zoomRef.current) {
             for (let i = 0; i < imgList.length; i++) {
-              (zoomRef.current).attach(imgList[i])
+              zoomRef.current.attach(imgList[i])
             }
           }
 
-          const cards = document.getElementsByClassName('notion-collection-card')
+          const cards = document.getElementsByClassName(
+            'notion-collection-card'
+          )
           for (const e of cards) {
             e.removeAttribute('href')
           }
@@ -82,18 +98,24 @@ const NotionPage = ({ post, className }) => {
     }
 
     /**
-     * 处理页面内连接跳转
-     * 如果链接就是当前网站，则不打开新窗口访问
+     * Handling intra-page connection jumps
+     * If the link is the current website, no new window will be opened for access.
      */
     if (isBrowser) {
       const currentURL = window.location.origin + window.location.pathname
-      const allAnchorTags = document.getElementsByTagName('a') // 或者使用 document.querySelectorAll('a') 获取 NodeList
+      const allAnchorTags = document.getElementsByTagName('a') // Or use document.querySelectorAll('a') Obtain NodeList
       for (const anchorTag of allAnchorTags) {
         if (anchorTag?.target === '_blank') {
-          const hrefWithoutQueryHash = anchorTag.href.split('?')[0].split('#')[0]
-          const hrefWithRelativeHash = currentURL.split('#')[0] + anchorTag.href.split('#')[1]
+          const hrefWithoutQueryHash = anchorTag.href
+            .split('?')[0]
+            .split('#')[0]
+          const hrefWithRelativeHash =
+            currentURL.split('#')[0] + anchorTag.href.split('#')[1]
 
-          if (currentURL === hrefWithoutQueryHash || currentURL === hrefWithRelativeHash) {
+          if (
+            currentURL === hrefWithoutQueryHash ||
+            currentURL === hrefWithRelativeHash
+          ) {
             anchorTag.target = '_self'
           }
         }
@@ -105,31 +127,36 @@ const NotionPage = ({ post, className }) => {
     return <>{post?.summary || ''}</>
   }
 
-  return <div id='notion-article' className={`mx-auto overflow-hidden ${className || ''}`}>
-    <NotionRenderer
-      recordMap={post.blockMap}
-      mapPageUrl={mapPageUrl}
-      mapImageUrl={mapImgUrl}
-      components={{
-        Code,
-        Collection,
-        Equation,
-        Modal,
-        Pdf,
-        Tweet
-      }} />
+  return (
+    <div
+      id="notion-article"
+      className={`mx-auto overflow-hidden ${className || ''}`}
+    >
+      <NotionRenderer
+        recordMap={post.blockMap}
+        mapPageUrl={mapPageUrl}
+        mapImageUrl={mapImgUrl}
+        components={{
+          Code,
+          Collection,
+          Equation,
+          Modal,
+          Pdf,
+          Tweet
+        }}
+      />
 
-      <PrismMac/>
-
-  </div>
+      <PrismMac />
+    </div>
+  )
 }
 
 /**
- * 根据url参数自动滚动到指定区域
+ * Automatically scroll to the specified area based on url parameters
  */
 const autoScrollToTarget = () => {
   setTimeout(() => {
-    // 跳转到指定标题
+    // Jump to specified title
     const needToJumpToTitle = window.location.hash
     if (needToJumpToTitle) {
       const tocNode = document.getElementById(window.location.hash.substring(1))
@@ -141,7 +168,7 @@ const autoScrollToTarget = () => {
 }
 
 /**
- * 将id映射成博文内部链接。
+ * Map id to blog post internal link.
  * @param {*} id
  * @returns
  */
@@ -151,7 +178,7 @@ const mapPageUrl = id => {
 }
 
 /**
- * 缩放
+ * Zoom
  * @returns
  */
 function getMediumZoomMargin() {

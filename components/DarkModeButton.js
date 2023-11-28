@@ -4,14 +4,14 @@ import { Moon, Sun } from './HeroIcons'
 import { useImperativeHandle } from 'react'
 
 /**
- * 深色模式按钮
+ * dark mode button
  */
-const DarkModeButton = (props) => {
+const DarkModeButton = props => {
   const { cRef, className } = props
   const { isDarkMode, updateDarkMode } = useGlobal()
 
   /**
-   * 对外暴露方法
+   * External exposure method
    */
   useImperativeHandle(cRef, () => {
     return {
@@ -21,7 +21,7 @@ const DarkModeButton = (props) => {
     }
   })
 
-  // 用户手动设置主题
+  // User sets theme manually
   const handleChangeDarkMode = () => {
     const newStatus = !isDarkMode
     saveDarkModeToCookies(newStatus)
@@ -31,8 +31,21 @@ const DarkModeButton = (props) => {
     htmlElement.classList?.add(newStatus ? 'dark' : 'light')
   }
 
-  return <div onClick={handleChangeDarkMode} className={`${className || ''} flex justify-center dark:text-gray-200 text-gray-800`}>
-        <div id='darkModeButton' className=' hover:scale-110 cursor-pointer transform duration-200 w-5 h-5'> {isDarkMode ? <Sun /> : <Moon />}</div>
+  return (
+    <div
+      onClick={handleChangeDarkMode}
+      className={`${
+        className || ''
+      } flex justify-center dark:text-gray-200 text-gray-800`}
+    >
+      <div
+        id="darkModeButton"
+        className=" hover:scale-110 cursor-pointer transform duration-200 w-5 h-5"
+      >
+        {' '}
+        {isDarkMode ? <Sun /> : <Moon />}
+      </div>
     </div>
+  )
 }
 export default DarkModeButton

@@ -1,8 +1,9 @@
+/* eslint-disable indent */
 import BLOG from '@/blog.config'
 import { useEffect } from 'react'
 
 /**
- * 评论插件
+ * Comment plugin
  * @param issueTerm
  * @param layout
  * @returns {JSX.Element}
@@ -14,8 +15,8 @@ const Utterances = ({ issueTerm, layout }) => {
       BLOG.APPEARANCE === 'auto'
         ? 'preferred-color-scheme'
         : BLOG.APPEARANCE === 'light'
-          ? 'github-light'
-          : 'github-dark'
+        ? 'github-light'
+        : 'github-dark'
     const script = document.createElement('script')
     const anchor = document.getElementById('comments')
     script.setAttribute('src', 'https://utteranc.es/client.js')
@@ -29,8 +30,7 @@ const Utterances = ({ issueTerm, layout }) => {
       anchor.innerHTML = ''
     }
   })
-  return <div id="comments" className='utterances' >
-  </div>
+  return <div id="comments" className="utterances"></div>
 }
 
 export default Utterances

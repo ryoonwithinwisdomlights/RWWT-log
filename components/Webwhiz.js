@@ -2,7 +2,7 @@ import BLOG from '@/blog.config'
 import ExternalScript from './ExternalScript'
 
 /**
- * 一个开源ai组件
+ * An open source ai component
  * @see https://github.com/webwhiz-ai/webwhiz
  * @returns
  */
@@ -13,5 +13,5 @@ export default function WebWhiz() {
     baseUrl: BLOG.WEB_WHIZ_BASE_URL,
     chatbotId: BLOG.WEB_WHIZ_CHAT_BOT_ID
   }
-  return <ExternalScript {...props}/>
+  return <ExternalScript {...props} />
 }

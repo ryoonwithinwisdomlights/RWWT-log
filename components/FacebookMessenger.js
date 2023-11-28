@@ -3,12 +3,14 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default function Messenger() {
-  return <MessengerCustomerChat
-    pageId={BLOG.FACEBOOK_PAGE_ID}
-    appId={BLOG.FACEBOOK_APP_ID}
-    language={BLOG.LANG.replace('-', '_')}
-    shouldShowDialog={true}
-  />
+  return (
+    <MessengerCustomerChat
+      pageId={BLOG.FACEBOOK_PAGE_ID}
+      appId={BLOG.FACEBOOK_APP_ID}
+      language={BLOG.LANG.replace('-', '_')}
+      shouldShowDialog={true}
+    />
+  )
 }
 
 /**
@@ -24,7 +26,7 @@ class MessengerCustomerChat extends Component {
   }
 
   /**
-   * 初始化
+   * initialization
    */
   componentDidMount() {
     this.setFbAsyncInit()
@@ -60,7 +62,7 @@ class MessengerCustomerChat extends Component {
   }
 
   /**
-   * 初始化
+   * initialization
    */
   setFbAsyncInit() {
     const { appId, autoLogAppEvents, xfbml, version } = this.props
@@ -78,19 +80,19 @@ class MessengerCustomerChat extends Component {
   }
 
   loadSDKAsynchronously() {
-    const { language } = this.props;
+    const { language } = this.props
     /* eslint-disable */
-    (function (d, s, id) {
+    ;(function (d, s, id) {
       var js,
-        fjs = d.getElementsByTagName(s)[0];
+        fjs = d.getElementsByTagName(s)[0]
       if (d.getElementById(id)) {
-        return;
+        return
       }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = `https://connect.facebook.net/${language}/sdk/xfbml.customerchat.js`;
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, 'script', 'facebook-jssdk');
+      js = d.createElement(s)
+      js.id = id
+      js.src = `https://connect.facebook.net/${language}/sdk/xfbml.customerchat.js`
+      fjs.parentNode.insertBefore(js, fjs)
+    })(document, 'script', 'facebook-jssdk')
     /* eslint-enable */
   }
 
@@ -188,7 +190,7 @@ class MessengerCustomerChat extends Component {
     if (fbLoaded && shouldShowDialog !== this.props.shouldShowDialog) {
       document.addEventListener(
         'DOMNodeInserted',
-        (event) => {
+        event => {
           const element = event.target
           if (
             element.className &&
@@ -208,8 +210,8 @@ class MessengerCustomerChat extends Component {
   }
 }
 
-const removeElementByIds = (ids) => {
-  ids.forEach((id) => {
+const removeElementByIds = ids => {
+  ids.forEach(id => {
     const element = document.getElementById(id)
     if (element && element.parentNode) {
       element.parentNode.removeChild(element)

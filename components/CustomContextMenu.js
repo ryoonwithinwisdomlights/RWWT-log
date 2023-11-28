@@ -8,7 +8,7 @@ import BLOG from '@/blog.config'
 import useWindowSize from '@/hooks/useWindowSize'
 
 /**
- * 自定义右键菜单
+ * Customize right-click menu
  * @param {*} props
  * @returns
  */
@@ -24,7 +24,7 @@ export default function CustomContextMenu(props) {
   const { latestPosts } = props
   const router = useRouter()
   /**
-   * 随机跳转文章
+   * Randomly jump to articles
    */
   function handleJumpToRandomPost() {
     const randomIndex = Math.floor(Math.random() * latestPosts.length)
@@ -40,7 +40,7 @@ export default function CustomContextMenu(props) {
   useEffect(() => {
     const handleContextMenu = event => {
       event.preventDefault()
-      // 计算点击位置加菜单宽高是否超出屏幕，如果超出则贴边弹出
+      // Calculate whether the click position plus menu width and height exceed the screen. If it exceeds, the edge will pop up.
       const x =
         event.clientX < windowSize.width - width
           ? event.clientX
@@ -99,10 +99,10 @@ export default function CustomContextMenu(props) {
   }
 
   /**
-   * 切换主题
+   * switch theme
    */
   function handeChangeTheme() {
-    const randomTheme = THEMES[Math.floor(Math.random() * THEMES.length)] // 从THEMES数组中 随机取一个主题
+    const randomTheme = THEMES[Math.floor(Math.random() * THEMES.length)] // Randomly pick a topic from the THEMES array
     const query = router.query
     query.theme = randomTheme
     router.push({ pathname: router.pathname, query })
@@ -125,9 +125,9 @@ export default function CustomContextMenu(props) {
         show ? '' : 'invisible opacity-0'
       } select-none transition-opacity duration-200 fixed z-50`}
     >
-      {/* 菜单内容 */}
+      {/* Menu content */}
       <div className="rounded-xl w-52 dark:hover:border-yellow-600 bg-white dark:bg-[#040404] dark:text-gray-200 dark:border-gray-600 p-3 border drop-shadow-lg flex-col duration-300 transition-colors">
-        {/* 顶部导航按钮 */}
+        {/* Top navigation buttons */}
         <div className="flex justify-between">
           <i
             onClick={handleBack}
@@ -149,7 +149,7 @@ export default function CustomContextMenu(props) {
 
         <hr className="my-2 border-dashed" />
 
-        {/* 跳转导航按钮 */}
+        {/* Jump navigation button */}
         <div className="w-full px-2">
           <div
             onClick={handleJumpToRandomPost}
@@ -181,7 +181,7 @@ export default function CustomContextMenu(props) {
 
         <hr className="my-2 border-dashed" />
 
-        {/* 功能按钮 */}
+        {/* Function buttons */}
         <div className="w-full px-2">
           <div
             onClick={handleCopyLink}

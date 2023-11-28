@@ -2,7 +2,7 @@ import { isBrowser } from '@/lib/utils'
 import React, { useState } from 'react'
 
 /**
- * 全屏按钮
+ * full screen button
  * @returns
  */
 const FullScreenButton = () => {
@@ -39,9 +39,9 @@ const FullScreenButton = () => {
   }
 
   return (
-      <button onClick={handleFullScreenClick} className='dark:text-gray-300'>
-        {isFullScreen ? '退出全屏' : <i className="fa-solid fa-expand"></i>}
-      </button>
+    <button onClick={handleFullScreenClick} className="dark:text-gray-300">
+      {isFullScreen ? '退出全屏' : <i className="fa-solid fa-expand"></i>}
+    </button>
   )
 }
 

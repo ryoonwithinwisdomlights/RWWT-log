@@ -1,6 +1,6 @@
 import { ValineCount } from 'react-valine'
 
 /**
- * 显示评论数
+ * Show number of comments
  */
 export default ValineCount

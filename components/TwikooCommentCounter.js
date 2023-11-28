@@ -5,34 +5,37 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
 /**
- * 获取博客的评论数，用与在列表中展示
+ *Get the number of comments on the blog and display them in the list
  * @returns {JSX.Element}
  * @constructor
  */
 
-const TwikooCommentCounter = (props) => {
+const TwikooCommentCounter = props => {
   let commentsData = []
   const { theme } = useGlobal()
 
-  const fetchTwikooData = async (posts) => {
+  const fetchTwikooData = async posts => {
     posts.forEach(post => {
       post.slug = post.slug.startsWith('/') ? post.slug : `/${post.slug}`
     })
     try {
       await loadExternalResource(BLOG.COMMENT_TWIKOO_CDN_URL, 'js')
       const twikoo = window.twikoo
-      twikoo.getCommentsCount({
-        envId: BLOG.COMMENT_TWIKOO_ENV_ID, // 环境 ID
-        // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，如果您的环境地域不是上海，需传此参数
-        urls: posts?.map(post => post.slug), // 不包含协议、域名、参数的文章路径列表，必传参数
-        includeReply: true // 评论数是否包括回复，默认：false
-      }).then(function (res) {
-        commentsData = res
-        updateCommentCount()
-      }).catch(function (err) {
-        // 发生错误
-        console.error(err)
-      })
+      twikoo
+        .getCommentsCount({
+          envId: BLOG.COMMENT_TWIKOO_ENV_ID, // environment ID
+          // region: 'ap-guangzhou', // Environment region, the default is ap-shanghai, if your environment region is not Shanghai, you need to pass this parameter
+          urls: posts?.map(post => post.slug), // A list of article paths that does not include protocols, domain names, and parameters. Parameters must be passed.
+          includeReply: true // Whether the number of comments includes replies, default：false
+        })
+        .then(function (res) {
+          commentsData = res
+          updateCommentCount()
+        })
+        .catch(function (err) {
+          // An error occurred
+          console.error(err)
+        })
     } catch (error) {
       console.error('twikoo 加载失败', error)
     }
@@ -45,13 +48,17 @@ const TwikooCommentCounter = (props) => {
     props.posts.forEach(post => {
       const matchingRes = commentsData.find(r => r.url === post.slug)
       if (matchingRes) {
-        // 修改评论数量div
-        const textElements = document.querySelectorAll(`.comment-count-text-${post.id}`)
+        // Modify the number of comments div
+        const textElements = document.querySelectorAll(
+          `.comment-count-text-${post.id}`
+        )
         textElements.forEach(element => {
           element.innerHTML = matchingRes.count
         })
-        // 取消隐藏
-        const wrapperElements = document.querySelectorAll(`.comment-count-wrapper-${post.id}`)
+        // Unhide
+        const wrapperElements = document.querySelectorAll(
+          `.comment-count-wrapper-${post.id}`
+        )
         wrapperElements.forEach(element => {
           element.classList.remove('hidden')
         })
@@ -61,15 +68,15 @@ const TwikooCommentCounter = (props) => {
   const router = useRouter()
 
   useEffect(() => {
-    // console.log('路由触发评论计数')
+    // console.log('Route triggers comment count')
     if (props?.posts && props?.posts?.length > 0) {
       fetchTwikooData(props.posts)
     }
   }, [router.events])
 
-  // 监控主题变化时的的评论数
+  // Monitor the number of comments when a topic changes
   useEffect(() => {
-    // console.log('主题触发评论计数', commentsData)
+    // console.log('Topic triggers comment count', commentsData)
     updateCommentCount()
   }, [theme])
   return null

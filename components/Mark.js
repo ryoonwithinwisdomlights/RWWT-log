@@ -1,7 +1,7 @@
 import { loadExternalResource } from '@/lib/utils'
 
 /**
- * 将搜索结果的关键词高亮
+ * Highlight keywords in search results
  */
 export default async function replaceSearchResult({ doms, search, target }) {
   if (!doms || !search || !target) {
@@ -9,7 +9,10 @@ export default async function replaceSearchResult({ doms, search, target }) {
   }
 
   try {
-    await loadExternalResource('https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js', 'js')
+    await loadExternalResource(
+      'https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js',
+      'js'
+    )
     const Mark = window.Mark
     if (doms instanceof HTMLCollection) {
       for (const container of doms) {

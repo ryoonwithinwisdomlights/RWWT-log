@@ -3,7 +3,7 @@ import Head from 'next/head'
 import React, { useEffect, useRef, useState } from 'react'
 
 /**
- * 图片懒加载
+ * Lazy loading of images
  * @param {*} param0
  * @returns
  */
@@ -26,14 +26,14 @@ export default function LazyImage({
   const handleImageLoad = () => {
     setImageLoaded(true)
     if (typeof onLoad === 'function') {
-      onLoad() // 触发传递的onLoad回调函数
+      onLoad() // Trigger the passed onLoad callback function
     }
   }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             const lazyImage = entry.target
             lazyImage.src = src
@@ -55,7 +55,7 @@ export default function LazyImage({
     }
   }, [src])
 
-  // 动态添加width、height和className属性，仅在它们为有效值时添加
+  // Dynamically add width, height and className properties only if they are valid values
   const imgProps = {
     ref: imageRef,
     src: imageLoaded ? src : placeholderSrc,
@@ -84,12 +84,16 @@ export default function LazyImage({
   if (style) {
     imgProps.style = style
   }
-  return (<>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img {...imgProps} />
-        {/* 预加载 */}
-        {priority && <Head>
-            <link rel='preload' as='image' src={src} />
-        </Head>}
-    </>)
+  return (
+    <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img {...imgProps} />
+      {/* Preloading */}
+      {priority && (
+        <Head>
+          <link rel="preload" as="image" src={src} />
+        </Head>
+      )}
+    </>
+  )
 }
