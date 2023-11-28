@@ -1,10 +1,11 @@
 const BLOG = {
-  // Important page_id！！！Duplicate Template from  https://www.notion.so/tanghh/02ab3b8678004aa69e9e415905ef32a5
-  NOTION_PAGE_ID:
-    process.env.NOTION_PAGE_ID || '8e36fd8148d3494c879696214e2c8ed4',
+  NOTION_PAGE_ID: process.env.NOTION_PAGE_ID,
   PSEUDO_STATIC: process.env.NEXT_PUBLIC_PSEUDO_STATIC || false, //
   NEXT_REVALIDATE_SECOND: process.env.NEXT_PUBLIC_REVALIDATE_SECOND || 5,
-  // Update content cache interval unit (seconds); that is, each page has a pure static period of 5 seconds, during which no notification data will be captured no matter how many times it is accessed; increasing this value will help save Vercel resources and increase the access rate. , but it will also cause a delay in updating the article.
+  // Update content cache interval unit (seconds); that is, each page has a pure static period of 5 seconds,
+  // during which no notification data will be captured no matter how many times it is accessed;
+  // increasing this value will help save Vercel resources and increase the access rate. ,
+  // but it will also cause a delay in updating the article.
   THEME: 'gitbook',
   THEME_SWITCH: process.env.NEXT_PUBLIC_THEME_SWITCH || false, // Whether to display the switch theme button
   LANG: process.env.NEXT_PUBLIC_LANG || 'en-US', // e.g 'zh-CN','en-US'  see /lib/lang.js for more.
@@ -19,8 +20,7 @@ const BLOG = {
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Seryoon Cheon', //
   BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights', //
   LINK:
-    process.env.NEXT_PUBLIC_LINK ||
-    'https://github.com/ryoon-with-wisdomtrees/', // website address
+    process.env.NEXT_PUBLIC_LINK || 'https://seryoon-bibana-cheon.vercel.app/', // website address
   KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 블로그', // Website keywords separated by English commas
   CONTACT_EMAIL:
     process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'ryoon.with.wisdomtrees@gmail.com', //
@@ -52,7 +52,7 @@ const BLOG = {
     'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap',
     'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&display=swap'
   ],
-  // 无衬线字体 例如'"LXGW WenKai"'
+  // Sans serif fonts e.g.'"LXGW WenKai"'
   FONT_SANS: [
     // '"LXGW WenKai"',
     '"PingFang SC"',
@@ -93,7 +93,7 @@ const BLOG = {
   CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true,
   // Whether to allow copying of page content is allowed by default. If set to false, copying of content is prohibited in the entire stack.
   CUSTOM_RIGHT_CLICK_CONTEXT_MENU:
-    process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || true, // 自定义右键菜单，覆盖系统菜单
+    process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || true, // Customize the right-click menu and override the system menu
 
   // Custom external scripts, external style
   CUSTOM_EXTERNAL_JS: [''], // e.g. ['http://xx.com/script.js','http://xx.com/script.js']
@@ -420,20 +420,20 @@ const BLOG = {
   MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY || null, // Enable mailichimp email subscription APIkey
 
   // Obsolete configuration
-  AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/avatar.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
-  TITLE: process.env.NEXT_PUBLIC_TITLE || 'NotionNext BLOG', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
+  AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/notion-avatar.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
+  TITLE: process.env.NEXT_PUBLIC_TITLE || 'Ryoon.with.wisdomtrees BLOG', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
 
   HOME_BANNER_IMAGE:
-    process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/bg_image.jpg', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.
+    process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/bg_image.png', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.
   DESCRIPTION:
-    process.env.NEXT_PUBLIC_DESCRIPTION || '这是一个由NotionNext生成的站点', // Site description, overridden by the page description in the notice
+    process.env.NEXT_PUBLIC_DESCRIPTION || 'Ryoon.with.wisdomtrees BLOG', // Site description, overridden by the page description in the notice
 
   // Website pictures
   IMG_LAZY_LOAD_PLACEHOLDER:
     process.env.NEXT_PUBLIC_IMG_LAZY_LOAD_PLACEHOLDER ||
     'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==', // Lazy loading of placeholder image address, supports base64 or url
   IMG_URL_TYPE: process.env.NEXT_PUBLIC_IMG_TYPE || 'Notion', // This configuration is invalid, please do not use it; the AMAZON solution is no longer supported, only the Notion solution is supported. ['Notion','AMAZON'] Site image prefix Default Notion:(https://notion.so/images/xx) , AMAZON(https://s3.us-west-2.amazonaws.com/xxx)
-  IMG_SHADOW: process.env.NEXT_PUBLIC_IMG_SHADOW || false, // 文章图片是否自动添加阴影
+  IMG_SHADOW: process.env.NEXT_PUBLIC_IMG_SHADOW || false, // Whether to automatically add shadows to article images
 
   // development related
   NOTION_ACCESS_TOKEN: process.env.NOTION_ACCESS_TOKEN || '', // Useful if you prefer not to make your database public

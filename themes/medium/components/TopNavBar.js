@@ -9,7 +9,7 @@ import BLOG from '@/blog.config'
 import { MenuItemDrop } from './MenuItemDrop'
 
 /**
- * 顶部导航栏 + 菜单
+ * Top navigation bar + menu
  * @param {} param0
  * @returns
  */
@@ -69,7 +69,7 @@ export default function TopNavBar(props) {
         'sticky top-0 lg:relative w-full z-40 dark:bg-black ' + className
       }
     >
-      {/* 移动端折叠菜单 */}
+      {/* Mobile collapsible menu */}
       <Collapse
         type="vertical"
         collapseRef={collapseRef}
@@ -86,12 +86,12 @@ export default function TopNavBar(props) {
         </div>
       </Collapse>
 
-      {/* 导航栏菜单 */}
+      {/* Navigation bar menu */}
       <div className="flex w-full h-12 shadow bg-white dark:bg-neutral-900    px-7 dark:bg-hexo items-between">
-        {/* 左侧图标Logo */}
+        {/* Icon Logo on the left */}
         <LogoBar {...props} />
 
-        {/* 折叠按钮、仅移动端显示 */}
+        {/* Collapse button, mobile only display */}
         <div className="mr-1 flex md:hidden justify-end items-center text-sm space-x-4 font-serif dark:text-gray-200">
           <div onClick={toggleMenuOpen} className="cursor-pointer">
             {isOpen ? (
@@ -102,7 +102,8 @@ export default function TopNavBar(props) {
           </div>
         </div>
 
-        {/* 桌面端顶部菜单 */}
+        {/* Desktop top menu
+         */}
         <div className="hidden md:flex">
           {links &&
             links?.map(link => <MenuItemDrop key={link?.id} link={link} />)}
