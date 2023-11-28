@@ -11,7 +11,7 @@ const CONFIG = {
   MENU_SEARCH: true, // show search
 
   // Widget
-  WIDGET_REVOLVER_MAPS: process.env.NEXT_PUBLIC_WIDGET_REVOLVER_MAPS || 'false', // 地图插件
+  WIDGET_REVOLVER_MAPS: process.env.NEXT_PUBLIC_WIDGET_REVOLVER_MAPS || 'false', // Map plugin
   WIDGET_TO_TOP: true // Jump back to top
 }
 export default CONFIG

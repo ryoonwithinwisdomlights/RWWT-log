@@ -1,5 +1,6 @@
 const BLOG = {
-  NOTION_PAGE_ID: process.env.NOTION_PAGE_ID,
+  NOTION_PAGE_ID:
+    process.env.NOTION_PAGE_ID || '8e36fd8148d3494c879696214e2c8ed4',
   PSEUDO_STATIC: process.env.NEXT_PUBLIC_PSEUDO_STATIC || false, //
   NEXT_REVALIDATE_SECOND: process.env.NEXT_PUBLIC_REVALIDATE_SECOND || 5,
   // Update content cache interval unit (seconds); that is, each page has a pure static period of 5 seconds,
@@ -421,12 +422,15 @@ const BLOG = {
 
   // Obsolete configuration
   AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/notion-avatar.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
-  TITLE: process.env.NEXT_PUBLIC_TITLE || 'Ryoon.with.wisdomtrees BLOG', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
+  TITLE: process.env.NEXT_PUBLIC_TITLE || 'Ryoon.with.wisdomtreesBLOG', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
+
+  AD_WWADS_ID: process.env.NEXT_PUBLIC_WWAD_ID || null, // https://wwads.cn/ 创建您的万维广告单元ID
+  AD_WWADS_BLOCK_DETECT: process.env.NEXT_PUBLIC_WWADS_AD_BLOCK_DETECT || false, // 是否开启WWADS广告屏蔽插件检测,开启后会在广告位上以文字提示 @see https://github.com/bytegravity/whitelist-wwads
 
   HOME_BANNER_IMAGE:
     process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/bg_image.png', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.
   DESCRIPTION:
-    process.env.NEXT_PUBLIC_DESCRIPTION || 'Ryoon.with.wisdomtrees BLOG', // Site description, overridden by the page description in the notice
+    process.env.NEXT_PUBLIC_DESCRIPTION || 'Ryoon.with.wisdomtreesBLOG', // Site description, overridden by the page description in the notice
 
   // Website pictures
   IMG_LAZY_LOAD_PLACEHOLDER:

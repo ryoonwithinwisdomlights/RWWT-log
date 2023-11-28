@@ -1,6 +1,6 @@
 import BLOG from 'blog.config'
 import dynamic from 'next/dynamic'
-import WebWhiz from './Webwhiz'
+// import WebWhiz from './Webwhiz'
 
 // import TwikooCommentCounter from '@/components/TwikooCommentCounter'
 // import { DebugPanel } from '@/components/DebugPanel'
@@ -61,9 +61,9 @@ const CustomContextMenu = dynamic(
 const DisableCopy = dynamic(() => import('@/components/DisableCopy'), {
   ssr: false
 })
-const AdBlockDetect = dynamic(() => import('@/components/AdBlockDetect'), {
-  ssr: false
-})
+// const AdBlockDetect = dynamic(() => import('@/components/AdBlockDetect'), {
+//   ssr: false
+// })
 /**
  * 各种第三方组件
  * @param {*} props
@@ -94,8 +94,8 @@ const ExternalPlugin = props => {
         <CustomContextMenu {...props} />
       )}
       {!JSON.parse(BLOG.CAN_COPY) && <DisableCopy />}
-      {JSON.parse(BLOG.WEB_WHIZ_ENABLED) && <WebWhiz />}
-      {JSON.parse(BLOG.AD_WWADS_BLOCK_DETECT) && <AdBlockDetect />}
+      {/* {JSON.parse(BLOG.WEB_WHIZ_ENABLED) && <WebWhiz />}
+      {JSON.parse(BLOG.AD_WWADS_BLOCK_DETECT) && <AdBlockDetect />} */}
       <VConsole />
     </>
   )
