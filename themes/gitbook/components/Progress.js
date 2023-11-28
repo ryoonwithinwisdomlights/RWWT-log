@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { isBrowser } from '@/lib/utils'
 
 /**
- * 顶部页面阅读进度条
+ * Top page reading progress bar
  * @returns {JSX.Element}
  * @constructor
  */
@@ -10,7 +10,8 @@ const Progress = ({ targetRef, showPercent = true }) => {
   const currentRef = targetRef?.current || targetRef
   const [percent, changePercent] = useState(0)
   const scrollListener = () => {
-    const target = currentRef || (isBrowser && document.getElementById('posts-wrapper'))
+    const target =
+      currentRef || (isBrowser && document.getElementById('posts-wrapper'))
     if (target) {
       const clientHeight = target.clientHeight
       const scrollY = window.pageYOffset

@@ -1,1 +1,1 @@
-// 这里编写自定义js脚本；将被静态引入到页面中
+// Write a custom js script here; it will be statically introduced into the page

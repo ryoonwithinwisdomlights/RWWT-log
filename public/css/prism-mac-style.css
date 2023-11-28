@@ -1,6 +1,9 @@
 /**
  * @author https://github.com/txs
- * 当配置文件 CODE_MAC_BAR 开启时，此样式会被动态引入，将开启代码组件左上角的mac图标
+ * When the configuration file CODE_MAC_BAR is turned on, 
+ this style will be dynamically introduced and the mac icon in the upper left corner 
+ of the code component will be turned on.
+
  **/
 .code-toolbar {
   position: relative;

@@ -8,7 +8,7 @@ const Tag = props => {
   const { locale } = useGlobal()
   const { tag, siteInfo } = props
 
-  // 根据页面路径加载不同Layout文件
+  // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {
@@ -26,12 +26,17 @@ const Tag = props => {
 export async function getStaticProps({ params: { tag, page } }) {
   const from = 'tag-page-props'
   const props = await getGlobalData({ from })
-  // 过滤状态、标签
-  props.posts = props.allPages?.filter(page => page.type === 'Post' && page.status === 'Published').filter(post => post && post?.tags && post?.tags.includes(tag))
-  // 处理文章数
+  // Filter status, label
+  props.posts = props.allPages
+    ?.filter(page => page.type === 'Post' && page.status === 'Published')
+    .filter(post => post && post?.tags && post?.tags.includes(tag))
+  // Number of articles processed
   props.postCount = props.posts.length
-  // 处理分页
-  props.posts = props.posts.slice(BLOG.POSTS_PER_PAGE * (page - 1), BLOG.POSTS_PER_PAGE * page)
+  // Handle pagination
+  props.posts = props.posts.slice(
+    BLOG.POSTS_PER_PAGE * (page - 1),
+    BLOG.POSTS_PER_PAGE * page
+  )
 
   props.tag = tag
   props.page = page
@@ -47,9 +52,11 @@ export async function getStaticPaths() {
   const { tagOptions, allPages } = await getGlobalData({ from })
   const paths = []
   tagOptions?.forEach(tag => {
-    // 过滤状态类型
-    const tagPosts = allPages?.filter(page => page.type === 'Post' && page.status === 'Published').filter(post => post && post?.tags && post?.tags.includes(tag.name))
-    // 处理文章页数
+    // Filter status type
+    const tagPosts = allPages
+      ?.filter(page => page.type === 'Post' && page.status === 'Published')
+      .filter(post => post && post?.tags && post?.tags.includes(tag.name))
+    // Process article page count
     const postCount = tagPosts.length
     const totalPages = Math.ceil(postCount / BLOG.POSTS_PER_PAGE)
     if (totalPages > 1) {

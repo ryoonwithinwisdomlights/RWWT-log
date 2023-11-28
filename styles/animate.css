@@ -1,9 +1,9 @@
-@charset "UTF-8";/*!
+@charset "UTF-8"; /*!
  * animate.css - https://animate.style/
  * Version - 4.1.1
  * Licensed under the MIT license - http://opensource.org/licenses/MIT
  * https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css
- * 这里做了精减，后续不再使用animate.css，因为占用体积太大，不如手写动画
+ * It has been streamlined here, and animate.css will no longer be used in the future because it takes up too much space and is not as good as handwritten animation.
  * Copyright (c) 2020 Animate.css
  */
 :root {
@@ -20,7 +20,6 @@
   animation-fill-mode: both;
 }
 
-
 .animate__animated.animate__faster {
   -webkit-animation-duration: calc(1s / 2);
   animation-duration: calc(1s / 2);
@@ -33,7 +32,6 @@
   -webkit-animation-duration: calc(var(--animate-duration) * 0.8);
   animation-duration: calc(var(--animate-duration) * 0.8);
 }
-
 
 @media print, (prefers-reduced-motion: reduce) {
   .animate__animated {
@@ -49,7 +47,6 @@
     opacity: 0;
   }
 }
-
 
 @-webkit-keyframes shakeX {
   from,
@@ -224,7 +221,6 @@
   animation-name: headShake;
 }
 
-
 @keyframes jello {
   from,
   11.1%,
@@ -274,8 +270,6 @@
   -webkit-transform-origin: center;
   transform-origin: center;
 }
-
-
 
 @-webkit-keyframes bounceInRight {
   from,
@@ -356,7 +350,6 @@
   animation-name: bounceInRight;
 }
 
-
 /* Fading entrances  */
 @-webkit-keyframes fadeIn {
   from {
@@ -380,7 +373,6 @@
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
-
 
 /* Fading exits */
 /* 删除 */
@@ -455,7 +447,6 @@
   -webkit-animation-name: slideInRight;
   animation-name: slideInRight;
 }
-
 
 @keyframes slideOutLeft {
   from {

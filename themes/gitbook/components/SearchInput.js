@@ -42,17 +42,18 @@ const SearchInput = ({ currentSearch, cRef, className }) => {
       const articleInfo = post.title + ''
       const hit = articleInfo.toLowerCase().indexOf(keyword.toLowerCase()) > -1
       if (!hit) {
-        // 删除
+        // delete
         filterAllNavPages.splice(i, 1)
       }
     }
 
-    // 更新完
+    // Updated
     setFilteredNavPages(filterAllNavPages)
   }
 
   /**
-   * 回车键
+   *
+Enter key
    * @param {*} e
    */
   const handleKeyUp = e => {
@@ -66,7 +67,7 @@ const SearchInput = ({ currentSearch, cRef, className }) => {
   }
 
   /**
-   * 清理搜索
+   * Clean search
    */
   const cleanSearch = () => {
     searchInputRef.current.value = ''

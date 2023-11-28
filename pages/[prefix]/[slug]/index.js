@@ -7,13 +7,14 @@ import Slug, { getRecommendPost } from '..'
 import { uploadDataToAlgolia } from '@/lib/algolia'
 
 /**
- * 根据notion的slug访问页面
- * 解析二级目录 /article/about
+ *
+Access the page according to the notion's slug
+ * Parse secondary directories /article/about
  * @param {*} props
  * @returns
  */
 const PrefixSlug = props => {
-  return <Slug {...props}/>
+  return <Slug {...props} />
 }
 
 export async function getStaticPaths() {
@@ -27,7 +28,11 @@ export async function getStaticPaths() {
   const from = 'slug-paths'
   const { allPages } = await getGlobalData({ from })
   return {
-    paths: allPages?.filter(row => row.slug.indexOf('/') > 0 && row.type.indexOf('Menu') < 0).map(row => ({ params: { prefix: row.slug.split('/')[0], slug: row.slug.split('/')[1] } })),
+    paths: allPages
+      ?.filter(row => row.slug.indexOf('/') > 0 && row.type.indexOf('Menu') < 0)
+      .map(row => ({
+        params: { prefix: row.slug.split('/')[0], slug: row.slug.split('/')[1] }
+      })),
     fallback: true
   }
 }
@@ -41,12 +46,12 @@ export async function getStaticProps({ params: { prefix, slug } }) {
   }
   const from = `slug-props-${fullSlug}`
   const props = await getGlobalData({ from })
-  // 在列表内查找文章
-  props.post = props?.allPages?.find((p) => {
+  // Find article in list
+  props.post = props?.allPages?.find(p => {
     return p.slug === fullSlug || p.id === idToUuid(fullSlug)
   })
 
-  // 处理非列表内文章的内信息
+  // Process internal information of articles not in the list
   if (!props?.post) {
     const pageId = slug.slice(-1)[0]
     if (pageId.length >= 32) {
@@ -55,28 +60,34 @@ export async function getStaticProps({ params: { prefix, slug } }) {
     }
   }
 
-  // 无法获取文章
+  // Unable to retrieve article
   if (!props?.post) {
     props.post = null
     return { props, revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND) }
   }
 
-  // 文章内容加载
+  // Article content loading
   if (!props?.posts?.blockMap) {
     props.post.blockMap = await getPostBlocks(props.post.id, from)
   }
-  // 生成全文索引 && JSON.parse(BLOG.ALGOLIA_RECREATE_DATA)
+  // Generate full-text index && JSON.parse(BLOG.ALGOLIA_RECREATE_DATA)
   if (BLOG.ALGOLIA_APP_ID) {
     uploadDataToAlgolia(props?.post)
   }
 
-  // 推荐关联文章处理
-  const allPosts = props.allPages?.filter(page => page.type === 'Post' && page.status === 'Published')
+  // Recommended related article processing
+  const allPosts = props.allPages?.filter(
+    page => page.type === 'Post' && page.status === 'Published'
+  )
   if (allPosts && allPosts.length > 0) {
     const index = allPosts.indexOf(props.post)
     props.prev = allPosts.slice(index - 1, index)[0] ?? allPosts.slice(-1)[0]
     props.next = allPosts.slice(index + 1, index + 2)[0] ?? allPosts[0]
-    props.recommendPosts = getRecommendPost(props.post, allPosts, BLOG.POST_RECOMMEND_COUNT)
+    props.recommendPosts = getRecommendPost(
+      props.post,
+      allPosts,
+      BLOG.POST_RECOMMEND_COUNT
+    )
   } else {
     props.prev = null
     props.next = null

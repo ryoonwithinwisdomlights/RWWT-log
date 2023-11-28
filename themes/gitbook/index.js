@@ -36,7 +36,7 @@ import CONFIG from './config'
 import { Style } from './style'
 const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
-// 主题全局变量
+// Theme global variables
 const ThemeGlobalGitbook = createContext()
 export const useGitBookGlobal = () => useContext(ThemeGlobalGitbook)
 
@@ -177,7 +177,7 @@ const LayoutBase = props => {
           </div>
         </main>
 
-        {/* 移动端悬浮目录按钮 */}
+        {/* Mobile floating directory button */}
         {showTocButton && !tocVisible && (
           <div className="md:hidden fixed right-0 bottom-52 z-30 bg-white border-l border-t border-b dark:border-gray-800 rounded">
             <FloatTocButton {...props} />
@@ -266,9 +266,9 @@ const LayoutSlug = props => {
             <section id="article-wrapper" className="px-1">
               <NotionPage post={post} />
 
-              {/* 分享 */}
+              {/* share */}
               <ShareBar post={post} />
-              {/* 文章分类和标签信息 */}
+              {/* Article classification and tag information */}
               <div className="flex justify-between">
                 {CONFIG.POST_DETAIL_CATEGORY && post?.category && (
                   <CategoryItem category={post.category} />

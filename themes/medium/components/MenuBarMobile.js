@@ -4,13 +4,17 @@ import CONFIG from '../config'
 import BLOG from '@/blog.config'
 import { MenuItemCollapse } from './MenuItemCollapse'
 
-export const MenuBarMobile = (props) => {
+export const MenuBarMobile = props => {
   const { customMenu, customNav } = props
   const { locale } = useGlobal()
 
   let links = [
     // { name: locale.NAV.INDEX, to: '/' || '/', show: true },
-    { name: locale.COMMON.CATEGORY, to: '/category', show: CONFIG.MENU_CATEGORY },
+    {
+      name: locale.COMMON.CATEGORY,
+      to: '/category',
+      show: CONFIG.MENU_CATEGORY
+    },
     { name: locale.COMMON.TAGS, to: '/tag', show: CONFIG.MENU_TAG },
     { name: locale.NAV.ARCHIVE, to: '/archive', show: CONFIG.MENU_ARCHIVE }
     // { name: locale.NAV.SEARCH, to: '/search', show: CONFIG.MENU_SEARCH }
@@ -20,7 +24,7 @@ export const MenuBarMobile = (props) => {
     links = links.concat(customNav)
   }
 
-  // 如果 开启自定义菜单，则不再使用 Page生成菜单。
+  // If the custom menu is enabled, Page will no longer be used to generate the menu.
   if (BLOG.CUSTOM_MENU) {
     links = customMenu
   }
@@ -30,10 +34,15 @@ export const MenuBarMobile = (props) => {
   }
 
   return (
-    <nav id='nav' className=' text-md'>
-        {/* {links.map(link => <NormalMenu key={link?.id} link={link}/>)} */}
-        {links?.map(link => <MenuItemCollapse onHeightChange={props.onHeightChange} key={link?.id} link={link}/>)}
-
+    <nav id="nav" className=" text-md">
+      {/* {links.map(link => <NormalMenu key={link?.id} link={link}/>)} */}
+      {links?.map(link => (
+        <MenuItemCollapse
+          onHeightChange={props.onHeightChange}
+          key={link?.id}
+          link={link}
+        />
+      ))}
     </nav>
   )
 }

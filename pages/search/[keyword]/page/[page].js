@@ -9,11 +9,13 @@ const Index = props => {
   const { keyword, siteInfo } = props
   const { locale } = useGlobal()
 
-  // 根据页面路径加载不同Layout文件
+  // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {
-    title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${siteInfo?.title}`,
+    title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${
+      siteInfo?.title
+    }`,
     description: siteInfo?.title,
     image: siteInfo?.pageCover,
     slug: 'search/' + (keyword || ''),
@@ -26,7 +28,7 @@ const Index = props => {
 }
 
 /**
- * 服务端搜索
+ * Server-side search
  * @param {*} param0
  * @returns
  */
@@ -36,11 +38,16 @@ export async function getStaticProps({ params: { keyword, page } }) {
     pageType: ['Post']
   })
   const { allPages } = props
-  const allPosts = allPages?.filter(page => page.type === 'Post' && page.status === 'Published')
+  const allPosts = allPages?.filter(
+    page => page.type === 'Post' && page.status === 'Published'
+  )
   props.posts = await filterByMemCache(allPosts, keyword)
   props.postCount = props.posts.length
-  // 处理分页
-  props.posts = props.posts.slice(BLOG.POSTS_PER_PAGE * (page - 1), BLOG.POSTS_PER_PAGE * page)
+  // Handle pagination
+  props.posts = props.posts.slice(
+    BLOG.POSTS_PER_PAGE * (page - 1),
+    BLOG.POSTS_PER_PAGE * page
+  )
   props.keyword = keyword
   props.page = page
   delete props.allPages
@@ -58,7 +65,7 @@ export async function getStaticPaths() {
 }
 
 /**
- * 将对象的指定字段拼接到字符串
+ * Splice the specified fields of the object into a string
  * @param sourceTextArray
  * @param targetObj
  * @param key
@@ -77,7 +84,7 @@ function appendText(sourceTextArray, targetObj, key) {
 }
 
 /**
- * 递归获取层层嵌套的数组
+ * Recursively obtain nested arrays
  * @param {*} textArray
  * @returns
  */
@@ -94,7 +101,7 @@ function getTextContent(textArray) {
 }
 
 /**
- * 对象是否可以遍历
+ * Whether the object can be traversed
  * @param {*} obj
  * @returns
  */
@@ -102,9 +109,9 @@ const isIterable = obj =>
   obj != null && typeof obj[Symbol.iterator] === 'function'
 
 /**
- * 在内存缓存中进行全文索引
+ * Full-text indexing in memory cache
  * @param {*} allPosts
- * @param keyword 关键词
+ * @param keyword Key words
  * @returns
  */
 async function filterByMemCache(allPosts, keyword) {
@@ -115,8 +122,12 @@ async function filterByMemCache(allPosts, keyword) {
   for (const post of allPosts) {
     const cacheKey = 'page_block_' + post.id
     const page = await getDataFromCache(cacheKey, true)
-    const tagContent = post?.tags && Array.isArray(post?.tags) ? post?.tags.join(' ') : ''
-    const categoryContent = post.category && Array.isArray(post.category) ? post.category.join(' ') : ''
+    const tagContent =
+      post?.tags && Array.isArray(post?.tags) ? post?.tags.join(' ') : ''
+    const categoryContent =
+      post.category && Array.isArray(post.category)
+        ? post.category.join(' ')
+        : ''
     const articleInfo = post.title + post.summary + tagContent + categoryContent
     let hit = articleInfo.indexOf(keyword) > -1
     let indexContent = [post.summary]

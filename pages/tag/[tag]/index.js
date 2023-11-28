@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
 
 /**
- * 标签下的文章列表
+ * List of articles under the tag
  * @param {*} props
  * @returns
  */
@@ -13,7 +13,7 @@ const Tag = props => {
   const { locale } = useGlobal()
   const { tag, siteInfo } = props
 
-  // 根据页面路径加载不同Layout文件
+  // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {
@@ -32,15 +32,17 @@ export async function getStaticProps({ params: { tag } }) {
   const from = 'tag-props'
   const props = await getGlobalData({ from })
 
-  // 过滤状态
-  props.posts = props.allPages?.filter(page => page.type === 'Post' && page.status === 'Published').filter(post => post && post?.tags && post?.tags.includes(tag))
+  // filter status
+  props.posts = props.allPages
+    ?.filter(page => page.type === 'Post' && page.status === 'Published')
+    .filter(post => post && post?.tags && post?.tags.includes(tag))
 
-  // 处理文章页数
+  // Process article page count
   props.postCount = props.posts.length
 
-  // 处理分页
+  // Handle pagination
   if (BLOG.POST_LIST_STYLE === 'scroll') {
-    // 滚动列表 给前端返回所有数据
+    // Scroll list returns all data to the front end
   } else if (BLOG.POST_LIST_STYLE === 'page') {
     props.posts = props.posts?.slice(0, BLOG.POSTS_PER_PAGE)
   }
@@ -54,7 +56,7 @@ export async function getStaticProps({ params: { tag } }) {
 }
 
 /**
- * 获取所有的标签
+ * Get all tags
  * @returns
  * @param tags
  */

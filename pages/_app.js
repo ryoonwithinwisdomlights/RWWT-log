@@ -5,7 +5,7 @@ import '@/styles/utility-patterns.css'
 
 // core styles shared by all of react-notion-x (required)
 import 'react-notion-x/src/styles.css'
-import '@/styles/notion.css' //  重写部分样式
+import '@/styles/notion.css' //  Override some styles
 
 import { GlobalContextProvider } from '@/lib/global'
 
@@ -15,31 +15,31 @@ import dynamic from 'next/dynamic'
 import { isBrowser, loadExternalResource } from '@/lib/utils'
 import BLOG from '@/blog.config'
 
-// 各种扩展插件 动画等
+// Various extensions, animations, etc.
 const ExternalPlugins = dynamic(() => import('@/components/ExternalPlugins'))
 
 const MyApp = ({ Component, pageProps }) => {
-  // 自定义样式css和js引入
+  // Introduction of custom style css and js
   if (isBrowser) {
-    // 初始化AOS动画
+    // Initialize AOS animation
     AOS.init()
-    // 静态导入本地自定义样式
+    // Static import of local custom styles
     loadExternalResource('/css/custom.css', 'css')
     loadExternalResource('/js/custom.js', 'js')
 
-    // 自动添加图片阴影
+    // Automatically add shadows to pictures
     if (BLOG.IMG_SHADOW) {
       loadExternalResource('/css/img-shadow.css', 'css')
     }
 
-    // 导入外部自定义脚本
+    // Import external custom scripts
     if (BLOG.CUSTOM_EXTERNAL_JS && BLOG.CUSTOM_EXTERNAL_JS.length > 0) {
       for (const url of BLOG.CUSTOM_EXTERNAL_JS) {
         loadExternalResource(url, 'js')
       }
     }
 
-    // 导入外部自定义样式
+    // Import external custom styles
     if (BLOG.CUSTOM_EXTERNAL_CSS && BLOG.CUSTOM_EXTERNAL_CSS.length > 0) {
       for (const url of BLOG.CUSTOM_EXTERNAL_CSS) {
         loadExternalResource(url, 'css')
@@ -48,10 +48,10 @@ const MyApp = ({ Component, pageProps }) => {
   }
 
   return (
-        <GlobalContextProvider {...pageProps}>
-            <Component {...pageProps} />
-            <ExternalPlugins {...pageProps} />
-        </GlobalContextProvider>
+    <GlobalContextProvider {...pageProps}>
+      <Component {...pageProps} />
+      <ExternalPlugins {...pageProps} />
+    </GlobalContextProvider>
   )
 }
 

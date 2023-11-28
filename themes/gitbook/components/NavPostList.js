@@ -4,28 +4,28 @@ import NavPostItem from './NavPostItem'
 import CONFIG from '../config'
 
 /**
- * 博客列表滚动分页
- * @param posts 所有文章
- * @param tags 所有标签
+ * Blog list scrolling paging
+ * @param posts All articles
+ * @param tags All tags
  * @returns {JSX.Element}
  * @constructor
  */
-const NavPostList = (props) => {
+const NavPostList = props => {
   const { filteredNavPages } = props
   const router = useRouter()
   let selectedSth = false
   const groupedArray = filteredNavPages?.reduce((groups, item) => {
-    const categoryName = item?.category ? item?.category : '' // 将category转换为字符串
+    const categoryName = item?.category ? item?.category : '' // Convert category to string
 
     let existingGroup = null
-    // 开启自动分组排序
+    // Turn on automatic group sorting
     if (JSON.parse(CONFIG.AUTO_SORT)) {
-      existingGroup = groups.find(group => group.category === categoryName) // 搜索同名的最后一个分组
+      existingGroup = groups.find(group => group.category === categoryName) // Search for the last group with the same name
     } else {
-      existingGroup = groups[groups.length - 1] // 获取最后一个分组
+      existingGroup = groups[groups.length - 1] // Get the last group
     }
 
-    // 添加数据
+    // adding data
     if (existingGroup && existingGroup.category === categoryName) {
       existingGroup.items.push(item)
     } else {
@@ -34,8 +34,8 @@ const NavPostList = (props) => {
     return groups
   }, [])
 
-  // 处理是否选中
-  groupedArray?.map((group) => {
+  // Handle whether selected
+  groupedArray?.map(group => {
     let groupSelected = false
     for (const post of group?.items) {
       if (router.asPath.split('?')[0] === '/' + post.slug) {
@@ -47,7 +47,7 @@ const NavPostList = (props) => {
     return null
   })
 
-  // 如果都没有选中默认打开第一个
+  // If none are selected, the first one will be opened by default.
   if (!selectedSth && groupedArray && groupedArray?.length > 0) {
     groupedArray[0].selected = true
   }
@@ -55,10 +55,18 @@ const NavPostList = (props) => {
   if (!groupedArray || groupedArray.length === 0) {
     return <NavPostListEmpty />
   } else {
-    return <div id='posts-wrapper' className='w-full flex-grow'>
-            {/* 文章列表 */}
-            {groupedArray?.map((group, index) => <NavPostItem key={index} group={group} onHeightChange={props.onHeightChange}/>)}
-        </div>
+    return (
+      <div id="posts-wrapper" className="w-full flex-grow">
+        {/* Article list */}
+        {groupedArray?.map((group, index) => (
+          <NavPostItem
+            key={index}
+            group={group}
+            onHeightChange={props.onHeightChange}
+          />
+        ))}
+      </div>
+    )
   }
 }
 

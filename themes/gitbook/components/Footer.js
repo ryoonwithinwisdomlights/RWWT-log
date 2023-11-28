@@ -39,24 +39,6 @@ const Footer = ({ siteInfo }) => {
         </a>
       </div>
 
-      {/* {BLOG.BEI_AN && (
-        <>
-          <i className="fas fa-shield-alt" />{' '}
-          <a href="https://beian.miit.gov.cn/" className="mr-2">
-            {BLOG.BEI_AN}
-          </a>
-          <br />
-        </>
-      )} */}
-
-      {/* <span className="hidden busuanzi_container_site_pv">
-        <i className="fas fa-eye" />
-        <span className="px-1 busuanzi_value_site_pv"> </span>{' '}
-      </span>
-      <span className="pl-2 hidden busuanzi_container_site_uv">
-        <i className="fas fa-users" />{' '}
-        <span className="px-1 busuanzi_value_site_uv"> </span>{' '}
-      </span> */}
       <h1 className="pt-1">{siteInfo?.title}</h1>
     </footer>
   )

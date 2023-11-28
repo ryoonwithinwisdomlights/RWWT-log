@@ -7,18 +7,19 @@ import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
 
 /**
- * 首页布局
+ * Home page layout
  * @param {*} props
  * @returns
  */
 const Index = props => {
-  // 根据页面路径加载不同Layout文件
+  // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
   return <Layout {...props} />
 }
 
 /**
- * SSG 获取数据
+ * SSG retrieve data
+
  * @returns
  */
 export async function getStaticProps() {
@@ -26,7 +27,9 @@ export async function getStaticProps() {
   const props = await getGlobalData({ from })
 
   const { siteInfo } = props
-  props.posts = props.allPages?.filter(page => page.type === 'Post' && page.status === 'Published')
+  props.posts = props.allPages?.filter(
+    page => page.type === 'Post' && page.status === 'Published'
+  )
 
   const meta = {
     title: `${siteInfo?.title} | ${siteInfo?.description}`,
@@ -35,32 +38,36 @@ export async function getStaticProps() {
     slug: '',
     type: 'website'
   }
-  // 处理分页
+  // Handle pagination
   if (BLOG.POST_LIST_STYLE === 'scroll') {
-    // 滚动列表默认给前端返回所有数据
+    // The scrolling list returns all data to the front end by default
   } else if (BLOG.POST_LIST_STYLE === 'page') {
     props.posts = props.posts?.slice(0, BLOG.POSTS_PER_PAGE)
   }
 
-  // 预览文章内容
+  // Preview article content
   if (BLOG.POST_LIST_PREVIEW === 'true') {
     for (const i in props.posts) {
       const post = props.posts[i]
       if (post.password && post.password !== '') {
         continue
       }
-      post.blockMap = await getPostBlocks(post.id, 'slug', BLOG.POST_PREVIEW_LINES)
+      post.blockMap = await getPostBlocks(
+        post.id,
+        'slug',
+        BLOG.POST_PREVIEW_LINES
+      )
     }
   }
 
-  // 生成robotTxt
+  // Generate robotTxt
   generateRobotsTxt()
-  // 生成Feed订阅
+  // Generate feed subscription
   if (JSON.parse(BLOG.ENABLE_RSS)) {
     generateRss(props?.latestPosts || [])
   }
 
-  // 生成全文索引 - 仅在 yarn build 时执行 && process.env.npm_lifecycle_event === 'build'
+  // Generate full-text index - only executed when yarn build && process.env.npm_lifecycle_event === 'build'
 
   delete props.allPages
 

@@ -4,10 +4,10 @@ import NavPostListEmpty from './NavPostListEmpty'
 import PaginationSimple from './PaginationSimple'
 
 /**
- * 文章列表分页表格
- * @param page 当前页
- * @param posts 所有文章
- * @param tags 所有标签
+ * Article list pagination table
+ * @param page current page
+ * @param posts All articles
+ * @param tags All tags
  * @returns {JSX.Element}
  * @constructor
  */
@@ -19,15 +19,15 @@ const BlogPostListPage = ({ page = 1, posts = [], postCount }) => {
   }
 
   return (
-      <div className='w-full justify-center'>
-        <div id='posts-wrapper'>
-        {/* 文章列表 */}
+    <div className="w-full justify-center">
+      <div id="posts-wrapper">
+        {/* Article list */}
         {posts?.map(post => (
           <BlogPostCard key={post.id} post={post} />
         ))}
-        </div>
-        <PaginationSimple page={page} totalPage={totalPage} />
       </div>
+      <PaginationSimple page={page} totalPage={totalPage} />
+    </div>
   )
 }
 

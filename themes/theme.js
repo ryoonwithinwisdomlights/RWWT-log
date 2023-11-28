@@ -4,30 +4,33 @@ import { getQueryParam, getQueryVariable } from '../lib/utils'
 import dynamic from 'next/dynamic'
 import getConfig from 'next/config'
 import * as ThemeComponents from '@theme-components'
-// 所有主题在next.config.js中扫描
+// All themes are scanned in next.config.js
 export const { THEMES = [] } = getConfig().publicRuntimeConfig
 /**
- * 加载主题文件
- * 如果是
+ * Load theme files
+ * in the case of
  * @param {*} router
  * @returns
  */
-export const getLayoutByTheme = (router) => {
+export const getLayoutByTheme = router => {
   const themeQuery = getQueryParam(router.asPath, 'theme') || BLOG.THEME
   const layout = getLayoutNameByPath(router.pathname)
   if (themeQuery !== BLOG.THEME) {
-    return dynamic(() => import(`@/themes/${themeQuery}`).then(m => m[layout]), { ssr: true })
+    return dynamic(
+      () => import(`@/themes/${themeQuery}`).then(m => m[layout]),
+      { ssr: true }
+    )
   } else {
     return ThemeComponents[layout]
   }
 }
 
 /**
- * 根据路径 获取对应的layout
+ * Get the corresponding layout according to the path
  * @param {*} path
  * @returns
  */
-export const getLayoutNameByPath = (path) => {
+export const getLayoutNameByPath = path => {
   switch (path) {
     case '/':
       return 'LayoutIndex'
@@ -55,22 +58,22 @@ export const getLayoutNameByPath = (path) => {
 }
 
 /**
- * 初始化主题 , 优先级 query > cookies > systemPrefer
+ * Initialize topic, priorityquery > cookies > systemPrefer
  * @param isDarkMode
- * @param updateDarkMode 更改主题ChangeState函数
- * @description 读取cookie中存的用户主题
+ * @param updateDarkMode Change themeChangeState function
+ * @description Read the user theme stored in the cookie
  */
-export const initDarkMode = (updateDarkMode) => {
-  // 查看用户设备浏览器是否深色模型
+export const initDarkMode = updateDarkMode => {
+  // Check if the user's device browser is in dark mode
   let newDarkMode = isPreferDark()
 
-  // 查看cookie中是否用户强制设置深色模式
+  // Check whether the user forces dark mode in the cookie
   const cookieDarkMode = loadDarkModeFromCookies()
   if (cookieDarkMode) {
     newDarkMode = JSON.parse(cookieDarkMode)
   }
 
-  // url查询条件中是否深色模式
+  // Whether the dark mode is in the url query condition
   const queryMode = getQueryVariable('mode')
   if (queryMode) {
     newDarkMode = queryMode === 'dark'
@@ -78,11 +81,13 @@ export const initDarkMode = (updateDarkMode) => {
 
   updateDarkMode(newDarkMode)
   saveDarkModeToCookies(newDarkMode)
-  document.getElementsByTagName('html')[0].setAttribute('class', newDarkMode ? 'dark' : 'light')
+  document
+    .getElementsByTagName('html')[0]
+    .setAttribute('class', newDarkMode ? 'dark' : 'light')
 }
 
 /**
- * 是否优先深色模式， 根据系统深色模式以及当前时间判断
+ * Whether to give priority to dark mode is determined based on the system dark mode and the current time.
  * @returns {*}
  */
 export function isPreferDark() {
@@ -90,16 +95,23 @@ export function isPreferDark() {
     return true
   }
   if (BLOG.APPEARANCE === 'auto') {
-    // 系统深色模式或时间是夜间时，强行置为夜间模式
+    // When the system is in dark mode or the time is night, force it to night mode
     const date = new Date()
-    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    return prefersDarkMode || (BLOG.APPEARANCE_DARK_TIME && (date.getHours() >= BLOG.APPEARANCE_DARK_TIME[0] || date.getHours() < BLOG.APPEARANCE_DARK_TIME[1]))
+    const prefersDarkMode = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches
+    return (
+      prefersDarkMode ||
+      (BLOG.APPEARANCE_DARK_TIME &&
+        (date.getHours() >= BLOG.APPEARANCE_DARK_TIME[0] ||
+          date.getHours() < BLOG.APPEARANCE_DARK_TIME[1]))
+    )
   }
   return false
 }
 
 /**
- * 读取深色模式
+ * Read dark mode
  * @returns {*}
  */
 export const loadDarkModeFromCookies = () => {
@@ -107,15 +119,15 @@ export const loadDarkModeFromCookies = () => {
 }
 
 /**
-   * 保存深色模式
-   * @param newTheme
-   */
-export const saveDarkModeToCookies = (newTheme) => {
+ * Save dark mode
+ * @param newTheme
+ */
+export const saveDarkModeToCookies = newTheme => {
   cookie.save('darkMode', newTheme, { path: '/' })
 }
 
 /**
- * 读取默认主题
+ * Read default theme
  * @returns {*}
  */
 export const loadThemeFromCookies = () => {
@@ -123,9 +135,9 @@ export const loadThemeFromCookies = () => {
 }
 
 /**
-   * 保存默认主题
-   * @param newTheme
-   */
-export const saveThemeToCookies = (newTheme) => {
+ * Save default theme
+ * @param newTheme
+ */
+export const saveThemeToCookies = newTheme => {
   cookie.save('theme', newTheme, { path: '/' })
 }

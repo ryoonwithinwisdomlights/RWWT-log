@@ -11,7 +11,7 @@ const ArchiveIndex = props => {
   const { siteInfo } = props
   const { locale } = useGlobal()
 
-  // 根据页面路径加载不同Layout文件
+  // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
   useEffect(() => {
@@ -43,8 +43,10 @@ const ArchiveIndex = props => {
 
 export async function getStaticProps() {
   const props = await getGlobalData({ from: 'archive-index' })
-  // 处理分页
-  props.posts = props.allPages?.filter(page => page.type === 'Post' && page.status === 'Published')
+  // Handle pagination
+  props.posts = props.allPages?.filter(
+    page => page.type === 'Post' && page.status === 'Published'
+  )
   delete props.allPages
 
   const postsSortByDate = Object.create(props.posts)

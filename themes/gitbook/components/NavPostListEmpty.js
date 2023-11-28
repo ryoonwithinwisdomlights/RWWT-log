@@ -1,5 +1,5 @@
 /**
- * 空白博客 列表
+ * Blank Blog List
  * @returns {JSX.Element}
  * @constructor
  */

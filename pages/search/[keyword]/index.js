@@ -9,11 +9,13 @@ const Index = props => {
   const { keyword, siteInfo } = props
   const { locale } = useGlobal()
 
-  // 根据页面路径加载不同Layout文件
+  // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {
-    title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${siteInfo?.title}`,
+    title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${
+      siteInfo?.title
+    }`,
     description: siteInfo?.title,
     image: siteInfo?.pageCover,
     slug: 'search/' + (keyword || ''),
@@ -26,7 +28,7 @@ const Index = props => {
 }
 
 /**
- * 服务端搜索
+ * Server-side search
  * @param {*} param0
  * @returns
  */
@@ -36,12 +38,14 @@ export async function getStaticProps({ params: { keyword } }) {
     pageType: ['Post']
   })
   const { allPages } = props
-  const allPosts = allPages?.filter(page => page.type === 'Post' && page.status === 'Published')
+  const allPosts = allPages?.filter(
+    page => page.type === 'Post' && page.status === 'Published'
+  )
   props.posts = await filterByMemCache(allPosts, keyword)
   props.postCount = props.posts.length
-  // 处理分页
+  // Handle pagination
   if (BLOG.POST_LIST_STYLE === 'scroll') {
-    // 滚动列表 给前端返回所有数据
+    // Scroll list returns all data to the front end
   } else if (BLOG.POST_LIST_STYLE === 'page') {
     props.posts = props.posts?.slice(0, BLOG.POSTS_PER_PAGE)
   }
@@ -79,7 +83,7 @@ function appendText(sourceTextArray, targetObj, key) {
 }
 
 /**
- * 递归获取层层嵌套的数组
+ * Recursively obtain nested arrays
  * @param {*} textArray
  * @returns
  */
@@ -96,7 +100,7 @@ function getTextContent(textArray) {
 }
 
 /**
- * 对象是否可以遍历
+ * Whether the object can be traversed
  * @param {*} obj
  * @returns
  */
@@ -104,9 +108,9 @@ const isIterable = obj =>
   obj != null && typeof obj[Symbol.iterator] === 'function'
 
 /**
- * 在内存缓存中进行全文索引
+ * Full-text indexing in memory cache
  * @param {*} allPosts
- * @param keyword 关键词
+ * @param keyword Key words
  * @returns
  */
 async function filterByMemCache(allPosts, keyword) {
@@ -117,12 +121,16 @@ async function filterByMemCache(allPosts, keyword) {
   for (const post of allPosts) {
     const cacheKey = 'page_block_' + post.id
     const page = await getDataFromCache(cacheKey, true)
-    const tagContent = post?.tags && Array.isArray(post?.tags) ? post?.tags.join(' ') : ''
-    const categoryContent = post.category && Array.isArray(post.category) ? post.category.join(' ') : ''
+    const tagContent =
+      post?.tags && Array.isArray(post?.tags) ? post?.tags.join(' ') : ''
+    const categoryContent =
+      post.category && Array.isArray(post.category)
+        ? post.category.join(' ')
+        : ''
     const articleInfo = post.title + post.summary + tagContent + categoryContent
     let hit = articleInfo.toLowerCase().indexOf(keyword) > -1
     const indexContent = getPageContentText(post, page)
-    // console.log('全文搜索缓存', cacheKey, page != null)
+    // console.log('Full text search cache', cacheKey, page != null)
     post.results = []
     let hitCount = 0
     for (const i in indexContent) {
@@ -150,7 +158,7 @@ async function filterByMemCache(allPosts, keyword) {
 
 export function getPageContentText(post, pageBlockMap) {
   let indexContent = []
-  // 防止搜到加密文章的内容
+  // Prevent content of encrypted articles from being searched
   if (pageBlockMap && pageBlockMap.block && !post.password) {
     const contentIds = Object.keys(pageBlockMap.block)
     contentIds.forEach(id => {

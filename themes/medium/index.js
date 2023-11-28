@@ -37,13 +37,13 @@ import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import { Style } from './style'
 
-// 主题全局状态
+// Topic global status
 const ThemeGlobalMedium = createContext()
 export const useMediumGlobal = () => useContext(ThemeGlobalMedium)
 
 /**
- * 基础布局
- * 采用左右两侧布局，移动端使用顶部导航栏
+ * basic layout
+ * Adopt a layout on the left and right sides, and use the top navigation bar on the mobile terminal
  * @returns {JSX.Element}
  * @constructor
  */
@@ -64,9 +64,9 @@ const LayoutBase = props => {
 
   return (
     <ThemeGlobalMedium.Provider value={{ tocVisible, changeTocVisible }}>
-      {/* SEO相关 */}
+      {/* SEO related */}
       <CommonHead meta={meta} />
-      {/* CSS样式 */}
+      {/* CSSrelated */}
       <Style />
 
       <div
@@ -80,12 +80,13 @@ const LayoutBase = props => {
             'relative flex justify-between w-full h-full mx-auto'
           }
         >
-          {/* 桌面端左侧菜单 */}
+          {/*
+Desktop left menu */}
           {/* <LeftMenuBar/> */}
 
-          {/* 主区 */}
+          {/* Main area */}
           <div id="container-wrapper" className="w-full relative z-10">
-            {/* 顶部导航栏 */}
+            {/* top navigation bar */}
             <TopNavBar {...props} />
 
             <div
@@ -110,11 +111,13 @@ const LayoutBase = props => {
               <JumpToTopButton />
             </div>
 
-            {/* 底部 */}
+            {/*
+bottom */}
             <Footer title={siteInfo?.title} />
           </div>
 
-          {/* 桌面端右侧 */}
+          {/*
+Right side of desktop */}
           <div
             className={`hidden xl:block border-l dark:border-transparent w-96 relative z-10 ${
               CONFIG.RIGHT_PANEL_DARK ? 'bg-hexo-black-gray dark' : ''
@@ -137,7 +140,7 @@ const LayoutBase = props => {
           </div>
         </main>
 
-        {/* 移动端底部导航栏 */}
+        {/* Mobile bottom navigation bar */}
         <BottomMenuBar {...props} className="block md:hidden" />
       </div>
     </ThemeGlobalMedium.Provider>
@@ -145,8 +148,9 @@ const LayoutBase = props => {
 }
 
 /**
- * 首页
- * 首页就是一个博客列表
+ *
+front page
+ * The homepage is a blog list
  * @param {*} props
  * @returns
  */
@@ -155,7 +159,7 @@ const LayoutIndex = props => {
 }
 
 /**
- * 博客列表
+ * Blog list
  * @returns
  */
 const LayoutPostList = props => {
@@ -172,7 +176,7 @@ const LayoutPostList = props => {
 }
 
 /**
- * 文章详情
+ * Article details
  * @param {*} props
  * @returns
  */
@@ -187,24 +191,24 @@ const LayoutSlug = props => {
 
   return (
     <LayoutBase showInfoCard={true} slotRight={slotRight} {...props}>
-      {/* 文章锁 */}
+      {/* Article lock */}
       {lock && <ArticleLock validPassword={validPassword} />}
 
       {!lock && (
         <div id="article-wrapper">
-          {/* 文章信息 */}
+          {/* Article information */}
           <ArticleInfo {...props} />
 
-          {/* Notion文章主体 */}
+          {/* Notion article body */}
           <section className="px-1 max-w-4xl">
             {post && <NotionPage post={post} />}
           </section>
 
-          {/* 文章底部区域  */}
+          {/* Article bottom area  */}
           <section>
-            {/* 分享 */}
+            {/* share */}
             <ShareBar post={post} />
-            {/* 文章分类和标签信息 */}
+            {/* Article classification and tag information */}
             <div className="flex justify-between">
               {CONFIG.POST_DETAIL_CATEGORY && post?.category && (
                 <CategoryItem category={post?.category} />
@@ -216,13 +220,15 @@ const LayoutSlug = props => {
                   ))}
               </div>
             </div>
-            {/* 上一篇下一篇文章 */}
+            {/* Previous articleNext article
+             */}
             {post?.type === 'Post' && <ArticleAround prev={prev} next={next} />}
-            {/* 评论区 */}
+            {/*
+Comment area */}
             <Comment frontMatter={post} />
           </section>
 
-          {/* 移动端目录 */}
+          {/* Mobile directory */}
           <TocDrawer {...props} />
         </div>
       )}
@@ -231,7 +237,7 @@ const LayoutSlug = props => {
 }
 
 /**
- * 搜索
+ * search
  * @param {*} props
  * @returns
  */
@@ -256,7 +262,7 @@ const LayoutSearch = props => {
 
   return (
     <LayoutBase {...props}>
-      {/* 搜索导航栏 */}
+      {/* Search navigation bar */}
       <div className="py-12">
         <div className="pb-4 w-full">{locale.NAV.SEARCH}</div>
         <SearchInput currentSearch={currentSearch} {...props} />
@@ -268,7 +274,7 @@ const LayoutSearch = props => {
         )}
       </div>
 
-      {/* 文章列表 */}
+      {/* Article list */}
       {currentSearch && (
         <div>
           {BLOG.POST_LIST_STYLE === 'page' ? (
@@ -283,7 +289,7 @@ const LayoutSearch = props => {
 }
 
 /**
- * 归档
+ * Archive
  * @param {*} props
  * @returns
  */
@@ -320,7 +326,7 @@ const Layout404 = props => {
 }
 
 /**
- * 分类列表
+ * Category List
  * @param {*} props
  * @returns
  */
@@ -361,7 +367,7 @@ const LayoutCategoryIndex = props => {
 }
 
 /**
- * 标签列表
+ * tag list
  * @param {*} props
  * @returns
  */

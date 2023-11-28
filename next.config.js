@@ -7,7 +7,7 @@ const fs = require('fs')
 const path = require('path')
 
 /**
- * 扫描指定目录下的文件夹名，用于获取当前有几个主题
+ * Scan the folder names in the specified directory to obtain how many topics there are currently
  * @param {*} directory
  * @returns
  */
@@ -18,7 +18,7 @@ function scanSubdirectories(directory) {
     const fullPath = path.join(directory, file)
     const stats = fs.statSync(fullPath)
 
-    // landing主题比较特殊，不在可切换的主题中显示
+    // The landing theme is special and is not displayed in switchable themes.
     if (stats.isDirectory() && file !== 'landing') {
       subdirectories.push(file)
     }
@@ -26,13 +26,13 @@ function scanSubdirectories(directory) {
 
   return subdirectories
 }
-// 扫描项目 /themes下的目录名
+// Scan items /Directory name under themes
 const themes = scanSubdirectories(path.resolve(__dirname, 'themes'))
 module.exports = withBundleAnalyzer({
   images: {
-    // 图片压缩
+    // Image Compression
     formats: ['image/avif', 'image/webp'],
-    // 允许next/image加载的图片 域名
+    // Allow next/image to load images domain name
     domains: [
       'gravatar.com',
       'www.notion.so',
@@ -43,7 +43,7 @@ module.exports = withBundleAnalyzer({
       'webmention.io'
     ]
   },
-  // 默认将feed重定向至 /public/rss/feed.xml
+  // By default the feed will be redirected to /public/rss/feed.xml
   async redirects() {
     return [
       {
@@ -90,20 +90,28 @@ module.exports = withBundleAnalyzer({
     //     'react-dom': 'preact/compat'
     //   })
     // }
-    // 动态主题：添加 resolve.alias 配置，将动态路径映射到实际路径
-    config.resolve.alias['@theme-components'] = path.resolve(__dirname, 'themes', THEME)
+    // Dynamic theme: Add resolve.alias configuration to map dynamic paths to actual paths
+    config.resolve.alias['@theme-components'] = path.resolve(
+      __dirname,
+      'themes',
+      THEME
+    )
     return config
   },
   experimental: {
     scrollRestoration: true
   },
-  exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
-    // 导出时 忽略/pages/sitemap.xml.js ， 否则报错getServerSideProps
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    // When exporting, ignore /pages/sitemap.xml.js, otherwise an error will be reported getServerSideProps
     const pages = { ...defaultPathMap }
     delete pages['/sitemap.xml']
     return pages
   },
-  publicRuntimeConfig: { // 这里的配置既可以服务端获取到，也可以在浏览器端获取到
+  publicRuntimeConfig: {
+    // The configuration here can be obtained on the server side or on the browser side.
     NODE_ENV_API: process.env.NODE_ENV_API || 'prod',
     THEMES: themes
   }

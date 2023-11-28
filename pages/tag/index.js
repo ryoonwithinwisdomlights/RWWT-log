@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
 
 /**
- * 标签首页
+ * Tag home page
  * @param {*} props
  * @returns
  */
@@ -13,7 +13,7 @@ const TagIndex = props => {
   const { locale } = useGlobal()
   const { siteInfo } = props
 
-  // 根据页面路径加载不同Layout文件
+  // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {

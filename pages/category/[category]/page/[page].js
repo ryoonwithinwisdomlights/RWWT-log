@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
 
 /**
- * 分类页
+ * Category page
  * @param {*} props
  * @returns
  */
@@ -14,7 +14,7 @@ import { getLayoutByTheme } from '@/themes/theme'
 export default function Category(props) {
   const { siteInfo } = props
   const { locale } = useGlobal()
-  // 根据页面路径加载不同Layout文件
+  // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {
@@ -36,12 +36,17 @@ export async function getStaticProps({ params: { category, page } }) {
   const from = 'category-page-props'
   let props = await getGlobalData({ from })
 
-  // 过滤状态类型
-  props.posts = props.allPages?.filter(page => page.type === 'Post' && page.status === 'Published').filter(post => post && post.category && post.category.includes(category))
-  // 处理文章页数
+  // Filter status type
+  props.posts = props.allPages
+    ?.filter(page => page.type === 'Post' && page.status === 'Published')
+    .filter(post => post && post.category && post.category.includes(category))
+  // Process article page count
   props.postCount = props.posts.length
-  // 处理分页
-  props.posts = props.posts.slice(BLOG.POSTS_PER_PAGE * (page - 1), BLOG.POSTS_PER_PAGE * page)
+  // Handle pagination
+  props.posts = props.posts.slice(
+    BLOG.POSTS_PER_PAGE * (page - 1),
+    BLOG.POSTS_PER_PAGE * page
+  )
 
   delete props.allPages
   props.page = page
@@ -60,9 +65,13 @@ export async function getStaticPaths() {
   const paths = []
 
   categoryOptions?.forEach(category => {
-    // 过滤状态类型
-    const categoryPosts = allPages?.filter(page => page.type === 'Post' && page.status === 'Published').filter(post => post && post.category && post.category.includes(category.name))
-    // 处理文章页数
+    // Filter status type
+    const categoryPosts = allPages
+      ?.filter(page => page.type === 'Post' && page.status === 'Published')
+      .filter(
+        post => post && post.category && post.category.includes(category.name)
+      )
+    // Process article page count
     const postCount = categoryPosts.length
     const totalPages = Math.ceil(postCount / BLOG.POSTS_PER_PAGE)
     if (totalPages > 1) {

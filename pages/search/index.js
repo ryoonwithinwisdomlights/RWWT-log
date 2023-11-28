@@ -5,7 +5,7 @@ import BLOG from '@/blog.config'
 import { getLayoutByTheme } from '@/themes/theme'
 
 /**
- * 搜索路由
+ * search route
  * @param {*} props
  * @returns
  */
@@ -13,20 +13,21 @@ const Search = props => {
   const { posts, siteInfo } = props
   const { locale } = useGlobal()
 
-  // 根据页面路径加载不同Layout文件
+  // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
   const router = useRouter()
   const keyword = getSearchKey(router)
 
   let filteredPosts
-  // 静态过滤
+  // static filtering
+
   if (keyword) {
     filteredPosts = posts.filter(post => {
       const tagContent = post?.tags ? post?.tags.join(' ') : ''
       const categoryContent = post.category ? post.category.join(' ') : ''
       const searchContent =
-                post.title + post.summary + tagContent + categoryContent
+        post.title + post.summary + tagContent + categoryContent
       return searchContent.toLowerCase().includes(keyword.toLowerCase())
     })
   } else {
@@ -34,7 +35,9 @@ const Search = props => {
   }
 
   const meta = {
-    title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${siteInfo?.title}`,
+    title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${
+      siteInfo?.title
+    }`,
     description: siteInfo?.description,
     image: siteInfo?.pageCover,
     slug: 'search',
@@ -47,7 +50,7 @@ const Search = props => {
 }
 
 /**
- * 浏览器前端搜索
+ * Browser front-end search
  */
 export async function getStaticProps() {
   const props = await getGlobalData({
@@ -55,7 +58,9 @@ export async function getStaticProps() {
     pageType: ['Post']
   })
   const { allPages } = props
-  props.posts = allPages?.filter(page => page.type === 'Post' && page.status === 'Published')
+  props.posts = allPages?.filter(
+    page => page.type === 'Post' && page.status === 'Published'
+  )
   return {
     props,
     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)
