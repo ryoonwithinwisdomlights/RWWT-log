@@ -2,6 +2,7 @@
 'use client'
 
 import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
+import Girok from '@/public/images/inspiration/girok.jpg'
 import BLOG from '@/blog.config'
 import Comment from '@/components/Comment'
 import CommonHead from '@/components/CommonHead'
@@ -39,6 +40,7 @@ import { Style } from './style'
 import Image from 'next/image'
 import ReadAndWriteItem from './components/ReadAndWriteItem'
 import PortfolioItem from './components/PortfolioItem'
+import InspirationItem from './components/InspirationItem'
 const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
 // Theme global variables
@@ -316,7 +318,49 @@ const LayoutSearch = props => {
   return <LayoutBase {...props}></LayoutBase>
 }
 
-// 포트폴리오용 레이아웃
+/**
+ * Inspiration 메뉴 레이아웃
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
+const LayoutInspiration = props => {
+  const { InspirationPosts } = props
+  console.log('InspirationPosts', InspirationPosts)
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="flex flex-row">
+          <div className="w-1/2 mr-20">
+            <div className="border-green-400 border-[1px] rounded-md  mb-2 p-2">
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              <Image src={Girok} alt="So-I-Read-And-Write" />
+              <div className="text-3xl dark:text-gray-300 mt-4 pb-2">
+                어제, 오늘, 내일의 영감기록
+              </div>
+            </div>
+          </div>
+          {Object.keys(InspirationPosts)?.map(archiveTitle => {
+            // console.log(archiveTitle)
+            return (
+              <InspirationItem
+                key={archiveTitle}
+                archiveTitle={archiveTitle}
+                archivePosts={InspirationPosts}
+              />
+            )
+          })}
+        </div>
+        <div className="w-1/2 text-base mb-2">
+          어떻게, 어쩜, 언제부터 이건 그러하였고 너는 또 그리하였을까?
+          감탄하게되는 크고 작은 앎에 대하여.
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
+// Portfolio 메뉴 레이아웃
 const LayoutPortfolio = props => {
   const { portfolioPosts } = props
   // console.log('portfolioPosts', portfolioPosts)
@@ -508,6 +552,7 @@ export {
   LayoutArchive,
   LayoutReadAndWrite,
   LayoutPortfolio,
+  LayoutInspiration,
   LayoutCategoryIndex,
   LayoutIndex,
   LayoutPostList,

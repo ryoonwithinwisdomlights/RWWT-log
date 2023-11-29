@@ -1,6 +1,7 @@
 /* eslint-disable multiline-ternary */
-import CONFIG from './config'
 import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
+import Girok from '@/public/images/inspiration/girok.jpg'
+import CONFIG from './config'
 
 import BLOG from '@/blog.config'
 import Comment from '@/components/Comment'
@@ -12,6 +13,7 @@ import Tabs from '@/components/Tabs'
 import { useGlobal } from '@/lib/global'
 import { isBrowser } from '@/lib/utils'
 import { Transition } from '@headlessui/react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { createContext, useContext, useEffect, useState } from 'react'
@@ -30,6 +32,8 @@ import CategoryItem from './components/CategoryItem'
 import Footer from './components/Footer'
 import InfoCard from './components/InfoCard'
 import JumpToTopButton from './components/JumpToTopButton'
+import PortfolioItem from './components/PortfolioItem'
+import ReadAndWriteItem from './components/ReadAndWriteItem'
 import RevolverMaps from './components/RevolverMaps'
 import SearchInput from './components/SearchInput'
 import TagGroups from './components/TagGroups'
@@ -37,8 +41,7 @@ import TagItemMini from './components/TagItemMini'
 import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import { Style } from './style'
-import ReadAndWriteItem from './components/ReadAndWriteItem'
-import Image from 'next/image'
+import InspirationItem from './components/InspirationItem'
 
 // Topic global status
 const ThemeGlobalMedium = createContext()
@@ -291,6 +294,89 @@ const LayoutSearch = props => {
   )
 }
 
+// Portfolio 메뉴 레이아웃
+const LayoutPortfolio = props => {
+  const { portfolioPosts } = props
+  // console.log('portfolioPosts', portfolioPosts)
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="flex flex-col">
+          <div className="w-full mb-10">
+            <div className="">
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              {/* <Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
+              <div className="text-3xl dark:text-gray-300 ">
+                What Ryoon have been made 🛠️
+              </div>
+              <div className=" dark:text-gray-300 mt-1 text-base ">
+                10세이하 일 때엔 a4로 모델하우스를, 20대 중반엔 재미난 기획안을,
+                28살 이후로는 크고 작은 개발을.
+              </div>
+            </div>
+          </div>
+          <div className="space-y-6 px-2">
+            {portfolioPosts?.map((item, index) => {
+              // console.log('item', item)
+              // console.log(portfolioPosts[item.to])
+              return (
+                <PortfolioItem
+                  key={index}
+                  pIndex={index}
+                  pId={item.id}
+                  pTitle={item.title}
+                  pPosts={item}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
+/**
+ * Inspiration 메뉴 레이아웃
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
+const LayoutInspiration = props => {
+  const { InspirationPosts } = props
+  console.log('InspirationPosts', InspirationPosts)
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="flex flex-row">
+          <div className="w-1/2 mr-20">
+            <div className="border-green-400 border-[1px] rounded-md  mb-2 p-2">
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              <Image src={Girok} alt="So-I-Read-And-Write" />
+              <div className="text-3xl dark:text-gray-300 mt-4 pb-2">
+                어제, 오늘, 내일의 영감기록
+              </div>
+            </div>
+          </div>
+          {Object.keys(InspirationPosts)?.map(archiveTitle => {
+            // console.log(archiveTitle)
+            return (
+              <InspirationItem
+                key={archiveTitle}
+                archiveTitle={archiveTitle}
+                archivePosts={InspirationPosts}
+              />
+            )
+          })}
+        </div>
+        <div className="w-1/2 text-base mb-2">
+          어떻게, 어쩜, 언제부터 이건 그러하였고 너는 또 그리하였을까?
+          감탄하게되는 크고 작은 앎에 대하여.
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
 /**
  * Read & Write 메뉴 레이아웃
  * @param {*} props
@@ -440,10 +526,12 @@ const LayoutTagIndex = props => {
 export {
   Layout404,
   LayoutArchive,
-  LayoutReadAndWrite,
   LayoutCategoryIndex,
   LayoutIndex,
   LayoutPostList,
+  LayoutPortfolio,
+  LayoutReadAndWrite,
+  LayoutInspiration,
   LayoutSearch,
   LayoutSlug,
   LayoutTagIndex,
