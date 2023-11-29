@@ -1,6 +1,6 @@
 import { useGlobal } from '@/lib/global'
 import { saveDarkModeToCookies } from '@/themes/theme'
-import { Moon, Sun } from './HeroIcons'
+import { Moon, Sun } from './Lucide'
 import { useImperativeHandle } from 'react'
 
 /**
