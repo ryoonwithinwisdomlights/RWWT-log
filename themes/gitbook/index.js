@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use client'
 
 import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
@@ -37,6 +38,7 @@ import CONFIG from './config'
 import { Style } from './style'
 import Image from 'next/image'
 import ReadAndWriteItem from './components/ReadAndWriteItem'
+import PortfolioItem from './components/PortfolioItem'
 const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
 // Theme global variables
@@ -314,6 +316,44 @@ const LayoutSearch = props => {
   return <LayoutBase {...props}></LayoutBase>
 }
 
+// 포트폴리오용 레이아웃
+const LayoutPortfolio = props => {
+  const { portfolioPosts } = props
+  console.log('portfolioPosts', portfolioPosts)
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="flex flex-col">
+          <div className="w-full mb-10">
+            <div className="">
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              {/* <Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
+              <div className="text-3xl dark:text-gray-300 mt-4">
+                What Ryoon have been made 🛠️
+              </div>
+            </div>
+          </div>
+          <div className="space-y-6 px-2">
+            {portfolioPosts?.map((item, index) => {
+              // console.log('item', item)
+              // console.log(portfolioPosts[item.to])
+              return (
+                <PortfolioItem
+                  key={index}
+                  pIndex={index}
+                  pId={item.id}
+                  pTitle={item.title}
+                  pPosts={item}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
 /**
  * Read & Write 메뉴 레이아웃
  * All depends on page navigation
@@ -463,6 +503,7 @@ export {
   Layout404,
   LayoutArchive,
   LayoutReadAndWrite,
+  LayoutPortfolio,
   LayoutCategoryIndex,
   LayoutIndex,
   LayoutPostList,
