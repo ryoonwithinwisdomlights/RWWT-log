@@ -414,7 +414,7 @@ const LayoutReadAndWrite = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="w-1/2 text-[10px] mb-2">
+        <div className="w-1/2 text-base mb-2">
           읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
         </div>
         <div className="flex flex-row">
