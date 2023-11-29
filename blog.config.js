@@ -86,7 +86,7 @@ const BLOG = {
   // Whether to allow copying of page content is allowed by default. If set to false, copying of content is prohibited in the entire stack.
   // 우클릭 메뉴
   CUSTOM_RIGHT_CLICK_CONTEXT_MENU:
-    process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || true, // Customize the right-click menu and override the system menu
+    process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || false, // Customize the right-click menu and override the system menu
 
   // Custom external scripts, external style
   CUSTOM_EXTERNAL_JS: [''], // e.g. ['http://xx.com/script.js','http://xx.com/script.js']

@@ -29,7 +29,7 @@ const FaceBookPage = dynamic(
 )
 
 /**
- * Hexo主题右侧栏
+ * Hexo theme right column
  * @param {*} props
  * @returns
  */

@@ -15,7 +15,7 @@ import SideBarDrawer from './SideBarDrawer'
 let windowTop = 0
 
 /**
- * 顶部导航
+ * top navigation
  * @param {*} param0
  * @returns
  */
@@ -36,7 +36,7 @@ const TopNav = props => {
     changeShow(false)
   }
 
-  // 监听滚动
+  // Listen for scrolling
   useEffect(() => {
     scrollTrigger()
     window.addEventListener('scroll', scrollTrigger)
@@ -52,11 +52,11 @@ const TopNav = props => {
       const scrollS = window.scrollY
       const nav = document.querySelector('#sticky-nav')
       const header = document.querySelector('#header')
-      // 是否将导航栏透明
+      // Whether to make the navigation bar transparent
       const navTransparent =
         (scrollS < document.documentElement.clientHeight - 12 &&
           router.route === '/') ||
-        scrollS < 300 // 透明导航条的条件
+        scrollS < 300 // Transparent navigation bar conditions
 
       if (header && navTransparent) {
         nav && nav.classList.replace('bg-white', 'bg-none')
@@ -75,7 +75,7 @@ const TopNav = props => {
       const showNav =
         scrollS <= windowTop ||
         scrollS < 5 ||
-        (header && scrollS <= header.clientHeight) // 非首页无大图时影藏顶部 滚动条置顶时隐藏
+        (header && scrollS <= header.clientHeight) // When there is no big picture on the home page, the shadow is hidden at the top. When the scroll bar is on the top, it is hidden.
       if (!showNav) {
         nav && nav.classList.replace('top-0', '-top-20')
         windowTop = scrollS
@@ -150,7 +150,7 @@ const TopNav = props => {
     <div id="top-nav" className="z-40">
       <SearchDrawer cRef={searchDrawer} slot={searchDrawerSlot} />
 
-      {/* 导航栏 */}
+      {/* Navigation Bar */}
       <div
         id="sticky-nav"
         style={{ backdropFilter: 'blur(3px)' }}
@@ -163,7 +163,7 @@ const TopNav = props => {
             <Logo {...props} />
           </div>
 
-          {/* 右侧功能 */}
+          {/* Right function */}
           <div className="mr-1 justify-end items-center ">
             <div className="hidden lg:flex">
               {' '}
@@ -183,7 +183,7 @@ const TopNav = props => {
         </div>
       </div>
 
-      {/* 折叠侧边栏 */}
+      {/* Collapse sidebar */}
       <SideBarDrawer isOpen={isOpen} onClose={toggleSideBarClose}>
         <SideBar {...props} />
       </SideBarDrawer>

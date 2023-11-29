@@ -20,10 +20,6 @@ const Footer = ({ title }) => {
           {siteConfig('AUTHOR')}
         </a>
         .<br />
-        <span className="pl-2 hidden busuanzi_container_site_uv">
-          <i className="fas fa-users" />{' '}
-          <span className="px-1 busuanzi_value_site_uv"> </span>{' '}
-        </span>
         <h1 className="text-xs pt-4 text-light-400 dark:text-gray-400">
           {title} {siteConfig('BIO') && <>|</>} {siteConfig('BIO')}
         </h1>
@@ -34,6 +30,16 @@ const Footer = ({ title }) => {
             className="dark:text-gray-300"
           >
             NotionNext {siteConfig('VERSION')}
+          </a>
+          .
+        </p>
+        <p className="text-xs pt-2 text-light-500 dark:text-gray-500">
+          Customized by{' '}
+          <a
+            href="https://github.com/ryoon-with-wisdomtrees/RyoonLog"
+            className="underline text-gray-500 dark:text-gray-300"
+          >
+            RyoonLog
           </a>
           .
         </p>

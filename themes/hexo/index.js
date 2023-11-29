@@ -41,7 +41,7 @@ import PortfolioItem from './components/PortfolioItem'
 import ReadAndWriteItem from './components/ReadAndWriteItem'
 
 /**
- * 基础布局 采用左右两侧布局，移动端使用顶部导航栏
+ * The basic layout adopts the layout on the left and right sides, and the mobile terminal uses the top navigation bar.
  * @param props
  * @returns {JSX.Element}
  * @constructor
@@ -52,14 +52,11 @@ const LayoutBase = props => {
 
   return (
     <div id="theme-hexo">
-      {/* 网页SEO */}
       <CommonHead meta={meta} />
       <Style />
 
-      {/* 顶部导航 */}
       <TopNav {...props} />
 
-      {/* 顶部嵌入 */}
       <Transition
         show={!onLoading}
         appear={true}
@@ -74,7 +71,6 @@ const LayoutBase = props => {
         {headerSlot}
       </Transition>
 
-      {/* 主区块 */}
       <main
         id="wrapper"
         className={`${
@@ -106,22 +102,19 @@ const LayoutBase = props => {
               leaveTo="opacity-0 -translate-y-16"
               unmount={false}
             >
-              {/* 主区上部嵌入 */}
+              {/* Embedded in the upper part of the main area */}
               {slotTop}
 
               {children}
             </Transition>
           </div>
 
-          {/* 右侧栏 */}
           <SideRight {...props} />
         </div>
       </main>
 
-      {/* 悬浮菜单 */}
       <RightFloatArea floatSlot={floatSlot} />
 
-      {/* 页脚 */}
       <Footer title={siteConfig('TITLE')} />
     </div>
   )
@@ -419,7 +412,7 @@ const LayoutSlug = props => {
 
             <div className="pt-4 border-dashed"></div>
 
-            {/* 评论互动 */}
+            {/* Comment interaction */}
             <div className="duration-200 overflow-x-auto bg-white dark:bg-hexo-black-gray px-3">
               <Comment frontMatter={post} />
             </div>

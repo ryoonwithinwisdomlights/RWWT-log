@@ -2,7 +2,8 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
 /**
- * 侧边栏抽屉面板，可以从侧面拉出
+ *
+Sidebar drawer panel that can be pulled out from the side
  * @returns {JSX.Element}
  * @constructor
  */
@@ -18,7 +19,7 @@ const SideBarDrawer = ({ children, isOpen, onOpen, onClose, className }) => {
     }
   }, [router.events])
 
-  // 点击按钮更改侧边抽屉状态
+  // Click button to change side drawer status
   const switchSideDrawerVisible = showStatus => {
     if (showStatus) {
       onOpen && onOpen()
@@ -50,7 +51,7 @@ const SideBarDrawer = ({ children, isOpen, onOpen, onClose, className }) => {
         {children}
       </div>
 
-      {/* 背景蒙版 */}
+      {/* background mask */}
       <div
         id="sidebar-drawer-background"
         onClick={() => {
