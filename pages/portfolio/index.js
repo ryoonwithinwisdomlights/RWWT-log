@@ -38,9 +38,9 @@ export async function getStaticProps() {
   })
 
   props.posts = props.allPages?.filter(page => {
-    if (page.type === 'Portfolio') {
-      //   console.log(page)
-    }
+    // if (page.type === 'Portfolio') {
+    //   //   console.log(page)
+    // }
     return page.type === 'Portfolio' && page.status === 'Published'
   })
 

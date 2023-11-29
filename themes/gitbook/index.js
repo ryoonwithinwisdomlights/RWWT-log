@@ -319,7 +319,7 @@ const LayoutSearch = props => {
 // 포트폴리오용 레이아웃
 const LayoutPortfolio = props => {
   const { portfolioPosts } = props
-  console.log('portfolioPosts', portfolioPosts)
+  // console.log('portfolioPosts', portfolioPosts)
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
@@ -328,8 +328,12 @@ const LayoutPortfolio = props => {
             <div className="">
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* <Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl dark:text-gray-300 mt-4">
+              <div className="text-3xl dark:text-gray-300 ">
                 What Ryoon have been made 🛠️
+              </div>
+              <div className=" dark:text-gray-300 mt-1 text-base ">
+                10세이하 일 때엔 a4로 모델하우스를, 20대 중반엔 재미난 기획안을,
+                28살 이후로는 크고 작은 개발을.
               </div>
             </div>
           </div>
