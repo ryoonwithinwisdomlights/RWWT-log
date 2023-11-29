@@ -17,7 +17,7 @@ const Footer = ({ siteInfo }) => {
 
       <div className="flex justify-center">
         <div>
-          <i className="mx-1 animate-pulse fas fa-heart" />{' '}
+          {/* <i className="mx-1 animate-pulse fas fa-heart" />{' '} */}
           <a
             href={BLOG.LINK}
             className="underline font-bold text-gray-500 dark:text-gray-300 "
@@ -38,8 +38,17 @@ const Footer = ({ siteInfo }) => {
           NotionNext
         </a>
       </div>
-
-      <h1 className="pt-1">{siteInfo?.title}</h1>
+      <div className="text-xs font-serif">
+        Customized by
+        <a
+          href="https://github.com/ryoon-with-wisdomtrees/RyoonLog"
+          className="underline text-gray-500 dark:text-gray-300"
+        >
+          RyoonLog
+        </a>
+        .
+      </div>
+      {/* <h1 className="pt-1">{siteInfo?.title}</h1> */}
     </footer>
   )
 }

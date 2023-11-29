@@ -11,7 +11,7 @@ import { getLayoutByTheme } from '@/themes/theme'
 const NoFound = props => {
   const { siteInfo } = useGlobal()
   const meta = {
-    title: `${props?.siteInfo?.title} | 页面找不到啦`,
+    title: `${props?.siteInfo?.title} | Page not found`,
     image: siteInfo?.pageCover
   }
 

@@ -9,7 +9,7 @@ const BLOG = {
   // but it will also cause a delay in updating the article.
   THEME: 'gitbook',
   THEME_SWITCH: process.env.NEXT_PUBLIC_THEME_SWITCH || false, // Whether to display the switch theme button
-  LANG: process.env.NEXT_PUBLIC_LANG || 'en-US', // e.g 'zh-CN','en-US'  see /lib/lang.js for more.
+  LANG: process.env.NEXT_PUBLIC_LANG || 'kr-KR', // e.g 'zh-CN','en-US'  see /lib/lang.js for more.
   //   SINCE: , // e.g if leave this empty, current year will be used.
   APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'light',
   APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6], // 야간 모드 시작 시간, 시간에 따라 야간 모드 자동 전환을 비활성화하려면 false입니다.
@@ -18,7 +18,7 @@ const BLOG = {
 
   CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || false, // Supports Menu type. Starting from version 3.12.0, each theme will gradually support flexible secondary menu configuration, replacing the original Page type. This configuration is an experimental function and is turned off by default.
 
-  AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Seryoon Cheon', //
+  AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.with.wisdomtrees', //
   BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights', //
   LINK:
     process.env.NEXT_PUBLIC_LINK || 'https://seryoon-bibana-cheon.vercel.app/', // website address
