@@ -1,6 +1,5 @@
 const BLOG = {
-  NOTION_PAGE_ID:
-    process.env.NOTION_PAGE_ID || '8e36fd8148d3494c879696214e2c8ed4',
+  NOTION_PAGE_ID: process.env.NOTION_PAGE_ID,
   PSEUDO_STATIC: process.env.NEXT_PUBLIC_PSEUDO_STATIC || false, //
   NEXT_REVALIDATE_SECOND: process.env.NEXT_PUBLIC_REVALIDATE_SECOND || 5,
   // Update content cache interval unit (seconds); that is, each page has a pure static period of 5 seconds,
@@ -20,23 +19,15 @@ const BLOG = {
 
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.with.wisdomtrees', //
   BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights', //
-  LINK:
-    process.env.NEXT_PUBLIC_LINK || 'https://seryoon-bibana-cheon.vercel.app/', // website address
+  LINK: process.env.NEXT_PUBLIC_LINK, // website address
   KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 블로그, 개발블로그', // Website keywords separated by English commas
-  CONTACT_EMAIL:
-    process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'ryoon.with.wisdomtrees@gmail.com', //
+  CONTACT_EMAIL: process.env.NEXT_PUBLIC_CONTACT_EMAIL, //
 
-  CONTACT_TWITTER:
-    process.env.NEXT_PUBLIC_CONTACT_TWITTER ||
-    'https://twitter.com/RyoonWisdomTree', //
-  CONTACT_GITHUB:
-    process.env.NEXT_PUBLIC_CONTACT_GITHUB ||
-    'https://github.com/ryoon-with-wisdomtrees', //
+  CONTACT_TWITTER: process.env.NEXT_PUBLIC_CONTACT_TWITTER, //
+  CONTACT_GITHUB: process.env.NEXT_PUBLIC_CONTACT_GITHUB, //
   // CONTACT_TELEGRAM: process.env.NEXT_PUBLIC_CONTACT_TELEGRAM || '', //
   // CONTACT_LINKEDIN: process.env.NEXT_PUBLIC_CONTACT_LINKEDIN || '', //
-  CONTACT_INSTAGRAM:
-    process.env.NEXT_PUBLIC_CONTACT_INSTAGRAM ||
-    'https://www.instagram.com/ryoon.with.wisdomtree/', //
+  CONTACT_INSTAGRAM: process.env.NEXT_PUBLIC_CONTACT_INSTAGRAM,
   // CONTACT_YOUTUBE: process.env.NEXT_PUBLIC_CONTACT_YOUTUBE || '', //
 
   NOTION_HOST: process.env.NEXT_PUBLIC_NOTION_HOST || 'https://www.notion.so', // Notion domain name, you can choose to use your own domain name for reverse proxy. If you do not know what a reverse proxy is, please do not modify this item.

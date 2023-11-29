@@ -23,7 +23,7 @@ export default function TopNavBar(props) {
 
   const defaultLinks = [
     {
-      icon: 'fas fa-th',
+      icon: 'fa-solid fa-wand-magic-sparkles',
       name: locale.COMMON.CATEGORY,
       to: '/category',
       show: CONFIG.MENU_CATEGORY
@@ -35,7 +35,7 @@ export default function TopNavBar(props) {
       show: CONFIG.MENU_TAG
     },
     {
-      icon: 'fas fa-archive',
+      icon: 'fa-solid fa-folder-closed',
       name: locale.NAV.ARCHIVE,
       to: '/archive',
       show: CONFIG.MENU_ARCHIVE
@@ -53,13 +53,13 @@ export default function TopNavBar(props) {
       show: CONFIG.MENU_READ
     },
     {
-      icon: 'fa-solid fa-wand-magic-sparkles',
+      icon: 'fa-solid fa-hand-sparkles',
       name: locale.NAV.PORTFOLIO,
       to: '/portfolio',
       show: CONFIG.MENU_PORTFOLIO
     },
     {
-      icon: 'fa-solid fa-hand-sparkles',
+      icon: 'fa-solid fa-hat-wizard',
       name: locale.NAV.INSPIRATION,
       to: '/inspiration',
       show: CONFIG.MENU_INSPIRATION
