@@ -45,7 +45,7 @@ export async function getStaticProps() {
   const props = await getGlobalData({ from: 'read-index', type: 'Read' })
   // Handle pagination
   //   console.log('props.allPages', props.allPages)
-  console.log('getStaticProps')
+  // console.log('getStaticProps')
   props.posts = props.allPages?.filter(page => {
     if (page.type === 'Read') {
       //   console.log(page)

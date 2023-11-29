@@ -10,11 +10,14 @@ const CONFIG = {
   POST_DETAIL_CATEGORY: true, // Article display category
   POST_DETAIL_TAG: true, // Article display tags
 
-  // menu
+  // 메뉴
   MENU_CATEGORY: true, // Show categories
   MENU_TAG: true, // show label
   MENU_ARCHIVE: true, // show archive
   MENU_SEARCH: true, // show search
+  MENU_READ: true, // show search
+  MENU_PORTFOLIO: true, // show search
+  MENU_INSPIRATION: true, // show search
 
   // Widget
   WIDGET_REVOLVER_MAPS: process.env.NEXT_PUBLIC_WIDGET_REVOLVER_MAPS || 'false', // Map plugin

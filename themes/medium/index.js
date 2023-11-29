@@ -1,5 +1,6 @@
 /* eslint-disable multiline-ternary */
 import CONFIG from './config'
+import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
 
 import BLOG from '@/blog.config'
 import Comment from '@/components/Comment'
@@ -36,6 +37,8 @@ import TagItemMini from './components/TagItemMini'
 import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import { Style } from './style'
+import ReadAndWriteItem from './components/ReadAndWriteItem'
+import Image from 'next/image'
 
 // Topic global status
 const ThemeGlobalMedium = createContext()
@@ -289,6 +292,45 @@ const LayoutSearch = props => {
 }
 
 /**
+ * Read & Write 메뉴 레이아웃
+ * @param {*} props
+ * @returns
+ */
+const LayoutReadAndWrite = props => {
+  const { readAndWritePosts } = props
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3  min-h-full">
+        <div className="w-1/2 text-[10px] mb-2">
+          읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
+        </div>
+        <div className="flex flex-row">
+          <div className="w-1/2 mr-20">
+            <div className="">
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              <Image src={ReadPic} alt="So-I-Read-And-Write" />
+              <div className="text-3xl dark:text-gray-300 mt-4">
+                So, I Read and Write.
+              </div>
+            </div>
+          </div>
+          {Object.keys(readAndWritePosts)?.map(archiveTitle => {
+            // console.log(archiveTitle)
+            return (
+              <ReadAndWriteItem
+                key={archiveTitle}
+                archiveTitle={archiveTitle}
+                archivePosts={readAndWritePosts}
+              />
+            )
+          })}
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
+/**
  * Archive
  * @param {*} props
  * @returns
@@ -398,6 +440,7 @@ const LayoutTagIndex = props => {
 export {
   Layout404,
   LayoutArchive,
+  LayoutReadAndWrite,
   LayoutCategoryIndex,
   LayoutIndex,
   LayoutPostList,

@@ -329,17 +329,11 @@ const LayoutReadAndWrite = props => {
         <div className="w-1/2 text-[10px] mb-2">
           읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
         </div>
-        <div className="flex flex-row  items-center ">
+        <div className="flex flex-row">
           <div className="w-1/2 mr-20">
             <div className="">
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
-              <Image
-                src={ReadPic}
-                alt="So-I-Read-And-Write"
-                // width={200}
-                // height={100}
-                fit
-              />
+              <Image src={ReadPic} alt="So-I-Read-And-Write" />
               <div className="text-3xl dark:text-gray-300 mt-4">
                 So, I Read and Write.
               </div>
