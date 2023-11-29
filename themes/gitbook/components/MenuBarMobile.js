@@ -16,7 +16,22 @@ export const MenuBarMobile = props => {
       show: CONFIG.MENU_CATEGORY
     },
     { name: locale.COMMON.TAGS, to: '/tag', show: CONFIG.MENU_TAG },
-    { name: locale.NAV.ARCHIVE, to: '/archive', show: CONFIG.MENU_ARCHIVE }
+    { name: locale.NAV.ARCHIVE, to: '/archive', show: CONFIG.MENU_ARCHIVE },
+    {
+      name: locale.NAV.READ,
+      to: '/read',
+      show: CONFIG.MENU_READ
+    },
+    {
+      name: locale.NAV.PORTFOLIO,
+      to: '/portfolio',
+      show: CONFIG.MENU_PORTFOLIO
+    },
+    {
+      name: locale.NAV.INSPIRATION,
+      to: '/inspiration',
+      show: CONFIG.MENU_INSPIRATION
+    }
     // { name: locale.NAV.SEARCH, to: '/search', show: CONFIG.MENU_SEARCH }
   ]
 
