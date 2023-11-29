@@ -12,10 +12,10 @@ export const Croissant = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="lucide lucide-croissant"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-croissant"
     >
       <path d="m4.6 13.11 5.79-3.21c1.89-1.05 4.79 1.78 3.71 3.71l-3.22 5.81C8.8 23.16.79 15.23 4.6 13.11Z" />
       <path d="m10.5 9.5-1-2.29C9.2 6.48 8.8 6 8 6H4.5C2.79 6 2 6.5 2 8.5a7.71 7.71 0 0 0 2 4.83" />
@@ -34,10 +34,10 @@ export const Moon = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="#a9ff9e"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="lucide lucide-moon-star"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-moon-star"
     >
       <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
       <path d="M19 3v4" />
@@ -55,10 +55,10 @@ export const Sun = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="#a9ff9e"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="lucide lucide-sun"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-sun"
     >
       <circle cx="12" cy="12" r="4" />
       <path d="M12 2v2" />
@@ -73,7 +73,7 @@ export const Sun = () => {
   )
 }
 
-export const Home = ({ className }) => {
+export const Home = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ export const Home = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -92,7 +92,7 @@ export const Home = ({ className }) => {
   )
 }
 
-export const User = ({ className }) => {
+export const User = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ export const User = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -111,7 +111,7 @@ export const User = ({ className }) => {
   )
 }
 
-export const ArrowPath = ({ className }) => {
+export const ArrowPath = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ export const ArrowPath = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -130,7 +130,7 @@ export const ArrowPath = ({ className }) => {
   )
 }
 
-export const ChevronLeft = ({ className }) => {
+export const ChevronLeft = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +138,7 @@ export const ChevronLeft = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -149,7 +149,7 @@ export const ChevronLeft = ({ className }) => {
   )
 }
 
-export const ChevronRight = ({ className }) => {
+export const ChevronRight = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +157,7 @@ export const ChevronRight = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -168,7 +168,7 @@ export const ChevronRight = ({ className }) => {
   )
 }
 
-export const ChevronDoubleLeft = ({ className }) => {
+export const ChevronDoubleLeft = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +176,7 @@ export const ChevronDoubleLeft = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -187,7 +187,7 @@ export const ChevronDoubleLeft = ({ className }) => {
   )
 }
 
-export const ChevronDoubleRight = ({ className }) => {
+export const ChevronDoubleRight = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +195,7 @@ export const ChevronDoubleRight = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -206,7 +206,7 @@ export const ChevronDoubleRight = ({ className }) => {
   )
 }
 
-export const InformationCircle = ({ className }) => {
+export const InformationCircle = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +214,7 @@ export const InformationCircle = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -225,7 +225,7 @@ export const InformationCircle = ({ className }) => {
   )
 }
 
-export const HashTag = ({ className }) => {
+export const HashTag = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +233,7 @@ export const HashTag = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -244,7 +244,7 @@ export const HashTag = ({ className }) => {
   )
 }
 
-export const GlobeAlt = ({ className }) => {
+export const GlobeAlt = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +252,7 @@ export const GlobeAlt = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -263,7 +263,7 @@ export const GlobeAlt = ({ className }) => {
   )
 }
 
-export const ArrowRightCircle = ({ className }) => {
+export const ArrowRightCircle = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +271,7 @@ export const ArrowRightCircle = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -282,7 +282,7 @@ export const ArrowRightCircle = ({ className }) => {
   )
 }
 
-export const PlusSmall = ({ className }) => {
+export const PlusSmall = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -290,14 +290,14 @@ export const PlusSmall = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
     </svg>
   )
 }
 
-export const ArrowSmallRight = ({ className }) => {
+export const ArrowSmallRight = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -305,7 +305,7 @@ export const ArrowSmallRight = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"
@@ -316,7 +316,7 @@ export const ArrowSmallRight = ({ className }) => {
   )
 }
 
-export const ArrowSmallUp = ({ className }) => {
+export const ArrowSmallUp = ({ classNameName }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -324,7 +324,7 @@ export const ArrowSmallUp = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      classNameName={classNameName}
     >
       <path
         strokeLinecap="round"

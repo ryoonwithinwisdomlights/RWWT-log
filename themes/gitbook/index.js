@@ -135,15 +135,15 @@ const LayoutBase = props => {
                 {children}
               </Transition>
 
-              {/* Google广告 */}
+              {/* Google ads */}
               <AdSlot type="in-article" />
               <WWAds className="w-full" orientation="horizontal" />
 
-              {/* 回顶按钮 */}
+              {/* Back button */}
               <JumpToTopButton />
             </div>
 
-            {/* 底部 */}
+            {/* bottom */}
             <div className="md:hidden">
               <Footer {...props} />
             </div>
@@ -210,13 +210,13 @@ const LayoutIndex = props => {
           const article = document.getElementById('notion-article')
           if (!article) {
             console.log(
-              '请检查您的Notion数据库中是否包含此slug页面： ',
+              'Please check if your Notion database contains this slug page： ',
               CONFIG.INDEX_PAGE
             )
             const containerInner = document.querySelector(
               '#theme-gitbook #container-inner'
             )
-            const newHTML = `<h1 class="text-3xl pt-12  dark:text-gray-300">配置有误</h1><blockquote class="notion-quote notion-block-ce76391f3f2842d386468ff1eb705b92"><div>请在您的notion中添加一个slug为${CONFIG.INDEX_PAGE}的文章</div></blockquote>`
+            const newHTML = `<h1 class="text-3xl pt-12  dark:text-gray-300">Configuration error</h1><blockquote class="notion-quote notion-block-ce76391f3f2842d386468ff1eb705b92"><div>请在您的notion中添加一个slug为${CONFIG.INDEX_PAGE}的文章</div></blockquote>`
             containerInner?.insertAdjacentHTML('afterbegin', newHTML)
           }
         }
@@ -284,7 +284,9 @@ const LayoutSlug = props => {
               {post?.type === 'Post' && (
                 <ArticleAround prev={prev} next={next} />
               )}
-
+              {post?.type === 'Read' && (
+                <ArticleAround prev={prev} next={next} />
+              )}
               <AdSlot />
               <WWAds className="w-full" orientation="horizontal" />
 
@@ -307,6 +309,30 @@ const LayoutSlug = props => {
  */
 const LayoutSearch = props => {
   return <LayoutBase {...props}></LayoutBase>
+}
+
+/**
+ * 아카이브 페이지는 거의 사용되지 않습니다.
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
+const LayoutReadAndWrite = props => {
+  const { readAndWritePosts } = props
+
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3  min-h-full">
+        {Object.keys(readAndWritePosts)?.map(archiveTitle => (
+          <BlogArchiveItem
+            key={archiveTitle}
+            archiveTitle={archiveTitle}
+            archivePosts={readAndWritePosts}
+          />
+        ))}
+      </div>
+    </LayoutBase>
+  )
 }
 
 /**
@@ -416,6 +442,7 @@ const LayoutTagIndex = props => {
 export {
   Layout404,
   LayoutArchive,
+  LayoutReadAndWrite,
   LayoutCategoryIndex,
   LayoutIndex,
   LayoutPostList,

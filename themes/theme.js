@@ -36,6 +36,8 @@ export const getLayoutNameByPath = path => {
       return 'LayoutIndex'
     case '/archive':
       return 'LayoutArchive'
+    case '/read':
+      return 'LayoutReadAndWrite'
     case '/page/[page]':
     case '/category/[category]':
     case '/category/[category]/page/[page]':

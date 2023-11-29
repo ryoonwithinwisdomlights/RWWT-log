@@ -84,8 +84,9 @@ const BLOG = {
   // END ************website font*****************
   CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true,
   // Whether to allow copying of page content is allowed by default. If set to false, copying of content is prohibited in the entire stack.
+  // 우클릭 메뉴
   CUSTOM_RIGHT_CLICK_CONTEXT_MENU:
-    process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || true, // Customize the right-click menu and override the system menu
+    process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || false, // Customize the right-click menu and override the system menu
 
   // Custom external scripts, external style
   CUSTOM_EXTERNAL_JS: [''], // e.g. ['http://xx.com/script.js','http://xx.com/script.js']
@@ -387,6 +388,11 @@ const BLOG = {
     type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'type', // article type
     type_post: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_POST || 'Post', // When the type article type is the same as this value, it is a blog post.
     type_page: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PAGE || 'Page', // When the type article type is the same as this value, it is a single page.
+    type_read: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_READ || 'Read',
+    type_portfolio:
+      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PORTFOLIO || 'Portfolio',
+    type_inspiration:
+      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_INSPIRATION || 'Inspiration',
     type_notice:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_NOTICE || 'Notice', // When the type article type is the same as this value, it is an announcement.
     type_menu: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_MENU || 'Menu', // When the type article type is the same as this value, it is a menu.

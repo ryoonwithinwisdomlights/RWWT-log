@@ -42,33 +42,39 @@ const ReadandWriteIndex = props => {
 }
 
 export async function getStaticProps() {
-  const props = await getGlobalData({ from: 'read-index' })
+  const props = await getGlobalData({ from: 'read-index', type: 'Read' })
   // Handle pagination
-  props.posts = props.allPages?.filter(
-    page => page.type === 'Post' && page.status === 'Published'
-  )
+  //   console.log('props.allPages', props.allPages)
+  console.log('getStaticProps')
+  props.posts = props.allPages?.filter(page => {
+    if (page.type === 'Read') {
+      //   console.log(page)
+    }
+    return page.type === 'Read' && page.status === 'Published'
+  })
   delete props.allPages
-
+  //   console.log('props.posts', props.posts)
   const postsSortByDate = Object.create(props.posts)
 
   postsSortByDate.sort((a, b) => {
     return b?.publishDate - a?.publishDate
   })
 
-  const readPosts = {}
+  const readAndWritePosts = {}
 
   postsSortByDate.forEach(post => {
     const date = formatDateFmt(post.publishDate, 'yyyy-MM')
-    if (readPosts[date]) {
-      readPosts[date].push(post)
+    if (readAndWritePosts[date]) {
+      readAndWritePosts[date].push(post)
     } else {
-      readPosts[date] = [post]
+      readAndWritePosts[date] = [post]
     }
   })
 
-  props.archivePosts = readPosts
+  props.readAndWritePosts = readAndWritePosts
   delete props.allPages
 
+  //   console.log(' props.readAndWritePosts', props.readAndWritePosts)
   return {
     props,
     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)
