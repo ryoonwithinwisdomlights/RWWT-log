@@ -1,5 +1,6 @@
 'use client'
 
+import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
 import BLOG from '@/blog.config'
 import Comment from '@/components/Comment'
 import CommonHead from '@/components/CommonHead'
@@ -34,6 +35,8 @@ import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import CONFIG from './config'
 import { Style } from './style'
+import Image from 'next/image'
+import ReadAndWriteItem from './components/ReadAndWriteItem'
 const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
 // Theme global variables
@@ -312,24 +315,47 @@ const LayoutSearch = props => {
 }
 
 /**
- * 아카이브 페이지는 거의 사용되지 않습니다.
+ * Read & Write 메뉴 레이아웃
  * All depends on page navigation
  * @param {*} props
  * @returns
  */
 const LayoutReadAndWrite = props => {
   const { readAndWritePosts } = props
-
+  // console.log('readAndWritePosts', readAndWritePosts)
   return (
     <LayoutBase {...props}>
-      <div className="mb-10 pb-20 md:py-12 py-3  min-h-full">
-        {Object.keys(readAndWritePosts)?.map(archiveTitle => (
-          <BlogArchiveItem
-            key={archiveTitle}
-            archiveTitle={archiveTitle}
-            archivePosts={readAndWritePosts}
-          />
-        ))}
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="w-1/2 text-[10px] mb-2">
+          읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
+        </div>
+        <div className="flex flex-row  items-center ">
+          <div className="w-1/2 mr-20">
+            <div className="">
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              <Image
+                src={ReadPic}
+                alt="So-I-Read-And-Write"
+                // width={200}
+                // height={100}
+                fit
+              />
+              <div className="text-3xl dark:text-gray-300 mt-4">
+                So, I Read and Write.
+              </div>
+            </div>
+          </div>
+          {Object.keys(readAndWritePosts)?.map(archiveTitle => {
+            // console.log(archiveTitle)
+            return (
+              <ReadAndWriteItem
+                key={archiveTitle}
+                archiveTitle={archiveTitle}
+                archivePosts={readAndWritePosts}
+              />
+            )
+          })}
+        </div>
       </div>
     </LayoutBase>
   )

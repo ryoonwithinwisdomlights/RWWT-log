@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import getConfig from 'next/config'
 import * as ThemeComponents from '@theme-components'
 // All themes are scanned in next.config.js
+// 메뉴 새로 생성시, 여기에다가 지정해줘야 함 2023.11.29
 export const { THEMES = [] } = getConfig().publicRuntimeConfig
 /**
  * Load theme files
