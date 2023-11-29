@@ -22,7 +22,7 @@ const BLOG = {
   BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights', //
   LINK:
     process.env.NEXT_PUBLIC_LINK || 'https://seryoon-bibana-cheon.vercel.app/', // website address
-  KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 블로그', // Website keywords separated by English commas
+  KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 블로그, 개발블로그', // Website keywords separated by English commas
   CONTACT_EMAIL:
     process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'ryoon.with.wisdomtrees@gmail.com', //
 

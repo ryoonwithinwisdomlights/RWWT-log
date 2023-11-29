@@ -9,7 +9,9 @@ const CONFIG = {
   MENU_TAG: true, // show label
   MENU_ARCHIVE: true, // show archive
   MENU_SEARCH: true, // show search
-
+  MENU_READ: true, // show search
+  MENU_PORTFOLIO: true, // show search
+  MENU_INSPIRATION: true, // show search
   // Widget
   WIDGET_REVOLVER_MAPS: process.env.NEXT_PUBLIC_WIDGET_REVOLVER_MAPS || 'false', // Map plugin
   WIDGET_TO_TOP: true // Jump back to top

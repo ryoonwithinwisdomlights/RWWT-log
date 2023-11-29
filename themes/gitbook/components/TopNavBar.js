@@ -40,11 +40,29 @@ export default function TopNavBar(props) {
       to: '/archive',
       show: CONFIG.MENU_ARCHIVE
     },
+    // {
+    //   icon: 'fas fa-search',
+    //   name: locale.NAV.SEARCH,
+    //   to: '/search',
+    //   show: CONFIG.MENU_SEARCH
+    // },
     {
-      icon: 'fas fa-search',
-      name: locale.NAV.SEARCH,
-      to: '/search',
-      show: CONFIG.MENU_SEARCH
+      icon: 'fa-solid fa-book',
+      name: locale.NAV.READ,
+      to: '/read',
+      show: CONFIG.MENU_READ
+    },
+    {
+      icon: 'fa-solid fa-wand-magic-sparkles',
+      name: locale.NAV.PORTFOLIO,
+      to: '/portfolio',
+      show: CONFIG.MENU_PORTFOLIO
+    },
+    {
+      icon: 'fa-solid fa-hand-sparkles',
+      name: locale.NAV.INSPIRATION,
+      to: '/inspiration',
+      show: CONFIG.MENU_INSPIRATION
     }
   ]
 
