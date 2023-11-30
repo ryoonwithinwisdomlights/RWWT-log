@@ -1,6 +1,13 @@
 /* eslint-disable multiline-ternary */
 import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
 import Girok from '@/public/images/inspiration/girok.jpg'
+
+import Bada from '@/public/images/thelog/bada.jpeg'
+import BeKind from '@/public/images/thelog/bekind.jpeg'
+import Learnt from '@/public/images/thelog/learnt.jpeg'
+import SelfRespect from '@/public/images/thelog/self-respect.jpeg'
+import TheLake from '@/public/images/thelog/thelake.jpeg'
+
 import CONFIG from './config'
 
 import BLOG from '@/blog.config'
@@ -42,6 +49,7 @@ import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import { Style } from './style'
 import InspirationItem from './components/InspirationItem'
+import TheLogitem from './components/TheLogitem'
 
 // Topic global status
 const ThemeGlobalMedium = createContext()
@@ -336,6 +344,66 @@ const LayoutPortfolio = props => {
   )
 }
 
+const LayoutTheLog = props => {
+  const { theLogPosts } = props
+  // console.log('theLogPosts', theLogPosts)
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="text-3xl dark:text-gray-300 mb-4 ">
+          Our Life, Out Lives.
+        </div>
+        <div className="flex flex-row">
+          <div className="w-1/2 mr-20 h-full">
+            <div className="w-full flex flex-row float-left  gap-4 mb-4 ">
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              <Image
+                src={Bada}
+                alt="Bada"
+                className="rounded-lg duration-500  hover:scale-110 "
+              />
+              <Image
+                src={TheLake}
+                alt="TheLake"
+                className="rounded-lg duration-500  hover:scale-scale-110 "
+              />
+              <Image
+                src={SelfRespect}
+                alt="TheLake"
+                className="rounded-lg duration-500  hover:scale-110 "
+              />
+            </div>
+            <div className="w-full flex flex-row float-left gap-4 mb-4 ">
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              <Image
+                src={BeKind}
+                alt="TheLake"
+                className="rounded-lg duration-500  hover:scale-110  "
+              />
+              <Image
+                src={Learnt}
+                alt="TheLake"
+                className="rounded-lg duration-500  hover:scale-110  "
+              />
+            </div>
+          </div>
+          <div className="w-full flex flex-col gap-10 bg-opacity-50 p-10 rounded-lg dark:bg-black dark:bg-opacity-70 bg-white">
+            {Object.keys(theLogPosts)?.map(archiveTitle => {
+              return (
+                <TheLogitem
+                  key={archiveTitle}
+                  archiveTitle={archiveTitle}
+                  archivePosts={theLogPosts}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
 /**
  * Inspiration 메뉴 레이아웃
  * All depends on page navigation
@@ -532,6 +600,7 @@ export {
   LayoutPortfolio,
   LayoutReadAndWrite,
   LayoutInspiration,
+  LayoutTheLog,
   LayoutSearch,
   LayoutSlug,
   LayoutTagIndex,

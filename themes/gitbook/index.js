@@ -46,6 +46,7 @@ import Image from 'next/image'
 import ReadAndWriteItem from './components/ReadAndWriteItem'
 import PortfolioItem from './components/PortfolioItem'
 import InspirationItem from './components/InspirationItem'
+import TheLogitem from './components/TheLogitem'
 const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
 // Theme global variables
@@ -372,11 +373,10 @@ const LayoutTheLog = props => {
               />
             </div>
           </div>
-          <div className="w-full flex flex-col gap-10 bg-opacity-50 p-10 rounded-lg dark:bg-black dark:bg-opacity-70 bg-white">
+          <div className="w-full flex flex-col gap-10 bg-opacity-30 p-10 rounded-lg dark:bg-black dark:bg-opacity-70 bg-white">
             {Object.keys(theLogPosts)?.map(archiveTitle => {
-              // console.log(archiveTitle)
               return (
-                <ReadAndWriteItem
+                <TheLogitem
                   key={archiveTitle}
                   archiveTitle={archiveTitle}
                   archivePosts={theLogPosts}
