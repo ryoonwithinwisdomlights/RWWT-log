@@ -46,7 +46,7 @@ const Slug = props => {
           const article = document.getElementById('notion-article')
           if (!article) {
             router.push('/404').then(() => {
-              console.warn('找不到页面', router.asPath)
+              console.warn('Page not found', router.asPath)
             })
           }
         }

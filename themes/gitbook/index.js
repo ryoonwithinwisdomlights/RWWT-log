@@ -47,6 +47,7 @@ import ReadAndWriteItem from './components/ReadAndWriteItem'
 import PortfolioItem from './components/PortfolioItem'
 import InspirationItem from './components/InspirationItem'
 import TheLogitem from './components/TheLogitem'
+import GuestBookItem from './components/GuestBookItem'
 const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
 // Theme global variables
@@ -322,6 +323,68 @@ const LayoutSlug = props => {
  */
 const LayoutSearch = props => {
   return <LayoutBase {...props}></LayoutBase>
+}
+
+/**
+ * GuestBook (방명록) 메뉴 레이아웃
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
+const LayoutGuestBook = props => {
+  const { GuestBookPosts } = props
+  // console.log('theLogPosts', theLogPosts)
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="text-3xl dark:text-gray-300 mb-4 ">GuestBook</div>
+        <div className="flex flex-row">
+          {/* <div className="w-1/2 mr-20 h-full">
+            <div className="w-full flex flex-row float-left  gap-4 mb-4 ">
+              <Image
+                src={Bada}
+                alt="Bada"
+                className="rounded-lg duration-500  hover:scale-110 "
+              />
+              <Image
+                src={TheLake}
+                alt="TheLake"
+                className="rounded-lg duration-500  hover:scale-scale-110 "
+              />
+              <Image
+                src={SelfRespect}
+                alt="TheLake"
+                className="rounded-lg duration-500  hover:scale-110 "
+              />
+            </div>
+            <div className="w-full flex flex-row float-left gap-4 mb-4 ">
+              <Image
+                src={BeKind}
+                alt="TheLake"
+                className="rounded-lg duration-500  hover:scale-110  "
+              />
+              <Image
+                src={Learnt}
+                alt="TheLake"
+                className="rounded-lg duration-500  hover:scale-110  "
+              />
+            </div>
+          </div> */}
+          <div className="w-full flex flex-col gap-10 bg-opacity-30 p-10 rounded-lg dark:bg-black dark:bg-opacity-70 bg-white">
+            {Object.keys(GuestBookPosts)?.map(archiveTitle => {
+              return (
+                <GuestBookItem
+                  key={archiveTitle}
+                  archiveTitle={archiveTitle}
+                  archivePosts={GuestBookPosts}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </LayoutBase>
+  )
 }
 
 /**
@@ -627,6 +690,7 @@ const LayoutTagIndex = props => {
 export {
   Layout404,
   LayoutArchive,
+  LayoutGuestBook,
   LayoutTheLog,
   LayoutReadAndWrite,
   LayoutPortfolio,

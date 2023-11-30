@@ -12,10 +12,10 @@ export const CloudMoon = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="#ffd500"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="lucide lucide-cloud-moon"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-cloud-moon"
     >
       <path d="M13 16a3 3 0 1 1 0 6H7a5 5 0 1 1 4.9-6Z" />
       <path d="M10.1 9A6 6 0 0 1 16 4a4.24 4.24 0 0 0 6 6 6 6 0 0 1-3 5.197" />
@@ -32,10 +32,10 @@ export const CloudSun = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="#ffd500"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="lucide lucide-cloud-sun"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-cloud-sun"
     >
       <path d="M12 2v2" />
       <path d="m4.93 4.93 1.41 1.41" />
