@@ -1,15 +1,15 @@
 /* eslint-disable multiline-ternary */
 import { useState, useImperativeHandle, useRef } from 'react'
-import BLOG from '@/blog.config'
 import algoliasearch from 'algoliasearch'
 import replaceSearchResult from '@/components/Mark'
 import Link from 'next/link'
 import { useGlobal } from '@/lib/global'
 import throttle from 'lodash/throttle'
+import { siteConfig } from '@/lib/config'
 
 /**
- * Pop-up search box implemented with Algolia
- * Open method cRef.current.openSearch()
+ * 结合 Algolia 实现的弹出式搜索框
+ * 打开方式 cRef.current.openSearch()
  * https://www.algolia.com/doc/api-reference/search-api-parameters/
  */
 export default function AlgoliaSearchModal({ cRef }) {
@@ -22,7 +22,7 @@ export default function AlgoliaSearchModal({ cRef }) {
   const [useTime, setUseTime] = useState(0)
 
   /**
-   * External exposure method
+   * 对外暴露方法
    */
   useImperativeHandle(cRef, () => {
     return {
@@ -33,13 +33,13 @@ export default function AlgoliaSearchModal({ cRef }) {
   })
 
   const client = algoliasearch(
-    BLOG.ALGOLIA_APP_ID,
-    BLOG.ALGOLIA_SEARCH_ONLY_APP_KEY
+    siteConfig('ALGOLIA_APP_ID'),
+    siteConfig('ALGOLIA_SEARCH_ONLY_APP_KEY')
   )
-  const index = client.initIndex(BLOG.ALGOLIA_INDEX)
+  const index = client.initIndex(siteConfig('ALGOLIA_INDEX'))
 
   /**
-   * search
+   * 搜索
    * @param {*} query
    */
   const handleSearch = async (query, page) => {
@@ -89,7 +89,7 @@ export default function AlgoliaSearchModal({ cRef }) {
   }
 
   /**
-   * Switch page number
+   * 切换页码
    * @param {*} page
    */
   const switchPage = page => {
@@ -97,13 +97,13 @@ export default function AlgoliaSearchModal({ cRef }) {
   }
 
   /**
-   * Close pop-up window
+   * 关闭弹窗
    */
   const closeModal = () => {
     setIsModalOpen(false)
   }
 
-  if (!BLOG.ALGOLIA_APP_ID) {
+  if (!siteConfig('ALGOLIA_APP_ID')) {
     return <></>
   }
 
@@ -114,7 +114,7 @@ export default function AlgoliaSearchModal({ cRef }) {
         isModalOpen ? 'opacity-100' : 'invisible opacity-0 pointer-events-none'
       } z-30 fixed h-screen w-screen left-0 top-0 mt-12 flex items-start justify-center`}
     >
-      {/* modal box */}
+      {/* 模态框 */}
       <div
         className={`${
           isModalOpen ? 'opacity-100' : 'invisible opacity-0 translate-y-10'
@@ -137,7 +137,7 @@ export default function AlgoliaSearchModal({ cRef }) {
           className="text-black dark:text-gray-200 bg-gray-50 dark:bg-gray-600 outline-blue-500 w-full px-4 my-2 py-1 mb-4 border rounded-md"
         />
 
-        {/* tag group */}
+        {/* 标签组 */}
         <div className="mb-4">
           <TagGroups />
         </div>
@@ -146,7 +146,7 @@ export default function AlgoliaSearchModal({ cRef }) {
           {searchResults.map(result => (
             <li key={result.objectID} className="replace my-2">
               <a
-                href={`${BLOG.SUB_PATH}/${result.slug}`}
+                href={`${siteConfig('SUB_PATH', '')}/${result.slug}`}
                 className="font-bold hover:text-blue-600 text-black dark:text-gray-200"
               >
                 {result.title}
@@ -170,7 +170,7 @@ export default function AlgoliaSearchModal({ cRef }) {
         </div>
       </div>
 
-      {/* mask */}
+      {/* 遮罩 */}
       <div
         onClick={closeModal}
         className="z-30 fixed top-0 left-0 w-full h-full flex items-center justify-center glassmorphism"
@@ -180,11 +180,11 @@ export default function AlgoliaSearchModal({ cRef }) {
 }
 
 /**
- * tag group
+ * 标签组
  */
 function TagGroups(props) {
   const { tagOptions } = useGlobal()
-  //  Get the first ten tagOptions array
+  //  获取tagOptions数组前十个
   const firstTenTags = tagOptions?.slice(0, 10)
 
   return (
@@ -199,7 +199,7 @@ function TagGroups(props) {
           >
             <div
               className={
-                ' flex items-center text-black dark:text-gray-300 hover:bg-lime-600 dark:hover:bg-yellow-600 hover:scale-110 hover:text-white rounded-lg px-2 py-0.5 duration-150 transition-all'
+                ' flex items-center text-black dark:text-gray-300 hover:bg-blue-600 dark:hover:bg-yellow-600 hover:scale-110 hover:text-white rounded-lg px-2 py-0.5 duration-150 transition-all'
               }
             >
               <div className="text-lg">{tag.name} </div>
@@ -217,7 +217,7 @@ function TagGroups(props) {
 }
 
 /**
- * Pagination
+ * 分页
  * @param {*} param0
  */
 function Pagination(props) {
@@ -239,7 +239,7 @@ function Pagination(props) {
 }
 
 /**
- * Get pagination button
+ * 获取分页按钮
  * @param {*} i
  * @param {*} selected
  */

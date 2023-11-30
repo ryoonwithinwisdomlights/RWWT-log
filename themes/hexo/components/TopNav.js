@@ -166,7 +166,6 @@ const TopNav = props => {
           {/* Right function */}
           <div className="mr-1 justify-end items-center ">
             <div className="hidden lg:flex">
-              {' '}
               <MenuListTop {...props} />
             </div>
             <div

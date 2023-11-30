@@ -127,8 +127,8 @@ const LayoutBase = props => {
 }
 
 /**
- * 首页
- * 是一个博客列表，嵌入一个Hero大图
+ * front page
+ * It is a blog list, embedded with a Hero image
  * @param {*} props
  * @returns
  */
@@ -140,7 +140,8 @@ const LayoutIndex = props => {
 }
 
 /**
- * 博客列表
+ *
+Blog list
  * @param {*} props
  * @returns
  */
@@ -205,7 +206,7 @@ const LayoutTheLog = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="text-3xl dark:text-gray-300 mb-4 ">
-          Our Life, Out Lives.
+          Our Life, Our Lives.
         </div>
         <div className="flex flex-row">
           <div className="w-1/2 mr-20 h-full">

@@ -50,7 +50,7 @@ export const MenuItemDrop = ({ link }) => {
             return (
               <li
                 key={index}
-                className="cursor-pointer hover:bg-indigo-300 text-gray-900 hover:text-black tracking-widest transition-all duration-200 dark:border-gray-800  py-1 pr-6 pl-3"
+                className="cursor-pointer hover:bg-[#c7ff58] text-gray-900 hover:text-black tracking-widest transition-all duration-200 dark:border-gray-800  py-1 pr-6 pl-3"
               >
                 <Link
                   href={sLink.to}

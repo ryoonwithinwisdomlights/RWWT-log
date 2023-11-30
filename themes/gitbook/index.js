@@ -337,7 +337,7 @@ const LayoutTheLog = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="text-3xl dark:text-gray-300 mb-4 ">
-          Our Life, Out Lives.
+          Our Life, Our Lives.
         </div>
         <div className="flex flex-row">
           <div className="w-1/2 mr-20 h-full">

@@ -10,7 +10,7 @@ import { siteConfig } from '@/lib/config'
 let wrapperTop = 0
 
 /**
- * 顶部全屏大图
+ * Full screen image at top
  * @returns
  */
 const Hero = props => {
@@ -28,9 +28,9 @@ const Hero = props => {
       changeType(
         new Typed('#typed', {
           strings: GREETING_WORDS,
-          typeSpeed: 200,
+          typeSpeed: 100,
           backSpeed: 100,
-          backDelay: 400,
+          backDelay: 100,
           showCursor: true,
           smartBackspace: true
         })
@@ -51,33 +51,49 @@ const Hero = props => {
   }
 
   return (
-        <header
-            id="header" style={{ zIndex: 1 }}
-            className="w-full h-screen relative bg-black"
+    <header
+      id="header"
+      style={{ zIndex: 1 }}
+      className="w-full h-screen relative bg-black"
+    >
+      <div className="text-white absolute bottom-0 flex flex-col h-full items-center justify-center w-full ">
+        {/* site title */}
+        <div className="font-black text-4xl md:text-5xl ">
+          {siteConfig('TITLE')}
+        </div>
+        {/* Site welcome message */}
+        <div className="mt-2 h-12 items-center text-center font-medium text-lg">
+          <span id="typed" />
+        </div>
+
+        {/* Home navigation big button */}
+        {siteConfig('HEXO_HOME_NAV_BUTTONS', null, CONFIG) && (
+          <NavButtonGroup {...props} />
+        )}
+
+        {/* scroll button */}
+        <div
+          onClick={scrollToWrapper}
+          className="z-10 cursor-pointer w-full text-center py-4 text-3xl absolute bottom-10 text-white"
         >
+          <div className="opacity-70 animate-bounce text-xs">
+            {siteConfig('HEXO_SHOW_START_READING', null, CONFIG) &&
+              locale.COMMON.START_READING}
+          </div>
+          <i className="opacity-70 animate-bounce fas fa-angle-down" />
+        </div>
+      </div>
 
-            <div className="text-white absolute bottom-0 flex flex-col h-full items-center justify-center w-full ">
-                {/* 站点标题 */}
-                <div className='font-black text-4xl md:text-5xl shadow-text'>{siteConfig('TITLE')}</div>
-                {/* 站点欢迎语 */}
-                <div className='mt-2 h-12 items-center text-center font-medium shadow-text text-lg'>
-                    <span id='typed' />
-                </div>
-
-                {/* 首页导航大按钮 */}
-                {siteConfig('HEXO_HOME_NAV_BUTTONS', null, CONFIG) && <NavButtonGroup {...props} />}
-
-                {/* 滚动按钮 */}
-                <div onClick={scrollToWrapper} className="z-10 cursor-pointer w-full text-center py-4 text-3xl absolute bottom-10 text-white">
-                    <div className="opacity-70 animate-bounce text-xs">{siteConfig('HEXO_SHOW_START_READING', null, CONFIG) && locale.COMMON.START_READING}</div>
-                    <i className='opacity-70 animate-bounce fas fa-angle-down' />
-                </div>
-            </div>
-
-            <LazyImage id='header-cover' src={siteInfo?.pageCover}
-                className={`header-cover w-full h-screen object-cover object-center ${siteConfig('HEXO_HOME_NAV_BACKGROUND_IMG_FIXED', null, CONFIG) ? 'fixed' : ''}`} />
-
-        </header>
+      <LazyImage
+        id="header-cover"
+        src={siteInfo?.pageCover}
+        className={`header-cover w-full h-screen object-cover object-center ${
+          siteConfig('HEXO_HOME_NAV_BACKGROUND_IMG_FIXED', null, CONFIG)
+            ? 'fixed'
+            : ''
+        }`}
+      />
+    </header>
   )
 }
 
