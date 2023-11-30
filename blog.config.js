@@ -15,7 +15,7 @@ const BLOG = {
 
   GREETING_WORDS: process.env.NEXT_PUBLIC_GREETING_WORDS || '륜로그',
 
-  CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || false, // Supports Menu type. Starting from version 3.12.0, each theme will gradually support flexible secondary menu configuration, replacing the original Page type. This configuration is an experimental function and is turned off by default.
+  CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true, // Supports Menu type. Starting from version 3.12.0, each theme will gradually support flexible secondary menu configuration, replacing the original Page type. This configuration is an experimental function and is turned off by default.
 
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.with.wisdomtrees', //
   BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights', //
