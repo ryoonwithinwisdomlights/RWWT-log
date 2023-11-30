@@ -10,7 +10,7 @@ import { formatDateFmt } from '@/lib/formatDate'
 const ReadandWriteIndex = props => {
   const { siteInfo } = props
   const { locale } = useGlobal()
-
+  // console.log('siteInfo', siteInfo)
   // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
@@ -43,9 +43,7 @@ const ReadandWriteIndex = props => {
 
 export async function getStaticProps() {
   const props = await getGlobalData({ from: 'read-index', type: 'Read' })
-  // Handle pagination
-  //   console.log('props.allPages', props.allPages)
-  // console.log('getStaticProps')
+
   props.posts = props.allPages?.filter(page => {
     if (page.type === 'Read') {
       //   console.log(page)

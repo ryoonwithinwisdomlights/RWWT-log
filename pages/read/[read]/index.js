@@ -5,15 +5,14 @@ import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
 
 /**
- * List of articles under the tag
+ * List of articles which has type of The Read
  * @param {*} props
  * @returns
  */
-const Tag = props => {
+const Read = props => {
   const { locale } = useGlobal()
   const { tag, siteInfo } = props
-  console.log('siteInfo:', siteInfo)
-  console.log('tag:', tag)
+
   // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
@@ -37,11 +36,13 @@ export async function getStaticProps({ params: { tag } }) {
   props.posts = props.allPages
     ?.filter(
       page =>
-        page.type !== 'CONFIG' &&
-        page.type !== 'Menu' &&
-        page.type !== 'SubMenu' &&
-        page.type !== 'Notice' &&
-        page.type !== 'Page' &&
+        (page.type === 'Post' ||
+          'Portfolio' ||
+          'Inspiration' ||
+          'GuestBook' ||
+          'Read' ||
+          'TheLog' ||
+          'Portfolio') &&
         page.status === 'Published'
     )
     .filter(post => post && post?.tags && post?.tags.includes(tag))
@@ -90,4 +91,4 @@ export async function getStaticPaths() {
   }
 }
 
-export default Tag
+export default Read

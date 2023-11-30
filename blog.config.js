@@ -407,6 +407,13 @@ const BLOG = {
   NOTION_PROPERTY_NAME: {
     password: process.env.NEXT_PUBLIC_NOTION_PROPERTY_PASSWORD || 'password',
     type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'type', // article type
+    type_able:
+      'Post' ||
+      'Read' ||
+      'Portfolio' ||
+      'Inspiration' ||
+      'TheLog' ||
+      'GuestBook',
     type_post: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_POST || 'Post', // When the type article type is the same as this value, it is a blog post.
     type_page: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PAGE || 'Page', // When the type article type is the same as this value, it is a single page.
     type_read: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_READ || 'Read',
