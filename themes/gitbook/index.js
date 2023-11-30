@@ -295,9 +295,13 @@ const LayoutSlug = props => {
                 </div>
               </div>
 
-              {post?.type === 'Post' && (
-                <ArticleAround prev={prev} next={next} />
-              )}
+              {(post?.type === 'Post' ||
+                'Portfolio' ||
+                'Inspiration' ||
+                'GuestBook' ||
+                'Read' ||
+                'TheLog' ||
+                'Portfolio') && <ArticleAround prev={prev} next={next} />}
               {post?.type === 'Read' && (
                 <ArticleAround prev={prev} next={next} />
               )}
@@ -461,7 +465,7 @@ const LayoutTheLog = props => {
  */
 const LayoutInspiration = props => {
   const { InspirationPosts } = props
-  console.log('InspirationPosts', InspirationPosts)
+  // console.log('InspirationPosts', InspirationPosts)
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">

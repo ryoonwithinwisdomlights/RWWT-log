@@ -38,7 +38,13 @@ export async function getStaticProps({ params: { category } }) {
 
   // filter status
   props.posts = props.allPages?.filter(
-    page => page.type === 'Post' && page.status === 'Published'
+    page =>
+      page.type !== 'CONFIG' &&
+      page.type !== 'Menu' &&
+      page.type !== 'SubMenu' &&
+      page.type !== 'Notice' &&
+      page.type !== 'Page' &&
+      page.status === 'Published'
   )
   // Process filtering
   props.posts = props.posts.filter(

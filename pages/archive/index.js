@@ -45,7 +45,13 @@ export async function getStaticProps() {
   const props = await getGlobalData({ from: 'archive-index' })
   // Handle pagination
   props.posts = props.allPages?.filter(
-    page => page.type === 'Post' && page.status === 'Published'
+    page =>
+      page.type !== 'CONFIG' &&
+      page.type !== 'Menu' &&
+      page.type !== 'SubMenu' &&
+      page.type !== 'Notice' &&
+      page.type !== 'Page' &&
+      page.status === 'Published'
   )
   delete props.allPages
 
@@ -69,7 +75,7 @@ export async function getStaticProps() {
   props.archivePosts = archivePosts
   delete props.allPages
 
-  console.log('props.archivePosts', props.archivePosts)
+  // console.log('props.archivePosts', props.archivePosts)
   return {
     props,
     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)

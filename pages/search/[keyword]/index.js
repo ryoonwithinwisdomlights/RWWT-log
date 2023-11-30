@@ -39,7 +39,15 @@ export async function getStaticProps({ params: { keyword } }) {
   })
   const { allPages } = props
   const allPosts = allPages?.filter(
-    page => page.type === 'Post' && page.status === 'Published'
+    page =>
+      (page.type === 'Post' ||
+        'Portfolio' ||
+        'Inspiration' ||
+        'GuestBook' ||
+        'Read' ||
+        'TheLog' ||
+        'Portfolio') &&
+      page.status === 'Published'
   )
   props.posts = await filterByMemCache(allPosts, keyword)
   props.postCount = props.posts.length

@@ -46,7 +46,15 @@ export async function getStaticProps({ params: { page } }) {
   const props = await getGlobalData({ from })
   const { allPages } = props
   const allPosts = allPages?.filter(
-    page => page.type === 'Post' && page.status === 'Published'
+    page =>
+      (page.type === 'Post' ||
+        'Portfolio' ||
+        'Inspiration' ||
+        'GuestBook' ||
+        'Read' ||
+        'TheLog' ||
+        'Portfolio') &&
+      page.status === 'Published'
   )
   // Handle pagination
   props.posts = allPosts.slice(

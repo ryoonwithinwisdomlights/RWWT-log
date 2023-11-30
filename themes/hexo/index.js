@@ -461,14 +461,20 @@ const LayoutSlug = props => {
               itemType="https://schema.org/Movie"
               className="subpixel-antialiased overflow-y-hidden"
             >
-              {/* Notion文章主体 */}
+              {/* Notion article body */}
               <section className="px-5 justify-center mx-auto max-w-2xl lg:max-w-full">
                 {post && <NotionPage post={post} />}
               </section>
 
-              {/* 分享 */}
+              {/* share */}
               <ShareBar post={post} />
-              {post?.type === 'Post' && (
+              {(post?.type === 'Post' ||
+                'Portfolio' ||
+                'Inspiration' ||
+                'GuestBook' ||
+                'Read' ||
+                'TheLog' ||
+                'Portfolio') && (
                 <>
                   <ArticleCopyright {...props} />
                   <ArticleRecommend {...props} />

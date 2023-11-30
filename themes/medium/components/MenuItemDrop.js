@@ -71,7 +71,7 @@ export const MenuItemDrop = ({ link }) => {
             return (
               <li
                 key={sLink.id}
-                className="not:last-child:border-b-0 border-b text-gray-700 dark:text-gray-200  hover:bg-gray-50 dark:hover:bg-gray-900 tracking-widest transition-all duration-200  dark:border-gray-800 py-3 pr-6 pl-3"
+                className="not:last-child:border-b-0 border-b hover:text-green-600 text-gray-700 dark:text-gray-200  hover:bg-gray-50 dark:hover:bg-gray-900 tracking-widest transition-all duration-200  dark:border-gray-800 py-3 pr-6 pl-3"
               >
                 <Link
                   href={sLink.to}

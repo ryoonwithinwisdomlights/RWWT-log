@@ -236,7 +236,15 @@ const LayoutSlug = props => {
             </div>
             {/* Previous articleNext article
              */}
-            {post?.type === 'Post' && <ArticleAround prev={prev} next={next} />}
+            {(post?.type === 'Post' ||
+              post?.type === 'Portfolio' ||
+              post?.type === 'Inspiration' ||
+              post?.type === 'GuestBook' ||
+              post?.type === 'Read' ||
+              post?.type === 'TheLog' ||
+              post?.type === 'Portfolio') && (
+              <ArticleAround prev={prev} next={next} />
+            )}
             {/*
 Comment area */}
             <Comment frontMatter={post} />

@@ -28,7 +28,13 @@ export async function getStaticProps() {
 
   const { siteInfo } = props
   props.posts = props.allPages?.filter(
-    page => page.type === 'Post' && page.status === 'Published'
+    page =>
+      page.type !== 'CONFIG' &&
+      page.type !== 'Menu' &&
+      page.type !== 'SubMenu' &&
+      page.type !== 'Notice' &&
+      page.type !== 'Page' &&
+      page.status === 'Published'
   )
 
   const meta = {

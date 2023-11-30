@@ -34,7 +34,17 @@ export async function getStaticProps({ params: { tag } }) {
 
   // filter status
   props.posts = props.allPages
-    ?.filter(page => page.type === 'Post' && page.status === 'Published')
+    ?.filter(
+      page =>
+        (page.type === 'Post' ||
+          'Portfolio' ||
+          'Inspiration' ||
+          'GuestBook' ||
+          'Read' ||
+          'TheLog' ||
+          'Portfolio') &&
+        page.status === 'Published'
+    )
     .filter(post => post && post?.tags && post?.tags.includes(tag))
 
   // Process article page count

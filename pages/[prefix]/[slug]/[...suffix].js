@@ -92,7 +92,13 @@ export async function getStaticProps({ params: { prefix, slug, suffix } }) {
 
   // Recommended related article processing
   const allPosts = props.allPages?.filter(
-    page => page.type === 'Post' && page.status === 'Published'
+    page =>
+      page.type !== 'CONFIG' &&
+      page.type !== 'Menu' &&
+      page.type !== 'SubMenu' &&
+      page.type !== 'Notice' &&
+      page.type !== 'Page' &&
+      page.status === 'Published'
   )
   if (allPosts && allPosts.length > 0) {
     const index = allPosts.indexOf(props.post)

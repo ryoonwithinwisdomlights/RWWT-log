@@ -414,6 +414,10 @@ const BLOG = {
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PORTFOLIO || 'Portfolio',
     type_inspiration:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_INSPIRATION || 'Inspiration',
+    type_thelog:
+      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_THELOG || 'TheLog',
+    type_guestbook:
+      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_GUESTBOOK || 'GuestBook',
     type_notice:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_NOTICE || 'Notice', // When the type article type is the same as this value, it is an announcement.
     type_menu: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_MENU || 'Menu', // When the type article type is the same as this value, it is a menu.

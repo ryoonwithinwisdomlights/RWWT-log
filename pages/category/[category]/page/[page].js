@@ -38,7 +38,15 @@ export async function getStaticProps({ params: { category, page } }) {
 
   // Filter status type
   props.posts = props.allPages
-    ?.filter(page => page.type === 'Post' && page.status === 'Published')
+    ?.filter(
+      page =>
+        page.type !== 'CONFIG' &&
+        page.type !== 'Menu' &&
+        page.type !== 'SubMenu' &&
+        page.type !== 'Notice' &&
+        page.type !== 'Page' &&
+        page.status === 'Published'
+    )
     .filter(post => post && post.category && post.category.includes(category))
   // Process article page count
   props.postCount = props.posts.length
@@ -67,7 +75,17 @@ export async function getStaticPaths() {
   categoryOptions?.forEach(category => {
     // Filter status type
     const categoryPosts = allPages
-      ?.filter(page => page.type === 'Post' && page.status === 'Published')
+      ?.filter(
+        page =>
+          (page.type === 'Post' ||
+            'Portfolio' ||
+            'Inspiration' ||
+            'GuestBook' ||
+            'Read' ||
+            'TheLog' ||
+            'Portfolio') &&
+          page.status === 'Published'
+      )
       .filter(
         post => post && post.category && post.category.includes(category.name)
       )
