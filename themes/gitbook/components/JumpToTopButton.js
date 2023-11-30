@@ -14,10 +14,10 @@ const JumpToTopButton = ({ showPercent = false, percent, className }) => {
       data-aos-duration="300"
       data-aos-once="false"
       data-aos-anchor-placement="top-center"
-      className="fixed xl:right-80 right-2 mr-10 bottom-24 z-20"
+      className="fixed xl:right-80 right-2 mr-10 bottom-24 z-20 "
     >
       <i
-        className="fas fa-chevron-up cursor-pointer p-2 rounded-full border bg-white dark:bg-hexo-black-gray"
+        className="fas fa-chevron-up cursor-pointer p-2 rounded-full border text-white bg-[#ffd500] dark:bg-hexo-black-gray"
         onClick={() => {
           window.scrollTo({ top: 0, behavior: 'smooth' })
         }}
