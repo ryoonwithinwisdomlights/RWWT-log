@@ -65,26 +65,31 @@ export const MenuItemDrop = ({ link }) => {
         <ul
           className={`${
             show ? 'visible opacity-100 top-12 ' : 'invisible opacity-0 top-10 '
-          } border-gray-100  bg-white  dark:bg-black dark:border-gray-800 transition-all duration-300 z-20 absolute block drop-shadow-lg rounded-lg`}
+          } border-gray-100  bg-white  dark:bg-black dark:border-gray-800 transition-all duration-300 z-20 
+          absolute block drop-shadow-lg rounded-lg`}
         >
           {link?.subMenus?.map((sLink, index) => {
             return (
-              <li
-                key={index}
-                className="not:last-child:border-b-0 border-b text-gray-700  dark:text-gray-200 hover:dark:text-[#ffd500]
-                 tracking-widest
-                 transition-all duration-200  dark:border-gray-800 py-3 pr-6 pl-3"
-              >
-                <Link
-                  href={sLink.to}
-                  target={link?.to?.indexOf('http') === 0 ? '_blank' : '_self'}
+              <div key={index} className="h-full w-full">
+                <li
+                  className="not:last-child:border-b-0 border-b
+                   text-gray-700 dark:text-gray-200
+                    tracking-widest transition-all duration-200  dark:border-gray-800 py-3 pr-6 pl-3"
                 >
-                  <span className="text-xs font-extralight">
-                    {link?.icon && <i className={sLink?.icon}> &nbsp; </i>}
-                    {sLink.title}
-                  </span>
-                </Link>
-              </li>
+                  <Link
+                    className="hover:bg-[#ffd500] hover:rounded-lg hover:h-4/5 w-full"
+                    href={sLink.to}
+                    target={
+                      link?.to?.indexOf('http') === 0 ? '_blank' : '_self'
+                    }
+                  >
+                    <span className="text-xs font-extralight">
+                      {link?.icon && <i className={sLink?.icon}> &nbsp; </i>}
+                      {sLink.title}
+                    </span>
+                  </Link>
+                </li>
+              </div>
             )
           })}
         </ul>
