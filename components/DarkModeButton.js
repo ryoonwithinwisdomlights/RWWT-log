@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useGlobal } from '@/lib/global'
 import { saveDarkModeToCookies } from '@/themes/theme'
-import { Moon, Sun } from './Lucide'
+import { Moon, Sun, CloudMoon, CloudSun } from './Lucide'
 import { useImperativeHandle } from 'react'
 
 /**
@@ -42,7 +43,7 @@ const DarkModeButton = props => {
         id="darkModeButton"
         className=" hover:scale-110 cursor-pointer transform duration-200 w-5 h-5"
       >
-        {isDarkMode ? <Sun /> : <Moon />}
+        {isDarkMode ? <CloudSun /> : <CloudMoon />}
       </div>
     </div>
   )

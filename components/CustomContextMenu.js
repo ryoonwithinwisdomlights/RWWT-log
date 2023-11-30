@@ -198,9 +198,9 @@ export default function CustomContextMenu(props) {
             className="w-full px-2 h-10 flex justify-start items-center flex-nowrap cursor-pointer hover:bg-lime-600 hover:text-white rounded-lg duration-200 transition-all"
           >
             {isDarkMode ? (
-              <i className="fa-regular fa-sun mr-2" />
+              <i className="fa-solid fa-cloud-sun mr-2" />
             ) : (
-              <i className="fa-regular fa-moon mr-2" />
+              <i className="fa-solid fa-cloud-moon mr-2" />
             )}
             <div className="whitespace-nowrap">
               {' '}

@@ -24,7 +24,9 @@ export const MenuItemDrop = ({ link }) => {
         <div
           className={
             'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
-            (selected ? ' text-white hover:text-white' : 'hover:text-green-600')
+            (selected
+              ? ' text-white hover:text-white '
+              : 'hover:text-[#ffd500]')
           }
         >
           <div>
@@ -44,7 +46,9 @@ export const MenuItemDrop = ({ link }) => {
         <div
           className={
             'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
-            (selected ? 'bg-lime-600 text-white ' : 'hover:text-lime-600')
+            (selected
+              ? 'bg-[#ffd500] rounded-lg h-4/5 text-white dark:text-gray-900  '
+              : 'hover:text-[#ffd500]')
           }
         >
           <Link
@@ -61,13 +65,15 @@ export const MenuItemDrop = ({ link }) => {
         <ul
           className={`${
             show ? 'visible opacity-100 top-12 ' : 'invisible opacity-0 top-10 '
-          } border-gray-100  bg-white  dark:bg-black dark:border-gray-800 transition-all duration-300 z-20 absolute block drop-shadow-lg `}
+          } border-gray-100  bg-white  dark:bg-black dark:border-gray-800 transition-all duration-300 z-20 absolute block drop-shadow-lg rounded-lg`}
         >
           {link?.subMenus?.map((sLink, index) => {
             return (
               <li
                 key={index}
-                className="not:last-child:border-b-0 border-b text-gray-700 dark:text-gray-200  hover:bg-gray-50 dark:hover:bg-gray-900 tracking-widest transition-all duration-200  dark:border-gray-800 py-3 pr-6 pl-3"
+                className="not:last-child:border-b-0 border-b text-gray-700  dark:text-gray-200 hover:dark:text-[#ffd500]
+                 tracking-widest
+                 transition-all duration-200  dark:border-gray-800 py-3 pr-6 pl-3"
               >
                 <Link
                   href={sLink.to}
