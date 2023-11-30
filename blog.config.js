@@ -20,30 +20,40 @@ const BLOG = {
     process.env.NEXT_PUBLIC_GREETING_WORDS ||
     'Achieves, builds solidarity, and develops together.',
 
-  CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true, // Supports Menu type. Starting from version 3.12.0, each theme will gradually support flexible secondary menu configuration, replacing the original Page type. This configuration is an experimental function and is turned off by default.
+  CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true,
+  // Supports Menu type. Starting from version 3.12.0,
+  // each theme will gradually support flexible secondary menu configuration,
+  // replacing the original Page type. This configuration is an experimental function and is turned off by default.
 
-  AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.with.wisdomtrees', //
-  BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights', //
+  AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.with.wisdomtrees',
+  BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights',
   LINK: process.env.NEXT_PUBLIC_LINK, // website address
   KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 블로그, 개발블로그', // Website keywords separated by English commas
-  CONTACT_EMAIL: process.env.NEXT_PUBLIC_CONTACT_EMAIL, //
+  CONTACT_EMAIL: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
 
-  CONTACT_TWITTER: process.env.NEXT_PUBLIC_CONTACT_TWITTER, //
-  CONTACT_GITHUB: process.env.NEXT_PUBLIC_CONTACT_GITHUB, //
-  // CONTACT_TELEGRAM: process.env.NEXT_PUBLIC_CONTACT_TELEGRAM || '', //
-  // CONTACT_LINKEDIN: process.env.NEXT_PUBLIC_CONTACT_LINKEDIN || '', //
+  CONTACT_TWITTER: process.env.NEXT_PUBLIC_CONTACT_TWITTER,
+  CONTACT_GITHUB: process.env.NEXT_PUBLIC_CONTACT_GITHUB,
+  // CONTACT_TELEGRAM: process.env.NEXT_PUBLIC_CONTACT_TELEGRAM || '',
+  // CONTACT_LINKEDIN: process.env.NEXT_PUBLIC_CONTACT_LINKEDIN || '',
   CONTACT_INSTAGRAM: process.env.NEXT_PUBLIC_CONTACT_INSTAGRAM,
-  // CONTACT_YOUTUBE: process.env.NEXT_PUBLIC_CONTACT_YOUTUBE || '', //
+  // CONTACT_YOUTUBE: process.env.NEXT_PUBLIC_CONTACT_YOUTUBE || '',
 
   NOTION_HOST: process.env.NEXT_PUBLIC_NOTION_HOST || 'https://www.notion.so', // Notion domain name, you can choose to use your own domain name for reverse proxy. If you do not know what a reverse proxy is, please do not modify this item.
 
   BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || '/favicon.ico', //
-  RANDOM_IMAGE_URL: process.env.NEXT_PUBLIC_RANDOM_IMAGE_URL || '', // 随机图片API,如果未配置下面的关键字，主页封面，头像，文章封面图都会被替换为随机图片
+  RANDOM_IMAGE_URL: process.env.NEXT_PUBLIC_RANDOM_IMAGE_URL || '',
+  // Random picture API, if the following keywords are not configured,
+  // the homepage cover, avatar, and article cover image will be replaced with random pictures.
   RANDOM_IMAGE_REPLACE_TEXT:
     process.env.NEXT_PUBLIC_RANDOM_IMAGE_NOT_REPLACE_TEXT ||
-    'images.unsplash.com', // 触发替换图片的 url 关键字(多个支持用英文逗号分开)，只有图片地址中包含此关键字才会替换为上方随机图片url
-  // eg: images.unsplash.com(notion图床的所有图片都会替换),如果你在 notion 里已经添加了一个随机图片 url，恰巧那个服务跑路或者挂掉，想一键切换所有配图可以将该 url 配置在这里
-  // 默认下会将你上传到 notion的主页封面图和头像也给替换，建议将主页封面图和头像放在其他图床，在 notion 里配置 link 即可。
+    'images.unsplash.com',
+  // The url keyword that triggers the replacement of the image (multiple supported are separated by English commas).
+  // Only the image address containing this keyword will be replaced with the random image url above.
+  // eg: images.unsplash.com (all images in the notification image bed will be replaced).
+  // If you have added a random image URL in the notification, and that service happens to run away or hang up,
+  // you can switch all images with one click. Configure the url here
+  // By default, the homepage cover image and avatar you uploaded to notion will also be replaced.
+  // It is recommended to put the homepage cover image and avatar on other image beds, and configure the link in notion.
 
   // START ************website font*****************
 
@@ -97,7 +107,7 @@ const BLOG = {
   // Whether to allow copying of page content is allowed by default. If set to false, copying of content is prohibited in the entire stack.
   // 우클릭 메뉴
   CUSTOM_RIGHT_CLICK_CONTEXT_MENU:
-    process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || false, // Customize the right-click menu and override the system menu
+    process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || true, // Customize the right-click menu and override the system menu
 
   // Custom external scripts, external style
   CUSTOM_EXTERNAL_JS: [''], // e.g. ['http://xx.com/script.js','http://xx.com/script.js']

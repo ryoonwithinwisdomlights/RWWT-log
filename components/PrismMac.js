@@ -190,7 +190,7 @@ function renderPrismMac() {
   try {
     Prism.highlightAll()
   } catch (err) {
-    console.log('代码渲染', err)
+    console.log('code rendering', err)
   }
 
   const codeToolBars = container?.getElementsByClassName('code-toolbar')

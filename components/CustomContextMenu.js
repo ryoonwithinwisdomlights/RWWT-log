@@ -90,10 +90,10 @@ export default function CustomContextMenu(props) {
     navigator.clipboard
       .writeText(url)
       .then(() => {
-        console.log('页面地址已复制')
+        console.log('The page address has been copied')
       })
       .catch(error => {
-        console.error('复制页面地址失败:', error)
+        console.error('Failed to copy page address:', error)
       })
     setShow(false)
   }

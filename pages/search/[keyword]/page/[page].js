@@ -139,7 +139,7 @@ async function filterByMemCache(allPosts, keyword) {
         indexContent = appendText(indexContent, properties, 'caption')
       })
     }
-    // console.log('全文搜索缓存', cacheKey, page != null)
+    // console.log('Full text search cache', cacheKey, page != null)
     post.results = []
     let hitCount = 0
     for (const i in indexContent) {

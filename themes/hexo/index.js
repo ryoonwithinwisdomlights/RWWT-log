@@ -159,7 +159,7 @@ const LayoutPostList = props => {
 }
 
 /**
- * 搜索
+ * search
  * @param {*} props
  * @returns
  */
@@ -413,7 +413,7 @@ const LayoutArchive = props => {
 }
 
 /**
- * 文章详情
+ * Article details
  * @param {*} props
  * @returns
  */
@@ -502,13 +502,13 @@ const LayoutSlug = props => {
 const Layout404 = props => {
   const router = useRouter()
   useEffect(() => {
-    // 延时3秒如果加载失败就返回首页
+    // Delay for 3 seconds and return to home page if loading fails.
     setTimeout(() => {
       if (isBrowser) {
         const article = document.getElementById('notion-article')
         if (!article) {
           router.push('/').then(() => {
-            // console.log('找不到页面', router.asPath)
+            // console.log('Page not found', router.asPath)
           })
         }
       }
@@ -531,7 +531,7 @@ const Layout404 = props => {
 }
 
 /**
- * 分类列表
+ * Category List
  * @param {*} props
  * @returns
  */
@@ -571,7 +571,7 @@ const LayoutCategoryIndex = props => {
 }
 
 /**
- * 标签列表
+ * tag list
  * @param {*} props
  * @returns
  */
