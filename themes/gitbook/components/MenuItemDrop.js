@@ -47,7 +47,7 @@ export const MenuItemDrop = ({ link }) => {
           className={
             'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
             (selected
-              ? 'bg-[#ffd500] rounded-lg h-4/5 text-white dark:text-gray-900  '
+              ? 'bg-[#ffd500] rounded-lg h-3/5 text-white dark:text-gray-900  '
               : 'hover:text-[#ffd500]')
           }
         >
