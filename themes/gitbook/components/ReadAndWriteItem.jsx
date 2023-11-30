@@ -12,7 +12,7 @@ export default function ReadAndWriteItem({ archiveTitle, archivePosts }) {
         {archivePosts[archiveTitle]?.map(post => (
           <li
             key={post.id}
-            className="border-l-2 p-1 text-xs md:text-base items-center  hover:scale-x-105 hover:border-gray-500 dark:hover:border-gray-300 dark:border-gray-400 transform duration-500"
+            className="border-l-2 p-1 text-xs md:text-base items-center transform duration-500  hover:scale-x-105 hover:border-gray-500 dark:hover:border-gray-300 dark:border-gray-400 "
           >
             <div id={post?.publishDay}>
               <span className="text-gray-400">{post.date?.start_date}</span>{' '}

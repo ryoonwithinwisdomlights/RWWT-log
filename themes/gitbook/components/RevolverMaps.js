@@ -18,7 +18,7 @@ function initRevolverMaps() {
         'https://rf.revolvermaps.com/0/0/8.js?i=5jnp1havmh9&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33'
       )
     ]).then(() => {
-      console.log('地图加载完成')
+      console.log('지도 로딩 완료')
     })
   }
 }
