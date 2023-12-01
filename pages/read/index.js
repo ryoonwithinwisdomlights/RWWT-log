@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { useEffect } from 'react'
 import { useGlobal } from '@/lib/global'
@@ -14,6 +15,14 @@ const ReadandWriteIndex = props => {
   // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 
+  const meta = {
+    title: `${locale.NAV.READ} | ${siteInfo?.title}`,
+    description: siteInfo?.description,
+    image: siteInfo?.pageCover,
+    slug: 'read',
+    type: 'website'
+  }
+
   useEffect(() => {
     if (isBrowser) {
       const anchor = window.location.hash
@@ -28,31 +37,31 @@ const ReadandWriteIndex = props => {
     }
   }, [])
 
-  const meta = {
-    title: `${locale.NAV.READ} | ${siteInfo?.title}`,
-    description: siteInfo?.description,
-    image: siteInfo?.pageCover,
-    slug: 'read',
-    type: 'website'
-  }
-
   props = { ...props, meta }
 
   return <Layout {...props} />
 }
 
-export async function getStaticProps() {
-  const props = await getGlobalData({ from: 'read-index', type: 'Read' })
+// export async function getStaticProps() {
+//   const from = 'read-index-props'
+//   const props = await getGlobalData({ from: from, type: 'Read' })
+//   delete props.allPages
+//   return {
+//     props,
+//     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)
+//   }
+// }
 
-  props.posts = props.allPages?.filter(page => {
-    if (page.type === 'Read') {
-      //   console.log(page)
-    }
-    return page.type === 'Read' && page.status === 'Published'
-  })
-  delete props.allPages
-  //   console.log('props.posts', props.posts)
-  const postsSortByDate = Object.create(props.posts)
+export async function getStaticProps() {
+  const from = 'read-index'
+  const props = await getGlobalData({ from: from, type: 'Read' })
+
+  props.readPosts = props.allPages?.filter(
+    page => page.type === 'Read' && page.status === 'Published'
+  )
+
+  // console.log('readPosts: ', props.readPosts)
+  const postsSortByDate = Object.create(props.readPosts)
 
   postsSortByDate.sort((a, b) => {
     return b?.publishDate - a?.publishDate

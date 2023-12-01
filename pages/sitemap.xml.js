@@ -41,6 +41,36 @@ export const getServerSideProps = async ctx => {
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'daily',
       priority: '0.7'
+    },
+    {
+      loc: `${BLOG.LINK}/read`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'daily',
+      priority: '0.7'
+    },
+    {
+      loc: `${BLOG.LINK}/inspiration`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'daily',
+      priority: '0.7'
+    },
+    {
+      loc: `${BLOG.LINK}/thelog`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'daily',
+      priority: '0.7'
+    },
+    {
+      loc: `${BLOG.LINK}/portfolio`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'daily',
+      priority: '0.7'
+    },
+    {
+      loc: `${BLOG.LINK}/guest-book`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'daily',
+      priority: '0.7'
     }
   ]
   const postFields = allPages

@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable no-unused-vars */
 'use client'
 
@@ -295,16 +296,14 @@ const LayoutSlug = props => {
                 </div>
               </div>
 
-              {(post?.type === 'Post' ||
-                'Portfolio' ||
-                'Inspiration' ||
-                'GuestBook' ||
-                'Read' ||
-                'TheLog' ||
-                'Portfolio') && <ArticleAround prev={prev} next={next} />}
-              {post?.type === 'Read' && (
-                <ArticleAround prev={prev} next={next} />
-              )}
+              {post?.type !== 'CONFIG' &&
+                post?.type !== 'Menu' &&
+                post?.type !== 'SubMenu' &&
+                post?.type !== 'Notice' &&
+                post?.type !== 'Page' &&
+                post?.status === 'Published' && (
+                  <ArticleAround prev={prev} next={next} />
+                )}
               <AdSlot />
               <WWAds className="w-full" orientation="horizontal" />
 
@@ -343,37 +342,6 @@ const LayoutGuestBook = props => {
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="text-3xl dark:text-gray-300 mb-4 ">GuestBook</div>
         <div className="flex flex-row">
-          {/* <div className="w-1/2 mr-20 h-full">
-            <div className="w-full flex flex-row float-left  gap-4 mb-4 ">
-              <Image
-                src={Bada}
-                alt="Bada"
-                className="rounded-lg duration-500  hover:scale-110 "
-              />
-              <Image
-                src={TheLake}
-                alt="TheLake"
-                className="rounded-lg duration-500  hover:scale-scale-110 "
-              />
-              <Image
-                src={SelfRespect}
-                alt="TheLake"
-                className="rounded-lg duration-500  hover:scale-110 "
-              />
-            </div>
-            <div className="w-full flex flex-row float-left gap-4 mb-4 ">
-              <Image
-                src={BeKind}
-                alt="TheLake"
-                className="rounded-lg duration-500  hover:scale-110  "
-              />
-              <Image
-                src={Learnt}
-                alt="TheLake"
-                className="rounded-lg duration-500  hover:scale-110  "
-              />
-            </div>
-          </div> */}
           <div className="w-full flex flex-col gap-10 bg-opacity-30 p-10 rounded-lg dark:bg-black dark:bg-opacity-70 bg-white">
             {Object.keys(GuestBookPosts)?.map(archiveTitle => {
               return (
@@ -667,7 +635,7 @@ const LayoutCategoryIndex = props => {
  * tag list
  */
 const LayoutTagIndex = props => {
-  // console.log('props Tag:', props)
+  console.log('props Tag:', props)
   const { tagOptions } = props
   const { locale } = useGlobal()
 

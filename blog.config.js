@@ -407,6 +407,15 @@ const BLOG = {
   NOTION_PROPERTY_NAME: {
     password: process.env.NEXT_PUBLIC_NOTION_PROPERTY_PASSWORD || 'password',
     type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'type', // article type
+    type_able_arr: [
+      'Post',
+      'Read',
+      'Portfolio',
+      'Inspiration',
+      'Inspiration',
+      'TheLog',
+      'GuestBook'
+    ],
     type_able:
       'Post' ||
       'Read' ||

@@ -52,7 +52,7 @@ export async function getStaticProps() {
     }
     return page.type === 'TheLog' && page.status === 'Published'
   })
-  delete props.allPages
+
   //   console.log('props.posts', props.posts)
   const postsSortByDate = Object.create(props.posts)
 

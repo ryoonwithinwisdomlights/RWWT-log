@@ -30,19 +30,17 @@ export async function getStaticProps({ params: { tag, page } }) {
   props.posts = props.allPages
     ?.filter(
       page =>
-        (page.type === 'Post' ||
-          'Portfolio' ||
-          'Inspiration' ||
-          'GuestBook' ||
-          'Read' ||
-          'TheLog' ||
-          'Portfolio') &&
+        page.type !== 'CONFIG' &&
+        page.type !== 'Menu' &&
+        page.type !== 'SubMenu' &&
+        page.type !== 'Notice' &&
+        page.type !== 'Page' &&
         page.status === 'Published'
     )
     .filter(post => post && post?.tags && post?.tags.includes(tag))
-  // 处理文章数
+  // Number of articles processed
   props.postCount = props.posts.length
-  // 处理分页
+  // Handle pagination
   props.posts = props.posts.slice(
     BLOG.POSTS_PER_PAGE * (page - 1),
     BLOG.POSTS_PER_PAGE * page
@@ -66,13 +64,11 @@ export async function getStaticPaths() {
     const tagPosts = allPages
       ?.filter(
         page =>
-          (page.type === 'Post' ||
-            'Portfolio' ||
-            'Inspiration' ||
-            'GuestBook' ||
-            'Read' ||
-            'TheLog' ||
-            'Portfolio') &&
+          page.type !== 'CONFIG' &&
+          page.type !== 'Menu' &&
+          page.type !== 'SubMenu' &&
+          page.type !== 'Notice' &&
+          page.type !== 'Page' &&
           page.status === 'Published'
       )
       .filter(post => post && post?.tags && post?.tags.includes(tag.name))
