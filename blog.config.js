@@ -463,8 +463,8 @@ const BLOG = {
   AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/notion-avatar.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
   TITLE: process.env.NEXT_PUBLIC_TITLE || 'Ryoon.with.wisdomtreesBLOG', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
 
-  AD_WWADS_ID: process.env.NEXT_PUBLIC_WWAD_ID || null, // https://wwads.cn/ 创建您的万维广告单元ID
-  AD_WWADS_BLOCK_DETECT: process.env.NEXT_PUBLIC_WWADS_AD_BLOCK_DETECT || false, // 是否开启WWADS广告屏蔽插件检测,开启后会在广告位上以文字提示 @see https://github.com/bytegravity/whitelist-wwads
+  AD_WWADS_ID: process.env.NEXT_PUBLIC_WWAD_ID || null, // https://wwads.cn/ 전역 광고 단위 ID 만들기
+  AD_WWADS_BLOCK_DETECT: process.env.NEXT_PUBLIC_WWADS_AD_BLOCK_DETECT || false, // WWADS 광고 차단 플러그인 감지 활성화 여부는 활성화된 후 광고 공간에 텍스트 프롬프트가 표시됩니다. @see https://github.com/bytegravity/whitelist-wwads
 
   HOME_BANNER_IMAGE:
     process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/bg_image.png', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.

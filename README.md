@@ -1,6 +1,9 @@
 # RyoonLog
 
+<img width="100%" src="./public/RyoonLog.gif"/>
+
 - [tangly1024](https://github.com/tangly1024)님의 [NotionNext](https://github.com/tangly1024/NotionNext)블로그를 기반으로 커스터마이징하고 수정하여 작성한 Next.js-notion static 개인 블로그입니다.
+
 - (A static blog built with NextJS and Notion API, supporting multiple deployment options. No server required, zero threshold to set up a website. Designed for Notion and all creators.)
 
 ## 추가 적용한 작업 및 기능( 2023.11 기준)
@@ -9,14 +12,13 @@
 - 카테고리, 아카이브, 검색에 노출되는 post들은 오직 기술 블로그 글에만 해당하도록 수정하였습니다.
 - 개인의 일상적인 기록(일기같은)을 적을 수 있는 The Log메뉴 및 그에 해당하는 레이아웃, 페이지, 컴포넌트, api 작업에 대하여 진행하였습니다.
 - The Log와 비슷한 기능을 하는 Read & Writes(읽고 사유하고 쓰는 공간)메뉴와 Inspiration(인스타그램의 영감기록 계정과 같은 공간)메뉴또한 신설 하였습니다.
-- 댓글은 Utterances로 적용하였습니다.
+- 댓글은 Giscus를 적용하였습니다.
 - Theme은 저의 취향에 맞게 gitbook, hexo, medium 이 세가지 theme만 적용하였습니다. 각각의 theme은 다시금 제 취향에 맞게 구석 구석 코드를 수정 하였습니다.
+  </br>
+  </br>
+  </br>
 
----
-
-아래는 기존 리드미입니다.
-
-# NotionNext
+# NotionNext(기존 리드미)
 
 <p>
   <a aria-label="GitHub commit activity" href="https://github.com/tangly1024/NotionNext/commits/main" title="GitHub commit activity">
