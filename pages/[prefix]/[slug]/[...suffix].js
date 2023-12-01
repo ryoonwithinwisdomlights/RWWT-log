@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import BLOG from '@/blog.config'
 import { getPostBlocks } from '@/lib/notion'
 import { getGlobalData } from '@/lib/notion/getNotionData'
@@ -5,6 +6,7 @@ import { idToUuid } from 'notion-utils'
 import { getNotion } from '@/lib/notion/getNotion'
 import Slug, { getRecommendPost } from '..'
 import { uploadDataToAlgolia } from '@/lib/algolia'
+import { exchangeSlugToType } from '@/lib/utils'
 
 /**
  * Access the page according to the notion slug
@@ -53,13 +55,18 @@ export async function getStaticPaths() {
  */
 export async function getStaticProps({ params: { prefix, slug, suffix } }) {
   let fullSlug = prefix + '/' + slug + '/' + suffix.join('/')
+  // console.log(fullSlug, ': fullSlug')
+  // console.log(slug, ': slug')
+  // console.log(suffix, ': suffix')
   if (JSON.parse(BLOG.PSEUDO_STATIC)) {
     if (!fullSlug.endsWith('.html')) {
       fullSlug += '.html'
     }
   }
   const from = `slug-props-${fullSlug}`
-  const props = await getGlobalData({ from })
+  const type = exchangeSlugToType(slug)
+  // console.log('type::', type)
+  const props = await getGlobalData({ from, type: type || 'Post' })
   // Find article in list
   props.post = props?.allPages?.find(p => {
     return p.slug === fullSlug || p.id === idToUuid(fullSlug)

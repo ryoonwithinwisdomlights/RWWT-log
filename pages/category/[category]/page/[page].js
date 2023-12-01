@@ -77,13 +77,11 @@ export async function getStaticPaths() {
     const categoryPosts = allPages
       ?.filter(
         page =>
-          (page.type === 'Post' ||
-            'Portfolio' ||
-            'Inspiration' ||
-            'GuestBook' ||
-            'Read' ||
-            'TheLog' ||
-            'Portfolio') &&
+          page.type !== 'CONFIG' &&
+          page.type !== 'Menu' &&
+          page.type !== 'SubMenu' &&
+          page.type !== 'Notice' &&
+          page.type !== 'Page' &&
           page.status === 'Published'
       )
       .filter(

@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable multiline-ternary */
 import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
 import Girok from '@/public/images/inspiration/girok.jpg'
@@ -236,15 +237,14 @@ const LayoutSlug = props => {
             </div>
             {/* Previous articleNext article
              */}
-            {(post?.type === 'Post' ||
-              post?.type === 'Portfolio' ||
-              post?.type === 'Inspiration' ||
-              post?.type === 'GuestBook' ||
-              post?.type === 'Read' ||
-              post?.type === 'TheLog' ||
-              post?.type === 'Portfolio') && (
-              <ArticleAround prev={prev} next={next} />
-            )}
+            {post?.type !== 'CONFIG' &&
+              post?.type !== 'Menu' &&
+              post?.type !== 'SubMenu' &&
+              post?.type !== 'Notice' &&
+              post?.type !== 'Page' && (
+                <ArticleAround prev={prev} next={next} />
+              )}
+
             {/*
 Comment area */}
             <Comment frontMatter={post} />

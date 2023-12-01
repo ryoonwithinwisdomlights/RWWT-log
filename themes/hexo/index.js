@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable multiline-ternary */
 import CONFIG from './config'
 import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
@@ -468,19 +469,17 @@ const LayoutSlug = props => {
 
               {/* share */}
               <ShareBar post={post} />
-              {(post?.type === 'Post' ||
-                'Portfolio' ||
-                'Inspiration' ||
-                'GuestBook' ||
-                'Read' ||
-                'TheLog' ||
-                'Portfolio') && (
-                <>
-                  <ArticleCopyright {...props} />
-                  <ArticleRecommend {...props} />
-                  <ArticleAdjacent {...props} />
-                </>
-              )}
+              {post?.type !== 'CONFIG' &&
+                post?.type !== 'Menu' &&
+                post?.type !== 'SubMenu' &&
+                post?.type !== 'Notice' &&
+                post?.type !== 'Page' && (
+                  <>
+                    <ArticleCopyright {...props} />
+                    <ArticleRecommend {...props} />
+                    <ArticleAdjacent {...props} />
+                  </>
+                )}
             </article>
 
             <div className="pt-4 border-dashed"></div>

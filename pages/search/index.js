@@ -60,13 +60,11 @@ export async function getStaticProps() {
   const { allPages } = props
   props.posts = allPages?.filter(
     page =>
-      (page.type === 'Post' ||
-        'Portfolio' ||
-        'Inspiration' ||
-        'GuestBook' ||
-        'Read' ||
-        'TheLog' ||
-        'Portfolio') &&
+      page.type !== 'CONFIG' &&
+      page.type !== 'Menu' &&
+      page.type !== 'SubMenu' &&
+      page.type !== 'Notice' &&
+      page.type !== 'Page' &&
       page.status === 'Published'
   )
   return {

@@ -77,7 +77,7 @@ export async function getStaticProps() {
   props.InspirationPosts = InspirationPosts
   delete props.allPages
 
-  console.log(' props.readAndWritePosts', props.InspirationPosts)
+  // console.log(' props.InspirationPosts', props.InspirationPosts)
   return {
     props,
     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)

@@ -412,7 +412,6 @@ const BLOG = {
       'Read',
       'Portfolio',
       'Inspiration',
-      'Inspiration',
       'TheLog',
       'GuestBook'
     ],
