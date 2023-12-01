@@ -17,6 +17,7 @@ const GiscusComponent = () => {
     <Giscus
       repo={BLOG.COMMENT_GISCUS_REPO}
       repoId={BLOG.COMMENT_GISCUS_REPO_ID}
+      category="General"
       categoryId={BLOG.COMMENT_GISCUS_CATEGORY_ID}
       mapping={BLOG.COMMENT_GISCUS_MAPPING}
       reactionsEnabled={BLOG.COMMENT_GISCUS_REACTIONS_ENABLED}

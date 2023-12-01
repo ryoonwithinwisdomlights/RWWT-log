@@ -292,6 +292,8 @@ const BLOG = {
   // giscus @see https://giscus.app/
   COMMENT_GISCUS_REPO: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO || '', // Your Github repository name e.g 'tangly1024/NotionNext'
   COMMENT_GISCUS_REPO_ID: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO_ID || '', // Your Github Repo ID e.g (you can see it after setting up giscus)
+  COMMENT_GISCUS_CATEGORY:
+    process.env.NEXT_PUBLIC_COMMENT_GISCUS_CATEGORY || 'General',
   COMMENT_GISCUS_CATEGORY_ID:
     process.env.NEXT_PUBLIC_COMMENT_GISCUS_CATEGORY_ID || '', // Category ID in your Github Discussions (you can see it after setting up giscus)
   COMMENT_GISCUS_MAPPING:
