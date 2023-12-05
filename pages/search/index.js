@@ -54,8 +54,8 @@ const Search = props => {
  */
 export async function getStaticProps() {
   const props = await getGlobalData({
-    from: 'search-props',
-    pageType: ['Post']
+    from: 'search-props'
+    // pageType: ['Post']
   })
   const { allPages } = props
   props.posts = allPages?.filter(

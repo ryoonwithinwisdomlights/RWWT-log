@@ -187,7 +187,6 @@ const LayoutBase = props => {
               </div>
 
               <AdSlot type="in-article" />
-              {/* <Live2D /> 강아지 주석처리 */}
             </div>
           </div>
         </main>

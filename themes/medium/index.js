@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 /* eslint-disable multiline-ternary */
 import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
@@ -142,9 +143,9 @@ Right side of desktop */}
               <Tabs>
                 {slotRight}
                 <div key={locale.NAV.ABOUT}>
-                  {router.pathname !== '/search' && (
+                  {/* {router.pathname !== '/search' && (
                     <SearchInput className="mt-6  mb-12" />
-                  )}
+                  )} */}
                   {showInfoCard && <InfoCard {...props} />}
                   {CONFIG.WIDGET_REVOLVER_MAPS === 'true' && <RevolverMaps />}
                 </div>
@@ -420,7 +421,7 @@ const LayoutTheLog = props => {
  */
 const LayoutInspiration = props => {
   const { InspirationPosts } = props
-  console.log('InspirationPosts', InspirationPosts)
+  // console.log('InspirationPosts', InspirationPosts)
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">

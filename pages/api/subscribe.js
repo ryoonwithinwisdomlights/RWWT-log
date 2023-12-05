@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import subscribeToMailchimpApi from '@/lib/mailchimp'
 
 /**
@@ -15,7 +16,7 @@ export default async function handler(req, res) {
         last_name: lastName
       })
       const data = await response.json()
-      console.log('data', data)
+      // console.log('data', data)
       res
         .status(200)
         .json({ status: 'success', message: 'Subscription successful!' })

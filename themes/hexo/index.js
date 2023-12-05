@@ -268,7 +268,7 @@ const LayoutTheLog = props => {
  */
 const LayoutInspiration = props => {
   const { InspirationPosts } = props
-  console.log('InspirationPosts', InspirationPosts)
+  // console.log('InspirationPosts', InspirationPosts)
   return (
     <LayoutBase {...props} className="pt-8">
       <Card className="w-full">

@@ -34,8 +34,8 @@ const Index = props => {
  */
 export async function getStaticProps({ params: { keyword, page } }) {
   const props = await getGlobalData({
-    from: 'search-props',
-    pageType: ['Post']
+    from: 'search-props'
+    // pageType: ['Post']
   })
   const { allPages } = props
   const allPosts = allPages?.filter(
