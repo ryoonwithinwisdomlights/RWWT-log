@@ -9,7 +9,7 @@ const BLOG = {
    *
    */
   NEXT_REVALIDATE_SECOND: process.env.NEXT_PUBLIC_REVALIDATE_SECOND || 5,
-  THEME: process.env.NEXT_PUBLIC_THEME || 'HEXO',
+  THEME: 'HEXO',
   THEME_SWITCH: process.env.NEXT_PUBLIC_THEME_SWITCH || false, // Whether to display the switch theme button
   LANG: process.env.NEXT_PUBLIC_LANG || 'kr-KR', // e.g 'zh-CN','en-US'  see /lib/lang.js for more.
   //   SINCE: , // e.g if leave this empty, current year will be used.
