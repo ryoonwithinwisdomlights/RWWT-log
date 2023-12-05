@@ -49,6 +49,7 @@ import PortfolioItem from './components/PortfolioItem'
 import InspirationItem from './components/InspirationItem'
 import TheLogitem from './components/TheLogitem'
 import GuestBookItem from './components/GuestBookItem'
+import TechLogItem from './components/TechLogItem'
 const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
 // Theme global variables
@@ -465,6 +466,44 @@ const LayoutInspiration = props => {
   )
 }
 
+// LayoutTechLog 테크 로그 레이아웃
+const LayoutTechLog = props => {
+  const { techLogPosts } = props
+  // console.log('portfolioPosts', portfolioPosts)
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="flex flex-col">
+          <div className="w-full mb-10">
+            <div className="">
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              {/* <Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
+              <div className="text-3xl dark:text-gray-300 ">
+                Today I Learn 🛠️
+              </div>
+            </div>
+          </div>
+          <div className="space-y-6 px-2">
+            {techLogPosts?.map((item, index) => {
+              // console.log('item', item)
+              // console.log(portfolioPosts[item.to])
+              return (
+                <TechLogItem
+                  key={index}
+                  pIndex={index}
+                  pId={item.id}
+                  pTitle={item.title}
+                  pPosts={item}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
 // Portfolio 메뉴 레이아웃
 const LayoutPortfolio = props => {
   const { portfolioPosts } = props
@@ -661,6 +700,7 @@ export {
   LayoutGuestBook,
   LayoutTheLog,
   LayoutReadAndWrite,
+  LayoutTechLog,
   LayoutPortfolio,
   LayoutInspiration,
   LayoutCategoryIndex,
