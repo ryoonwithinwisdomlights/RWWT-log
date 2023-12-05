@@ -56,7 +56,7 @@ const NavPostList = props => {
     return <NavPostListEmpty />
   } else {
     return (
-      <div id="posts-wrapper" className="w-full flex-grow">
+      <div id="posts-wrapper" className="w-full flex-grow ">
         {/* Article list */}
         {groupedArray?.map((group, index) => (
           <NavPostItem

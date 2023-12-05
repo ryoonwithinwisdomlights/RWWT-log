@@ -111,7 +111,7 @@ const LayoutBase = props => {
               'font-sans hidden md:block border-r dark:border-transparent relative z-10 '
             }
           >
-            <div className="w-72 py-14 px-6 sticky top-0 overflow-y-scroll h-screen scroll-hidden">
+            <div className="w-72 py-14 px-6 sticky top-0 overflow-y-scroll h-screen ">
               {slotLeft}
               <SearchInput className="my-3 rounded-md" />
               <div className="mb-20">
