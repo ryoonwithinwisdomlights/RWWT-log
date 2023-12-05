@@ -461,10 +461,6 @@ const LayoutInspiration = props => {
             })}
           </div>
         </div>
-        <div className="w-1/2 text-base mb-2">
-          어떻게, 어쩜, 언제부터 이건 그러하였고 너는 또 그리하였을까?
-          감탄하게되는 크고 작은 앎에 대하여.
-        </div>
       </div>
     </LayoutBase>
   )

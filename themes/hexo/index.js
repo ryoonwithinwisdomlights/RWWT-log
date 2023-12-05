@@ -282,21 +282,24 @@ const LayoutInspiration = props => {
                   어제, 오늘, 내일의 영감기록
                 </div>
               </div>
+              <div className="text-base mt-2">
+                어떻게, 어쩜, 언제부터 이건 그러하였고 너는 또 그리하였을까?
+                감탄하게되는 크고 작은 앎에 대하여.
+              </div>
             </div>
-            {Object.keys(InspirationPosts)?.map(archiveTitle => {
-              // console.log(archiveTitle)
-              return (
-                <InspirationItem
-                  key={archiveTitle}
-                  archiveTitle={archiveTitle}
-                  archivePosts={InspirationPosts}
-                />
-              )
-            })}
-          </div>
-          <div className="w-1/2 text-base mb-2">
-            어떻게, 어쩜, 언제부터 이건 그러하였고 너는 또 그리하였을까?
-            감탄하게되는 크고 작은 앎에 대하여.
+            <div className="flex flex-col gap-10">
+              {' '}
+              {Object.keys(InspirationPosts)?.map(archiveTitle => {
+                // console.log(archiveTitle)
+                return (
+                  <InspirationItem
+                    key={archiveTitle}
+                    archiveTitle={archiveTitle}
+                    archivePosts={InspirationPosts}
+                  />
+                )
+              })}
+            </div>
           </div>
         </div>
       </Card>
