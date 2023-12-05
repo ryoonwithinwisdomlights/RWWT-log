@@ -143,9 +143,9 @@ Right side of desktop */}
               <Tabs>
                 {slotRight}
                 <div key={locale.NAV.ABOUT}>
-                  {/* {router.pathname !== '/search' && (
+                  {router.pathname !== '/search' && (
                     <SearchInput className="mt-6  mb-12" />
-                  )} */}
+                  )}
                   {showInfoCard && <InfoCard {...props} />}
                   {CONFIG.WIDGET_REVOLVER_MAPS === 'true' && <RevolverMaps />}
                 </div>
