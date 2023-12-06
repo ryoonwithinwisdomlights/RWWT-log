@@ -520,8 +520,8 @@ const LayoutPortfolio = props => {
                 What Ryoon have been made 🛠️
               </div>
               <div className=" dark:text-gray-300 mt-1 text-base ">
-                10세이하 일 때엔 a4로 모델하우스를, 20대 중반엔 재미난 기획안을,
-                28살 이후로는 크고 작은 개발을.
+                a4로 만든 모델하우스 → 재미난 기획서 → 크고 작은 작업물
+                사이드프로젝트.
               </div>
             </div>
           </div>
