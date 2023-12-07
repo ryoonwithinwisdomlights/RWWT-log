@@ -129,7 +129,7 @@ const LayoutBase = props => {
 }
 
 /**
- * front page
+ * 메인페이지
  * It is a blog list, embedded with a Hero image
  * @param {*} props
  * @returns

@@ -58,19 +58,24 @@ const Hero = props => {
     >
       <div className="text-white absolute bottom-0 flex flex-col h-full items-center justify-center w-full ">
         {/* site title */}
-        <div className="font-black text-4xl md:text-5xl ">
-          {siteConfig('TITLE')}
-        </div>
-        {/* Site welcome message */}
-        <div className="mt-2 h-12 items-center text-center font-medium text-lg">
-          <span id="typed" />
+        <div className="flex flex-row w-full justify-center items-center mb-4">
+          <div className="font-black text-4xl md:text-5xl w-1/2 text-right ">
+            Ryoon.<br></br>
+            With.<br></br>
+            Wisdomtrees.
+          </div>
+          {/* Site welcome message */}
+          <div className="w-1/2 ml-6  font-medium text-lg text-left">
+            <span id="typed" />
+          </div>
         </div>
 
-        {/* Home navigation big button */}
-        {siteConfig('HEXO_HOME_NAV_BUTTONS', null, CONFIG) && (
-          <NavButtonGroup {...props} />
-        )}
-
+        <div className="w-full flex flex-row justify-center items-center mb-4">
+          {/* Home navigation big button */}
+          {siteConfig('HEXO_HOME_NAV_BUTTONS', null, CONFIG) && (
+            <NavButtonGroup {...props} />
+          )}
+        </div>
         {/* scroll button */}
         <div
           onClick={scrollToWrapper}
