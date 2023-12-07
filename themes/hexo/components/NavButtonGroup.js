@@ -4,15 +4,6 @@ import { CSSProperties } from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
 
-const noDOts = {
-  position: 'absolute',
-  zIndex: 2,
-  top: 'calc(50% - 15px)',
-  width: 30,
-  height: 30,
-  cursor: 'pointer'
-}
-
 /**
  * Home navigation big button component
  * @param {*} props
@@ -33,17 +24,16 @@ const NavButtonGroup = props => {
 
       "
     >
-      <div className="md:block hidden w-5/6 ">
+      <div className="md:block hidden w-4/6 ">
         {/** pc */}
         <Carousel
-          className=""
           axis="horizontal"
           showArrows={true}
           centerMode={true}
-          centerSlidePercentage={20}
+          centerSlidePercentage={40}
           showThumbs={false}
           showStatus={false}
-          autoPlay={true}
+          autoPlay={false}
           infiniteLoop={true}
         >
           {categoryOptions?.map(category => {
@@ -53,7 +43,7 @@ const NavButtonGroup = props => {
                 title={`${category.name}`}
                 href={`/category/${category.name}`}
                 passHref
-                className="text-center shadow-text sm:w-4/5 md:mx-6  md:h-14
+                className="text-center shadow-text md:mx-6  md:h-14 sm:w-11/12
              lg:h-20 h-14 justify-center items-center flex border-2 cursor-pointer
             rounded-lg bg-white  bg-opacity-50 hover:bg-opacity-70
              hover:text-lime-100 duration-200 hover:scale-105 transform"
@@ -74,7 +64,7 @@ const NavButtonGroup = props => {
           centerSlidePercentage={90}
           showThumbs={false}
           showStatus={false}
-          autoPlay={true}
+          autoPlay={false}
           infiniteLoop={true}
         >
           {categoryOptions?.map(category => {
