@@ -220,4 +220,4 @@ Special thanks to Craig Hart for initiating the Nobelium project.
 
 ## License
 
-The MIT License.
+The [MIT License](https://github.com/tangly1024).
