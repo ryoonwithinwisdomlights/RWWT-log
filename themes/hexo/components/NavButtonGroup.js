@@ -1,7 +1,18 @@
 /* eslint-disable no-unused-vars */
 import Link from 'next/link'
+import { CSSProperties } from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
+
+const noDOts = {
+  position: 'absolute',
+  zIndex: 2,
+  top: 'calc(50% - 15px)',
+  width: 30,
+  height: 30,
+  cursor: 'pointer'
+}
+
 /**
  * Home navigation big button component
  * @param {*} props
@@ -18,37 +29,72 @@ const NavButtonGroup = props => {
       id="home-nav-button"
       className="w-full z-10 md:h-48 md:mt-6 xl:mt-32 px-5 py-2
       flex flex-row md:max-w-6xl space-y-2
-      md:space-y-0 md:flex justify-center items-center
+      md:space-y-0 justify-center items-center
 
       "
     >
-      <Carousel
-        className="w-5/6"
-        showArrows={true}
-        centerMode={true}
-        centerSlidePercentage={20}
-        showThumbs={false}
-        showStatus={false}
-        autoPlay={true}
-        infiniteLoop={true}
-      >
-        {categoryOptions?.map(category => {
-          return (
-            <Link
-              key={`${category.name}`}
-              title={`${category.name}`}
-              href={`/category/${category.name}`}
-              passHref
-              className="text-center shadow-text sm:w-4/5 md:mx-6  md:h-14
+      <div className="md:block hidden w-5/6 ">
+        {/** pc */}
+        <Carousel
+          className=""
+          axis="horizontal"
+          showArrows={true}
+          centerMode={true}
+          centerSlidePercentage={20}
+          showThumbs={false}
+          showStatus={false}
+          autoPlay={true}
+          infiniteLoop={true}
+        >
+          {categoryOptions?.map(category => {
+            return (
+              <Link
+                key={`${category.name}`}
+                title={`${category.name}`}
+                href={`/category/${category.name}`}
+                passHref
+                className="text-center shadow-text sm:w-4/5 md:mx-6  md:h-14
              lg:h-20 h-14 justify-center items-center flex border-2 cursor-pointer
             rounded-lg bg-white  bg-opacity-50 hover:bg-opacity-70
              hover:text-lime-100 duration-200 hover:scale-105 transform"
-            >
-              {category.name}
-            </Link>
-          )
-        })}
-      </Carousel>
+              >
+                {category.name}
+              </Link>
+            )
+          })}
+        </Carousel>
+      </div>
+      <div className="block md:hidden w-5/6">
+        {/** 모바일 */}
+        <Carousel
+          // className="mr-4"
+          axis="horizontal"
+          showArrows={true}
+          centerMode={true}
+          centerSlidePercentage={90}
+          showThumbs={false}
+          showStatus={false}
+          autoPlay={true}
+          infiniteLoop={true}
+        >
+          {categoryOptions?.map(category => {
+            return (
+              <Link
+                key={`${category.name}`}
+                title={`${category.name}`}
+                href={`/category/${category.name}`}
+                passHref
+                className="text-center  mr-4 shadow-text sm:w-4/5 md:mx-6  md:h-14
+             lg:h-20 h-14 justify-center items-center flex border-2 cursor-pointer
+            rounded-lg bg-white  bg-opacity-50 hover:bg-opacity-70
+             hover:text-lime-100 duration-200 hover:scale-105 transform"
+              >
+                {category.name}
+              </Link>
+            )
+          })}
+        </Carousel>
+      </div>
     </nav>
   )
 }
