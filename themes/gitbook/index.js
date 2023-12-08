@@ -478,9 +478,7 @@ const LayoutTechLog = props => {
             <div className="">
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* <Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl dark:text-gray-300 ">
-                Today I Learn 🛠️
-              </div>
+              <div className="text-3xl dark:text-gray-300 ">Tech Logs 🛠️</div>
             </div>
           </div>
           <div className="space-y-6 px-2">
