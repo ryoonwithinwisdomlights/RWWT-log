@@ -58,7 +58,11 @@ const Hero = props => {
     >
       <div className="text-white absolute bottom-0 flex flex-col h-full items-center justify-center w-full ">
         {/* site title */}
-        <div className="flex flex-row w-full justify-center items-center mb-4">
+        <div
+          className="flex flex-row w-full justify-center items-center lg:mt-8
+
+        "
+        >
           <div className="font-black text-4xl md:text-5xl w-1/2 text-right ">
             Ryoon.<br></br>
             With.<br></br>
@@ -70,7 +74,11 @@ const Hero = props => {
           </div>
         </div>
 
-        <div className="w-full flex flex-row justify-center items-center mb-4">
+        <div
+          className="w-full flex flex-row justify-center items-center mb-4
+
+         "
+        >
           {/* Home navigation big button */}
           {siteConfig('HEXO_HOME_NAV_BUTTONS', null, CONFIG) && (
             <NavButtonGroup {...props} />

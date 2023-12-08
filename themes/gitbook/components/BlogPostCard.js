@@ -6,14 +6,23 @@ import React from 'react'
 const BlogPostCard = ({ post, className }) => {
   const router = useRouter()
   const currentSelected = router.asPath.split('?')[0] === '/' + post.slug
+  console.log('post::', post)
   return (
-        <div key={post.id} className={`${className} py-1 cursor-pointer px-2 hover:bg-gray-50 rounded-md dark:hover:bg-gray-600  ${currentSelected ? 'bg-green-50 text-green-500' : ''}`}>
-            <div className="flex flex-col w-full select-none">
-                <Link href={`${BLOG.SUB_PATH}/${post.slug}`} passHref>
-                    {post.title}
-                </Link>
-            </div>
-        </div>
+    <div
+      key={post.id}
+      className={`${className} py-1 cursor-pointer px-2 hover:bg-gray-50 rounded-md dark:hover:bg-gray-600  ${
+        currentSelected ? 'bg-green-50 text-green-500' : ''
+      }`}
+    >
+      <div className="flex flex-col w-full select-none">
+        <Link href={`${BLOG.SUB_PATH}/${post.slug}`} passHref>
+          {post.pageIcon}{' '}
+          {post.title.length > 16
+            ? post.title.substr(0, 16) + '...'
+            : post.title}
+        </Link>
+      </div>
+    </div>
   )
 }
 

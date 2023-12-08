@@ -18,7 +18,7 @@ const NavButtonGroup = props => {
   return (
     <nav
       id="home-nav-button"
-      className="w-full z-10 md:h-48 md:mt-6 xl:mt-32 px-5 py-2
+      className="w-full z-10 md:h-48 md:mt-6  px-5 py-2
       flex flex-row md:max-w-6xl space-y-2
       md:space-y-0 justify-center items-center
 
