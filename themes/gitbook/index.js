@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 'use client'
 
+import { formatDateFmt } from '@/lib/formatDate'
+import { siteConfig } from '@/lib/config'
 import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
 import Bada from '@/public/images/thelog/bada.jpeg'
 import BeKind from '@/public/images/thelog/bekind.jpeg'
@@ -50,6 +52,7 @@ import InspirationItem from './components/InspirationItem'
 import TheLogitem from './components/TheLogitem'
 import GuestBookItem from './components/GuestBookItem'
 import TechLogItem from './components/TechLogItem'
+import LazyImage from '@/components/LazyImage'
 const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
 // Theme global variables
@@ -259,13 +262,13 @@ const LayoutPostList = props => {
 }
 
 /**
- * 기사 세부정보
+ * 모든 기사 세부정보
  * @param {*} props
  * @returns
  */
 const LayoutSlug = props => {
-  const { post, prev, next, lock, validPassword } = props
-
+  const { post, prev, next, lock, validPassword, siteInfo } = props
+  const { locale } = useGlobal()
   return (
     <LayoutBase {...props}>
       {/* 기사 잠금 */}
@@ -275,7 +278,45 @@ const LayoutSlug = props => {
         <div id="container">
           {/* title */}
           <h1 className="text-3xl pt-12  dark:text-gray-300">{post?.title}</h1>
+          <section
+            className="flex-wrap
+          shadow-text-md flex text-sm
+          justify-start mt-4 text-gray-500
+           dark:text-gray-400 font-light py-2
+           "
+          >
+            <div className="flex justify-start dark:text-gray-200 ">
+              <span className="whitespace-nowrap">
+                <i className="far fa-calendar mr-2" />
+                {post?.publishDay}
+              </span>{' '}
+              <span className="mx-1"> | </span>{' '}
+              <span className="whitespace-nowrap mr-2">
+                <i className="far fa-calendar-check mr-2" />
+                {post?.lastEditedDay}
+              </span>
+              <div className="hidden busuanzi_container_page_pv font-light mr-2 whitespace-nowrap">
+                <i className="mr-1 fas fa-eye" />
+                <span className="busuanzi_value_page_pv" />
+              </div>
+            </div>
+            <span className="mx-1"> | </span>{' '}
+            <Link href="/about" passHref legacyBehavior>
+              <div className="flex flex-row">
+                <LazyImage
+                  src={siteInfo?.icon}
+                  className="rounded-full cursor-pointer"
+                  width={22}
+                  hight={22}
+                  alt={BLOG.AUTHOR}
+                />
 
+                <div className="mr-3 ml-2 my-auto text-green-500 cursor-pointer">
+                  {BLOG.AUTHOR}
+                </div>
+              </div>
+            </Link>
+          </section>
           {/* Notion기사 본문 */}
           {post && (
             <section id="article-wrapper" className="px-1">
