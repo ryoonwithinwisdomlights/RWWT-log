@@ -6,7 +6,7 @@ import React from 'react'
 const BlogPostCard = ({ post, className }) => {
   const router = useRouter()
   const currentSelected = router.asPath.split('?')[0] === '/' + post.slug
-  console.log('post::', post)
+  // console.log('post::', post)
   return (
     <div
       key={post.id}

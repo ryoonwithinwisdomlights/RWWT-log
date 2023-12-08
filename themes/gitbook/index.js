@@ -66,18 +66,31 @@ export const useGitBookGlobal = () => useContext(ThemeGlobalGitbook)
  * @constructor
  */
 const LayoutBase = props => {
-  const { children, post, allNavPages, slotLeft, slotRight, slotTop, meta } =
-    props
+  const {
+    children,
+    post,
+    allNavPagesForGitBOok,
+    slotLeft,
+    slotRight,
+    slotTop,
+    meta
+  } = props
   const { onLoading } = useGlobal()
   const router = useRouter()
   const [tocVisible, changeTocVisible] = useState(false)
   const [pageNavVisible, changePageNavVisible] = useState(false)
-  const [filteredNavPages, setFilteredNavPages] = useState(allNavPages)
+  // const modifiedAllNavPages = allNavPages?.filter(post => {
+  //   return post && post?.type !== 'TheLog'
+  // })
+  // console.log('modifiedAllNavPages', modifiedAllNavPages)
+  const [filteredNavPages, setFilteredNavPages] = useState(
+    allNavPagesForGitBOok
+  )
 
   const showTocButton = post?.toc?.length > 1
 
   useEffect(() => {
-    setFilteredNavPages(allNavPages)
+    setFilteredNavPages(allNavPagesForGitBOok)
   }, [post])
 
   return (
@@ -87,7 +100,7 @@ const LayoutBase = props => {
         changeTocVisible,
         filteredNavPages,
         setFilteredNavPages,
-        allNavPages,
+        allNavPagesForGitBOok,
         pageNavVisible,
         changePageNavVisible
       }}

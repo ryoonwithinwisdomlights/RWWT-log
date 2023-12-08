@@ -27,7 +27,7 @@ export default function TechLogItem({ pIndex, pId, pTitle, pPosts }) {
           data-aos-once="false"
           data-aos-anchor-placement="top-bottom"
           id="blog-post-card"
-          className={`group md:h-56 w-full flex justify-between md:flex-row flex-col-reverse ${
+          className={`group w-full flex justify-between md:flex-row flex-col-reverse ${
             pIndex % 2 === 1 ? 'md:flex-row-reverse' : ''
           }overflow-hidden border dark:border-black rounded-xl bg-white dark:bg-hexo-black-gray`}
         >
@@ -47,7 +47,7 @@ export default function TechLogItem({ pIndex, pId, pTitle, pPosts }) {
                 <LazyImage
                   priority={pIndex === 1}
                   src={pPosts?.pageCoverThumbnail}
-                  className="h-56 w-full object-cover object-center group-hover:scale-110 duration-500"
+                  className="h-full w-full object-cover object-center group-hover:scale-110 duration-500"
                 />
                 {/* <Image
                   src={pPosts?.pageCoverThumbnail}

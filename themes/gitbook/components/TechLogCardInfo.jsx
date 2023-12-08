@@ -21,9 +21,7 @@ export const TechLogCardInfo = ({
   return (
     <div
       className={`flex flex-col justify-between lg:p-6 p-4  ${
-        showPageCover && !showPreview
-          ? 'md:w-7/12 w-full md:max-h-60'
-          : 'w-full'
+        showPageCover && !showPreview ? 'md:w-7/12 w-full ' : 'w-full'
       }`}
     >
       <div>
