@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useImperativeHandle, useRef, useState } from 'react'
 import { deepClone } from '@/lib/utils'
 import { useGitBookGlobal } from '@/themes/gitbook'
@@ -5,7 +6,8 @@ let lock = false
 
 const SearchInput = ({ currentSearch, cRef, className }) => {
   const searchInputRef = useRef()
-  const { setFilteredNavPages, allNavPages } = useGitBookGlobal()
+  const { setFilteredNavPages, allNavPages, allNavPagesForGitBook } =
+    useGitBookGlobal()
 
   useImperativeHandle(cRef, () => {
     return {
@@ -20,9 +22,9 @@ const SearchInput = ({ currentSearch, cRef, className }) => {
     if (keyword) {
       keyword = keyword.trim()
     } else {
-      setFilteredNavPages(allNavPages)
+      setFilteredNavPages(allNavPagesForGitBook)
     }
-    const filterAllNavPages = deepClone(allNavPages)
+    const filterAllNavPages = deepClone(allNavPagesForGitBook)
     // for (const filterGroup of filterAllNavPages) {
     //   for (let i = filterGroup.items.length - 1; i >= 0; i--) {
     //     const post = filterGroup.items[i]

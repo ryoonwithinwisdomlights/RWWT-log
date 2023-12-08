@@ -69,7 +69,7 @@ const LayoutBase = props => {
   const {
     children,
     post,
-    allNavPagesForGitBOok,
+    allNavPagesForGitBook,
     slotLeft,
     slotRight,
     slotTop,
@@ -84,13 +84,13 @@ const LayoutBase = props => {
   // })
   // console.log('modifiedAllNavPages', modifiedAllNavPages)
   const [filteredNavPages, setFilteredNavPages] = useState(
-    allNavPagesForGitBOok
+    allNavPagesForGitBook
   )
 
   const showTocButton = post?.toc?.length > 1
 
   useEffect(() => {
-    setFilteredNavPages(allNavPagesForGitBOok)
+    setFilteredNavPages(allNavPagesForGitBook)
   }, [post])
 
   return (
@@ -100,7 +100,7 @@ const LayoutBase = props => {
         changeTocVisible,
         filteredNavPages,
         setFilteredNavPages,
-        allNavPagesForGitBOok,
+        allNavPagesForGitBook,
         pageNavVisible,
         changePageNavVisible
       }}
