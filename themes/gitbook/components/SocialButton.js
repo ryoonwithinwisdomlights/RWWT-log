@@ -29,16 +29,6 @@ const SocialButton = () => {
           <i className="fab fa-twitter transform hover:scale-125 duration-150 hover:text-green-600" />
         </a>
       )}
-      {BLOG.CONTACT_TELEGRAM && (
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href={BLOG.CONTACT_TELEGRAM}
-          title={'telegram'}
-        >
-          <i className="fab fa-telegram transform hover:scale-125 duration-150 hover:text-green-600" />
-        </a>
-      )}
       {BLOG.CONTACT_LINKEDIN && (
         <a
           target="_blank"

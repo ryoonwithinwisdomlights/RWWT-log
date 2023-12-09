@@ -8,8 +8,8 @@ import throttle from 'lodash/throttle'
 import { siteConfig } from '@/lib/config'
 
 /**
- * 结合 Algolia 实现的弹出式搜索框
- * 打开方式 cRef.current.openSearch()
+ * Pop-up search box implemented with Algolia
+ * Open method cRef.current.openSearch()
  * https://www.algolia.com/doc/api-reference/search-api-parameters/
  */
 export default function AlgoliaSearchModal({ cRef }) {
@@ -22,7 +22,7 @@ export default function AlgoliaSearchModal({ cRef }) {
   const [useTime, setUseTime] = useState(0)
 
   /**
-   * 对外暴露方法
+   * External exposure method
    */
   useImperativeHandle(cRef, () => {
     return {
@@ -39,7 +39,7 @@ export default function AlgoliaSearchModal({ cRef }) {
   const index = client.initIndex(siteConfig('ALGOLIA_INDEX'))
 
   /**
-   * 搜索
+   * search
    * @param {*} query
    */
   const handleSearch = async (query, page) => {
@@ -80,16 +80,16 @@ export default function AlgoliaSearchModal({ cRef }) {
     }
   }
 
-  const throttledHandleSearch = useRef(throttle(handleSearch, 300)) // 设置节流延迟时间
+  const throttledHandleSearch = useRef(throttle(handleSearch, 300)) // Set throttling delay time
 
-  // 修改input的onChange事件处理函数
+  // Modify the onChange event handler of input
   const handleInputChange = e => {
     const query = e.target.value
     throttledHandleSearch.current(query, 0)
   }
 
   /**
-   * 切换页码
+   * Switch page number
    * @param {*} page
    */
   const switchPage = page => {
@@ -97,7 +97,7 @@ export default function AlgoliaSearchModal({ cRef }) {
   }
 
   /**
-   * 关闭弹窗
+   * Close pop-up window
    */
   const closeModal = () => {
     setIsModalOpen(false)
@@ -114,7 +114,7 @@ export default function AlgoliaSearchModal({ cRef }) {
         isModalOpen ? 'opacity-100' : 'invisible opacity-0 pointer-events-none'
       } z-30 fixed h-screen w-screen left-0 top-0 mt-12 flex items-start justify-center`}
     >
-      {/* 模态框 */}
+      {/* modal box */}
       <div
         className={`${
           isModalOpen ? 'opacity-100' : 'invisible opacity-0 translate-y-10'
@@ -137,7 +137,7 @@ export default function AlgoliaSearchModal({ cRef }) {
           className="text-black dark:text-gray-200 bg-gray-50 dark:bg-gray-600 outline-blue-500 w-full px-4 my-2 py-1 mb-4 border rounded-md"
         />
 
-        {/* 标签组 */}
+        {/* tag group */}
         <div className="mb-4">
           <TagGroups />
         </div>
@@ -180,11 +180,11 @@ export default function AlgoliaSearchModal({ cRef }) {
 }
 
 /**
- * 标签组
+ * tag group
  */
 function TagGroups(props) {
   const { tagOptions } = useGlobal()
-  //  获取tagOptions数组前十个
+  //  Get the first ten tagOptions array
   const firstTenTags = tagOptions?.slice(0, 10)
 
   return (
@@ -217,7 +217,7 @@ function TagGroups(props) {
 }
 
 /**
- * 分页
+ * Pagination
  * @param {*} param0
  */
 function Pagination(props) {
@@ -239,7 +239,7 @@ function Pagination(props) {
 }
 
 /**
- * 获取分页按钮
+ * Get pagination button
  * @param {*} i
  * @param {*} selected
  */

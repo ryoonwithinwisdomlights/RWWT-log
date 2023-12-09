@@ -11,8 +11,8 @@ const BLOG = {
   NEXT_REVALIDATE_SECOND: process.env.NEXT_PUBLIC_REVALIDATE_SECOND || 5,
   THEME: 'hexo',
   THEME_SWITCH: process.env.NEXT_PUBLIC_THEME_SWITCH || false, // Whether to display the switch theme button
-  LANG: process.env.NEXT_PUBLIC_LANG || 'kr-KR', // e.g 'zh-CN','en-US'  see /lib/lang.js for more.
-  //   SINCE: , // e.g if leave this empty, current year will be used.
+  LANG: process.env.NEXT_PUBLIC_LANG || 'kr-KR', // e.g ,'en-US'  see /lib/lang.js for more.
+  // SINCE:  // e.g if leave this empty, current year will be used.
   APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'light',
   APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6], // 야간 모드 시작 시간, 시간에 따라 야간 모드 자동 전환을 비활성화하려면 false입니다.
 
@@ -33,9 +33,8 @@ const BLOG = {
 
   CONTACT_TWITTER: process.env.NEXT_PUBLIC_CONTACT_TWITTER,
   CONTACT_GITHUB: process.env.NEXT_PUBLIC_CONTACT_GITHUB,
-  // CONTACT_TELEGRAM: process.env.NEXT_PUBLIC_CONTACT_TELEGRAM || '',
-  // CONTACT_LINKEDIN: process.env.NEXT_PUBLIC_CONTACT_LINKEDIN || '',
   CONTACT_INSTAGRAM: process.env.NEXT_PUBLIC_CONTACT_INSTAGRAM,
+  // CONTACT_LINKEDIN: process.env.NEXT_PUBLIC_CONTACT_LINKEDIN || '',
   // CONTACT_YOUTUBE: process.env.NEXT_PUBLIC_CONTACT_YOUTUBE || '',
 
   NOTION_HOST: process.env.NEXT_PUBLIC_NOTION_HOST || 'https://www.notion.so', // Notion domain name, you can choose to use your own domain name for reverse proxy. If you do not know what a reverse proxy is, please do not modify this item.
@@ -65,9 +64,9 @@ const BLOG = {
     'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap',
     'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&display=swap'
   ],
+
   // Sans serif fonts e.g.'"LXGW WenKai"'
   FONT_SANS: [
-    // '"LXGW WenKai"',
     '"PingFang SC"',
     '-apple-system',
     'BlinkMacSystemFont',
@@ -85,6 +84,7 @@ const BLOG = {
     'sans-serif',
     '"Apple Color Emoji"'
   ],
+
   // serif fonts for example '"LXGW WenKai"'
   FONT_SERIF: [
     // '"LXGW WenKai"',
@@ -103,9 +103,7 @@ const BLOG = {
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', // font-awesome Font icon address; optional /css/all.min.css ， https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css
 
   // END ************website font*****************
-  CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true,
-  // Whether to allow copying of page content is allowed by default. If set to false, copying of content is prohibited in the entire stack.
-  // 우클릭 메뉴
+  CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true, // Whether to allow copying of page content is allowed by default. If set to false, copying of content is prohibited in the entire stack.
   CUSTOM_RIGHT_CLICK_CONTEXT_MENU:
     process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || true, // Customize the right-click menu and override the system menu
 
