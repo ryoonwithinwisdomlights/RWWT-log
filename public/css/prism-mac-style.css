@@ -5,6 +5,7 @@
  of the code component will be turned on.
 
  **/
+
 .code-toolbar {
   position: relative;
   padding-top: 0 !important;
@@ -28,7 +29,7 @@
 
 pre[class*='language-'] {
   margin-top: 0rem !important;
-  // margin-bottom: 0rem !important;
+  /* // margin-bottom: 0rem !important; */
   padding-top: 1.5rem !important;
 
 }

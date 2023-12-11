@@ -10,9 +10,9 @@
 - **Technical Framework**: [Next.js](https://nextjs.org)
 - **Styles**: [Tailwind CSS](https://www.tailwindcss.cn/)
 - **Rendering Tool**: [React-notion-x](https://github.com/NotionX/react-notion-x)
-- **COMMENT**: [Twikoo](https://github.com/imaegoo/twikoo), [Giscus](https://giscus.app/zh-CN), [Gitalk](https://gitalk.github.io), [Cusdis](https://cusdis.com), [Utterances](https://utteranc.es)
-- **ICON**: [Fontawesome](https://fontawesome.com/v6/icons/)
+- **COMMENT**: [Giscus](https://giscus.app/ko), 
+- **ICON**: [Fontawesome](https://fontawesome.com/v6/icons/), [Lucide](https://lucide.dev/)
 
 ## License
 
-The [MIT License](https://github.com/ryoon-with-wisdomtrees/).
+The [MIT License](https://github.com/tangly1024/NotionNext).
