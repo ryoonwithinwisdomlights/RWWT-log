@@ -2,7 +2,6 @@ import { NotionRenderer } from 'react-notion-x'
 import dynamic from 'next/dynamic'
 import mediumZoom from '@fisch0920/medium-zoom'
 import React, { useEffect, useRef } from 'react'
-// import { Code } from 'react-notion-x/build/third-party/code'
 import TweetEmbed from 'react-tweet-embed'
 
 import BLOG from '@/blog.config'

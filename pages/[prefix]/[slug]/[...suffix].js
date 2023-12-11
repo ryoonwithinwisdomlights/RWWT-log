@@ -5,7 +5,6 @@ import { getGlobalData } from '@/lib/notion/getNotionData'
 import { idToUuid } from 'notion-utils'
 import { getNotion } from '@/lib/notion/getNotion'
 import Slug, { getRecommendPost } from '..'
-import { uploadDataToAlgolia } from '@/lib/algolia'
 import { exchangeSlugToType } from '@/lib/utils'
 
 /**
@@ -92,11 +91,6 @@ export async function getStaticProps({ params: { prefix, slug, suffix } }) {
   if (!props?.posts?.blockMap) {
     props.post.blockMap = await getPostBlocks(props.post.id, from)
   }
-  // Generate full-text index && JSON.parse(BLOG.ALGOLIA_RECREATE_DATA)
-  if (BLOG.ALGOLIA_APP_ID) {
-    uploadDataToAlgolia(props?.post)
-  }
-
   // Recommended related article processing
   const allPosts = props.allPages?.filter(
     page =>

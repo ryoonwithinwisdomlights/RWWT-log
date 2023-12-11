@@ -9,7 +9,6 @@ import { getPageTableOfContents } from '@/lib/notion/getPageTableOfContents'
 import { getLayoutByTheme } from '@/themes/theme'
 import md5 from 'js-md5'
 import { isBrowser } from '@/lib/utils'
-import { uploadDataToAlgolia } from '@/lib/algolia'
 
 /**
  * Access the page according to the notion's slug
@@ -134,11 +133,6 @@ export async function getStaticProps({ params: { prefix } }) {
   // Article content loading
   if (!props?.posts?.blockMap) {
     props.post.blockMap = await getPostBlocks(props.post.id, from)
-  }
-
-  // Generate full-text index && process.env.npm_lifecycle_event === 'build' && JSON.parse(BLOG.ALGOLIA_RECREATE_DATA)
-  if (BLOG.ALGOLIA_APP_ID) {
-    uploadDataToAlgolia(props?.post)
   }
 
   // Recommended related article processing

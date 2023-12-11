@@ -53,7 +53,6 @@ import TheLogitem from './components/TheLogitem'
 import GuestBookItem from './components/GuestBookItem'
 import TechLogItem from './components/TechLogItem'
 import LazyImage from '@/components/LazyImage'
-const WWAds = dynamic(() => import('@/components/WWAds'), { ssr: false })
 
 // Theme global variables
 const ThemeGlobalGitbook = createContext()
@@ -151,7 +150,6 @@ const LayoutBase = props => {
               className="w-full px-7 max-w-3xl justify-center mx-auto"
             >
               {slotTop}
-              <WWAds className="w-full" orientation="horizontal" />
 
               <Transition
                 show={!onLoading}
@@ -169,7 +167,6 @@ const LayoutBase = props => {
 
               {/* Google ads */}
               <AdSlot type="in-article" />
-              <WWAds className="w-full" orientation="horizontal" />
 
               {/* Back button */}
               <JumpToTopButton />
@@ -359,7 +356,6 @@ const LayoutSlug = props => {
                   <ArticleAround prev={prev} next={next} />
                 )}
               <AdSlot />
-              <WWAds className="w-full" orientation="horizontal" />
 
               <Comment frontMatter={post} />
             </section>

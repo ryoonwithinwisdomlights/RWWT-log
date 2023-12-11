@@ -1,7 +1,6 @@
 import NotionPage from '@/components/NotionPage'
 import Link from 'next/link'
 import TagItemMini from './TagItemMini'
-import TwikooCommentCount from '@/components/TwikooCommentCount'
 import { siteConfig } from '@/lib/config'
 import { formatDateFmt } from '@/lib/formatDate'
 
@@ -51,11 +50,6 @@ export const PortfolioCardInfo = ({
               <i className="mr-1 far fa-folder" />
               {post.category}
             </Link>
-
-            <TwikooCommentCount
-              className="text-sm hover:text-indigo-700 dark:hover:text-indigo-400"
-              post={post}
-            />
           </div>
         )}
 

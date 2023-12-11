@@ -1,13 +1,6 @@
 const BLOG = {
   NOTION_PAGE_ID: process.env.NOTION_PAGE_ID,
   PSEUDO_STATIC: process.env.NEXT_PUBLIC_PSEUDO_STATIC || false,
-  /**
-   * Update content cache interval unit (seconds); that is, each page has a pure static period of 5 seconds,
-   * during which no notification data will be captured no matter how many times it is accessed;
-   * increasing this value will help save Vercel resources and increase the access rate. ,
-   * but it will also cause a delay in updating the article.
-   *
-   */
   NEXT_REVALIDATE_SECOND: process.env.NEXT_PUBLIC_REVALIDATE_SECOND || 5,
   THEME: 'gitbook',
   THEME_SWITCH: process.env.NEXT_PUBLIC_THEME_SWITCH || false, // Whether to display the switch theme button
@@ -21,9 +14,6 @@ const BLOG = {
     'Achieves, builds solidarity, and develops together.',
 
   CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true,
-  // Supports Menu type. Starting from version 3.12.0,
-  // each theme will gradually support flexible secondary menu configuration,
-  // replacing the original Page type. This configuration is an experimental function and is turned off by default.
 
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.with.wisdomtrees',
   BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights',
@@ -46,13 +36,6 @@ const BLOG = {
   RANDOM_IMAGE_REPLACE_TEXT:
     process.env.NEXT_PUBLIC_RANDOM_IMAGE_NOT_REPLACE_TEXT ||
     'images.unsplash.com',
-  // The url keyword that triggers the replacement of the image (multiple supported are separated by English commas).
-  // Only the image address containing this keyword will be replaced with the random image url above.
-  // eg: images.unsplash.com (all images in the notification image bed will be replaced).
-  // If you have added a random image URL in the notification, and that service happens to run away or hang up,
-  // you can switch all images with one click. Configure the url here
-  // By default, the homepage cover image and avatar you uploaded to notion will also be replaced.
-  // It is recommended to put the homepage cover image and avatar on other image beds, and configure the link in notion.
 
   // START ************website font*****************
 
@@ -176,13 +159,6 @@ const BLOG = {
   POSTS_PER_PAGE: 12, // post counts per page
   POSTS_SORT_BY: process.env.NEXT_PUBLIC_POST_SORT_BY || 'notion', // 정렬 방식은 '날짜'는 시간 기준, '노션'은 알림 기준
 
-  ALGOLIA_APP_ID: process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || null, // 여기서 확인해보세요 https://dashboard.algolia.com/account/api-keys/
-  ALGOLIA_ADMIN_APP_KEY: process.env.ALGOLIA_ADMIN_APP_KEY || null, // KEY in the management background, do not expose it in the code, view it here https://dashboard.algolia.com/account/api-keys/
-  ALGOLIA_SEARCH_ONLY_APP_KEY:
-    process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_ONLY_APP_KEY || null, // KEY used for client search
-  ALGOLIA_INDEX: process.env.NEXT_PUBLIC_ALGOLIA_INDEX || null, // Create an index in Algolia to use as a database
-  //   ALGOLIA_RECREATE_DATA: process.env.ALGOLIA_RECREATE_DATA || process.env.npm_lifecycle_event === 'build', // Rebuild the index data when true; by default it will be built during build
-
   PREVIEW_CATEGORY_COUNT: 16, // The maximum number of categories displayed on the homepage, 0 means no limit
   PREVIEW_TAG_COUNT: 16, // The maximum number of tags displayed on the homepage, 0 means no limit
 
@@ -264,6 +240,7 @@ const BLOG = {
     process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING_LRC_TYPE || '1', // Optional values: 3 | 1 | 0 (0: disable lrc lyrics, 1: lrc format string, 3: lrc file url)）
 
   //   ********Pendant component related********
+
   // ----> Comment interaction can open multiple supports at the same time WALINE VALINE GISCUS CUSDIS UTTERRANCES GITALK
   // giscus @see https://giscus.app/
   COMMENT_GISCUS_REPO: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO || '', // Your Github repository name e.g 'tangly1024/NotionNext'
@@ -345,23 +322,8 @@ const BLOG = {
   ANALYTICS_VERCEL: process.env.NEXT_PUBLIC_ANALYTICS_VERCEL || false, // Vercel’s own statistics https://vercel.com/docs/concepts/analytics/quickstart https://github.com/tangly1024/NotionNext/issues/897
   ANALYTICS_BUSUANZI_ENABLE:
     process.env.NEXT_PUBLIC_ANALYTICS_BUSUANZI_ENABLE || true, // Display website reading volume and number of visits see http://busuanzi.ibruce.info/
-  ANALYTICS_BAIDU_ID: process.env.NEXT_PUBLIC_ANALYTICS_BAIDU_ID || '', // e.g You only need to fill in the ID of Baidu Statistics.[baidu_id] -> https://hm.baidu.com/hm.js?[baidu_id]
-  ANALYTICS_CNZZ_ID: process.env.NEXT_PUBLIC_ANALYTICS_CNZZ_ID || '', // You only need to fill in the id of the webmaster statistics, [cnzz_id] -> https://s9.cnzz.com/z_stat.php?id=[cnzz_id]&web_id=[cnzz_id]
-  ANALYTICS_GOOGLE_ID: process.env.NEXT_PUBLIC_ANALYTICS_GOOGLE_ID || '', // Google Analytics ID e.g: G-XXXXXXXXXX
-
-  // ACKEE website visitor statistics tool
-  ANALYTICS_ACKEE_TRACKER:
-    process.env.NEXT_PUBLIC_ANALYTICS_ACKEE_TRACKER || '', // e.g 'https://ackee.tangly1024.com/tracker.js'
-  ANALYTICS_ACKEE_DATA_SERVER:
-    process.env.NEXT_PUBLIC_ANALYTICS_ACKEE_DATA_SERVER || '', // e.g https://ackee.tangly1024.com , don't end with a slash
-  ANALYTICS_ACKEE_DOMAIN_ID:
-    process.env.NEXT_PUBLIC_ANALYTICS_ACKEE_DOMAIN_ID || '', // e.g '82e51db6-dec2-423a-b7c9-b4ff7ebb3302'
-
   SEO_GOOGLE_SITE_VERIFICATION:
     process.env.NEXT_PUBLIC_SEO_GOOGLE_SITE_VERIFICATION || '', // Remove the value or replace it with your own google site verification code
-
-  SEO_BAIDU_SITE_VERIFICATION:
-    process.env.NEXT_PUBLIC_SEO_BAIDU_SITE_VERIFICATION || '', // Remove the value or replace it with your own google site verification code
 
   // <---- Site statistics
 
@@ -438,10 +400,6 @@ const BLOG = {
   // Obsolete configuration
   AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/notion-avatar.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
   TITLE: process.env.NEXT_PUBLIC_TITLE || 'Ryoon.with.wisdomtreesBLOG', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
-
-  AD_WWADS_ID: process.env.NEXT_PUBLIC_WWAD_ID || null, // https://wwads.cn/ 전역 광고 단위 ID 만들기
-  AD_WWADS_BLOCK_DETECT: process.env.NEXT_PUBLIC_WWADS_AD_BLOCK_DETECT || false, // WWADS 광고 차단 플러그인 감지 활성화 여부는 활성화된 후 광고 공간에 텍스트 프롬프트가 표시됩니다. @see https://github.com/bytegravity/whitelist-wwads
-
   HOME_BANNER_IMAGE:
     process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/bg_image.png', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.
   DESCRIPTION:

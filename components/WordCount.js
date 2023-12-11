@@ -27,7 +27,7 @@ export default function WordCount() {
 }
 
 /**
- * 更新字数统计和阅读时间
+ * 단어 수 및 읽기 시간 업데이트
  */
 function countWords() {
   const articleText = deleteHtmlTag(
@@ -42,16 +42,16 @@ function countWords() {
   wordCountWrapper.classList.remove('hidden')
 }
 
-// 去除html标签
+// HTML 태그 제거
 function deleteHtmlTag(str) {
   if (!str) {
     return ''
   }
-  str = str.replace(/<[^>]+>|&[^>]+;/g, '').trim() // 去掉所有的html标签和&nbsp;之类的特殊符合
+  str = str.replace(/<[^>]+>|&[^>]+;/g, '').trim() // 모든 HTML 태그와 &nbsp;와 같은 특수 문자를 제거합니다.&nbsp;之类的特殊符合
   return str
 }
 
-// 用word方式计算正文字数
+// 단어 방법을 사용하여 텍스트 단어 수 계산
 function fnGetCpmisWords(str) {
   if (!str) {
     return 0
