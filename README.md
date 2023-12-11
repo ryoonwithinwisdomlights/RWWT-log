@@ -1,7 +1,5 @@
 # Ryoon-gitbook-next
 
-<img width="100%" src="./public/RyoonLog.gif"/>
-
 - Next.js 14 ver App router based Gitbook themed Notion-Static-Blog.
 - special credit to [tangly1024](https://github.com/tangly1024)'s [NotionNext](https://github.com/tangly1024/NotionNext) for inspiration
 
