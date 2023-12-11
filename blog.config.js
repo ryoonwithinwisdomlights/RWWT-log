@@ -265,28 +265,6 @@ const BLOG = {
 
   //   ********Pendant component related********
   // ----> Comment interaction can open multiple supports at the same time WALINE VALINE GISCUS CUSDIS UTTERRANCES GITALK
-
-  // artalk  Comment plugin
-  COMMENT_ARTALK_SERVER: process.env.NEXT_PUBLIC_COMMENT_ARTALK_SERVER || '', // ArtalkServert backend address https://artalk.js.org/guide/deploy.html
-  COMMENT_ARTALK_JS:
-    process.env.NEXT_PUBLIC_COMMENT_ARTALK_JS ||
-    'https://cdnjs.cloudflare.com/ajax/libs/artalk/2.5.5/Artalk.js', // ArtalkServert js cdn
-  COMMENT_ARTALK_CSS:
-    process.env.NEXT_PUBLIC_COMMENT_ARTALK_CSS ||
-    'https://cdnjs.cloudflare.com/ajax/libs/artalk/2.5.5/Artalk.css', // ArtalkServert css cdn
-
-  // twikoo
-  COMMENT_TWIKOO_ENV_ID: process.env.NEXT_PUBLIC_COMMENT_ENV_ID || '', // TWIKOO backend address: Fill in envId for Tencent Cloud environment; fill in domain name for Vercel environment, tutorial：https://tangly1024.com/article/notionnext-twikoo
-  COMMENT_TWIKOO_COUNT_ENABLE:
-    process.env.NEXT_PUBLIC_COMMENT_TWIKOO_COUNT_ENABLE || false, // Whether the blog list displays the number of comments
-  COMMENT_TWIKOO_CDN_URL:
-    process.env.NEXT_PUBLIC_COMMENT_TWIKOO_CDN_URL ||
-    'https://cdn.staticfile.org/twikoo/1.6.16/twikoo.min.js', // wikoo client cdn
-
-  // utterance
-  COMMENT_UTTERRANCES_REPO:
-    process.env.NEXT_PUBLIC_COMMENT_UTTERRANCES_REPO || '', // Your code repository name, for example mine is 'tangly1024/NotionNext'; For more documentation, please refer to https://utteranc.es/
-
   // giscus @see https://giscus.app/
   COMMENT_GISCUS_REPO: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO || '', // Your Github repository name e.g 'tangly1024/NotionNext'
   COMMENT_GISCUS_REPO_ID: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO_ID || '', // Your Github Repo ID e.g (you can see it after setting up giscus)

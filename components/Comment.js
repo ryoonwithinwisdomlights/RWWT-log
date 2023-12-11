@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import Tabs from '@/components/Tabs'
 import { isBrowser } from '@/lib/utils'
 import { useRouter } from 'next/router'
-import Artalk from './Artalk'
 
 const WalineComponent = dynamic(
   () => {
@@ -15,13 +14,6 @@ const WalineComponent = dynamic(
 const CusdisComponent = dynamic(
   () => {
     return import('@/components/CusdisComponent')
-  },
-  { ssr: false }
-)
-
-const TwikooCompenent = dynamic(
-  () => {
-    return import('@/components/Twikoo')
   },
   { ssr: false }
 )
@@ -102,18 +94,6 @@ const Comment = ({ siteInfo, frontMatter, className }) => {
       }`}
     >
       <Tabs>
-        {BLOG.COMMENT_ARTALK_SERVER && (
-          <div key="Artalk">
-            <Artalk siteInfo={siteInfo} />
-          </div>
-        )}
-
-        {BLOG.COMMENT_TWIKOO_ENV_ID && (
-          <div key="Twikoo">
-            <TwikooCompenent />
-          </div>
-        )}
-
         {BLOG.COMMENT_WALINE_SERVER_URL && (
           <div key="Waline">
             <WalineComponent />

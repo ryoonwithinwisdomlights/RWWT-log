@@ -41,10 +41,10 @@ const Footer = ({ siteInfo }) => {
       <div className="text-xs font-serif">
         Customized by
         <a
-          href="https://github.com/ryoon-with-wisdomtrees/RyoonLog"
+          href="https://github.com/ryoon-with-wisdomtrees/ryoon-gitbook-next"
           className="underline text-gray-500 dark:text-gray-300"
         >
-          RyoonLog
+          ryoon-gitbook-next
         </a>
         .
       </div>
