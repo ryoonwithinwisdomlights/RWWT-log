@@ -32,22 +32,13 @@ const Footer = ({ siteInfo }) => {
       <div className="text-xs font-serif">
         Powered By{' '}
         <a
-          href="https://github.com/tangly1024/NotionNext"
-          className="underline text-gray-500 dark:text-gray-300"
-        >
-          NotionNext
-        </a>
-      </div>
-      <div className="text-xs font-serif">
-        Customized by
-        <a
           href="https://github.com/ryoon-with-wisdomtrees/ryoon-gitbook-next"
           className="underline text-gray-500 dark:text-gray-300"
         >
           ryoon-gitbook-next
         </a>
-        .
       </div>
+
       {/* <h1 className="pt-1">{siteInfo?.title}</h1> */}
     </footer>
   )

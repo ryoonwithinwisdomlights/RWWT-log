@@ -49,26 +49,7 @@ const PrismMac = () => {
  * Load styles
  */
 const loadPrismThemeCSS = isDarkMode => {
-  let PRISM_THEME
-  let PRISM_PREVIOUS
-  if (JSON.parse(BLOG.PRISM_THEME_SWITCH)) {
-    if (isDarkMode) {
-      PRISM_THEME = BLOG.PRISM_THEME_DARK_PATH
-      PRISM_PREVIOUS = BLOG.PRISM_THEME_LIGHT_PATH
-    } else {
-      PRISM_THEME = BLOG.PRISM_THEME_LIGHT_PATH
-      PRISM_PREVIOUS = BLOG.PRISM_THEME_DARK_PATH
-    }
-    const previousTheme = document.querySelector(
-      `link[href="${PRISM_PREVIOUS}"]`
-    )
-    if (previousTheme) {
-      previousTheme.parentNode.removeChild(previousTheme)
-    }
-    loadExternalResource(PRISM_THEME, 'css')
-  } else {
-    loadExternalResource(BLOG.PRISM_THEME_PREFIX_PATH, 'css')
-  }
+  loadExternalResource(BLOG.PRISM_THEME_PREFIX_PATH, 'css')
 }
 
 /*

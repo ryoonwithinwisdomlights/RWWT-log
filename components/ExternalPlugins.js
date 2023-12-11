@@ -4,9 +4,6 @@ import dynamic from 'next/dynamic'
 const DebugPanel = dynamic(() => import('@/components/DebugPanel'), {
   ssr: false
 })
-const ThemeSwitch = dynamic(() => import('@/components/ThemeSwitch'), {
-  ssr: false
-})
 
 const Analytics = dynamic(
   () =>
@@ -34,7 +31,6 @@ const DisableCopy = dynamic(() => import('@/components/DisableCopy'), {
 const ExternalPlugin = props => {
   return (
     <>
-      {JSON.parse(BLOG.THEME_SWITCH) && <ThemeSwitch />}
       {JSON.parse(BLOG.DEBUG) && <DebugPanel />}
       {BLOG.ANALYTICS_GOOGLE_ID && <Gtag />}
       {BLOG.ANALYTICS_VERCEL && <Analytics />}

@@ -1,10 +1,7 @@
 /* eslint-disable multiline-ternary */
 import BLOG from '@/blog.config'
 import { useEffect, useState } from 'react'
-import Select from './Select'
 import { useGlobal } from '@/lib/global'
-import { THEMES } from '@/themes/theme'
-import { useRouter } from 'next/router'
 
 /**
  *
@@ -12,12 +9,8 @@ import { useRouter } from 'next/router'
  */
 const DebugPanel = () => {
   const [show, setShow] = useState(false)
-  const { theme, switchTheme, locale } = useGlobal()
-  const router = useRouter()
+  const { locale } = useGlobal()
   const [siteConfig, updateSiteConfig] = useState({})
-
-  // Theme drop-down box
-  const themeOptions = THEMES?.map(t => ({ value: t, text: t }))
 
   useEffect(() => {
     updateSiteConfig(Object.assign({}, BLOG))
@@ -27,16 +20,6 @@ const DebugPanel = () => {
   function toggleShow() {
     setShow(!show)
   }
-
-  function handleChangeDebugTheme() {
-    switchTheme()
-  }
-
-  function handleUpdateDebugTheme(newTheme) {
-    const query = { ...router.query, theme: newTheme }
-    router.push({ pathname: router.pathname, query })
-  }
-
   function filterResult(text) {
     switch (text) {
       case 'true':
@@ -75,21 +58,6 @@ const DebugPanel = () => {
         } overflow-y-scroll h-full p-5 bg-white fixed bottom-0 z-50 duration-200`}
       >
         <div className="flex justify-between space-x-1 my-5">
-          <div className="flex">
-            <Select
-              label={locale.COMMON.THEME_SWITCH}
-              value={theme}
-              options={themeOptions}
-              onChange={handleUpdateDebugTheme}
-            />
-            <div
-              className="p-2 cursor-pointer"
-              onClick={handleChangeDebugTheme}
-            >
-              <i className="fas fa-sync" />
-            </div>
-          </div>
-
           <div className="p-2">
             <i className="fas fa-times" onClick={toggleShow} />
           </div>

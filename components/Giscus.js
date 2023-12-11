@@ -3,7 +3,7 @@ import { useGlobal } from '@/lib/global'
 import Giscus from '@giscus/react'
 
 /**
- * Giscus Reviews @see https://giscus.app/zh-CN
+ * Giscus Reviews @see https://giscus.app/ko
  * Contribute by @txs
  * @returns {JSX.Element}
  * @constructor

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState, useRef, useLayoutEffect } from 'react'
 import { useGlobal } from '@/lib/global'
-import { saveDarkModeToCookies, THEMES } from '@/themes/theme'
+import { saveDarkModeToCookies } from '@/themes/theme'
 import BLOG from '@/blog.config'
 import useWindowSize from '@/hooks/useWindowSize'
 
@@ -96,16 +96,6 @@ export default function CustomContextMenu(props) {
         console.error('Failed to copy page address:', error)
       })
     setShow(false)
-  }
-
-  /**
-   * switch theme
-   */
-  function handeChangeTheme() {
-    const randomTheme = THEMES[Math.floor(Math.random() * THEMES.length)] // Randomly pick a topic from the THEMES array
-    const query = router.query
-    query.theme = randomTheme
-    router.push({ pathname: router.pathname, query })
   }
 
   function handleChangeDarkMode() {
@@ -206,14 +196,6 @@ export default function CustomContextMenu(props) {
               {' '}
               {isDarkMode ? locale.MENU.LIGHT_MODE : locale.MENU.DARK_MODE}
             </div>
-          </div>
-          <div
-            onClick={handeChangeTheme}
-            title={locale.MENU.THEME_SWITCH}
-            className="w-full px-2 h-10 flex justify-start items-center flex-nowrap cursor-pointer hover:bg-lime-600 hover:text-white rounded-lg duration-200 transition-all"
-          >
-            <i className="fa-solid fa-palette mr-2" />
-            <div className="whitespace-nowrap">{locale.MENU.THEME_SWITCH}</div>
           </div>
         </div>
       </div>
