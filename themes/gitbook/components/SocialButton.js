@@ -39,16 +39,6 @@ const SocialButton = () => {
           <i className="transform hover:scale-125 duration-150 fab fa-linkedin dark:hover:text-indigo-400 hover:text-indigo-600" />
         </a>
       )}
-      {BLOG.CONTACT_WEIBO && (
-        <a
-          target="_blank"
-          rel="noreferrer"
-          title={'weibo'}
-          href={BLOG.CONTACT_WEIBO}
-        >
-          <i className="fab fa-weibo transform hover:scale-125 duration-150 hover:text-green-600" />
-        </a>
-      )}
       {BLOG.CONTACT_INSTAGRAM && (
         <a
           target="_blank"

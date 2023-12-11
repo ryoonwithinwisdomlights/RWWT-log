@@ -5,16 +5,15 @@ const BLOG = {
   THEME: 'gitbook',
   THEME_SWITCH: process.env.NEXT_PUBLIC_THEME_SWITCH || false, // Whether to display the switch theme button
   LANG: process.env.NEXT_PUBLIC_LANG || 'kr-KR', // e.g ,'en-US'  see /lib/lang.js for more.
-  // SINCE:  // e.g if leave this empty, current year will be used.
   APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'light',
   APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6], // 야간 모드 시작 시간, 시간에 따라 야간 모드 자동 전환을 비활성화하려면 false입니다.
+  // SINCE:  // e.g if leave this empty, current year will be used.
 
   GREETING_WORDS:
     process.env.NEXT_PUBLIC_GREETING_WORDS ||
     'Achieves, builds solidarity, and develops together.',
 
   CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true,
-
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.with.wisdomtrees',
   BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights',
   LINK: process.env.NEXT_PUBLIC_LINK, // website address
@@ -24,18 +23,17 @@ const BLOG = {
   CONTACT_TWITTER: process.env.NEXT_PUBLIC_CONTACT_TWITTER,
   CONTACT_GITHUB: process.env.NEXT_PUBLIC_CONTACT_GITHUB,
   CONTACT_INSTAGRAM: process.env.NEXT_PUBLIC_CONTACT_INSTAGRAM,
-  // CONTACT_LINKEDIN: process.env.NEXT_PUBLIC_CONTACT_LINKEDIN || '',
-  // CONTACT_YOUTUBE: process.env.NEXT_PUBLIC_CONTACT_YOUTUBE || '',
+  CONTACT_LINKEDIN: process.env.NEXT_PUBLIC_CONTACT_LINKEDIN || '',
 
   NOTION_HOST: process.env.NEXT_PUBLIC_NOTION_HOST || 'https://www.notion.so', // Notion domain name, you can choose to use your own domain name for reverse proxy. If you do not know what a reverse proxy is, please do not modify this item.
 
   BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || '/favicon.ico', //
   RANDOM_IMAGE_URL: process.env.NEXT_PUBLIC_RANDOM_IMAGE_URL || '',
-  // Random picture API, if the following keywords are not configured,
-  // the homepage cover, avatar, and article cover image will be replaced with random pictures.
   RANDOM_IMAGE_REPLACE_TEXT:
     process.env.NEXT_PUBLIC_RANDOM_IMAGE_NOT_REPLACE_TEXT ||
     'images.unsplash.com',
+  // Random picture API, if the following keywords are not configured,
+  // the homepage cover, avatar, and article cover image will be replaced with random pictures.
 
   // START ************website font*****************
 
@@ -86,6 +84,7 @@ const BLOG = {
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', // font-awesome Font icon address; optional /css/all.min.css ， https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css
 
   // END ************website font*****************
+
   CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true, // Whether to allow copying of page content is allowed by default. If set to false, copying of content is prohibited in the entire stack.
   CUSTOM_RIGHT_CLICK_CONTEXT_MENU:
     process.env.NEXT_PUBLIC_CUSTOM_RIGHT_CLICK_CONTEXT_MENU || true, // Customize the right-click menu and override the system menu
@@ -121,16 +120,12 @@ const BLOG = {
   CODE_COLLAPSE_EXPAND_DEFAULT:
     process.env.NEXT_PUBLIC_CODE_COLLAPSE_EXPAND_DEFAULT || true, // The folded code is in the expanded state by default
 
-  // END********Code related********
+  // END ********Code related********
 
   // Mermaid ChartCDN
   MERMAID_CDN:
     process.env.NEXT_PUBLIC_MERMAID_CDN ||
     'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js', // CDN
-  // QRCodeCDN
-  QR_CODE_CDN:
-    process.env.NEXT_PUBLIC_QR_CODE_CDN ||
-    'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js',
 
   BACKGROUND_LIGHT: '#eeeeee', // use hex value, don't forget '#' e.g #fffefc
   BACKGROUND_DARK: '#000000', // use hex value, don't forget '#'
@@ -160,83 +155,6 @@ const BLOG = {
   POST_DISABLE_GALLERY_CLICK:
     process.env.NEXT_PUBLIC_POST_DISABLE_GALLERY_CLICK || false, // Clicking is prohibited in the picture album view, making it easier to insert links into the picture album on the friend link page.
 
-  //   ********Dynamic special effects related********
-  // Mouse click firework special effects
-  FIREWORKS: process.env.NEXT_PUBLIC_FIREWORKS || false, // switch
-  // Fireworks colors, thanks to https://github.com/Vixcity for submitting the colors
-  FIREWORKS_COLOR: [
-    '255, 20, 97',
-    '24, 255, 146',
-    '90, 135, 255',
-    '251, 243, 140'
-  ],
-
-  // Cherry blossoms falling special effects
-  SAKURA: process.env.NEXT_PUBLIC_SAKURA || false, // switch
-  // Floating line segment effects
-  NEST: process.env.NEXT_PUBLIC_NEST || false, // switch
-  // Dynamic ribbon effects
-  FLUTTERINGRIBBON: process.env.NEXT_PUBLIC_FLUTTERINGRIBBON || false, // switch
-  // Static ribbon effects
-  RIBBON: process.env.NEXT_PUBLIC_RIBBON || false, // switch
-  // The starry sky rain special effect will only take effect in dark night mode
-  STARRY_SKY: process.env.NEXT_PUBLIC_STARRY_SKY || false, // switch
-
-  //   ********Pendant component related********
-  // Chatbase whether to display chatbase robot https://www.chatbase.co/
-  CHATBASE_ID: process.env.NEXT_PUBLIC_CHATBASE_ID || null,
-  // WebwhizAI robot@see https://github.com/webwhiz-ai/webwhiz
-  WEB_WHIZ_ENABLED: process.env.NEXT_PUBLIC_WEB_WHIZ_ENABLED || false, // Whether to display
-  WEB_WHIZ_BASE_URL:
-    process.env.NEXT_PUBLIC_WEB_WHIZ_BASE_URL || 'https://api.webwhiz.ai', // You can build your own server
-  WEB_WHIZ_CHAT_BOT_ID: process.env.NEXT_PUBLIC_WEB_WHIZ_CHAT_BOT_ID || null, // Get the ID in the background
-
-  // Suspension pendant
-  WIDGET_PET: process.env.NEXT_PUBLIC_WIDGET_PET || true, // Whether to display pet pendants
-  WIDGET_PET_LINK:
-    process.env.NEXT_PUBLIC_WIDGET_PET_LINK ||
-    'https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json', // Pendant model address @see https://github.com/xiazeyu/live2d-widget-models
-  WIDGET_PET_SWITCH_THEME:
-    process.env.NEXT_PUBLIC_WIDGET_PET_SWITCH_THEME || false, // Click on the pet pendant to switch blog themes
-
-  // Music player plug-in
-  MUSIC_PLAYER: process.env.NEXT_PUBLIC_MUSIC_PLAYER || false, // Whether to use music player plug-in
-  MUSIC_PLAYER_VISIBLE: process.env.NEXT_PUBLIC_MUSIC_PLAYER_VISIBLE || true, // Whether to display playback and switching in the lower left corner. If you use the player, turn on automatic play and then hide it, it will play like background music and cannot be canceled or paused.
-  MUSIC_PLAYER_AUTO_PLAY:
-    process.env.NEXT_PUBLIC_MUSIC_PLAYER_AUTO_PLAY || true, // Whether to automatically play, but automatic play often does not take effect (mobile devices do not support automatic play)
-  MUSIC_PLAYER_LRC_TYPE: process.env.NEXT_PUBLIC_MUSIC_PLAYER_LRC_TYPE || '0', // Lyrics display type, optional values: 3 | 1 | 0 (0: disable lrc lyrics, 1: string in lrc format, 3: lrc file url) (provided that the lyrics path is configured, it is invalid for meting)
-  MUSIC_PLAYER_CDN_URL:
-    process.env.NEXT_PUBLIC_MUSIC_PLAYER_CDN_URL ||
-    'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js',
-  MUSIC_PLAYER_ORDER: process.env.NEXT_PUBLIC_MUSIC_PLAYER_ORDER || 'list', // Default playback mode, order list, random random
-  MUSIC_PLAYER_AUDIO_LIST: [
-    // Sample music list. In addition to the following configurations, lyrics can also be configured. For specific configuration items, see this document https://aplayer.js.org/#/zh-Hans/
-    {
-      name: '风を共に舞う気持ち',
-      artist: 'Falcom Sound Team jdk',
-      url: 'https://music.163.com/song/media/outer/url?id=731419.mp3',
-      cover:
-        'https://p2.music.126.net/kn6ugISTonvqJh3LHLaPtQ==/599233837187278.jpg'
-    },
-    {
-      name: '王都グランセル',
-      artist: 'Falcom Sound Team jdk',
-      url: 'https://music.163.com/song/media/outer/url?id=731355.mp3',
-      cover:
-        'https://p1.music.126.net/kn6ugISTonvqJh3LHLaPtQ==/599233837187278.jpg'
-    }
-  ],
-  MUSIC_PLAYER_METING: process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING || false, // Whether to enable MetingJS and obtain the playlist from the platform. Will overwrite the customized MUSIC_PLAYER_AUDIO_LIST, more configuration information: https://github.com/metowolf/MetingJS
-  MUSIC_PLAYER_METING_SERVER:
-    process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING_SERVER || 'netease', // Music platform, [netease, tencent, kugou, xiami, baidu]]
-  MUSIC_PLAYER_METING_ID:
-    process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING_ID || '60198', // Corresponding to the playlist id
-  MUSIC_PLAYER_METING_LRC_TYPE:
-    process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING_LRC_TYPE || '1', // Optional values: 3 | 1 | 0 (0: disable lrc lyrics, 1: lrc format string, 3: lrc file url)）
-
-  //   ********Pendant component related********
-
-  // ----> Comment interaction can open multiple supports at the same time WALINE VALINE GISCUS CUSDIS UTTERRANCES GITALK
   // giscus @see https://giscus.app/
   COMMENT_GISCUS_REPO: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO || '', // Your Github repository name e.g 'tangly1024/NotionNext'
   COMMENT_GISCUS_REPO_ID: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO_ID || '', // Your Github Repo ID e.g (you can see it after setting up giscus)
@@ -258,72 +176,15 @@ const BLOG = {
   COMMENT_GISCUS_CROSSORIGIN:
     process.env.NEXT_PUBLIC_COMMENT_GISCUS_CROSSORIGIN || 'anonymous', // Your Giscus can be cross-domain, default 'anonymous'
 
-  COMMENT_CUSDIS_APP_ID: process.env.NEXT_PUBLIC_COMMENT_CUSDIS_APP_ID || '', // data-app-id 36位 see https://cusdis.com/
-  COMMENT_CUSDIS_HOST:
-    process.env.NEXT_PUBLIC_COMMENT_CUSDIS_HOST || 'https://cusdis.com', // data-host, change this if you're using self-hosted version
-  COMMENT_CUSDIS_SCRIPT_SRC:
-    process.env.NEXT_PUBLIC_COMMENT_CUSDIS_SCRIPT_SRC || '/js/cusdis.es.js', // change this if you're using self-hosted version
-
-  // gitalk comment plugin more reference https://gitalk.github.io/
-  COMMENT_GITALK_REPO: process.env.NEXT_PUBLIC_COMMENT_GITALK_REPO || '', // Your Github repository name, such as 'NotionNext'
-  COMMENT_GITALK_OWNER: process.env.NEXT_PUBLIC_COMMENT_GITALK_OWNER || '', // Your username e.g tangly1024
-  COMMENT_GITALK_ADMIN: process.env.NEXT_PUBLIC_COMMENT_GITALK_ADMIN || '', // Administrator username, usually yourself e.g 'tangly1024'
-  COMMENT_GITALK_CLIENT_ID:
-    process.env.NEXT_PUBLIC_COMMENT_GITALK_CLIENT_ID || '', // e.g 20-digit ID, obtained in gitalk background
-  COMMENT_GITALK_CLIENT_SECRET:
-    process.env.NEXT_PUBLIC_COMMENT_GITALK_CLIENT_SECRET || '', // 0-digit ID, obtained in gitalk background
-  COMMENT_GITALK_DISTRACTION_FREE_MODE: false, // Distraction-free mode similar to Facebook
-  COMMENT_GITALK_JS_CDN_URL:
-    process.env.NEXT_PUBLIC_COMMENT_GITALK_JS_CDN_URL ||
-    'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', // gitalk client js cdn
-  COMMENT_GITALK_CSS_CDN_URL:
-    process.env.NEXT_PUBLIC_COMMENT_GITALK_CSS_CDN_URL ||
-    'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css', // gitalk client css cdn
-
-  COMMENT_GITTER_ROOM: process.env.NEXT_PUBLIC_COMMENT_GITTER_ROOM || '', // gitter chat room see https://gitter.im/ Leave blank if not required
-  COMMENT_DAO_VOICE_ID: process.env.NEXT_PUBLIC_COMMENT_DAO_VOICE_ID || '', // DaoVoice http://dashboard.daovoice.io/get-started
-  COMMENT_TIDIO_ID: process.env.NEXT_PUBLIC_COMMENT_TIDIO_ID || '', // [tidio_id] -> //code.tidio.co/[tidio_id].js
-
-  COMMENT_VALINE_CDN:
-    process.env.NEXT_PUBLIC_VALINE_CDN ||
-    'https://unpkg.com/valine@1.5.1/dist/Valine.min.js',
-  COMMENT_VALINE_APP_ID: process.env.NEXT_PUBLIC_VALINE_ID || '', // Valine @see https://valine.js.org/quickstart.html or https://github.com/stonehank/react-valine#%E8%8E%B7%E5%8F%96app-id-%E5%92%8C-app-key
-  COMMENT_VALINE_APP_KEY: process.env.NEXT_PUBLIC_VALINE_KEY || '',
-  COMMENT_VALINE_SERVER_URLS: process.env.NEXT_PUBLIC_VALINE_SERVER_URLS || '', // This configuration is suitable for domestic custom domain name users, and overseas versions will be automatically detected (no need to fill in manually) @see https://valine.js.org/configuration.html#serverURLs
-  COMMENT_VALINE_PLACEHOLDER:
-    process.env.NEXT_PUBLIC_VALINE_PLACEHOLDER || 'Grab a sofa~', // Can be used with background management comments https://github.com/DesertsP/Valine-Admin  Easy to view comments, as well as email notifications, spam filtering and other functions
-
-  COMMENT_WALINE_SERVER_URL: process.env.NEXT_PUBLIC_WALINE_SERVER_URL || '', // Please configure the complete Waline comment address. For example hhttps://preview-waline.tangly1024.com @see https://waline.js.org/guide/get-started.html
-  COMMENT_WALINE_RECENT: process.env.NEXT_PUBLIC_WALINE_RECENT || false, // latest comment
-
-  // This comment system is based on WebMention. For details, please refer to https://webmention.io
-  // It is an open comment system based on the IndieWeb concept. The attributes contained in COMMENT_WEBMENTION below need to be configured:
-  // ENABLE: Whether to enable
-  // AUTH: IndieLogin used by Webmention, you can use Twitter or Github personal page link
-  // HOSTNAME: The domain bound to Webmention, usually the URL of this website
-  // TWITTER_USERNAME: Information required for the comment display area
-  // TOKEN: API token of Webmention
-  COMMENT_WEBMENTION: {
-    ENABLE: process.env.NEXT_PUBLIC_WEBMENTION_ENABLE || false,
-    AUTH: process.env.NEXT_PUBLIC_WEBMENTION_AUTH || '',
-    HOSTNAME: process.env.NEXT_PUBLIC_WEBMENTION_HOSTNAME || '',
-    TWITTER_USERNAME: process.env.NEXT_PUBLIC_TWITTER_USERNAME || '',
-    TOKEN: process.env.NEXT_PUBLIC_WEBMENTION_TOKEN || ''
-  },
-
-  // <---- Comment plugin
-
   // ----> Site statistics
   ANALYTICS_VERCEL: process.env.NEXT_PUBLIC_ANALYTICS_VERCEL || false, // Vercel’s own statistics https://vercel.com/docs/concepts/analytics/quickstart https://github.com/tangly1024/NotionNext/issues/897
   ANALYTICS_BUSUANZI_ENABLE:
     process.env.NEXT_PUBLIC_ANALYTICS_BUSUANZI_ENABLE || true, // Display website reading volume and number of visits see http://busuanzi.ibruce.info/
   SEO_GOOGLE_SITE_VERIFICATION:
     process.env.NEXT_PUBLIC_SEO_GOOGLE_SITE_VERIFICATION || '', // Remove the value or replace it with your own google site verification code
-
   // <---- Site statistics
 
   // START---->Revenue related
-
   // google ads
   ADSENSE_GOOGLE_ID: process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_ID || '', // Google Advertising ID e.g ca-pub-xxxxxxxxxxxxxxxx
   ADSENSE_GOOGLE_TEST: process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_TEST || false, // Google Advertising ID test mode, this mode obtains fake test ads for development https://www.tangly1024.com/article/local-dev-google-adsense
@@ -368,6 +229,8 @@ const BLOG = {
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_THELOG || 'TheLog',
     type_guestbook:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_GUESTBOOK || 'GuestBook',
+    type_techlog:
+      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_TECHLOG || 'TechLog',
     type_notice:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_NOTICE || 'Notice', // When the type article type is the same as this value, it is an announcement.
     type_menu: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_MENU || 'Menu', // When the type article type is the same as this value, it is a menu.
