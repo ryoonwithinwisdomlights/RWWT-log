@@ -97,11 +97,6 @@ const BLOG = {
   // Whether the sidebar layout is reversed (left to right, right to left) Theme is supported: hexo next medium fukasawa example
   LAYOUT_SIDEBAR_REVERSE: false,
 
-  // FACEBOOK_PAGE_TITLE: process.env.NEXT_PUBLIC_FACEBOOK_PAGE_TITLE || null, // The title bar of the sidebar Facebook Page widget. If you fill in '', there will be no title bar. e.g FACEBOOK Fan Club'
-  // FACEBOOK_PAGE: process.env.NEXT_PUBLIC_FACEBOOK_PAGE || null, // Facebook Page's link e.g https://www.facebook.com/tw.andys.pro
-  // FACEBOOK_PAGE_ID: process.env.NEXT_PUBLIC_FACEBOOK_PAGE_ID || '', // Facebook Page ID to enable messenger Chat function
-  // FACEBOOK_APP_ID: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || '', // Facebook App ID to enable messenger chat function Get: https://developers.facebook.com/
-
   // START********Code related********
   // PrismJs Code related
   PRISM_JS_PATH: 'https://npm.elemecdn.com/prismjs@1.29.0/components/',
