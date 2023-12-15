@@ -16,6 +16,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
     "post-build": "next-sitemap --config next-sitemap.config.js",
     "export": "next build && next-sitemap --config next-sitemap.config.js && next export",
     "bundle-report": "ANALYZE=true yarn build"
@@ -61,6 +63,9 @@
     "autoprefixer": "^10.4.13",
     "eslint": "^7.26.0",
     "eslint-config-next": "^13.1.1",
+    "eslint-config-prettier": "9.0.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "0.5.4",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.23.0",
     "eslint-plugin-node": "^11.1.0",
