@@ -308,7 +308,7 @@ const LayoutSlug = props => {
               </div>
             </div>
             <span className="mx-1"> | </span>{' '}
-            <Link href="/about" passHref legacyBehavior>
+            <Link href="/main" passHref legacyBehavior>
               <div className="flex flex-row">
                 <LazyImage
                   src={siteInfo?.icon}
