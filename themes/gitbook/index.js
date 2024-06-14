@@ -562,11 +562,11 @@ const LayoutPortfolio = props => {
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* <Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
               <div className="text-3xl dark:text-gray-300 ">
-                What Ryoon have been made 🛠️
+                5살, a4로 만든 모델하우스 → 25,27살 재미난 기획서 → After 28,
+                크고 작은 작업물 & 사이드프로젝트.
               </div>
               <div className=" dark:text-gray-300 mt-1 text-base ">
-                a4로 만든 모델하우스 → 재미난 기획서 → 크고 작은 작업물
-                사이드프로젝트.
+                즐겁게 배우며 작업한 토이프로젝트들을 공유합니다.
               </div>
             </div>
           </div>
