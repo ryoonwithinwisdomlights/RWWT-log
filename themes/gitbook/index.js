@@ -421,6 +421,16 @@ const LayoutTheLog = props => {
         <div className="text-3xl dark:text-gray-300 mb-4 ">
           Our Life, Our Lives.
         </div>
+        <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-1 text-base ">
+          그리고 또 나는 배웠다.
+          <br />
+          앞과 뒤를 계산하지 않고 자신에게 정직한 사람이
+          <br />
+          결국은 우리가 살아가는 데서 앞선다는 것을
+          <br /> - 오마르 워싱턴(Omer B. washington)
+          <br />
+          <br />
+        </div>
         <div className="flex flex-row">
           <div className="w-1/2 mr-20 h-full">
             <div className="w-full flex flex-row float-left  gap-4 mb-4 ">
@@ -485,12 +495,28 @@ const LayoutInspiration = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="flex flex-row">
-          <div className="w-1/2 mr-20">
-            <div className="border-green-400 border-[1px] rounded-md  mb-2 p-2">
+          <div className="w-1/2 mr-10">
+            <div className="mb-2">
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
-              <Image src={Girok} alt="So-I-Read-And-Write" />
-              <div className="text-3xl dark:text-gray-300 mt-4 pb-2">
-                어제, 오늘, 내일의 영감기록
+              <Image
+                src={Girok}
+                alt="So-I-Read-And-Write"
+                className="md:hidden"
+              />
+              <div className="text-3xl dark:text-gray-300 text-amber-400 mt-4 pb-2">
+                💡 영감기록
+              </div>
+              <div className=" dark:text-gray-300 md:px-2 text-neutral-200 mt-1 text-right my-2 mr-4 ">
+                남에게서 배운 <br />
+                좋은 질투와, <br />
+                부러움, <br />
+                존경에
+                <br />
+                대한
+                <br />
+                기록
+                <br />
+                <br />
               </div>
             </div>
           </div>
@@ -521,11 +547,14 @@ const LayoutTechLog = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="flex flex-col">
-          <div className="w-full mb-10">
-            <div className="">
+          <div className="w-full mb-4">
+            <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* <Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl dark:text-gray-300 ">Tech Logs 🛠️</div>
+              <div className="text-3xl dark:text-gray-300 ">🛠️ Tech Logs </div>
+              <div className=" dark:text-gray-300 mt-1 text-base p-2 ">
+                1개라도 기록하기 &gt; 완벽하게 자주 기록하려다 지치기
+              </div>
             </div>
           </div>
           <div className="space-y-6 px-2">
@@ -557,16 +586,19 @@ const LayoutPortfolio = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="flex flex-col">
-          <div className="w-full mb-10">
+          <div className="w-full mb-4 px-2">
             <div className="">
-              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
-              {/* <Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl dark:text-gray-300 ">
-                5살, a4로 만든 모델하우스 → 25,27살 재미난 기획서 → After 28,
-                크고 작은 작업물 & 사이드프로젝트.
+              <div className=" dark:text-gray-300 mt-1 font   text-neutral-300 text-base ">
+                5살 온종일 a4종이 모델하우스 만들기. <br />
               </div>
-              <div className=" dark:text-gray-300 mt-1 text-base ">
-                즐겁게 배우며 작업한 토이프로젝트들을 공유합니다.
+              <div className=" dark:text-gray-300 mt-1 font   text-neutral-400 text-base ">
+                27살 크고 작은 재미난 기획 제안하기.
+              </div>
+              <div className=" dark:text-gray-300 mt-1 font-size: 0.75rem; text-neutral-500 text-base ">
+                여전히 분석하고 제안하고 창작하는 개발자의
+              </div>
+              <div className="text-3xl dark:text-gray-300 text-neutral-900 py-2 ">
+                TOYPROJECT PORTFOLIO.
               </div>
             </div>
           </div>
@@ -603,17 +635,18 @@ const LayoutReadAndWrite = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="w-1/2 text-base mb-2">
-          읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
+        <div className="text-3xl dark:text-gray-300 mt-4 mb-2">
+          Read & Write.
+        </div>
+        <div className="w-1/2 text-base mb-4 dark:text-gray-300 text-neutral-700 ">
+          읽고 쓰는 것은 자신의 세계를, <br />
+          생각을 확장해 나가는 기록이다.
         </div>
         <div className="flex flex-row">
           <div className="w-1/2 mr-20">
             <div className="">
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               <Image src={ReadPic} alt="So-I-Read-And-Write" />
-              <div className="text-3xl dark:text-gray-300 mt-4">
-                So, I Read and Write.
-              </div>
             </div>
           </div>
           <div className="flex flex-col gap-10">
