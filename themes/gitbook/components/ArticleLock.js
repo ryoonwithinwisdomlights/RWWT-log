@@ -35,7 +35,15 @@ export const ArticleLock = props => {
       className="w-full flex justify-center items-center h-96 "
     >
       <div className="text-center space-y-3">
-        <div className="font-bold">{locale.COMMON.ARTICLE_LOCK_TIPS}</div>
+        <div>
+          {' '}
+          <div className="font-bold text-lg p-0 m-0">
+            비밀번호를 입력하세요.
+          </div>
+          {/* <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p> */}
+          <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p>
+        </div>
+
         <div className="flex mx-4">
           <input
             id="password"
@@ -50,10 +58,11 @@ export const ArticleLock = props => {
           ></input>
           <div
             onClick={submitPassword}
-            className="px-3 whitespace-nowrap cursor-pointer items-center justify-center py-2 bg-green-500 hover:bg-green-400 text-white rounded-r duration-300"
+            className="px-3 whitespace-nowrap cursor-pointer items-center justify-center py-2 bg-yellow-400 hover:bg-yellow-300 text-white rounded-r duration-300"
           >
             <i className={'duration-200 cursor-pointer fas fa-key'}>
-              &nbsp;{locale.COMMON.SUBMIT}
+              {/* &nbsp;{locale.COMMON.SUBMIT} */}
+              &nbsp; 입력완료
             </i>
           </div>
         </div>
