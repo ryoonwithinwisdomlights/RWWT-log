@@ -39,7 +39,7 @@ const SocialButton = () => {
           <i className="transform hover:scale-125 duration-150 fab fa-linkedin dark:hover:text-indigo-400 hover:text-indigo-600" />
         </a>
       )}
-      {BLOG.CONTACT_INSTAGRAM && (
+      {/* {BLOG.CONTACT_INSTAGRAM && (
         <a
           target="_blank"
           rel="noreferrer"
@@ -48,7 +48,7 @@ const SocialButton = () => {
         >
           <i className="fab fa-instagram transform hover:scale-125 duration-150 hover:text-green-600" />
         </a>
-      )}
+      )} */}
       {BLOG.CONTACT_EMAIL && (
         <a
           target="_blank"
@@ -59,11 +59,11 @@ const SocialButton = () => {
           <i className="fas fa-envelope transform hover:scale-125 duration-150 hover:text-green-600" />
         </a>
       )}
-      {JSON.parse(BLOG.ENABLE_RSS) && (
+      {/* {JSON.parse(BLOG.ENABLE_RSS) && (
         <a target="_blank" rel="noreferrer" title={'RSS'} href={'/feed'}>
           <i className="fas fa-rss transform hover:scale-125 duration-150 hover:text-green-600" />
         </a>
-      )}
+      )} */}
     </div>
   )
 }

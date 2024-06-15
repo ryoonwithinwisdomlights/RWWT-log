@@ -419,15 +419,15 @@ const LayoutTheLog = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="text-3xl dark:text-gray-300 mb-4 ">
-          Our Life, Our Lives.
+          Life logs | Our Life, Our Lives.
         </div>
         <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-1 text-base ">
-          그리고 또 나는 배웠다.
+          나는 배웠다.
           <br />
           앞과 뒤를 계산하지 않고 자신에게 정직한 사람이
           <br />
           결국은 우리가 살아가는 데서 앞선다는 것을
-          <br /> - 오마르 워싱턴(Omer B. washington)
+          <br /> - Omer B. washington
           <br />
           <br />
         </div>
@@ -503,13 +503,16 @@ const LayoutInspiration = props => {
                 alt="So-I-Read-And-Write"
                 className="md:hidden"
               />
-              <div className="text-3xl dark:text-gray-300 text-amber-400 mt-4 pb-2">
-                💡 영감기록
+              <div className="text-3xl dark:text-gray-300 text-neutral-700  pb-2">
+                ✏️ 영감기록
               </div>
-              <div className=" dark:text-gray-300 md:px-2 text-neutral-200 mt-1 text-right my-2 mr-4 ">
+              <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
                 남에게서 배운 <br />
-                좋은 질투와, <br />
-                부러움, <br />
+                좋은 질투와 <br />
+                부러움
+                <br />
+                & &nbsp;&nbsp;
+                <br />
                 존경에
                 <br />
                 대한
@@ -550,10 +553,16 @@ const LayoutTechLog = props => {
           <div className="w-full mb-4">
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
-              {/* <Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
+              {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
               <div className="text-3xl dark:text-gray-300 ">🛠️ Tech Logs </div>
               <div className=" dark:text-gray-300 mt-1 text-base p-2 ">
-                1개라도 기록하기 &gt; 완벽하게 자주 기록하려다 지치기
+                一(일) 개라도 배우고 기록하는 완료주의 <br />
+                <div className="w-4/12 text-sm   text-right ">
+                  &gt;&gt;&gt;&gt; betters than &gt;&gt;&gt;
+                </div>
+                <div className="text-xs    text-center">
+                  완벽하게 배우려다 영원히 안하는 완성주의 <br />
+                </div>
               </div>
             </div>
           </div>
@@ -588,17 +597,18 @@ const LayoutPortfolio = props => {
         <div className="flex flex-col">
           <div className="w-full mb-4 px-2">
             <div className="">
-              <div className=" dark:text-gray-300 mt-1 font   text-neutral-300 text-base ">
-                5살 온종일 a4종이 모델하우스 만들기. <br />
-              </div>
               <div className=" dark:text-gray-300 mt-1 font   text-neutral-400 text-base ">
-                27살 크고 작은 재미난 기획 제안하기.
+                5살 온종일 a4종이로 모델하우스 만들기. <br />
               </div>
-              <div className=" dark:text-gray-300 mt-1 font-size: 0.75rem; text-neutral-500 text-base ">
-                여전히 분석하고 제안하고 창작하는 개발자의
+              <div className=" dark:text-gray-300 mt-1 font   text-neutral-500 text-base ">
+                27살 크고 작은 재미난 마케팅/광고 기획 제안.
               </div>
-              <div className="text-3xl dark:text-gray-300 text-neutral-900 py-2 ">
-                TOYPROJECT PORTFOLIO.
+              <div className=" dark:text-gray-300 mt-1 font-size: 0.75rem; text-neutral-600 text-base ">
+                그리고 여전히 분석하고 제안하고 창작하는 것을 즐거워하는
+                개발자의
+              </div>
+              <div className="text-3xl dark:text-gray-300 text-neutral-900 py-4 ">
+                SIDE-PROJECT PORTFOLIO.
               </div>
             </div>
           </div>
