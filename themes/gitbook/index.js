@@ -418,9 +418,7 @@ const LayoutTheLog = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl dark:text-gray-300 mb-4 ">
-          Life logs | Our Life, Our Lives.
-        </div>
+        <div className="text-3xl dark:text-gray-300 mb-4 ">Life logs</div>
         <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-1 text-base ">
           나는 배웠다.
           <br />
