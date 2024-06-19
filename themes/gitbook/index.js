@@ -422,8 +422,9 @@ const LayoutTheLog = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl dark:text-gray-300 mb-4 ">
-          륜의 진실된 Life logs.
+        <div className="text-3xl flex flex-row  mb-4 ">
+          <div className="">륜의 진실된 {''} </div>
+          <div className="text-red-400">&nbsp;Life logs. </div>
         </div>
         <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-3 text-base ">
           나는 배웠다.
@@ -504,8 +505,8 @@ const LayoutInspiration = props => {
                 alt="So-I-Read-And-Write"
                 className="md:hidden"
               />
-              <div className="text-3xl dark:text-gray-300 text-neutral-700  pb-2">
-                ✏️ 영감기록
+              <div className="text-3xl md:px-2 text-right dark:text-gray-300 text-amber-400   mr-4 pb-2">
+                영감기록
               </div>
               <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
                 남에게서 배운 <br />
@@ -555,7 +556,9 @@ const LayoutTechLog = props => {
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl dark:text-gray-300 ">🛠️ Tech Logs </div>
+              <div className="text-3xl dark:text-gray-300 text-orange-500">
+                Tech Logs{' '}
+              </div>
               <div className=" dark:text-gray-300 mt-1 text-base p-2 ">
                 一(일) 개라도 배우고 기록하는 완료주의 <br />
                 <div className="w-4/12 text-sm   text-right ">
@@ -601,8 +604,11 @@ const LayoutAGiveAwayLog = props => {
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl dark:text-gray-300 ">
-                🎨 A GiveAway to the World w/Love{' '}
+              <div className="text-3xl flex flex-row dark:text-gray-300 ">
+                <div className=""> 🎨 </div>&nbsp;{' '}
+                <div className="text-yellow-400">GiveAways</div>
+                &nbsp;<div>to the World</div>
+                &nbsp; <div className="text-red-600">w/Love </div>
               </div>
               <div className=" dark:text-gray-300 mt-1 text-base p-2 ">
                 Like Drawing <br />
@@ -695,8 +701,9 @@ const LayoutReadAndWrite = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl dark:text-gray-300 mt-4 mb-2">
-          Read & Write.
+        <div className="text-3xl flex flex-row dark:text-gray-300 mt-4 mb-2">
+          <div className="text-green-500">Read </div>
+          <div className=" text-lime-400">&nbsp;&&nbsp;Write. </div>
         </div>
         <div className="w-1/2 text-base mb-4 dark:text-gray-300 text-neutral-700 ">
           읽고 쓰는 것은 자신의 세계를, <br />
