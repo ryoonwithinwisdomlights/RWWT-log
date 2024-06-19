@@ -1,5 +1,6 @@
 import { useGlobal } from '@/lib/global'
 import { useEffect, useRef } from 'react'
+import { Button } from 'react-bootstrap'
 
 /**
  * Encrypted article verification component
@@ -23,6 +24,10 @@ export const ArticleLock = props => {
     }
   }
 
+  const historGoBack = () => {
+    window.history.back()
+  }
+
   const passwordInputRef = useRef(null)
   useEffect(() => {
     // Select the password input box and focus it
@@ -32,9 +37,9 @@ export const ArticleLock = props => {
   return (
     <div
       id="container"
-      className="w-full flex justify-center items-center h-96 "
+      className="w-full flex flex-col justify-center items-center h-96 "
     >
-      <div className="text-center space-y-3">
+      <div className="text-center  flex flex-row ">
         <div>
           {' '}
           <div className="font-bold text-lg p-0 m-0">
@@ -43,7 +48,6 @@ export const ArticleLock = props => {
           {/* <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p> */}
           <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p>
         </div>
-
         <div className="flex mx-4">
           <input
             id="password"
@@ -66,6 +70,12 @@ export const ArticleLock = props => {
             </i>
           </div>
         </div>
+        <Button
+          onClick={historGoBack}
+          className=" px-3 whitespace-nowrap cursor-pointer items-center justify-center py-2  hover:bg-yellow-300  hover:text-white text-black rounded-r duration-300"
+        >
+          뒤로가기
+        </Button>
         <div id="tips"></div>
       </div>
     </div>
