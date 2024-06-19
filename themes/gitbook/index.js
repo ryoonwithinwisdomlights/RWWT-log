@@ -20,7 +20,7 @@ import Leeseula from '@/public/images/thelog/leeseula.jpeg'
 import Years from '@/public/images/thelog/years.jpeg'
 import Jadu from '@/public/images/thelog/jadu.jpeg'
 import Latte from '@/public/images/thelog/latte.jpeg'
-
+import Nogiveup from '@/public/images/thelog/nogiveup.png'
 import { Transition } from '@headlessui/react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -421,13 +421,15 @@ const LayoutTheLog = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl dark:text-gray-300 mb-4 ">Life logs</div>
-        <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-1 text-base ">
+        <div className="text-3xl dark:text-gray-300 mb-4 ">
+          륜의 진실된 Life logs.
+        </div>
+        <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-3 text-base ">
           나는 배웠다.
           <br />
           앞과 뒤를 계산하지 않고 자신에게 정직한 사람이
           <br />
-          결국은 우리가 살아가는 데서 앞선다는 것을
+          결국은 우리가 살아가는 데서 앞선다는 것을.
           <br /> - Omer B. washington
           <br />
           <br />
@@ -437,8 +439,8 @@ const LayoutTheLog = props => {
             <div className="w-full flex flex-row float-left  gap-4 mb-4 ">
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               <Image
-                src={Maria}
-                alt="Maria"
+                src={Nogiveup}
+                alt="Nogiveup"
                 className="rounded-lg duration-500  hover:scale-110 "
               />
               <Image
