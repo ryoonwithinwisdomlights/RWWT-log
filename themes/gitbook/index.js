@@ -13,11 +13,14 @@ import { useGlobal } from '@/lib/global'
 import { isBrowser } from '@/lib/utils'
 import Girok from '@/public/images/inspiration/girok.jpg'
 import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
-import Bada from '@/public/images/thelog/bada.jpeg'
-import BeKind from '@/public/images/thelog/bekind.jpeg'
-import Learnt from '@/public/images/thelog/learnt.jpeg'
-import SelfRespect from '@/public/images/thelog/self-respect.jpeg'
-import TheLake from '@/public/images/thelog/thelake.jpeg'
+import Coffee from '@/public/images/thelog/coffee.jpg'
+import DearGod from '@/public/images/thelog/deargod.jpeg'
+import Maria from '@/public/images/thelog/maria.jpeg'
+import Leeseula from '@/public/images/thelog/leeseula.jpeg'
+import Years from '@/public/images/thelog/years.jpeg'
+import Jadu from '@/public/images/thelog/jadu.jpeg'
+import Latte from '@/public/images/thelog/latte.jpeg'
+
 import { Transition } from '@headlessui/react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -434,31 +437,27 @@ const LayoutTheLog = props => {
             <div className="w-full flex flex-row float-left  gap-4 mb-4 ">
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               <Image
-                src={Bada}
-                alt="Bada"
+                src={Maria}
+                alt="Maria"
                 className="rounded-lg duration-500  hover:scale-110 "
               />
               <Image
-                src={TheLake}
-                alt="TheLake"
-                className="rounded-lg duration-500  hover:scale-scale-110 "
-              />
-              <Image
-                src={SelfRespect}
-                alt="TheLake"
-                className="rounded-lg duration-500  hover:scale-110 "
+                src={Leeseula}
+                alt="Leeseula"
+                className="rounded-lg duration-500 mt-20 hover:scale-110"
               />
             </div>
-            <div className="w-full flex flex-row float-left gap-4 mb-4 ">
+            <div className="w-full flex flex-row float-right gap-4 mb-4 ">
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+
               <Image
-                src={BeKind}
-                alt="TheLake"
-                className="rounded-lg duration-500  hover:scale-110  "
+                src={Jadu}
+                alt="Jadu"
+                className="rounded-lg duration-500  hover:scale-110 h-3/5  "
               />
               <Image
-                src={Learnt}
-                alt="TheLake"
+                src={Latte}
+                alt="Latte"
                 className="rounded-lg duration-500  hover:scale-110  "
               />
             </div>
