@@ -64,17 +64,22 @@ export async function getStaticProps() {
 
   postsSortByDate.forEach(post => {
     const date = formatDateFmt(post.publishDate, 'yyyy-MM')
-    if (theLogPosts[date]) {
-      theLogPosts[date].push(post)
-    } else {
-      theLogPosts[date] = [post]
+    // console.log('date????', date)
+
+    if (date !== '2012-12' && date !== '2013-12' && date !== '2015-07') {
+      if (theLogPosts[date]) {
+        theLogPosts[date].push(post)
+      } else {
+        theLogPosts[date] = [post]
+      }
     }
   })
 
   props.theLogPosts = theLogPosts
+
   delete props.allPages
 
-  //   console.log(' props.theLogPosts', props.theLogPosts)
+  // console.log(' props.theLogPosts', props.theLogPosts)
   return {
     props,
     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)
