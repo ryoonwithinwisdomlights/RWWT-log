@@ -11,7 +11,7 @@ const BlogPostCard = ({ post, className }) => {
     <div
       key={post.id}
       className={`${className} py-1 cursor-pointer px-2 hover:bg-neutral-100 rounded-md dark:hover:bg-neutral-500  ${
-        currentSelected ? 'bg-green-50 text-green-500' : ''
+        currentSelected ? 'bg-yellow-50 text-yellow-500' : ''
       }`}
     >
       <div className="flex flex-col w-full select-none">
