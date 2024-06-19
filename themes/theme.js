@@ -47,8 +47,8 @@ export const getLayoutNameByPath = path => {
       return 'LayoutTechLog'
     case '/portfolio':
       return 'LayoutPortfolio'
-    case '/alawgblog':
-      return 'LayoutALifeArtWorkLog'
+    case '/agiveawaylog':
+      return 'LayoutAGiveAwayLog'
     case '/inspiration':
       return 'LayoutInspiration'
     case '/page/[page]':

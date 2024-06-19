@@ -53,7 +53,7 @@ import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import CONFIG from './config'
 import { Style } from './style'
-import ALifeArtWorkLogItem from './components/ALifeArtWorkLogItem'
+import AGiveAwayLogItem from './components/AGiveAwayLogItem'
 
 // Theme global variables
 const ThemeGlobalGitbook = createContext()
@@ -489,6 +489,7 @@ const LayoutTheLog = props => {
  * @returns
  */
 const LayoutInspiration = props => {
+  console.log('여긴 찾아오나')
   const { InspirationPosts } = props
   // console.log('InspirationPosts', InspirationPosts)
   return (
@@ -587,10 +588,11 @@ const LayoutTechLog = props => {
   )
 }
 
-// LayoutAlawgblog 제작/브랜딩/제안용 레이아웃 -24.06.19
-const LayoutAlawgblog = props => {
-  const { ALifeArtWorkLogPosts } = props
-  console.log('ALifeArtWorkLogPosts:::::::::::', ALifeArtWorkLogPosts)
+// LayoutAGiveAwayLog 제작/브랜딩/제안용 레이아웃 -24.06.19
+const LayoutAGiveAwayLog = props => {
+  console.log('찾아는 오니??')
+  const { aGiveAwayLogPosts } = props
+  console.log('aGiveAwayLogPosts:::::::::::', aGiveAwayLogPosts)
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
@@ -600,25 +602,26 @@ const LayoutAlawgblog = props => {
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
               <div className="text-3xl dark:text-gray-300 ">
-                🎨 A Life-Art-Work-Giving{' '}
+                🎨 A GiveAway to the World w/Love{' '}
               </div>
-              {/* <div className=" dark:text-gray-300 mt-1 text-base p-2 ">
-                一(일) 개라도 배우고 기록하는 완료주의 <br />
-                <div className="w-4/12 text-sm   text-right ">
-                  &gt;&gt;&gt;&gt; betters than &gt;&gt;&gt;
+              <div className=" dark:text-gray-300 mt-1 text-base p-2 ">
+                Like Drawing <br />
+                <div className="w-4/12 text-base  text-right ">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or Making &
+                  Creating &nbsp;&nbsp;&nbsp;
                 </div>
-                <div className="text-xs    text-center">
-                  완벽하게 배우려다 영원히 안하는 완성주의 <br />
+                <div className="text-base    text-center">
+                  or Proposing & Suggesting. <br />
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
           <div className="space-y-6 px-2">
-            {ALifeArtWorkLogPosts?.map((item, index) => {
+            {aGiveAwayLogPosts?.map((item, index) => {
               // console.log('item', item)
               // console.log(portfolioPosts[item.to])
               return (
-                <ALifeArtWorkLogItem
+                <AGiveAwayLogItem
                   key={index}
                   pIndex={index}
                   pId={item.id}
@@ -836,7 +839,7 @@ export {
   LayoutGuestBook,
   LayoutIndex,
   LayoutInspiration,
-  LayoutAlawgblog,
+  LayoutAGiveAwayLog,
   LayoutPortfolio,
   LayoutPostList,
   LayoutReadAndWrite,

@@ -12,7 +12,7 @@ import { formatDateFmt } from '@/lib/formatDate'
  * @param {*} props
  * @returns
  */
-export default function ALifeArtWorkLog(props) {
+export default function AGiveAwayLog(props) {
   const { locale } = useGlobal()
   const { siteInfo } = props
 
@@ -20,10 +20,10 @@ export default function ALifeArtWorkLog(props) {
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {
-    title: `${locale.NAV.ALAWGBLOG} | ${siteInfo?.title}`,
+    title: `${locale.NAV.AGIVEAWAYLOG} | ${siteInfo?.title}`,
     description: siteInfo?.description,
     image: siteInfo?.pageCover,
-    slug: 'alawgblog',
+    slug: 'AGiveAwayLog',
     type: 'website'
   }
   props = { ...props, meta }
@@ -32,16 +32,17 @@ export default function ALifeArtWorkLog(props) {
 }
 
 export async function getStaticProps() {
+  console.log('AGiveAwayLogAGiveAwayLogAGiveAwayLogAGiveAwayLog')
   const props = await getGlobalData({
-    from: 'alawgblog-index-props',
-    type: 'Alawgblog'
+    from: 'AGiveAwayLog-index-props',
+    type: 'AGiveAwayLog'
   })
-
+  console.log('AGiveAwayLogAGiveAwayLogAGiveAwayLogAGiveAwayLogq22')
   props.posts = props.allPages?.filter(page => {
-    if (page.type === 'Alawgblog') {
+    if (page.type === 'AGiveAwayLog') {
       console.log(page)
     }
-    return page.type === 'Alawgblog' && page.status === 'Published'
+    return page.type === 'AGiveAwayLog' && page.status === 'Published'
   })
 
   // const postsSortByDate = Object.create(props.posts)
@@ -60,8 +61,8 @@ export async function getStaticProps() {
   //   }
   // })
 
-  props.aLifeArtWorkLogPosts = props.posts
-  console.log('ALifeArtWorkLogPosts', props.aLifeArtWorkLogPosts)
+  props.aGiveAwayLogPosts = props.posts
+  console.log('aGiveAwayLogPosts', props.aGiveAwayLogPosts)
   delete props.allPages
 
   return {

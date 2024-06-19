@@ -5,9 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import CONFIG from '../config'
 import LazyImage from '@/components/LazyImage'
-import { TechLogCardInfo } from './TechLogCardInfo'
+import { AGiveAwayLogCardInfo } from './AGiveAwayLogCardInfo'
 
-export default function TechLogItem({ pIndex, pId, pTitle, pPosts }) {
+export default function AGiveAwayLogItem({ pIndex, pId, pTitle, pPosts }) {
   // console.log('pPosts', pPosts)
   const showPreview = false
   // const showPageCover = pPosts?.pageCoverThumbnail && !showPreview
@@ -31,7 +31,7 @@ export default function TechLogItem({ pIndex, pId, pTitle, pPosts }) {
           }overflow-hidden border dark:border-black rounded-xl bg-white dark:bg-hexo-black-gray`}
         >
           {/* Text content */}
-          <TechLogCardInfo
+          <AGiveAwayLogCardInfo
             index={pIndex}
             post={pPosts}
             showPageCover={showPageCover}

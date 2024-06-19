@@ -28,9 +28,9 @@ export const MenuBarMobile = props => {
       show: CONFIG.MENU_PORTFOLIO
     },
     {
-      name: locale.NAV.ALAWGBLOG,
-      to: '/alawgblog',
-      show: CONFIG.MENU_ALAWGBLOG
+      name: locale.NAV.AGIVEAWAYLOG,
+      to: '/agiveawaylog',
+      show: CONFIG.MENU_AGIVEAWAYLOG
     },
     {
       name: locale.NAV.INSPIRATION,

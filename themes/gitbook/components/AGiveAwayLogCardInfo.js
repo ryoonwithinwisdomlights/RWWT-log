@@ -11,7 +11,7 @@ import { formatDateFmt } from '@/lib/formatDate'
  * @param {*} param0
  * @returns
  */
-export const ALifeArtWorkLogCardInfo = ({
+export const AGiveAwayLogCardInfo = ({
   post,
   showPreview,
   showPageCover,

@@ -55,7 +55,7 @@ export const getServerSideProps = async ctx => {
       priority: '0.7'
     },
     {
-      loc: `${BLOG.LINK}/alawgblog`,
+      loc: `${BLOG.LINK}/agiveawaylog`,
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'daily',
       priority: '0.7'

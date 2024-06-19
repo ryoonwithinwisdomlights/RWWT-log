@@ -60,9 +60,9 @@ export default function TopNavBar(props) {
     },
     {
       icon: 'fa-solid fa-palette',
-      name: locale.NAV.ALAWGBLOG,
-      to: '/alawgblog',
-      show: CONFIG.MENU_ALAWGBLOG
+      name: locale.NAV.AGIVEAWAYLOG,
+      to: '/agiveawaylog',
+      show: CONFIG.MENU_AGIVEAWAYLOG
     },
     {
       icon: 'fa-solid fa-hat-wizard',
