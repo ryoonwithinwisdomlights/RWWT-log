@@ -25,7 +25,7 @@ export const MenuItemDrop = ({ link }) => {
           className={
             'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
             (selected
-              ? ' text-white hover:text-white '
+              ? ' text-black hover:text-white '
               : 'hover:text-[#ffd500]')
           }
         >
@@ -47,7 +47,7 @@ export const MenuItemDrop = ({ link }) => {
           className={
             'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
             (selected
-              ? 'bg-[#ffd500] rounded-lg h-4/5 text-white dark:text-gray-900  '
+              ? 'bg-[#ffd500] rounded-lg h-4/5 text-black dark:text-gray-900  hover:text-white '
               : 'hover:text-[#ffd500]')
           }
         >

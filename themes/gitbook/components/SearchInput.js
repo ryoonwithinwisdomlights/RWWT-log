@@ -102,7 +102,7 @@ Enter key
       <input
         ref={searchInputRef}
         type="text"
-        className={`${className} outline-none w-full text-sm pl-2 transition focus:shadow-lg font-light leading-10 text-black border border-neutral-100 hover:bg-neutral-100  dark:bg-neutral-900  dark:text-white`}
+        className={`${className} border border-neutral-100 dark:border-none outline-none w-full text-sm pl-2 transition focus:shadow-lg font-light leading-10 text-black bg-neutral-100  dark:bg-neutral-900  dark:text-white`}
         onKeyUp={handleKeyUp}
         onCompositionStart={lockSearchInput}
         onCompositionUpdate={lockSearchInput}
@@ -117,7 +117,7 @@ Enter key
       >
         <i
           className={
-            'hover:text-neutral-400 transform duration-200 text-neutral-200   dark:hover:text-neutral-300 cursor-pointer fas fa-search'
+            'hover:text-neutral-400 transform duration-200 text-neutral-200  dark:hover:text-neutral-400 cursor-pointer fas fa-search'
           }
         />
       </div>
