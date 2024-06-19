@@ -30,7 +30,7 @@ export const AGiveAwayLogCardInfo = ({
           passHref
           className={`line-clamp-2 replace cursor-pointer text-2xl ${
             showPreview ? 'text-center' : ''
-          } leading-tight font-normal text-gray-600 dark:text-gray-100 hover:text-indigo-700 dark:hover:text-indigo-400`}
+          } leading-tight font-normal text-gray-600  hover:text-yellow-400 dark:hover:text-yellow-400`}
         >
           <span className="menu-link ">{post.title}</span>
         </Link>

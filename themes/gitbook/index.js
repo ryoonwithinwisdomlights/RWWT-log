@@ -505,7 +505,7 @@ const LayoutInspiration = props => {
                 alt="So-I-Read-And-Write"
                 className="md:hidden"
               />
-              <div className="text-3xl md:px-2 text-right dark:text-gray-300 text-amber-400   mr-4 pb-2">
+              <div className="text-3xl md:px-2 text-right  text-amber-400   mr-4 pb-2">
                 영감기록
               </div>
               <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
@@ -556,11 +556,14 @@ const LayoutTechLog = props => {
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl dark:text-gray-300 text-orange-500">
-                Tech Logs{' '}
-              </div>
-              <div className=" dark:text-gray-300 mt-1 text-base p-2 ">
-                一(일) 개라도 배우고 기록하는 완료주의 <br />
+              <div className="text-3xl  text-orange-500">Tech Logs </div>
+              <div className=" dark:text-gray-300 mt-1  text-base p-2 ">
+                <div className="flex flex-row">
+                  {' '}
+                  一(일) 개라도 배우고 기록하는{' '}
+                  <div className="text-orange-300">&nbsp;완료주의</div> <br />
+                </div>
+
                 <div className="w-4/12 text-sm   text-right ">
                   &gt;&gt;&gt;&gt; betters than &gt;&gt;&gt;
                 </div>
@@ -608,7 +611,8 @@ const LayoutAGiveAwayLog = props => {
                 <div className=""> 🎨 </div>&nbsp;{' '}
                 <div className="text-yellow-400">GiveAways</div>
                 &nbsp;<div>to the World</div>
-                &nbsp; <div className="text-red-600">w/Love </div>
+                &nbsp;{' '}
+                <div className="text-red-600 dark:text-red-400">w/Love </div>
               </div>
               <div className=" dark:text-gray-300 mt-1 text-base p-2 ">
                 Like Drawing <br />

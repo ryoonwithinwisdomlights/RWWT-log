@@ -30,22 +30,21 @@ export const TechLogCardInfo = ({
           passHref
           className={`line-clamp-2 replace cursor-pointer text-2xl ${
             showPreview ? 'text-center' : ''
-          } leading-tight font-normal text-gray-600 dark:text-gray-100 hover:text-indigo-700 dark:hover:text-indigo-400`}
+          } leading-tight font-normal text-gray-600  hover:text-orange-300 `}
         >
           <span className="menu-link ">{post.title}</span>
         </Link>
-
         {/* Classification */}
         {post?.category && (
           <div
             className={`flex mt-2 items-center ${
               showPreview ? 'justify-center' : 'justify-start'
-            } flex-wrap dark:text-gray-500 text-gray-400 `}
+            } flex-wrap  text-gray-400 `}
           >
             <Link
               href={`/category/${post.category}`}
               passHref
-              className="cursor-pointer font-light text-sm menu-link hover:text-indigo-700 dark:hover:text-indigo-400 transform"
+              className="cursor-pointer font-light text-sm menu-link hover:text-orange-300 transform"
             >
               <i className="mr-1 far fa-folder" />
               {post.category}
@@ -57,14 +56,12 @@ export const TechLogCardInfo = ({
             /> */}
           </div>
         )}
-
         {/* Summary */}
         {(!showPreview || showSummary) && !post.results && (
           <p className="line-clamp-2 replace my-3 text-gray-700  dark:text-gray-300 text-sm font-light leading-7">
             {post.summary}
           </p>
         )}
-
         {/* search results */}
         {post.results && (
           <p className="line-clamp-2 mt-4 text-gray-700 dark:text-gray-300 text-sm font-light leading-7">
