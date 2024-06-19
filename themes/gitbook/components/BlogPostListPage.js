@@ -3,6 +3,7 @@ import BLOG from '@/blog.config'
 import NavPostListEmpty from './NavPostListEmpty'
 import PaginationSimple from './PaginationSimple'
 import { Button } from 'react-bootstrap'
+import Link from 'next/link'
 /**
  * Article list pagination table
  * @param page current page
@@ -22,18 +23,27 @@ const BlogPostListPage = ({ page = 1, posts = [], postCount }) => {
   }
   return (
     <div className="w-full justify-center gap-2">
+      <div
+        onClick={historGoBack}
+        className="text-center w-2/5 mt-4 mb-10  duration-200 p-2 hover:border-orange-300 border-b-2 hover:font-bold "
+      >
+        ← 뒤로가기
+      </div>
       <div id="posts-wrapper">
         {/* Article list */}
         {posts?.map(post => (
           <BlogPostCard key={post.id} post={post} />
         ))}
       </div>
-      <Button
-        onClick={historGoBack}
-        className=" mt-10  border-none  bg-none cursor-pointer items-center justify-center p-2 hover:text-neutral-700  text-neutral-500 "
-      >
-        뒤로가기
-      </Button>
+
+      {/* <div className="my-10 flex justify-between font-medium text-black dark:text-gray-100 space-x-2">
+        <Button
+          onClick={historGoBack}
+          className="text-center w-full duration-200 px-4 py-2 hover:border-yellow-500 border-b-2 hover:font-bold "
+        >
+          ← 뒤로가기
+        </Button>
+      </div> */}
       <PaginationSimple page={page} totalPage={totalPage} />
     </div>
   )
