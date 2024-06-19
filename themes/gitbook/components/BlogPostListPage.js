@@ -1,9 +1,7 @@
-import BlogPostCard from './BlogPostCard'
 import BLOG from '@/blog.config'
+import BlogPostCard from './BlogPostCard'
 import NavPostListEmpty from './NavPostListEmpty'
 import PaginationSimple from './PaginationSimple'
-import { Button } from 'react-bootstrap'
-import Link from 'next/link'
 /**
  * Article list pagination table
  * @param page current page

@@ -322,7 +322,7 @@ const LayoutSlug = props => {
                   alt={BLOG.AUTHOR}
                 />
 
-                <div className="mr-3 ml-2 my-auto text-green-500 cursor-pointer">
+                <div className="mr-3 ml-2 my-auto text-yellow-500 cursor-pointer">
                   {BLOG.AUTHOR}
                 </div>
               </div>

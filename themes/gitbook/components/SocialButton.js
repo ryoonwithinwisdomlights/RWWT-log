@@ -16,7 +16,7 @@ const SocialButton = () => {
           title={'github'}
           href={BLOG.CONTACT_GITHUB}
         >
-          <i className="fab fa-github transform hover:scale-125 duration-150 hover:text-green-600" />
+          <i className="fab fa-github transform hover:scale-125 duration-150 hover:text-yellow-400" />
         </a>
       )}
       {BLOG.CONTACT_TWITTER && (
@@ -26,7 +26,7 @@ const SocialButton = () => {
           title={'twitter'}
           href={BLOG.CONTACT_TWITTER}
         >
-          <i className="fab fa-twitter transform hover:scale-125 duration-150 hover:text-green-600" />
+          <i className="fab fa-twitter transform hover:scale-125 duration-150 hover:text-yellow-400" />
         </a>
       )}
       {BLOG.CONTACT_LINKEDIN && (
@@ -36,7 +36,7 @@ const SocialButton = () => {
           href={BLOG.CONTACT_LINKEDIN}
           title={'linkedIn'}
         >
-          <i className="transform hover:scale-125 duration-150 fab fa-linkedin dark:hover:text-indigo-400 hover:text-indigo-600" />
+          <i className="transform hover:scale-125 duration-150 fab fa-linkedin dark:hover:text-yellow-400 hover:text-yellow-600" />
         </a>
       )}
       {/* {BLOG.CONTACT_INSTAGRAM && (
@@ -46,7 +46,7 @@ const SocialButton = () => {
           title={'instagram'}
           href={BLOG.CONTACT_INSTAGRAM}
         >
-          <i className="fab fa-instagram transform hover:scale-125 duration-150 hover:text-green-600" />
+          <i className="fab fa-instagram transform hover:scale-125 duration-150 hover:text-yellow-600" />
         </a>
       )} */}
       {BLOG.CONTACT_EMAIL && (
@@ -56,12 +56,12 @@ const SocialButton = () => {
           title={'email'}
           href={`mailto:${BLOG.CONTACT_EMAIL}`}
         >
-          <i className="fas fa-envelope transform hover:scale-125 duration-150 hover:text-green-600" />
+          <i className="fas fa-envelope transform hover:scale-125 duration-150 hover:text-yellow-400" />
         </a>
       )}
       {/* {JSON.parse(BLOG.ENABLE_RSS) && (
         <a target="_blank" rel="noreferrer" title={'RSS'} href={'/feed'}>
-          <i className="fas fa-rss transform hover:scale-125 duration-150 hover:text-green-600" />
+          <i className="fas fa-rss transform hover:scale-125 duration-150 hover:text-yellow-600" />
         </a>
       )} */}
     </div>

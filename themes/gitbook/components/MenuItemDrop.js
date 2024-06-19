@@ -68,6 +68,11 @@ export const MenuItemDrop = ({ link }) => {
           } border-neutral-100  bg-white  dark:bg-black dark:border-neutral-800 transition-all duration-300 z-20 absolute block drop-shadow-lg rounded-lg`}
         >
           {link?.subMenus?.map((sLink, index) => {
+            // console.log('link?.to:::', link)
+            console.log('link?.to:::', sLink.to)
+            console.log(' https', sLink?.to?.includes('http'))
+            //
+            // sLink?.type
             return (
               <div key={index} className="h-full w-full">
                 <li
@@ -78,9 +83,7 @@ export const MenuItemDrop = ({ link }) => {
                   <Link
                     className="hover:bg-[#ffd500] px-2 hover:rounded-lg hover:h-4/5 w-full"
                     href={sLink.to}
-                    target={
-                      link?.to?.indexOf('http') === 0 ? '_blank' : '_self'
-                    }
+                    target={sLink?.to?.includes('http') ? '_blank' : '_self'}
                   >
                     <span className="text-xs font-extralight dark:hover:text-neutral-900">
                       {link?.icon && <i className={sLink?.icon}> &nbsp; </i>}
