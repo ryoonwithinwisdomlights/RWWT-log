@@ -783,7 +783,7 @@ const LayoutCategoryIndex = props => {
   const { locale } = useGlobal()
   return (
     <LayoutBase {...props}>
-      <div className="bg-white dark:bg-gray-700 py-10">
+      <div className="bg-white dark:bg-neutral-700  px-10 py-10">
         <div className="dark:text-gray-200 mb-5">
           <i className="mr-4 fas fa-th" />
           {locale.COMMON.CATEGORY}:
@@ -799,7 +799,7 @@ const LayoutCategoryIndex = props => {
               >
                 <div
                   className={
-                    'hover:text-black dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600 px-5 cursor-pointer py-2 hover:bg-gray-100'
+                    'hover:text-black dark:hover:text-white dark:text-neutral-300 dark:hover:bg-neutral-600 px-5 cursor-pointer py-2 hover:bg-neutral-100'
                   }
                 >
                   <i className="mr-4 fas fa-folder" />
@@ -824,8 +824,8 @@ const LayoutTagIndex = props => {
 
   return (
     <LayoutBase {...props}>
-      <div className="bg-white dark:bg-gray-700 py-10">
-        <div className="dark:text-gray-200 mb-5">
+      <div className="bg-white dark:bg-neutral-700  px-10 py-10">
+        <div className="dark:text-neutral-200 mb-5">
           <i className="mr-4 fas fa-tag" />
           {locale.COMMON.TAGS}:
         </div>

@@ -98,11 +98,11 @@ Enter key
   }
 
   return (
-    <div className={'flex w-full'}>
+    <div className={'flex w-full border-neutral-400'}>
       <input
         ref={searchInputRef}
         type="text"
-        className={`${className} outline-none w-full text-sm pl-2 transition focus:shadow-lg font-light leading-10 text-black bg-gray-100 dark:bg-neutral-900  dark:text-white`}
+        className={`${className} outline-none w-full text-sm pl-2 transition focus:shadow-lg font-light leading-10 text-black border border-neutral-100 hover:bg-neutral-100  dark:bg-neutral-900  dark:text-white`}
         onKeyUp={handleKeyUp}
         onCompositionStart={lockSearchInput}
         onCompositionUpdate={lockSearchInput}
@@ -117,15 +117,15 @@ Enter key
       >
         <i
           className={
-            'hover:text-black transform duration-200 text-gray-500  dark:hover:text-gray-300 cursor-pointer fas fa-search'
+            'hover:text-neutral-400 transform duration-200 text-neutral-200   dark:hover:text-neutral-300 cursor-pointer fas fa-search'
           }
         />
       </div>
 
       {showClean && (
-        <div className="-ml-12 cursor-pointer float-right items-center justify-center py-2">
+        <div className="-ml-14 cursor-pointer float-right items-end px-4   justify-center py-4">
           <i
-            className="fas fa-times hover:text-black transform duration-200 text-gray-400 cursor-pointer   dark:hover:text-gray-300"
+            className="fas fa-times hover:text-neutral-400 items-center justify-center transform duration-200 text-neutral-200 cursor-pointer py-2  dark:hover:text-neutral-300"
             onClick={cleanSearch}
           />
         </div>
