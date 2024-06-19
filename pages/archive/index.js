@@ -65,10 +65,12 @@ export async function getStaticProps() {
 
   postsSortByDate.forEach(post => {
     const date = formatDateFmt(post.publishDate, 'yyyy-MM')
-    if (archivePosts[date]) {
-      archivePosts[date].push(post)
-    } else {
-      archivePosts[date] = [post]
+    if (date !== '2012-12' && date !== '2013-12' && date !== '2015-07') {
+      if (archivePosts[date]) {
+        archivePosts[date].push(post)
+      } else {
+        archivePosts[date] = [post]
+      }
     }
   })
 
