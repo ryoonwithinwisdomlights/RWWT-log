@@ -209,6 +209,7 @@ const BLOG = {
       'Portfolio',
       'Inspiration',
       'TheLog',
+      'Alawgblog',
       'GuestBook'
     ],
     type_able:
@@ -217,6 +218,7 @@ const BLOG = {
       'Portfolio' ||
       'Inspiration' ||
       'TheLog' ||
+      'Alawgblog' ||
       'GuestBook',
     type_post: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_POST || 'Post', // When the type article type is the same as this value, it is a blog post.
     type_page: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PAGE || 'Page', // When the type article type is the same as this value, it is a single page.
@@ -231,6 +233,7 @@ const BLOG = {
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_GUESTBOOK || 'GuestBook',
     type_techlog:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_TECHLOG || 'TechLog',
+    type_alawgblog: 'Alawgblog',
     type_notice:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_NOTICE || 'Notice', // When the type article type is the same as this value, it is an announcement.
     type_menu: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_MENU || 'Menu', // When the type article type is the same as this value, it is a menu.

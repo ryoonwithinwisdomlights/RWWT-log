@@ -59,6 +59,12 @@ export default function TopNavBar(props) {
       show: CONFIG.MENU_PORTFOLIO
     },
     {
+      icon: 'fa-solid fa-palette',
+      name: locale.NAV.ALAWGBLOG,
+      to: '/alawgblog',
+      show: CONFIG.MENU_ALAWGBLOG
+    },
+    {
       icon: 'fa-solid fa-hat-wizard',
       name: locale.NAV.INSPIRATION,
       to: '/inspiration',

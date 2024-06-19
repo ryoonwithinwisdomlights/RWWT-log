@@ -28,6 +28,11 @@ export const MenuBarMobile = props => {
       show: CONFIG.MENU_PORTFOLIO
     },
     {
+      name: locale.NAV.ALAWGBLOG,
+      to: '/alawgblog',
+      show: CONFIG.MENU_ALAWGBLOG
+    },
+    {
       name: locale.NAV.INSPIRATION,
       to: '/inspiration',
       show: CONFIG.MENU_INSPIRATION

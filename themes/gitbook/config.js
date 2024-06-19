@@ -12,6 +12,7 @@ const CONFIG = {
   MENU_READ: true, // show search
   MENU_PORTFOLIO: true, // show search
   MENU_INSPIRATION: true, // show search
+  MENU_ALAWGBLOG: true, // show search
   // Widget
   WIDGET_REVOLVER_MAPS: process.env.NEXT_PUBLIC_WIDGET_REVOLVER_MAPS || 'false', // Map plugin
   WIDGET_TO_TOP: true // Jump back to top
