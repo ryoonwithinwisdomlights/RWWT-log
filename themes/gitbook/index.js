@@ -667,7 +667,7 @@ const LayoutPortfolio = props => {
       <div className="mb-10 pb-20 md:py-12 w-full py-3  min-h-full">
         <div className="flex flex-col">
           <div className="w-11/12  mb-4 px-2 flex flex-row justify-evenly pb-6 ">
-            <div className="flex flex-col pt-8 gap-1 text-right">
+            <div className="flex flex-col pt-8 gap-1 text-right mr-10 ">
               <div className=" dark:text-neutral-200 mt-1 text-xs  ">
                 온종일 a4종이로 모델하우스를 제작하던 5살.
               </div>
@@ -678,7 +678,7 @@ const LayoutPortfolio = props => {
                 여전히 분석-조립-제안-제작을 좋아하는 개발자의
               </div>
             </div>
-            <div className="text-3xl font-bold dark:text-neutral-100 text-right text-neutral-900 mr-10 ">
+            <div className="text-3xl font-bold dark:text-neutral-100 text-right text-neutral-900 ">
               <p className="text-orange-500 p-0 m-0 text-left align-text-top  ">
                 .{''}
               </p>
