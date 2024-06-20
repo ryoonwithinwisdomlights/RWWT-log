@@ -142,8 +142,8 @@ const LayoutBase = props => {
             id="center-wrapper"
             className="flex flex-col w-full relative z-10 pt-14 min-h-screen"
           >
-            {/* <div className="  w-full max-w-3xl justify-center mx-auto">
-              <div>
+            {/* <div className="w-full justify-center mx-auto  border-b border-neutral-200 ">
+              <div className="w-full max-w-3xl justify-center mx-auto">
                 <RyoonAnnouncement {...props} />
               </div>
             </div> */}
@@ -185,23 +185,24 @@ const LayoutBase = props => {
           {/*  오른쪽 슬라이딩 서랍 */}
           <div
             style={{ width: '32rem' }}
-            className={'hidden xl:block dark:border-transparent relative z-10 '}
+            className={
+              'hidden xl:block dark:border-transparent relative z-10 border-l  border-neutral-200  '
+            }
           >
             <div className="py-14 px-6 sticky top-0">
               <ArticleInfo post={props?.post ? props?.post : props.notice} />
 
-              <div className="py-4">
+              <div className="py-4 justify-center">
                 <Catalog {...props} />
                 {slotRight}
-                {/* {router.route === '/' && ( */}
+
                 <>
                   <InfoCard {...props} />
                   {CONFIG.WIDGET_REVOLVER_MAPS === 'true' && <RevolverMaps />}
-                  {/* <Live2D /> */}
                 </>
-                {/* )} */}
                 {/* gitbook 테마 홈페이지에는 공지사항만 표시됩니다. */}
-                {/* <Announcement {...props} /> */}
+
+                <Announcement {...props} className={'justify-center '} />
               </div>
 
               <AdSlot type="in-article" />
@@ -317,7 +318,7 @@ const LayoutSlug = props => {
               </div>
             </div>
             <span className="mx-1"> | </span>{' '}
-            <Link href="/main" passHref legacyBehavior>
+            <Link href="/archive" passHref legacyBehavior>
               <div className="flex flex-row">
                 <LazyImage
                   src={siteInfo?.icon}
@@ -526,7 +527,7 @@ const LayoutInspiration = props => {
                 <br />
                 <br />
               </div>
-              <div className="hidden md:flex feltext-3xl  font-bold md:px-2 text-right    mr-4 pb-2">
+              <div className="hidden md:flex text-3xl  font-bold md:px-2  ml-4 text-right   pb-2">
                 영감 기록 <span className="text-amber-500 ">.</span>
               </div>
               <div className="lg:hidden md:hidden text-3xl dark:text-neutral-100 font-bold md:px-2 text-center  flex flex-col  mr-4 pb-2">
@@ -775,14 +776,42 @@ const LayoutArchive = props => {
 
   return (
     <LayoutBase {...props}>
-      <div className="mb-10 pb-20 md:py-12 py-3  min-h-full">
-        {Object.keys(archivePosts)?.map(archiveTitle => (
-          <BlogArchiveItem
-            key={archiveTitle}
-            archiveTitle={archiveTitle}
-            archivePosts={archivePosts}
-          />
-        ))}
+      <div className="mb-10 pb-20  py-3 w-full flex flex-col min-h-full">
+        <div className="w-full flex flex-col pt-10 ">
+          <div className="text-lg dark:text-neutral-200">
+            경계를 오가며 정직하게 기록한{' '}
+          </div>
+          <div className="font-bold text-3xl dark:text-neutral-100">
+            Ryoon Logs
+            <span className="text-amber-500 "> .</span>{' '}
+          </div>
+        </div>
+        <div className="w-full flex flex-row ">
+          <div className="w-2/5 mt-20 text-right ml-4 mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col ">
+            <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-72  ">
+              <div className="font-bold text-orange-500">배움.</div>
+              <div className=" font-bold text-red-500">일기.</div>
+              <div className=" font-bold text-amber-500 ">글.</div>
+              <div className=" font-bold text-amber-900">책.</div>
+              <div className=" font-bold text-amber-400">영감.</div>
+              <div className=" font-bold text-orange-400">나눔.</div>
+              <div className=" font-bold text-amber-900 ">사유.</div>
+              <div className=" font-normal dark:text-neutral-200 text-neutral-700 ">
+                로 이루어진.
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full flex flex-col gap-10 bg-opacity-30 rounded-lg pl-10 dark:bg-black dark:bg-opacity-70 bg-white">
+            {Object.keys(archivePosts)?.map(archiveTitle => (
+              <BlogArchiveItem
+                key={archiveTitle}
+                archiveTitle={archiveTitle}
+                archivePosts={archivePosts}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </LayoutBase>
   )

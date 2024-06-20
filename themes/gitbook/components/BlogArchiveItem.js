@@ -12,7 +12,7 @@ export default function BlogArchiveItem({ archiveTitle, archivePosts }) {
     <div key={archiveTitle}>
       <div
         id={archiveTitle}
-        className="pt-16 pb-4 text-3xl dark:text-neutral-300 "
+        className="pt-10   pb-4 text-2xl dark:text-neutral-300 "
       >
         {archiveTitle}
       </div>
@@ -20,7 +20,7 @@ export default function BlogArchiveItem({ archiveTitle, archivePosts }) {
         {archivePosts[archiveTitle]?.map(post => (
           <li
             key={post.id}
-            className="border-l-2 p-1 text-xs md:text-base items-center  hover:scale-x-105 hover:border-neutral-500 dark:hover:border-neutral-300 dark:border-neutral-400 transform duration-500"
+            className="border-l-2 p-2 text-xs md:text-base items-center  hover:scale-x-105 hover:border-neutral-500 dark:hover:border-neutral-300 dark:border-neutral-400 transform duration-500"
           >
             <div id={post?.publishDay}>
               <span className="text-neutral-400 dark:hover:text-orange-300">

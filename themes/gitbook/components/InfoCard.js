@@ -12,7 +12,7 @@ const InfoCard = props => {
         <div
           className="hover:scale-105 transform duration-200 cursor-pointer flex justify-center"
           onClick={() => {
-            Router.push('/main')
+            Router.push('/archive')
           }}
         >
           <LazyImage

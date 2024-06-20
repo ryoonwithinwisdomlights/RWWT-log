@@ -12,9 +12,12 @@ const Announcement = ({ notice, className }) => {
           id="announcement-wrapper"
           className="dark:text-neutral-300 rounded-xl px-2 py-4"
         >
-          {/* <div><i className='mr-2 fas fa-bullhorn' />{locale.COMMON.ANNOUNCEMENT}</div> */}
           {notice && (
-            <div id="announcement-content">
+            <div id="announcement-content ">
+              {/* <div>
+                <i className="mr-2 fas fa-bullhorn" />
+                공지
+              </div> */}
               <NotionPage post={notice} />
             </div>
           )}
