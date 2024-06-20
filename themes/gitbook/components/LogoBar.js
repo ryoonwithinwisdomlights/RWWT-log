@@ -27,13 +27,16 @@ export default function LogoBar(props) {
           }`}
         ></i>
       </div>
-      <Link href="/" className="flex text-md md:text-xl dark:text-neutral-200">
+      <Link
+        href="/"
+        className="flex text-md md:text-lg   text-neutral-900 dark:text-neutral-200"
+      >
         <LazyImage
           src={siteInfo?.icon}
           width={24}
           height={24}
           alt={BLOG.AUTHOR}
-          className="mr-2 hidden md:block"
+          className="mr-2 xl:hidden "
         />
         {siteInfo?.title}
       </Link>

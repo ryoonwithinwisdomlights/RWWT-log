@@ -17,7 +17,7 @@ const JumpToTopButton = ({ showPercent = false, percent, className }) => {
       className="fixed xl:right-80 right-2 mr-10 bottom-24 z-20 "
     >
       <i
-        className="fas fa-chevron-up cursor-pointer p-2 rounded-full border text-white bg-[#ffd000] dark:bg-neutral-700"
+        className="fas fa-chevron-up cursor-pointer p-2 rounded-full border text-white bg-neutral-700"
         onClick={() => {
           window.scrollTo({ top: 0, behavior: 'smooth' })
         }}
