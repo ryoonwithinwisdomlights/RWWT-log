@@ -17,7 +17,6 @@ export const AGiveAwayLogCardInfo = ({
   showPageCover,
   showSummary
 }) => {
-  // console.log(' ALifeArtWorkLogCardInfo::', post)
   return (
     <div
       className={`flex flex-col justify-between lg:p-6 p-4  ${

@@ -47,8 +47,7 @@ export async function getStaticProps() {
     type: 'Inspiration'
   })
   // Handle pagination
-  //   console.log('props.allPages', props.allPages)
-  // console.log('getStaticProps')
+
   props.posts = props.allPages?.filter(page => {
     if (page.type === 'Inspiration') {
       console.log(page)

@@ -75,10 +75,7 @@ const LayoutBase = props => {
   const router = useRouter()
   const [tocVisible, changeTocVisible] = useState(false)
   const [pageNavVisible, changePageNavVisible] = useState(false)
-  // const modifiedAllNavPages = allNavPages?.filter(post => {
-  //   return post && post?.type !== 'TheLog'
-  // })
-  // console.log('modifiedAllNavPages', modifiedAllNavPages)
+
   const [filteredNavPages, setFilteredNavPages] = useState(
     allNavPagesForGitBook
   )
@@ -396,7 +393,7 @@ const LayoutSearch = props => {
  */
 const LayoutGuestBook = props => {
   const { GuestBookPosts } = props
-  // console.log('theLogPosts', theLogPosts)
+
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
@@ -505,9 +502,8 @@ const LayoutTheLog = props => {
  * @returns
  */
 const LayoutInspiration = props => {
-  console.log('여긴 찾아오나')
   const { InspirationPosts } = props
-  // console.log('InspirationPosts', InspirationPosts)
+
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
@@ -538,7 +534,6 @@ const LayoutInspiration = props => {
           <div className="flex flex-col gap-10">
             {' '}
             {Object.keys(InspirationPosts)?.map(archiveTitle => {
-              // console.log(archiveTitle)
               return (
                 <InspirationItem
                   key={archiveTitle}
@@ -588,8 +583,6 @@ const LayoutTechLog = props => {
           </div>
           <div className="space-y-6 px-2">
             {techLogPosts?.map((item, index) => {
-              // console.log('item', item)
-              // console.log(portfolioPosts[item.to])
               return (
                 <TechLogItem
                   key={index}
@@ -609,9 +602,8 @@ const LayoutTechLog = props => {
 
 // LayoutAGiveAwayLog 제작/브랜딩/제안용 레이아웃 -24.06.19
 const LayoutAGiveAwayLog = props => {
-  console.log('찾아는 오니??')
   const { aGiveAwayLogPosts } = props
-  console.log('aGiveAwayLogPosts:::::::::::', aGiveAwayLogPosts)
+
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">

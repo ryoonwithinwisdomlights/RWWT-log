@@ -77,7 +77,6 @@ export async function getStaticProps() {
   props.archivePosts = archivePosts
   delete props.allPages
 
-  // console.log('props.archivePosts', props.archivePosts)
   return {
     props,
     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)

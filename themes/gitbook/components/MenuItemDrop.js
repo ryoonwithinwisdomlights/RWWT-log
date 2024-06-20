@@ -68,11 +68,6 @@ export const MenuItemDrop = ({ link }) => {
           } border-neutral-100  bg-white  dark:bg-neutral-600 dark:border-neutral-800 transition-all duration-300 z-20 absolute block drop-shadow-lg rounded-lg dark:hover:text-[#ffffff]`}
         >
           {link?.subMenus?.map((sLink, index) => {
-            // console.log('link?.to:::', link)
-            console.log('link?.to:::', sLink.to)
-            console.log(' https', sLink?.to?.includes('http'))
-            //
-            // sLink?.type
             return (
               <div key={index} className="h-full w-full">
                 <li

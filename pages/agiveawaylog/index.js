@@ -32,12 +32,11 @@ export default function AGiveAwayLog(props) {
 }
 
 export async function getStaticProps() {
-  console.log('AGiveAwayLogAGiveAwayLogAGiveAwayLogAGiveAwayLog')
   const props = await getGlobalData({
     from: 'AGiveAwayLog-index-props',
     type: 'AGiveAwayLog'
   })
-  console.log('AGiveAwayLogAGiveAwayLogAGiveAwayLogAGiveAwayLogq22')
+
   props.posts = props.allPages?.filter(page => {
     if (page.type === 'AGiveAwayLog') {
       console.log(page)
@@ -45,24 +44,8 @@ export async function getStaticProps() {
     return page.type === 'AGiveAwayLog' && page.status === 'Published'
   })
 
-  // const postsSortByDate = Object.create(props.posts)
-  // postsSortByDate.sort((a, b) => {
-  //   return b?.publishDate - a?.publishDate
-  // })
-
-  // console.log('postsSortByDate', postsSortByDate)
-  // const portfolioPosts = {}
-
-  // postsSortByDate.forEach(post => {
-  //   if (portfolioPosts[post.id]) {
-  //     portfolioPosts[post.id].push(post)
-  //   } else {
-  //     portfolioPosts[post.id] = [post]
-  //   }
-  // })
-
   props.aGiveAwayLogPosts = props.posts
-  console.log('aGiveAwayLogPosts', props.aGiveAwayLogPosts)
+
   delete props.allPages
 
   return {
