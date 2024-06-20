@@ -733,7 +733,7 @@ const LayoutReadAndWrite = props => {
             <div>
               읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
             </div>
-            <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-10 ">
+            <div className="text-right mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-10 ">
               <div className="mb-10 "> 륜의</div>
               <div className="mb-10  ">
                 <span className="font-bold">사유</span>와

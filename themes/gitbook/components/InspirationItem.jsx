@@ -12,7 +12,7 @@ export default function InspirationItem({ archiveTitle, archivePosts }) {
         {archivePosts[archiveTitle]?.map(post => (
           <li
             key={post.id}
-            className="border-l-2 p-1 text-xs md:text-base items-center  hover:scale-x-105
+            className="border-l-2 p-2 text-xs md:text-base items-center  hover:scale-x-105
              hover:border-neutral-500 dark:hover:border-yellow-300 dark:border-neutral-400 border-neutral-300  transform duration-500"
           >
             <div id={post?.publishDay}>
