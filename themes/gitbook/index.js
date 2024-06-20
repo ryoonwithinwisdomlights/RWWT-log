@@ -12,20 +12,16 @@ import ShareBar from '@/components/ShareBar'
 import { useGlobal } from '@/lib/global'
 import { isBrowser } from '@/lib/utils'
 import Girok from '@/public/images/inspiration/girok.jpg'
-import ReadPic from '@/public/images/read/So-I-Read-And-Write.png'
-import Coffee from '@/public/images/thelog/coffee.jpg'
-import DearGod from '@/public/images/thelog/deargod.jpeg'
-import Maria from '@/public/images/thelog/maria.jpeg'
-import Leeseula from '@/public/images/thelog/leeseula.jpeg'
-import Years from '@/public/images/thelog/years.jpeg'
 import Jadu from '@/public/images/thelog/jadu.jpeg'
 import Latte from '@/public/images/thelog/latte.jpeg'
+import Leeseula from '@/public/images/thelog/leeseula.jpeg'
 import Nogiveup from '@/public/images/thelog/nogiveup.png'
 import { Transition } from '@headlessui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { createContext, useContext, useEffect, useState } from 'react'
+import AGiveAwayLogItem from './components/AGiveAwayLogItem'
 import Announcement from './components/Announcement'
 import ArticleAround from './components/ArticleAround'
 import ArticleInfo from './components/ArticleInfo'
@@ -53,7 +49,6 @@ import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import CONFIG from './config'
 import { Style } from './style'
-import AGiveAwayLogItem from './components/AGiveAwayLogItem'
 
 // Theme global variables
 const ThemeGlobalGitbook = createContext()
@@ -110,7 +105,7 @@ const LayoutBase = props => {
 
       <div
         id="theme-gitbook"
-        className="bg-white dark:bg-hexo-black-gray w-full h-full min-h-screen justify-center dark:text-gray-300 dark:bg-black"
+        className="bg-white dark:bg-hexo-black-neutral w-full h-full min-h-screen justify-center dark:text-neutral-300 dark:bg-black"
       >
         {/* 상단 네비게이션 바 */}
         <TopNavBar {...props} />
@@ -208,7 +203,7 @@ const LayoutBase = props => {
 
         {/* Mobile floating directory button */}
         {showTocButton && !tocVisible && (
-          <div className="md:hidden fixed right-0 bottom-52 z-30 bg-white border-l border-t border-b dark:border-gray-800 rounded">
+          <div className="md:hidden fixed right-0 bottom-52 z-30 bg-white border-l border-t border-b dark:border-neutral-800 rounded">
             <FloatTocButton {...props} />
           </div>
         )}
@@ -245,7 +240,7 @@ const LayoutIndex = props => {
             const containerInner = document.querySelector(
               '#theme-gitbook #container-inner'
             )
-            const newHTML = `<h1 class="text-3xl pt-12  dark:text-gray-300">Configuration error</h1><blockquote class="notion-quote notion-block-ce76391f3f2842d386468ff1eb705b92"><div>请在您的notion中添加一个slug为${CONFIG.INDEX_PAGE}的文章</div></blockquote>`
+            const newHTML = `<h1 class="text-3xl pt-12  dark:text-neutral-300">Configuration error</h1><blockquote class="notion-quote notion-block-ce76391f3f2842d386468ff1eb705b92"><div>请在您的notion中添加一个slug为${CONFIG.INDEX_PAGE}的文章</div></blockquote>`
             containerInner?.insertAdjacentHTML('afterbegin', newHTML)
           }
         }
@@ -288,15 +283,17 @@ const LayoutSlug = props => {
       {!lock && (
         <div id="container">
           {/* title */}
-          <h1 className="text-3xl pt-12  dark:text-gray-300">{post?.title}</h1>
+          <h1 className="text-3xl pt-12  dark:text-neutral-300">
+            {post?.title}
+          </h1>
           <section
             className="flex-wrap
           shadow-text-md flex text-sm
-          justify-start mt-4 text-gray-500
-           dark:text-gray-400 font-light py-2
+          justify-start mt-4 text-neutral-500
+           dark:text-neutral-400 font-light py-2
            "
           >
-            <div className="flex justify-start dark:text-gray-200 ">
+            <div className="flex justify-start dark:text-neutral-200 ">
               <span className="whitespace-nowrap">
                 <i className="far fa-calendar mr-2" />
                 {post?.publishDay}
@@ -391,7 +388,7 @@ const LayoutGuestBook = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl dark:text-gray-300 mb-4 ">GuestBook</div>
+        <div className="text-3xl dark:text-neutral-300 mb-4 ">GuestBook</div>
         <div className="flex flex-row">
           <div className="w-full flex flex-col gap-10 bg-opacity-30 p-10 rounded-lg dark:bg-black dark:bg-opacity-70 bg-white">
             {Object.keys(GuestBookPosts)?.map(archiveTitle => {
@@ -422,17 +419,23 @@ const LayoutTheLog = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl flex flex-row  mb-4 ">
-          <div className="">륜의 진실된 {''} </div>
-          <div className="text-red-400">&nbsp;Life logs. </div>
+        <div className="text-3xl flex flex-col  my-4 ">
+          <div className="text-sm">륜의 진실된 {''} </div>
+          <div className="font-bold">
+            Life logs
+            <span className="text-red-500 "> .</span>{' '}
+          </div>
         </div>
-        <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-3 text-base ">
-          나는 배웠다.
-          <br />
-          앞과 뒤를 계산하지 않고 자신에게 정직한 사람이
-          <br />
-          결국은 우리가 살아가는 데서 앞선다는 것을.
-          <br /> - Omer B. washington
+        <div className=" dark:text-neutral-300  text-neutral-700 my-6 text-base ">
+          <div className="px-2">
+            {' '}
+            나는 배웠다.
+            <br />
+            앞과 뒤를 계산하지 않고 자신에게 정직한 사람이
+            <br />
+            결국은 우리가 살아가는 데서 앞선다는 것을.
+          </div>
+          - Omer B. washington
           <br />
           <br />
         </div>
@@ -499,29 +502,21 @@ const LayoutInspiration = props => {
         <div className="flex flex-row">
           <div className="w-1/2 mr-10">
             <div className="mb-2">
-              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
-              <Image
-                src={Girok}
-                alt="So-I-Read-And-Write"
-                className="md:hidden"
-              />
-              <div className="text-3xl md:px-2 text-right  text-amber-400   mr-4 pb-2">
-                영감기록
-              </div>
-              <div className=" dark:text-gray-300 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
+              <div className=" dark:text-neutral-300 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
                 남에게서 배운 <br />
-                좋은 질투와 <br />
-                부러움
+                좋은 <span className="font-bold">질</span>투와 <br />부
+                <span className="font-bold">러</span>움
                 <br />
-                & &nbsp;&nbsp;
+                <span className=" font-bold">& &nbsp;&nbsp;</span>
                 <br />
-                존경에
+                <span className="font-bold">존</span>경에
                 <br />
                 대한
                 <br />
-                기록
                 <br />
-                <br />
+              </div>
+              <div className="text-3xl  font-bold md:px-2 text-right    mr-4 pb-2">
+                영감 기록 <span className="text-amber-500 ">.</span>
               </div>
             </div>
           </div>
@@ -556,19 +551,22 @@ const LayoutTechLog = props => {
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl  text-orange-500">Tech Logs </div>
-              <div className=" dark:text-gray-300 mt-1  text-base p-2 ">
-                <div className="flex flex-row">
+              <div className="text-3xl font-bold ">
+                Tech Logs <span className="text-orange-500">.</span>
+              </div>
+              <div className=" dark:text-neutral-300 mt-1  flex flex-row p-2 ">
+                <div className="flex flex-row text-left text-base align-bottom ">
                   {' '}
-                  一(일) 개라도 배우고 기록하는{' '}
-                  <div className="text-orange-300">&nbsp;완료주의</div> <br />
+                  一 개라도 배우는
+                  <div className="font-bold">&nbsp;완료주의</div>{' '}
                 </div>
 
-                <div className="w-4/12 text-sm   text-right ">
-                  &gt;&gt;&gt;&gt; betters than &gt;&gt;&gt;
+                <div className=" text-sm  align-bottom pt-1">
+                  {' '}
+                  &nbsp;&nbsp;&nbsp;&nbsp;{'>'}&nbsp;&nbsp;&nbsp;&nbsp;{' '}
                 </div>
-                <div className="text-xs    text-center">
-                  완벽하게 배우려다 영원히 안하는 완성주의 <br />
+                <div className="text-xs align-bottom  pt-2 ">
+                  완벽하려 꾸물대는 완성주의
                 </div>
               </div>
             </div>
@@ -607,22 +605,26 @@ const LayoutAGiveAwayLog = props => {
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl flex flex-row dark:text-gray-300 ">
-                <div className=""> 🎨 </div>&nbsp;{' '}
-                <div className="text-yellow-400">GiveAways</div>
-                &nbsp;<div>to the World</div>
-                &nbsp;{' '}
-                <div className="text-red-600 dark:text-red-400">w/Love </div>
+              <div className="text-3xl flex flex-col dark:text-neutral-300 ">
+                <div className="text-xs">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;능동적
+                  기쁨과 나눔에 대한
+                </div>
+                <div className="font-bold">
+                  {' '}
+                  🎨 Records <span className="text-red-500"> .</span>
+                </div>
+
+                {/* <div className="text-yellow-400">I&apos;ve gave away</div>&nbsp;
+                &nbsp;
+                <div className="text-orange-400 dark:text-red-400">
+                  with joy & love{' '}
+                </div> */}
               </div>
-              <div className=" dark:text-gray-300 mt-1 text-base p-2 ">
-                Like Drawing <br />
-                <div className="w-4/12 text-base  text-right ">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or Making &
-                  Creating &nbsp;&nbsp;&nbsp;
-                </div>
-                <div className="text-base    text-center">
-                  or Proposing & Suggesting. <br />
-                </div>
+              <div className=" dark:text-neutral-300 text-base py-4 pl-10  ">
+                <div className="flex items-start"> 만들고 그리는,</div>
+                <div className="text-center ">제작하고 창조하는,</div>
+                <div className="text-base    text-end">기획하고 제안하는,</div>
               </div>
             </div>
           </div>
@@ -657,17 +659,17 @@ const LayoutPortfolio = props => {
         <div className="flex flex-col">
           <div className="w-full mb-4 px-2">
             <div className="">
-              <div className=" dark:text-gray-300 mt-1 font   text-neutral-400 text-base ">
+              <div className=" dark:text-neutral-300 mt-1 font   text-neutral-400 text-base ">
                 5살 온종일 a4종이로 모델하우스 만들기. <br />
               </div>
-              <div className=" dark:text-gray-300 mt-1 font   text-neutral-500 text-base ">
+              <div className=" dark:text-neutral-300 mt-1 font   text-neutral-500 text-base ">
                 27살 크고 작은 재미난 마케팅/광고 기획 제안.
               </div>
-              <div className=" dark:text-gray-300 mt-1 font-size: 0.75rem; text-neutral-600 text-base ">
+              <div className=" dark:text-neutral-300 mt-1 font-size: 0.75rem; text-neutral-600 text-base ">
                 그리고 여전히 분석하고 제안하고 창작하는 것을 즐거워하는
                 개발자의
               </div>
-              <div className="text-3xl dark:text-gray-300 text-neutral-900 py-4 ">
+              <div className="text-3xl dark:text-neutral-300 text-neutral-900 py-4 ">
                 SIDE-PROJECT PORTFOLIO.
               </div>
             </div>
@@ -705,19 +707,29 @@ const LayoutReadAndWrite = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl flex flex-row dark:text-gray-300 mt-4 mb-2">
-          <div className="text-green-500">Read </div>
-          <div className=" text-lime-400">&nbsp;&&nbsp;Write. </div>
+        <div className="text-3xl flex flex-row dark:text-neutral-300 mt-4 mb-2">
+          <div className="  font-bold   ">
+            Writing <span className="font-bold text-amber-400">.</span>{' '}
+          </div>
         </div>
-        <div className="w-1/2 text-base mb-4 dark:text-gray-300 text-neutral-700 ">
-          읽고 쓰는 것은 자신의 세계를, <br />
-          생각을 확장해 나가는 기록이다.
-        </div>
+
         <div className="flex flex-row">
-          <div className="w-1/2 mr-20">
-            <div className="">
-              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
-              <Image src={ReadPic} alt="So-I-Read-And-Write" />
+          <div className="text-left mr-10 dark:text-neutral-300 text-neutral-700 flex flex-col gap-20 ">
+            <div>
+              읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
+            </div>
+            <div className="text-left mr-10 dark:text-neutral-300 text-neutral-700 flex flex-col gap-10 ">
+              <div className="mb-10 "> 륜의</div>
+              <div className="mb-10  ">
+                <span className="font-bold">사유</span>와
+              </div>
+              <div className="mb-10  ">
+                <span className="font-bold">문장과</span>
+              </div>
+              <div className="mb-10 f ">
+                <span className="font-bold">독서에</span>대한
+              </div>
+              <div className="mt-10 t"> 기록.</div>
             </div>
           </div>
           <div className="flex flex-col gap-10">
@@ -784,7 +796,7 @@ const LayoutCategoryIndex = props => {
   return (
     <LayoutBase {...props}>
       <div className="bg-white dark:bg-neutral-700  px-10 py-10">
-        <div className="dark:text-gray-200 mb-5">
+        <div className="dark:text-neutral-200 mb-5">
           <i className="mr-4 fas fa-th" />
           {locale.COMMON.CATEGORY}:
         </div>
@@ -845,12 +857,12 @@ const LayoutTagIndex = props => {
 
 export {
   Layout404,
+  LayoutAGiveAwayLog,
   LayoutArchive,
   LayoutCategoryIndex,
   LayoutGuestBook,
   LayoutIndex,
   LayoutInspiration,
-  LayoutAGiveAwayLog,
   LayoutPortfolio,
   LayoutPostList,
   LayoutReadAndWrite,
