@@ -123,7 +123,7 @@ export default function TopNavBar(props) {
         </div>
 
         {/* Desktop top menu */}
-        <div className="hidden md:flex">
+        <div className="hidden md:flex py-2">
           {links &&
             links?.map((link, index) => (
               <MenuItemDrop key={index} link={link} />

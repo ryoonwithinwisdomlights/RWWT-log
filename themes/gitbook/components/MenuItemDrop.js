@@ -16,7 +16,7 @@ export const MenuItemDrop = ({ link }) => {
 
   return (
     <li
-      className="cursor-pointer list-none items-center flex mx-2"
+      className="cursor-pointer list-none items-center flex mx-2 "
       onMouseOver={() => changeShow(true)}
       onMouseOut={() => changeShow(false)}
     >
@@ -47,8 +47,8 @@ export const MenuItemDrop = ({ link }) => {
           className={
             'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-neutral-300 cursor-pointer flex flex-nowrap items-center ' +
             (selected
-              ? 'bg-[#ffd500] rounded-lg h-4/5 text-black dark:text-neutral-900  hover:text-white '
-              : 'hover:text-[#ffd500]')
+              ? 'bg-[#ffd500] rounded-lg h-4/5 text-black dark:text-neutral-700 hover:text-white '
+              : 'hover:text-[#ffd500] dark:hover:text-[#ffffff]')
           }
         >
           <Link
@@ -65,7 +65,7 @@ export const MenuItemDrop = ({ link }) => {
         <ul
           className={`${
             show ? 'visible opacity-100 top-12 ' : 'invisible opacity-0 top-10 '
-          } border-neutral-100  bg-white  dark:bg-black dark:border-neutral-800 transition-all duration-300 z-20 absolute block drop-shadow-lg rounded-lg`}
+          } border-neutral-100  bg-white  dark:bg-neutral-600 dark:border-neutral-800 transition-all duration-300 z-20 absolute block drop-shadow-lg rounded-lg dark:hover:text-[#ffffff]`}
         >
           {link?.subMenus?.map((sLink, index) => {
             // console.log('link?.to:::', link)
@@ -81,7 +81,7 @@ export const MenuItemDrop = ({ link }) => {
                     tracking-widest transition-all duration-200  dark:border-neutral-800 py-3 pr-6 pl-3"
                 >
                   <Link
-                    className="hover:bg-[#ffd500] px-2 hover:rounded-lg hover:h-4/5 w-full"
+                    className="hover:bg-[#ffd500] dark:hover:text-[#ffffff] px-2 hover:rounded-lg hover:h-4/5 w-full"
                     href={sLink.to}
                     target={sLink?.to?.includes('http') ? '_blank' : '_self'}
                   >

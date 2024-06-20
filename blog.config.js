@@ -15,7 +15,9 @@ const BLOG = {
 
   CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true,
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.with.wisdomtrees',
-  BIO: process.env.NEXT_PUBLIC_BIO || 'A developer with Lights',
+  BIO:
+    process.env.NEXT_PUBLIC_BIO ||
+    'A Software Engineer who likes to Giveaway to the World with Joy, Love and Lights.',
   LINK: process.env.NEXT_PUBLIC_LINK, // website address
   KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 블로그, 개발블로그', // Website keywords separated by English commas
   CONTACT_EMAIL: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
