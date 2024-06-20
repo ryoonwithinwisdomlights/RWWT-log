@@ -778,7 +778,7 @@ const LayoutArchive = props => {
       <div className="mb-10 pb-20  py-3 w-full flex flex-col min-h-full">
         <div className="w-full flex flex-col pt-10 ">
           <div className="text-lg dark:text-neutral-200">
-            경계를 오가며 정직하게 기록한{' '}
+            경계를 오가며 정직하게 기록되는{' '}
           </div>
           <div className="font-bold text-3xl dark:text-neutral-100">
             Ryoon Logs
