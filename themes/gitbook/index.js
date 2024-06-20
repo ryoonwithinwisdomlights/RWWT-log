@@ -49,6 +49,7 @@ import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import CONFIG from './config'
 import { Style } from './style'
+import RyoonAnnouncement from '@/components/RyoonAnnouncement'
 
 // Theme global variables
 const ThemeGlobalGitbook = createContext()
@@ -139,38 +140,45 @@ const LayoutBase = props => {
 
           <div
             id="center-wrapper"
-            className="flex flex-col justify-between w-full relative z-10 pt-14 min-h-screen"
+            className="flex flex-col w-full relative z-10 pt-14 min-h-screen"
           >
-            <div
-              id="container-inner"
-              className="w-full px-7 max-w-3xl justify-center mx-auto"
-            >
-              {slotTop}
-
-              <Transition
-                show={!onLoading}
-                appear={true}
-                enter="transition ease-in-out duration-700 transform order-first"
-                enterFrom="opacity-0 translate-y-16"
-                enterTo="opacity-100"
-                leave="transition ease-in-out duration-300 transform"
-                leaveFrom="opacity-100 translate-y-0"
-                leaveTo="opacity-0 -translate-y-16"
-                unmount={false}
+            {/* <div className="  w-full max-w-3xl justify-center mx-auto">
+              <div>
+                <RyoonAnnouncement {...props} />
+              </div>
+            </div> */}
+            <div className="flex flex-col justify-between w-full relative z-10  ">
+              <div
+                id="container-inner"
+                className="w-full px-7 max-w-3xl justify-center mx-auto"
               >
-                {children}
-              </Transition>
+                {slotTop}
 
-              {/* Google ads */}
-              <AdSlot type="in-article" />
+                <Transition
+                  show={!onLoading}
+                  appear={true}
+                  enter="transition ease-in-out duration-700 transform order-first"
+                  enterFrom="opacity-0 translate-y-16"
+                  enterTo="opacity-100"
+                  leave="transition ease-in-out duration-300 transform"
+                  leaveFrom="opacity-100 translate-y-0"
+                  leaveTo="opacity-0 -translate-y-16"
+                  unmount={false}
+                >
+                  {children}
+                </Transition>
 
-              {/* Back button */}
-              <JumpToTopButton />
-            </div>
+                {/* Google ads */}
+                <AdSlot type="in-article" />
 
-            {/* bottom */}
-            <div className="md:hidden">
-              <Footer {...props} />
+                {/* Back button */}
+                <JumpToTopButton />
+              </div>
+
+              {/* bottom */}
+              <div className="md:hidden">
+                <Footer {...props} />
+              </div>
             </div>
           </div>
 
@@ -193,7 +201,7 @@ const LayoutBase = props => {
                 </>
                 {/* )} */}
                 {/* gitbook 테마 홈페이지에는 공지사항만 표시됩니다. */}
-                <Announcement {...props} />
+                {/* <Announcement {...props} /> */}
               </div>
 
               <AdSlot type="in-article" />
