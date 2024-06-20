@@ -29,7 +29,7 @@ const TheLogIndex = props => {
   }, [])
 
   const meta = {
-    title: `${locale.NAV.READ} | ${siteInfo?.title}`,
+    title: `${locale.NAV.WRITING} | ${siteInfo?.title}`,
     description: siteInfo?.description,
     image: siteInfo?.pageCover,
     slug: 'thelog',

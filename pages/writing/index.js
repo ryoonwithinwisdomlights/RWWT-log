@@ -16,10 +16,10 @@ const ReadandWriteIndex = props => {
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {
-    title: `${locale.NAV.READ} | ${siteInfo?.title}`,
+    title: `${locale.NAV.WRITING} | ${siteInfo?.title}`,
     description: siteInfo?.description,
     image: siteInfo?.pageCover,
-    slug: 'read',
+    slug: 'writing',
     type: 'website'
   }
 
@@ -53,15 +53,15 @@ const ReadandWriteIndex = props => {
 // }
 
 export async function getStaticProps() {
-  const from = 'read-index'
-  const props = await getGlobalData({ from: from, type: 'Read' })
+  const from = 'writing-index'
+  const props = await getGlobalData({ from: from, type: 'Writing' })
 
-  props.readPosts = props.allPages?.filter(
-    page => page.type === 'Read' && page.status === 'Published'
+  props.writingPosts = props.allPages?.filter(
+    page => page.type === 'Writing' && page.status === 'Published'
   )
 
   // console.log('readPosts: ', props.readPosts)
-  const postsSortByDate = Object.create(props.readPosts)
+  const postsSortByDate = Object.create(props.writingPosts)
 
   postsSortByDate.sort((a, b) => {
     return b?.publishDate - a?.publishDate

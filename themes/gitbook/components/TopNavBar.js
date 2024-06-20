@@ -48,9 +48,9 @@ export default function TopNavBar(props) {
     // },
     {
       icon: 'fa-solid fa-book',
-      name: locale.NAV.READ,
-      to: '/read',
-      show: CONFIG.MENU_READ
+      name: locale.NAV.WRITING,
+      to: '/writing',
+      show: CONFIG.MENU_WRITING
     },
     {
       icon: 'fa-solid fa-hand-sparkles',

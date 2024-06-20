@@ -207,7 +207,7 @@ const BLOG = {
     type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'type', // article type
     type_able_arr: [
       'Post',
-      'Read',
+      'Writing',
       'Portfolio',
       'Inspiration',
       'TheLog',
@@ -216,7 +216,7 @@ const BLOG = {
     ],
     type_able:
       'Post' ||
-      'Read' ||
+      'Writing' ||
       'Portfolio' ||
       'Inspiration' ||
       'TheLog' ||
@@ -224,7 +224,8 @@ const BLOG = {
       'GuestBook',
     type_post: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_POST || 'Post', // When the type article type is the same as this value, it is a blog post.
     type_page: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PAGE || 'Page', // When the type article type is the same as this value, it is a single page.
-    type_read: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_READ || 'Read',
+    type_writing:
+      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_WRITING || 'Writing',
     type_portfolio:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PORTFOLIO || 'Portfolio',
     type_inspiration:
