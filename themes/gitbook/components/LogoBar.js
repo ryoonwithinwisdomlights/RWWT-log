@@ -29,7 +29,7 @@ export default function LogoBar(props) {
       </div>
       <Link
         href="/"
-        className="flex text-md md:text-lg   text-neutral-900 dark:text-neutral-200"
+        className="flex text-md md:text-lg   text-neutral-900 dark:text-neutral-200  dark:hover:text-neutral-900  hover:bg-amber-300 px-2 hover:rounded-lg "
       >
         <LazyImage
           src={siteInfo?.icon}

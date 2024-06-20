@@ -22,7 +22,7 @@ const InfoCard = props => {
             alt={BLOG.AUTHOR}
           />
         </div>
-        <div className="text-xl py-2 hover:scale-105 transform duration-200 flex justify-center dark:text-neutral-300">
+        <div className="text-xl my-2 hover:scale-105 dark:hover:text-neutral-900  hover:bg-amber-300 px-2 hover:rounded-lg hover:h-4/5 transform duration-200 flex justify-center dark:text-neutral-300">
           {BLOG.AUTHOR}
         </div>
         <div

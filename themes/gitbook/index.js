@@ -175,7 +175,7 @@ const LayoutBase = props => {
               </div>
 
               {/* bottom */}
-              <div className="md:hidden">
+              <div className="md:hidden mb:16">
                 <Footer {...props} />
               </div>
             </div>
@@ -322,12 +322,12 @@ const LayoutSlug = props => {
                 <LazyImage
                   src={siteInfo?.icon}
                   className="rounded-full cursor-pointer"
-                  width={22}
-                  hight={22}
+                  width={20}
+                  hight={20}
                   alt={BLOG.AUTHOR}
                 />
 
-                <div className="mr-3 ml-2 my-auto text-yellow-500 cursor-pointer">
+                <div className="mr-3 ml-2 my-auto text-neutral-400 cursor-pointer">
                   {BLOG.AUTHOR}
                 </div>
               </div>
