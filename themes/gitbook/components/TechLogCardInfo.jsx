@@ -30,7 +30,7 @@ export const TechLogCardInfo = ({
           passHref
           className={`line-clamp-2 replace cursor-pointer text-2xl ${
             showPreview ? 'text-center' : ''
-          } leading-tight font-normal text-neutral-600  hover:text-orange-300 `}
+          } leading-tight font-normal text-neutral-600  hover:text-[#ff6f00] `}
         >
           <span className="menu-link ">{post.title}</span>
         </Link>

@@ -564,20 +564,22 @@ const LayoutTechLog = props => {
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
               <div className="text-3xl font-bold dark:text-neutral-100">
-                Tech Logs <span className="text-orange-500">.</span>
+                Tech Logs <span className="text-[#ff6f00]">.</span>
               </div>
               <div className=" dark:text-neutral-200 mt-1  flex flex-row p-2 ">
-                <div className="flex flex-row text-left text-base align-bottom ">
+                <div className="flex flex-row  text-base align-bottom  break-words  text-right">
                   {' '}
                   一 개라도 배우는
-                  <div className="font-bold">&nbsp;완료주의</div>{' '}
+                  <div className="font-bold text-[#ff6f00] break-words  text-right">
+                    &nbsp;완료주의
+                  </div>{' '}
                 </div>
 
                 <div className=" text-sm  align-bottom pt-1">
                   {' '}
                   &nbsp;&nbsp;&nbsp;&nbsp;{'>'}&nbsp;&nbsp;&nbsp;&nbsp;{' '}
                 </div>
-                <div className="text-xs align-bottom  pt-2 ">
+                <div className="text-xs align-bottom  pt-2 break-words text-right">
                   완벽하려 꾸물대는 완성주의
                 </div>
               </div>
@@ -610,7 +612,7 @@ const LayoutAGiveAwayLog = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="flex flex-col">
-          <div className="w-full mb-4">
+          <div className="w-full mb-4 py-6">
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
@@ -782,13 +784,13 @@ const LayoutArchive = props => {
           <div className="text-lg text-stone-400 dark:text-neutral-200">
             경계를 오가며 정직하게 기록되는{' '}
           </div>
-          <div className="w-4/5 font-extrabold  break-words text-stone-700  overflow  text-3xl dark:text-neutral-100 hover:underline hover:decoration-amber-400/30">
+          <div className="w-4/5 font-extrabold  break-words text-stone-700  overflow  text-3xl dark:text-neutral-100 underline decoration-amber-400/30">
             Ryoon.With.Wisdomtrees Logs
             <span className="text-amber-400 "> .</span>{' '}
           </div>
         </div>
         <div className="w-full flex flex-row ">
-          <div className="w-2/5 mt-20 text-right ml-4 mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col ">
+          <div className="w-2/5 mt-20 text-right ml-4 md:mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col ">
             <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-72  ">
               <div className="font-bold text-orange-500">배움.</div>
               <div className=" font-bold text-red-500">일기.</div>
@@ -807,7 +809,7 @@ const LayoutArchive = props => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col gap-10 bg-opacity-30 rounded-lg pl-10 dark:bg-black dark:bg-opacity-70 bg-white">
+          <div className="w-full flex flex-col gap-10 bg-opacity-30 rounded-lg md:pl-10 dark:bg-black dark:bg-opacity-70 bg-white">
             {Object.keys(archivePosts)?.map(archiveTitle => (
               <BlogArchiveItem
                 key={archiveTitle}
