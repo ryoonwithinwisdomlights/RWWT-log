@@ -39,7 +39,7 @@ const FullScreenButton = () => {
   }
 
   return (
-    <button onClick={handleFullScreenClick} className="dark:text-gray-300">
+    <button onClick={handleFullScreenClick} className="dark:text-neutral-300">
       {isFullScreen ? '退出全屏' : <i className="fa-solid fa-expand"></i>}
     </button>
   )

@@ -19,7 +19,7 @@ const PaginationSimple = ({ page, totalPage }) => {
     .replace(/\/$/, '')
 
   return (
-    <div className="my-10 flex justify-between font-medium text-black dark:text-gray-100 space-x-2">
+    <div className="my-10 flex justify-between font-medium text-black dark:text-neutral-100 space-x-2">
       <Link
         href={{
           pathname:

@@ -28,10 +28,10 @@ const PageNavDrawer = props => {
             (pageNavVisible
               ? 'animate__slideInLeft '
               : '-ml-80 animate__slideOutLeft') +
-            ' overflow-y-hidden shadow-card w-72 duration-200 fixed left-1 top-16 rounded py-2 bg-white dark:bg-gray-600'
+            ' overflow-y-hidden shadow-card w-72 duration-200 fixed left-1 top-16 rounded py-2 bg-white dark:bg-neutral-600'
           }
         >
-          <div className="dark:text-gray-400 text-gray-600 h-96 overflow-y-scroll p-3">
+          <div className="dark:text-neutral-200 text-neutral-600 h-96 overflow-y-scroll p-3">
             {/* List of all articles */}
             <NavPostList filteredNavPages={filteredNavPages} />
           </div>

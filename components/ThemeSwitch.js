@@ -31,7 +31,7 @@ const ThemeSwitch = () => {
         <div
           id="draggableBox"
           style={{ left: '10px', top: '80vh' }}
-          className="fixed z-50 dark:text-white bg-gray-50 dark:bg-black rounded-2xl drop-shadow-lg"
+          className="fixed z-50 dark:text-white bg50 dark:bg-black rounded-2xl drop-shadow-lg"
         >
           <div className="p-3 w-full flex items-center text-sm group duration-200 transition-all">
             <DarkModeButton className="mr-2" />
@@ -40,7 +40,7 @@ const ThemeSwitch = () => {
                 value={theme}
                 onChange={onSelectChange}
                 name="themes"
-                className="appearance-none outline-none dark:text-white bg-gray-50 dark:bg-black uppercase cursor-pointer"
+                className="appearance-none outline-none dark:text-white bg-neutral-50 dark:bg-black uppercase cursor-pointer"
               >
                 {THEMES?.map(t => {
                   return (

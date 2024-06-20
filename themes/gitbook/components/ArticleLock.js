@@ -39,43 +39,84 @@ export const ArticleLock = props => {
       id="container"
       className="w-full flex flex-col justify-center items-center h-96 "
     >
-      <div className="text-center  flex flex-row ">
-        <div>
-          {' '}
-          <div className="font-bold text-lg p-0 m-0">
-            비밀번호를 입력하세요.
+      <div className="flex flex-row ">
+        {/** pc */}
+        <div className="hidden md:flex ">
+          <div className=" ">
+            <div className="font-bold text-lg p-0 mr-4">
+              비밀번호를 입력하세요.
+            </div>
+            {/* <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p> */}
+            <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p>
           </div>
-          {/* <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p> */}
-          <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p>
-        </div>
-        <div className="flex mx-4">
-          <input
-            id="password"
-            type="password"
-            onKeyDown={e => {
-              if (e.key === 'Enter') {
-                submitPassword()
-              }
-            }}
-            ref={passwordInputRef} // Bind ref to passwordInputRef variable
-            className="outline-none w-full text-sm pl-5 rounded-l transition focus:shadow-lg dark:text-neutral-300 font-light leading-10 text-black bg-neutral-50 dark:bg-neutral-500"
-          ></input>
-          <div
-            onClick={submitPassword}
-            className="px-3 whitespace-nowrap cursor-pointer items-center justify-center py-2 dark:bg-yellow-500 bg-yellow-400 hover:bg-yellow-300 text-white rounded-r duration-300"
-          >
-            <i className={'duration-200 cursor-pointer fas fa-key'}>
-              {/* &nbsp;{locale.COMMON.SUBMIT} */}
+          <div className="flex ">
+            <input
+              id="password"
+              type="password"
+              onKeyDown={e => {
+                if (e.key === 'Enter') {
+                  submitPassword()
+                }
+              }}
+              ref={passwordInputRef} // Bind ref to passwordInputRef variable
+              className="outline-none w-full text-sm pl-5 rounded-l transition focus:shadow-lg dark:text-neutral-300 font-light leading-10 text-black bg-neutral-50 dark:bg-neutral-500"
+            ></input>
+            <div
+              onClick={submitPassword}
+              className="px-3 whitespace-nowrap cursor-pointer text-center items-center justify-center py-2 dark:bg-yellow-500 bg-yellow-400 hover:bg-yellow-300 text-white rounded-r duration-300"
+            >
+              <i className={'duration-200 cursor-pointer fas fa-key'}>
+                {/* &nbsp;{locale.COMMON.SUBMIT} */}
+              </i>
               &nbsp; 입력완료
-            </i>
+            </div>
           </div>
+          {/* <Button
+            onClick={historGoBack}
+            className=" px-3 cursor-pointer items-center justify-center py-2 bg-neutral-100 hover:bg-neutral-50  text-black rounded-r duration-300"
+          >
+            뒤로가기
+          </Button> */}
         </div>
-        <Button
-          onClick={historGoBack}
-          className=" px-3 cursor-pointer items-center justify-center py-2 bg-neutral-100 hover:bg-neutral-50  text-black rounded-r duration-300"
-        >
-          뒤로가기
-        </Button>
+        {/** mobile */}
+        <div className="lg:hidden sm:hidden md:hidden text-left flex flex-col gap-2 dark:text-neutral-100">
+          <div className=" ">
+            {' '}
+            <div className="font-bold text-lg p-0 m-0">
+              비밀번호를 입력하세요.
+            </div>
+            {/* <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p> */}
+            <p className="text-sm">{locale.COMMON.ARTICLE_LOCK_TIPS}</p>
+          </div>
+          <div className="flex ">
+            <input
+              id="password"
+              type="password"
+              onKeyDown={e => {
+                if (e.key === 'Enter') {
+                  submitPassword()
+                }
+              }}
+              ref={passwordInputRef} // Bind ref to passwordInputRef variable
+              className="outline-none w-full text-sm  rounded-l transition focus:shadow-lg dark:text-neutral-300 font-light leading-10 text-black bg-neutral-50 dark:bg-neutral-700"
+            ></input>
+            <div
+              onClick={submitPassword}
+              className="px-3 whitespace-nowrap cursor-pointer text-center items-center justify-center py-2 dark:bg-yellow-500 bg-yellow-400 hover:bg-yellow-300 text-white rounded-r duration-300"
+            >
+              <i className={'duration-200 cursor-pointer fas fa-key'}>
+                {/* &nbsp;{locale.COMMON.SUBMIT} */}
+              </i>
+              &nbsp; 입력완료
+            </div>
+          </div>
+          <Button
+            onClick={historGoBack}
+            className="mt-20 cursor-pointer items-end   justify-start py-2 dark:bg-neutral-700 text-left hover:bg-neutral-50 dark:text-neutral-100 text-black rounded-r duration-300"
+          >
+            뒤로가기
+          </Button>
+        </div>
         <div id="tips"></div>
       </div>
     </div>

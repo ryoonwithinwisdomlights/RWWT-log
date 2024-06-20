@@ -23,7 +23,7 @@ export const MenuItemDrop = ({ link }) => {
       {hasSubMenu && (
         <div
           className={
-            'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
+            'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-neutral-300 cursor-pointer flex flex-nowrap items-center ' +
             (selected
               ? ' text-black hover:text-white '
               : 'hover:text-[#ffd500]')
@@ -45,9 +45,9 @@ export const MenuItemDrop = ({ link }) => {
       {!hasSubMenu && (
         <div
           className={
-            'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
+            'px-2 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-neutral-300 cursor-pointer flex flex-nowrap items-center ' +
             (selected
-              ? 'bg-[#ffd500] rounded-lg h-4/5 text-black dark:text-gray-900  hover:text-white '
+              ? 'bg-[#ffd500] rounded-lg h-4/5 text-black dark:text-neutral-900  hover:text-white '
               : 'hover:text-[#ffd500]')
           }
         >
@@ -77,7 +77,7 @@ export const MenuItemDrop = ({ link }) => {
               <div key={index} className="h-full w-full">
                 <li
                   className="not:last-child:border-b-0 border-b
-                   text-gray-700 dark:text-gray-200
+                   text-neutral-700 dark:text-neutral-200
                     tracking-widest transition-all duration-200  dark:border-neutral-800 py-3 pr-6 pl-3"
                 >
                   <Link

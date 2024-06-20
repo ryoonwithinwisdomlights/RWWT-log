@@ -30,7 +30,7 @@ export const PortfolioCardInfo = ({
           passHref
           className={`line-clamp-2 replace cursor-pointer text-2xl ${
             showPreview ? 'text-center' : ''
-          } leading-tight font-normal text-gray-600 dark:text-gray-100 hover:text-indigo-700 dark:hover:text-indigo-400`}
+          } leading-tight font-normal text-neutral-600 dark:text-neutral-500 hover:text-amber-400`}
         >
           <span className="menu-link ">{post.title}</span>
         </Link>
@@ -40,12 +40,12 @@ export const PortfolioCardInfo = ({
           <div
             className={`flex mt-2 items-center ${
               showPreview ? 'justify-center' : 'justify-start'
-            } flex-wrap dark:text-gray-500 text-gray-400 `}
+            } flex-wrap dark:text-neutral-500 text-neutral-400 `}
           >
             <Link
               href={`/category/${post.category}`}
               passHref
-              className="cursor-pointer font-light text-sm menu-link hover:text-indigo-700 dark:hover:text-indigo-400 transform"
+              className="cursor-pointer font-light text-sm menu-link hover:text-amber-400  transform"
             >
               <i className="mr-1 far fa-folder" />
               {post.category}
@@ -55,14 +55,14 @@ export const PortfolioCardInfo = ({
 
         {/* Summary */}
         {(!showPreview || showSummary) && !post.results && (
-          <p className="line-clamp-2 replace my-3 text-gray-700  dark:text-gray-300 text-sm font-light leading-7">
+          <p className="line-clamp-2 replace my-3 text-neutral-700  dark:text-neutral-400 text-sm font-light leading-7">
             {post.summary}
           </p>
         )}
 
         {/* search results */}
         {post.results && (
-          <p className="line-clamp-2 mt-4 text-gray-700 dark:text-gray-300 text-sm font-light leading-7">
+          <p className="line-clamp-2 mt-4 text-neutral-700 dark:text-neutral-300 text-sm font-light leading-7">
             {post.results.map((r, index) => (
               <span key={index}>{r}</span>
             ))}
@@ -78,7 +78,7 @@ export const PortfolioCardInfo = ({
 
       <div>
         {/* date label */}
-        <div className="text-gray-400 justify-between flex">
+        <div className="text-neutral-400 justify-between flex">
           {/* date */}
           <Link
             href={`/archive#${formatDateFmt(post?.publishDate, 'yyyy-MM')}`}

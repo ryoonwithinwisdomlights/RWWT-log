@@ -25,12 +25,12 @@ const TocDrawer = ({ post, cRef }) => {
             (tocVisible
               ? 'animate__slideInRight '
               : ' -mr-72 animate__slideOutRight') +
-            ' overflow-y-hidden shadow-card w-60 duration-200 fixed right-1 bottom-16 rounded py-2 bg-white dark:bg-hexo-black-gray'
+            ' overflow-y-hidden shadow-card w-60 duration-200 fixed right-1 bottom-16 rounded py-2 bg-white dark:bg-neutral-700'
           }
         >
           {post && (
             <>
-              <div className="dark:text-gray-400 text-gray-600 h-96 p-3">
+              <div className="dark:text-neutral-400 text-neutral-600 h-96 p-3">
                 <Catalog post={post} />
               </div>
             </>

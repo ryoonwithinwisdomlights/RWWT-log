@@ -73,7 +73,7 @@ const renderCollapseCode = () => {
     collapseWrapper.className = 'collapse-wrapper w-full py-2'
     const panelWrapper = document.createElement('div')
     panelWrapper.className =
-      'border dark:border-gray-600 rounded-md hover:border-indigo-500 duration-200 transition-colors'
+      'border dark:border-neutral-600 rounded-md hover:border-yellow-500 duration-200 transition-colors'
 
     const header = document.createElement('div')
     header.className =
@@ -82,7 +82,7 @@ const renderCollapseCode = () => {
 
     const panel = document.createElement('div')
     panel.className =
-      'invisible h-0 transition-transform duration-200 border-t border-gray-300'
+      'invisible h-0 transition-transform duration-200 border-t border-neutral-300'
 
     panelWrapper.appendChild(header)
     panelWrapper.appendChild(panel)
@@ -96,7 +96,7 @@ const renderCollapseCode = () => {
       panel.classList.toggle('h-0')
       panel.classList.toggle('h-auto')
       header.querySelector('svg').classList.toggle('rotate-180')
-      panelWrapper.classList.toggle('border-gray-300')
+      panelWrapper.classList.toggle('border-neutral-300')
     }
 
     // Collapse and expand code after click

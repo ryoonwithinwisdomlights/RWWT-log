@@ -116,7 +116,7 @@ export default function CustomContextMenu(props) {
       } select-none transition-opacity duration-200 fixed z-50`}
     >
       {/* Menu content */}
-      <div className="rounded-xl w-52 dark:hover:border-yellow-600 bg-white dark:bg-[#040404] dark:text-gray-200 dark:border-gray-600 p-3 border drop-shadow-lg flex-col duration-300 transition-colors">
+      <div className="rounded-xl w-52 dark:hover:border-yellow-600 bg-white dark:bg-[#040404] dark:text-neutral-200 dark:border-neutral-600 p-3 border drop-shadow-lg flex-col duration-300 transition-colors">
         {/* Top navigation buttons */}
         <div className="flex justify-between">
           <i

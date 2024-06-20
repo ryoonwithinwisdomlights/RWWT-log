@@ -27,7 +27,7 @@ export default function LogoBar(props) {
           }`}
         ></i>
       </div>
-      <Link href="/" className="flex text-md md:text-xl dark:text-gray-200">
+      <Link href="/" className="flex text-md md:text-xl dark:text-neutral-200">
         <LazyImage
           src={siteInfo?.icon}
           width={24}

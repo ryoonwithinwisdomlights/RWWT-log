@@ -30,7 +30,7 @@ export const TechLogCardInfo = ({
           passHref
           className={`line-clamp-2 replace cursor-pointer text-2xl ${
             showPreview ? 'text-center' : ''
-          } leading-tight font-normal text-gray-600  hover:text-orange-300 `}
+          } leading-tight font-normal text-neutral-600  hover:text-orange-300 `}
         >
           <span className="menu-link ">{post.title}</span>
         </Link>
@@ -39,7 +39,7 @@ export const TechLogCardInfo = ({
           <div
             className={`flex mt-2 items-center ${
               showPreview ? 'justify-center' : 'justify-start'
-            } flex-wrap  text-gray-400 `}
+            } flex-wrap  text-neutral-400 `}
           >
             <Link
               href={`/category/${post.category}`}
@@ -58,13 +58,13 @@ export const TechLogCardInfo = ({
         )}
         {/* Summary */}
         {(!showPreview || showSummary) && !post.results && (
-          <p className="line-clamp-2 replace my-3 text-gray-700  dark:text-gray-300 text-sm font-light leading-7">
+          <p className="line-clamp-2 replace my-3 text-neutral-700  dark:text-neutral-300 text-sm font-light leading-7">
             {post.summary}
           </p>
         )}
         {/* search results */}
         {post.results && (
-          <p className="line-clamp-2 mt-4 text-gray-700 dark:text-gray-300 text-sm font-light leading-7">
+          <p className="line-clamp-2 mt-4 text-neutral-700 dark:text-neutral-300 text-sm font-light leading-7">
             {post.results.map((r, index) => (
               <span key={index}>{r}</span>
             ))}
@@ -80,7 +80,7 @@ export const TechLogCardInfo = ({
 
       <div>
         {/* date label */}
-        <div className="text-gray-400 justify-between flex">
+        <div className="text-neutral-400 justify-between flex">
           {/* date */}
           <Link
             href={`/archive#${formatDateFmt(post?.publishDate, 'yyyy-MM')}`}

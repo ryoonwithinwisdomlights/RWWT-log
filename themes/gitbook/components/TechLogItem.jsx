@@ -14,7 +14,7 @@ export default function TechLogItem({ pIndex, pId, pTitle, pPosts }) {
   const showPageCover = pPosts?.pageCoverThumbnail
   return (
     <div key={pIndex} className="w-full">
-      {/* <div id={pId} className=" pb-4 text-2xl dark:text-gray-300">
+      {/* <div id={pId} className=" pb-4 text-2xl dark:text-neutral-300">
         {pTitle}
       </div> */}
       <div className="hover:scale-110 transition-all duration-150">
@@ -28,7 +28,7 @@ export default function TechLogItem({ pIndex, pId, pTitle, pPosts }) {
           id="blog-post-card"
           className={`group w-full flex justify-between md:flex-row flex-col-reverse ${
             pIndex % 2 === 1 ? 'md:flex-row-reverse' : ''
-          }overflow-hidden border dark:border-black rounded-xl bg-white dark:bg-hexo-black-gray`}
+          }overflow-hidden border dark:border-black rounded-xl bg-white dark:bg-neutral-100`}
         >
           {/* Text content */}
           <TechLogCardInfo

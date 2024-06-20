@@ -16,7 +16,7 @@ export default function InspirationItem({ archiveTitle, archivePosts }) {
              hover:border-neutral-500 dark:hover:border-yellow-300 dark:border-neutral-400 border-neutral-300  transform duration-500"
           >
             <div id={post?.publishDay}>
-              <span className="text-neutral-400  dark:hover:text-yellow-300">
+              <span className="text-neutral-400 dark:text-neutral-100 dark:hover:text-yellow-300">
                 {post.date?.start_date}
               </span>{' '}
               &nbsp;

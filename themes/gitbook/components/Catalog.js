@@ -78,7 +78,7 @@ const Catalog = ({ post }) => {
               <a
                 key={id}
                 href={`#${id}`}
-                className={`notion-table-of-contents-item duration-300 transform font-light dark:text-gray-300
+                className={`notion-table-of-contents-item duration-300 transform font-light dark:text-neutral-300
               notion-table-of-contents-item-indent-level-${tocItem.indentLevel} `}
               >
                 <span
@@ -87,7 +87,8 @@ const Catalog = ({ post }) => {
                     marginLeft: tocItem.indentLevel * 16
                   }}
                   className={`${
-                    activeSection === id && ' font-bold text-gray-500 underline'
+                    activeSection === id &&
+                    ' font-bold text-neutral-500 underline'
                   }`}
                 >
                   {tocItem.text}

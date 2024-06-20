@@ -37,7 +37,7 @@ const DarkModeButton = props => {
       onClick={handleChangeDarkMode}
       className={`${
         className || ''
-      } flex justify-center dark:text-gray-200 text-gray-800`}
+      } flex justify-center dark:text-neutral-200 text-neutral-800`}
     >
       <div
         id="darkModeButton"

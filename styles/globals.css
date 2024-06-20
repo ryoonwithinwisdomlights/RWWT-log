@@ -21,7 +21,7 @@
 }
 
 .sticky-nav-full {
-  @apply border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;
+  @apply border-b border-opacity-50 border-neutral-200 dark:border-neutral-600 dark:border-opacity-50;
 }
 
 .header-name {
@@ -29,7 +29,7 @@
 }
 
 .sticky-nav-full .nav {
-  @apply text-gray-600 dark:text-gray-300;
+  @apply text-neutral-600 dark:text-neutral-300;
 }
 
 nav {
@@ -57,21 +57,21 @@ nav {
 
 @media (min-width: 768px) {
   .sticky-nav-full {
-    @apply max-w-full border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;
+    @apply max-w-full border-b border-opacity-50 border-neutral-200 dark:border-neutral-600 dark:border-opacity-50;
   }
   .header-name {
     display: block;
     transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
   }
   .sticky-nav-full .header-name {
-    @apply dark:text-gray-300 text-gray-600;
+    @apply dark:text-neutral-300 text-neutral-600;
   }
 }
 
 @supports not (backdrop-filter: none) {
   .sticky-nav {
     backdrop-filter: none;
-    @apply bg-day dark:bg-gray-800;
+    @apply bg-day dark:bg-neutral-800;
   }
 }
 
@@ -86,7 +86,7 @@ nav {
 }
 
 .gt-meta {
-  @apply dark:text-gray-300;
+  @apply dark:text-neutral-300;
 }
 
 #waifu {
@@ -133,7 +133,7 @@ nav {
 
 [data-waline] p {
   color: var(--waline-color);
-  @apply dark:text-gray-200 !important;
+  @apply dark:text-neutral-200 !important;
 }
 
 .waline-recent-content p {

@@ -40,7 +40,7 @@ const Comment = ({ siteInfo, frontMatter, className }) => {
     <div
       key={frontMatter?.id}
       id="comment"
-      className={`comment mt-5 text-gray-800 dark:text-gray-300 ${
+      className={`comment mt-5 text-neutral-800 dark:text-neutral-300 ${
         className || ''
       }`}
     >

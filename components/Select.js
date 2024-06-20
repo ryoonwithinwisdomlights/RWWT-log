@@ -17,7 +17,7 @@ class Select extends React.Component {
   render() {
     return (
       <div className="py-1 space-x-3">
-        <label className="text-gray-500">{this.props.label}</label>
+        <label className="text-neutral-500">{this.props.label}</label>
         <select
           value={this.props.value}
           onChange={this.handleChange}

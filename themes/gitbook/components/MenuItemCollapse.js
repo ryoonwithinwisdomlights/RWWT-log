@@ -36,9 +36,9 @@ export const MenuItemCollapse = props => {
       <div
         className={
           (selected
-            ? 'bg-yellow-600 text-white hover:text-white'
-            : 'hover:text-yellow-600') +
-          ' px-7 w-full text-left duration-200 dark:bg-hexo-black-gray dark:border-black'
+            ? 'bg-yellow-500 text-white hover:text-white'
+            : 'hover:text-yellow-500') +
+          ' px-7 w-full text-left duration-200 dark:bg-neutral-700 dark:border-black'
         }
         onClick={toggleShow}
       >
@@ -58,7 +58,7 @@ export const MenuItemCollapse = props => {
         {hasSubMenu && (
           <div
             onClick={hasSubMenu ? toggleOpenSubMenu : null}
-            className="py-2 font-extralight flex justify-between cursor-pointer  dark:text-gray-200 no-underline tracking-widest"
+            className="py-2 font-extralight flex justify-between cursor-pointer  dark:text-neutral-200 no-underline tracking-widest"
           >
             <div>
               <div className={`${link.icon} text-center w-4 mr-4`} />
@@ -83,8 +83,8 @@ export const MenuItemCollapse = props => {
               <div
                 key={index}
                 className="
-              not:last-child:border-b-0 border-b dark:border-gray-800 py-2 px-14 cursor-pointer hover:bg-gray-100 dark:text-gray-200
-              font-extralight dark:bg-black text-left justify-start text-gray-600 bg-gray-50 dark:hover:bg-gray-900 tracking-widest transition-all duration-200"
+              not:last-child:border-b-0 border-b dark:border-neutral-800  dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:text-neutral-200  py-2 px-14 cursor-pointer
+              font-extralighttext-left justify-start bg-neutral-50  text-neutral-600 hover:bg-neutral-100  tracking-widest transition-all duration-200"
               >
                 <Link
                   href={sLink.to}

@@ -15,7 +15,7 @@ export const MenuItemPCNormal = props => {
       title={link.to}
       href={link.to}
       className={
-        'px-2 duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
+        'px-2 duration-300 text-sm justify-between dark:text-neutral-300 cursor-pointer flex flex-nowrap items-center ' +
         (selected
           ? 'bg-yellow-600 text-white hover:text-white'
           : 'hover:text-yellow-600')

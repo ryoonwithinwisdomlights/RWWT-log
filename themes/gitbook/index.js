@@ -105,7 +105,7 @@ const LayoutBase = props => {
 
       <div
         id="theme-gitbook"
-        className="bg-white dark:bg-hexo-black-neutral w-full h-full min-h-screen justify-center dark:text-neutral-300 dark:bg-black"
+        className="bg-white dark:bg-hexo-black-neutral- w-full h-full min-h-screen justify-center dark:text-neutral-300 dark:bg-black"
       >
         {/* 상단 네비게이션 바 */}
         <TopNavBar {...props} />
@@ -283,7 +283,7 @@ const LayoutSlug = props => {
       {!lock && (
         <div id="container">
           {/* title */}
-          <h1 className="text-3xl pt-12  dark:text-neutral-300">
+          <h1 className="text-3xl pt-12  dark:text-neutral-100">
             {post?.title}
           </h1>
           <section
@@ -327,7 +327,10 @@ const LayoutSlug = props => {
           </section>
           {/* Notion기사 본문 */}
           {post && (
-            <section id="article-wrapper" className="px-1">
+            <section
+              id="article-wrapper"
+              className="px-1 dark:text-neutral-200"
+            >
               <NotionPage post={post} />
 
               {/* share */}
@@ -420,13 +423,13 @@ const LayoutTheLog = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="text-3xl flex flex-col  my-4 ">
-          <div className="text-sm">륜의 진실된 {''} </div>
-          <div className="font-bold">
+          <div className="text-sm dark:text-neutral-200">륜의 진실된 {''} </div>
+          <div className="font-bold dark:text-neutral-100">
             Life logs
             <span className="text-red-500 "> .</span>{' '}
           </div>
         </div>
-        <div className=" dark:text-neutral-300  text-neutral-700 my-6 text-base ">
+        <div className=" dark:text-neutral-200  text-neutral-700 my-6 text-base ">
           <div className="px-2">
             {' '}
             나는 배웠다.
@@ -440,7 +443,7 @@ const LayoutTheLog = props => {
           <br />
         </div>
         <div className="flex flex-row">
-          <div className="w-1/2 mr-20 h-full">
+          <div className="w-1/2 !md:mr-20 h-full">
             <div className="w-full flex flex-row float-left  gap-4 mb-4 ">
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               <Image
@@ -502,7 +505,7 @@ const LayoutInspiration = props => {
         <div className="flex flex-row">
           <div className="w-1/2 mr-10">
             <div className="mb-2">
-              <div className=" dark:text-neutral-300 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
+              <div className=" dark:text-neutral-200 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
                 남에게서 배운 <br />
                 좋은 <span className="font-bold">질</span>투와 <br />부
                 <span className="font-bold">러</span>움
@@ -515,8 +518,11 @@ const LayoutInspiration = props => {
                 <br />
                 <br />
               </div>
-              <div className="text-3xl  font-bold md:px-2 text-right    mr-4 pb-2">
+              <div className="hidden md:flex feltext-3xl  font-bold md:px-2 text-right    mr-4 pb-2">
                 영감 기록 <span className="text-amber-500 ">.</span>
+              </div>
+              <div className="lg:hidden md:hidden text-3xl dark:text-neutral-100 font-bold md:px-2 text-center  flex flex-col  mr-4 pb-2">
+                영감기록 <span className="text-amber-400 text-center">.</span>
               </div>
             </div>
           </div>
@@ -551,10 +557,10 @@ const LayoutTechLog = props => {
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl font-bold ">
+              <div className="text-3xl font-bold dark:text-neutral-100">
                 Tech Logs <span className="text-orange-500">.</span>
               </div>
-              <div className=" dark:text-neutral-300 mt-1  flex flex-row p-2 ">
+              <div className=" dark:text-neutral-200 mt-1  flex flex-row p-2 ">
                 <div className="flex flex-row text-left text-base align-bottom ">
                   {' '}
                   一 개라도 배우는
@@ -605,12 +611,12 @@ const LayoutAGiveAwayLog = props => {
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl flex flex-col dark:text-neutral-300 ">
+              <div className="text-3xl flex flex-col dark:text-neutral-200 ">
                 <div className="text-xs">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;능동적
                   기쁨과 나눔에 대한
                 </div>
-                <div className="font-bold">
+                <div className="font-bold dark:text-neutral-100">
                   {' '}
                   🎨 Records <span className="text-red-500"> .</span>
                 </div>
@@ -621,7 +627,7 @@ const LayoutAGiveAwayLog = props => {
                   with joy & love{' '}
                 </div> */}
               </div>
-              <div className=" dark:text-neutral-300 text-base py-4 pl-10  ">
+              <div className=" dark:text-neutral-200 text-base py-4 pl-10  ">
                 <div className="flex items-start"> 만들고 그리는,</div>
                 <div className="text-center ">제작하고 창조하는,</div>
                 <div className="text-base    text-end">기획하고 제안하는,</div>
@@ -707,18 +713,18 @@ const LayoutReadAndWrite = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl flex flex-row dark:text-neutral-300 mt-4 mb-2">
+        <div className="text-3xl flex flex-row dark:text-neutral-100 mt-4 mb-2">
           <div className="  font-bold   ">
             Writing <span className="font-bold text-amber-400">.</span>{' '}
           </div>
         </div>
 
         <div className="flex flex-row">
-          <div className="text-left mr-10 dark:text-neutral-300 text-neutral-700 flex flex-col gap-20 ">
+          <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-20 ">
             <div>
               읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
             </div>
-            <div className="text-left mr-10 dark:text-neutral-300 text-neutral-700 flex flex-col gap-10 ">
+            <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-10 ">
               <div className="mb-10 "> 륜의</div>
               <div className="mb-10  ">
                 <span className="font-bold">사유</span>와
