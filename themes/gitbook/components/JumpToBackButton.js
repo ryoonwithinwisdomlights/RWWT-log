@@ -17,12 +17,12 @@ const JumpToBackButton = ({ showPercent = false, percent, className }) => {
       className="fixed xl:right-80 right-2 mr-20 bottom-40 z-20 "
     >
       <i
-        className="fa-solid fa-chevron-left cursor-pointer p-2 rounded-full border text-white text-xs  bg-stone-500  "
+        className="fa-solid fa-chevron-left hover:scale-110 duration-150 cursor-pointer p-2 rounded-full border text-white text-xs  bg-stone-500  "
         onClick={() => {
           window.history.back()
         }}
       >
-        &nbsp; Back &nbsp;
+        &nbsp; 뒤로 &nbsp;
       </i>
     </div>
   )
