@@ -778,15 +778,11 @@ const LayoutArchive = props => {
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20  py-3 w-full flex flex-col min-h-full">
-        <div className="w-full flex flex-col pt-10 ">
+        <div className="flex flex-col pt-10 ">
           <div className="text-lg text-stone-400 dark:text-neutral-200">
             경계를 오가며 정직하게 기록되는{' '}
           </div>
-          <div
-            className="font-extrabold  text-stone-700   text-3xl dark:text-neutral-100
-        hover:underline hover:decoration-amber-400/30
-          "
-          >
+          <div className="w-4/5 font-extrabold  break-words text-stone-700  overflow  text-3xl dark:text-neutral-100 hover:underline hover:decoration-amber-400/30">
             Ryoon.With.Wisdomtrees Logs
             <span className="text-amber-400 "> .</span>{' '}
           </div>
