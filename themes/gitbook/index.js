@@ -562,7 +562,7 @@ const LayoutTechLog = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
         <div className="flex flex-col">
-          <div className="w-full mb-4">
+          <div className="w-full mb-4 py-6">
             <div>
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
@@ -670,23 +670,30 @@ const LayoutPortfolio = props => {
   // console.log('portfolioPosts', portfolioPosts)
   return (
     <LayoutBase {...props}>
-      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+      <div className="mb-10 pb-20 md:py-12 w-full py-3  min-h-full">
         <div className="flex flex-col">
-          <div className="w-full mb-4 px-2">
-            <div className="">
-              <div className=" dark:text-neutral-300 mt-1 font   text-neutral-400 text-base ">
-                5살 온종일 a4종이로 모델하우스 만들기. <br />
+          <div className="w-11/12  mb-4 px-2 flex flex-row justify-evenly pb-6 ">
+            <div className="flex flex-col pt-8 gap-1 text-right">
+              <div className=" dark:text-neutral-200 mt-1 text-xs  ">
+                온종일 a4종이로 모델하우스를 제작하던 5살.
               </div>
-              <div className=" dark:text-neutral-300 mt-1 font   text-neutral-500 text-base ">
-                27살 크고 작은 재미난 마케팅/광고 기획 제안.
+              <div className=" dark:text-neutral-200 mt-1 text-sm  ">
+                즐겁게 마케팅/광고 기획을 제안하던 27살.
               </div>
-              <div className=" dark:text-neutral-300 mt-1 font-size: 0.75rem; text-neutral-600 text-base ">
-                그리고 여전히 분석하고 제안하고 창작하는 것을 즐거워하는
-                개발자의
+              <div className=" dark:text-neutral-200  mt-1 text-base ">
+                여전히 분석-조립-제안-제작을 좋아하는 개발자의
               </div>
-              <div className="text-3xl dark:text-neutral-300 text-neutral-900 py-4 ">
-                SIDE-PROJECT PORTFOLIO.
-              </div>
+            </div>
+            <div className="text-3xl font-bold dark:text-neutral-100 text-right text-neutral-900 mr-10 ">
+              <p className="text-orange-500 p-0 m-0 text-left align-text-top  ">
+                .{''}
+              </p>
+              ✂️ Side
+              <br />
+              Project
+              <p className="text-orange-500 p-0 m-0 text-right align-text-bottom ">
+                .
+              </p>
             </div>
           </div>
           <div className="space-y-6 px-2">

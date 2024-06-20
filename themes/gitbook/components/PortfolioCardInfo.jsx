@@ -30,7 +30,7 @@ export const PortfolioCardInfo = ({
           passHref
           className={`line-clamp-2 replace cursor-pointer text-2xl ${
             showPreview ? 'text-center' : ''
-          } leading-tight font-normal text-neutral-600 dark:text-neutral-500 hover:text-amber-400`}
+          } leading-tight font-normal text-neutral-600  hover:text-orange-700  `}
         >
           <span className="menu-link ">{post.title}</span>
         </Link>
@@ -45,7 +45,7 @@ export const PortfolioCardInfo = ({
             <Link
               href={`/category/${post.category}`}
               passHref
-              className="cursor-pointer font-light text-sm menu-link hover:text-amber-400  transform"
+              className="cursor-pointer font-light text-sm menu-link hover:text-orange-700 dark:hover:text-orange-400 transform"
             >
               <i className="mr-1 far fa-folder" />
               {post.category}
@@ -55,7 +55,7 @@ export const PortfolioCardInfo = ({
 
         {/* Summary */}
         {(!showPreview || showSummary) && !post.results && (
-          <p className="line-clamp-2 replace my-3 text-neutral-700  dark:text-neutral-400 text-sm font-light leading-7">
+          <p className="line-clamp-2 replace my-3 text-neutral-500  dark:text-neutral-500 text-sm font-light leading-7">
             {post.summary}
           </p>
         )}
