@@ -50,6 +50,7 @@ import TopNavBar from './components/TopNavBar'
 import CONFIG from './config'
 import { Style } from './style'
 import RyoonAnnouncement from '@/components/RyoonAnnouncement'
+import JumpToBackButton from './components/JumpToBackButton'
 
 // Theme global variables
 const ThemeGlobalGitbook = createContext()
@@ -170,6 +171,7 @@ const LayoutBase = props => {
 
                 {/* Back button */}
                 <JumpToTopButton />
+                <JumpToBackButton />
               </div>
 
               {/* bottom */}

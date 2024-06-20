@@ -6,7 +6,7 @@
  * @returns {JSX.Element}
  * @constructor
  */
-const JumpToTopButton = ({ showPercent = false, percent, className }) => {
+const JumpToBackButton = ({ showPercent = false, percent, className }) => {
   return (
     <div
       id="jump-to-top"
@@ -14,16 +14,18 @@ const JumpToTopButton = ({ showPercent = false, percent, className }) => {
       data-aos-duration="300"
       data-aos-once="false"
       data-aos-anchor-placement="top-center"
-      className="fixed xl:right-80 right-2 mr-10 bottom-24 z-20 "
+      className="fixed xl:right-80 right-2 mr-20 bottom-24 z-20 "
     >
       <i
-        className="fas fa-chevron-up cursor-pointer p-2 rounded-full border text-white bg-[#ffd000] dark:bg-neutral-700"
+        className="fa-solid fa-chevron-left cursor-pointer p-2 rounded-full border text-white text-xs  bg-stone-400  "
         onClick={() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
+          window.history.back()
         }}
-      />
+      >
+        &nbsp; Back &nbsp;
+      </i>
     </div>
   )
 }
 
-export default JumpToTopButton
+export default JumpToBackButton
