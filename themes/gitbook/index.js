@@ -779,12 +779,16 @@ const LayoutArchive = props => {
     <LayoutBase {...props}>
       <div className="mb-10 pb-20  py-3 w-full flex flex-col min-h-full">
         <div className="w-full flex flex-col pt-10 ">
-          <div className="text-lg dark:text-neutral-200">
+          <div className="text-lg text-stone-400 dark:text-neutral-200">
             경계를 오가며 정직하게 기록되는{' '}
           </div>
-          <div className="font-bold text-3xl dark:text-neutral-100">
-            Ryoon Logs
-            <span className="text-amber-500 "> .</span>{' '}
+          <div
+            className="font-extrabold  text-stone-700   text-3xl dark:text-neutral-100
+        hover:underline hover:decoration-amber-400/30
+          "
+          >
+            Ryoon.With.Wisdomtrees Logs
+            <span className="text-amber-400 "> .</span>{' '}
           </div>
         </div>
         <div className="w-full flex flex-row ">
@@ -793,10 +797,14 @@ const LayoutArchive = props => {
               <div className="font-bold text-orange-500">배움.</div>
               <div className=" font-bold text-red-500">일기.</div>
               <div className=" font-bold text-amber-500 ">글.</div>
-              <div className=" font-bold text-amber-900">책.</div>
+              <div className=" font-bold text-amber-900 dark:text-stone-300">
+                책.
+              </div>
               <div className=" font-bold text-amber-400">영감.</div>
               <div className=" font-bold text-orange-400">나눔.</div>
-              <div className=" font-bold text-amber-900 ">사유.</div>
+              <div className=" font-bold text-amber-900 dark:text-stone-200 ">
+                사유.
+              </div>
               <div className=" font-normal dark:text-neutral-200 text-neutral-700 ">
                 로 이루어진.
               </div>
