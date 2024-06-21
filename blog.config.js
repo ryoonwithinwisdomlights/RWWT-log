@@ -15,11 +15,11 @@ const BLOG = {
     'Achieves, builds solidarity, and develops together.',
 
   CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true,
-  AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.with.wisdomtrees',
+  AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Ryoon.With.Wisdomtrees',
   BIO:
     process.env.NEXT_PUBLIC_BIO ||
     'A Software Engineer who likes to Giveaway to the World with Joy, Love and Lights.',
-  LINK: process.env.NEXT_PUBLIC_LINK, // website address
+  LINK: 'https://www.ryoonwithwisdomtrees.world', // website addressprocess.env.NEXT_PUBLIC_LINK || NEXT_PUBLIC_LINK,
   KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 블로그, 개발블로그', // Website keywords separated by English commas
   CONTACT_EMAIL: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
 
@@ -209,6 +209,7 @@ const BLOG = {
       'Writing',
       'Sideproject',
       'Inspiration',
+      'TechLog',
       'TheLog',
       'AGiveAwayLog',
       'GuestBook'
@@ -219,6 +220,7 @@ const BLOG = {
       'Sideproject' ||
       'Inspiration' ||
       'TheLog' ||
+      'TechLog' ||
       'AGiveAwayLog' ||
       'GuestBook',
     type_post: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_POST || 'Post', // When the type article type is the same as this value, it is a blog post.
@@ -264,11 +266,10 @@ const BLOG = {
 
   // Obsolete configuration
   AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/notion-avatar.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
-  TITLE: process.env.NEXT_PUBLIC_TITLE || 'Ryoon.with.wisdomtreesBLOG', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
+  TITLE: process.env.NEXT_PUBLIC_TITLE || 'R.W.W.Blog', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
   HOME_BANNER_IMAGE:
     process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/bg_image.png', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.
-  DESCRIPTION:
-    process.env.NEXT_PUBLIC_DESCRIPTION || 'Ryoon.with.wisdomtreesBLOG', // Site description, overridden by the page description in the notice
+  DESCRIPTION: process.env.NEXT_PUBLIC_DESCRIPTION || 'R.W.W.Blog', // Site description, overridden by the page description in the notice
 
   // Website pictures
   IMG_LAZY_LOAD_PLACEHOLDER:
