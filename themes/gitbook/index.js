@@ -871,8 +871,8 @@ const LayoutCategoryIndex = props => {
   return (
     <LayoutBase {...props}>
       <div className="bg-white dark:bg-neutral-700  px-10 py-10">
-        <div className="dark:text-neutral-200 mb-5">
-          <i className="mr-4 fas fa-th" />
+        <div className="dark:text-neutral-200 text-neutral-700 mb-5">
+          <i className="mr-4 fas fa-th text-neutral-700 " />
           {locale.COMMON.CATEGORY}:
         </div>
         <div id="category-list" className="duration-200 flex flex-wrap">
@@ -886,10 +886,12 @@ const LayoutCategoryIndex = props => {
               >
                 <div
                   className={
-                    'hover:text-black dark:hover:text-white dark:text-neutral-300 dark:hover:bg-neutral-600 px-5 cursor-pointer py-2 hover:bg-neutral-100'
+                    'hover:text-black text-neutral-700 dark:hover:text-white dark:text-neutral-300 dark:hover:bg-neutral-600 px-5 cursor-pointer py-2 hover:bg-neutral-100'
                   }
                 >
-                  <i className="mr-4 fas fa-folder" />
+                  <i
+                    className={`mr-4 fas fa-folder text-${category.color}-400 `}
+                  />
                   {category.name}({category.count})
                 </div>
               </Link>
