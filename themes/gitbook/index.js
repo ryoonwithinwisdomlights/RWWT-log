@@ -475,11 +475,14 @@ const LayoutArchive = props => {
                 나눔.
               </div>
               <div className=" font-bold  text-center items-center text-amber-900 dark:text-stone-200 ">
-                ✏️
+                🌳
                 <br /> 사유.
               </div>
-              <div className=" font-normal  text-center items-center dark:text-neutral-200 text-neutral-700 ">
-                로 이루어진.
+              <div className="  text-stone-600 font-extralight text-center items-center dark:text-neutral-200  ">
+                로 <br />
+                <br />
+                이<br />루<br />어<br />
+                진.
               </div>
             </div>
           </div>
