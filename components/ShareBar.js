@@ -14,7 +14,6 @@ const ShareBar = ({ post }) => {
     post?.type === 'SubMenu' ||
     post?.type === 'Notice' ||
     post?.type === 'Page' ||
-    post?.type === 'TheLog' ||
     post?.status !== 'Published'
   ) {
     return <></>

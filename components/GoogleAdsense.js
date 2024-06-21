@@ -78,7 +78,7 @@ const AdSlot = ({ type = 'show' }) => {
     )
   }
 
-  // 原生广告
+  // 네이티브 광고
   if (type === 'native') {
     return (
       <ins

@@ -34,7 +34,7 @@ function countWords() {
     document.getElementById('notion-article')?.innerHTML
   )
   const wordCount = fnGetCpmisWords(articleText)
-  // 阅读速度 300-500每分钟
+  // 읽기 속도 분당 300-500
   document.getElementById('wordCount').innerHTML = wordCount
   document.getElementById('readTime').innerHTML =
     Math.floor(wordCount / 400) + 1
@@ -47,7 +47,7 @@ function deleteHtmlTag(str) {
   if (!str) {
     return ''
   }
-  str = str.replace(/<[^>]+>|&[^>]+;/g, '').trim() // 모든 HTML 태그와 &nbsp;와 같은 특수 문자를 제거합니다.&nbsp;之类的特殊符合
+  str = str.replace(/<[^>]+>|&[^>]+;/g, '').trim() // 모든 HTML 태그와 &nbsp;와 같은 특수 문자를 제거합니다.
   return str
 }
 

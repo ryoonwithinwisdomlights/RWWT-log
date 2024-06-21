@@ -42,16 +42,6 @@ const ReadandWriteIndex = props => {
   return <Layout {...props} />
 }
 
-// export async function getStaticProps() {
-//   const from = 'read-index-props'
-//   const props = await getGlobalData({ from: from, type: 'Read' })
-//   delete props.allPages
-//   return {
-//     props,
-//     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)
-//   }
-// }
-
 export async function getStaticProps() {
   const from = 'writing-index'
   const props = await getGlobalData({ from: from, type: 'Writing' })
@@ -60,7 +50,6 @@ export async function getStaticProps() {
     page => page.type === 'Writing' && page.status === 'Published'
   )
 
-  // console.log('readPosts: ', props.readPosts)
   const postsSortByDate = Object.create(props.writingPosts)
 
   postsSortByDate.sort((a, b) => {
@@ -81,7 +70,6 @@ export async function getStaticProps() {
   props.readAndWritePosts = readAndWritePosts
   delete props.allPages
 
-  //   console.log(' props.readAndWritePosts', props.readAndWritePosts)
   return {
     props,
     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)

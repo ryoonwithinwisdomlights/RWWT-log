@@ -82,7 +82,7 @@ const DebugPanel = () => {
                         </div>
                     </div> */}
           <div className="font-bold w-18 border-b my-2">
-            站点配置[blog.config.js]
+            사이트 구성 [blog.config.js]
           </div>
           <div className="text-xs">
             {siteConfig &&

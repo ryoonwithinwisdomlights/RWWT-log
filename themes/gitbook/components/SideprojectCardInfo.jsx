@@ -15,7 +15,6 @@ export const SideprojectCardInfo = ({
   showPageCover,
   showSummary
 }) => {
-  // console.log('PortfolioCardInfo::', post)
   return (
     <div
       className={`flex flex-col justify-between lg:p-6 p-4  ${

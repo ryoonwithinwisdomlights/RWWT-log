@@ -11,7 +11,6 @@ import NotionPage from '@/components/NotionPage'
 import ShareBar from '@/components/ShareBar'
 import { useGlobal } from '@/lib/global'
 import { isBrowser } from '@/lib/utils'
-import Girok from '@/public/images/inspiration/girok.jpg'
 import Jadu from '@/public/images/thelog/jadu.jpeg'
 import Latte from '@/public/images/thelog/latte.jpeg'
 import Leeseula from '@/public/images/thelog/leeseula.jpeg'
@@ -35,13 +34,14 @@ import Footer from './components/Footer'
 import GuestBookItem from './components/GuestBookItem'
 import InfoCard from './components/InfoCard'
 import InspirationItem from './components/InspirationItem'
+import JumpToBackButton from './components/JumpToBackButton'
 import JumpToTopButton from './components/JumpToTopButton'
 import NavPostList from './components/NavPostList'
 import PageNavDrawer from './components/PageNavDrawer'
-import SideprojectItem from './components/SideprojectItem'
 import ReadAndWriteItem from './components/ReadAndWriteItem'
 import RevolverMaps from './components/RevolverMaps'
 import SearchInput from './components/SearchInput'
+import SideprojectItem from './components/SideprojectItem'
 import TagItemMini from './components/TagItemMini'
 import TechLogItem from './components/TechLogItem'
 import TheLogitem from './components/TheLogitem'
@@ -49,8 +49,6 @@ import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import CONFIG from './config'
 import { Style } from './style'
-import RyoonAnnouncement from '@/components/RyoonAnnouncement'
-import JumpToBackButton from './components/JumpToBackButton'
 
 // Theme global variables
 const ThemeGlobalGitbook = createContext()
@@ -942,10 +940,10 @@ export {
   LayoutGuestBook,
   LayoutIndex,
   LayoutInspiration,
-  LayoutSideproject,
   LayoutPostList,
   LayoutReadAndWrite,
   LayoutSearch,
+  LayoutSideproject,
   LayoutSlug,
   LayoutTagIndex,
   LayoutTechLog,

@@ -7,15 +7,11 @@ import { SideprojectCardInfo } from './SideprojectCardInfo'
 import LazyImage from '@/components/LazyImage'
 
 export default function SideprojectItem({ pIndex, pId, pTitle, pPosts }) {
-  // console.log('pPosts', pPosts)
   const showPreview = false
-  // const showPageCover = pPosts?.pageCoverThumbnail && !showPreview
+
   const showPageCover = pPosts?.pageCoverThumbnail
   return (
     <div key={pIndex} className="w-full">
-      {/* <div id={pId} className=" pb-4 text-2xl dark:text-neutral-300">
-        {pTitle}
-      </div> */}
       <div className="hover:scale-110 transition-all duration-150">
         <div
           key={pId}
@@ -47,12 +43,6 @@ export default function SideprojectItem({ pIndex, pId, pTitle, pPosts }) {
                   src={pPosts?.pageCoverThumbnail}
                   className="h-56 w-full object-cover object-center group-hover:scale-110 duration-500"
                 />
-                {/* <Image
-                  src={pPosts?.pageCoverThumbnail}
-                  width={400}
-                  height={400}
-                  className="h-56 w-full object-cover object-center group-hover:scale-110 duration-500"
-                /> */}
               </Link>
             </div>
           )}
