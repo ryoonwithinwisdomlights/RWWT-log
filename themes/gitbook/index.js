@@ -11,10 +11,6 @@ import NotionPage from '@/components/NotionPage'
 import ShareBar from '@/components/ShareBar'
 import { useGlobal } from '@/lib/global'
 import { isBrowser } from '@/lib/utils'
-import Jadu from '@/public/images/thelog/jadu.jpeg'
-import Latte from '@/public/images/thelog/latte.jpeg'
-import Leeseula from '@/public/images/thelog/leeseula.jpeg'
-import Nogiveup from '@/public/images/thelog/nogiveup.png'
 import { Transition } from '@headlessui/react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -47,6 +43,10 @@ import TechLogItem from './components/TechLogItem'
 import TheLogitem from './components/TheLogitem'
 import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
+import Jadu from '@/public/images/thelog/jadu.jpeg'
+import Latte from '@/public/images/thelog/latte.jpeg'
+import Leeseula from '@/public/images/thelog/leeseula.jpeg'
+import Nogiveup from '@/public/images/thelog/nogiveup.png'
 import CONFIG from './config'
 import { Style } from './style'
 
@@ -386,40 +386,9 @@ const LayoutSearch = props => {
 }
 
 /**
- * GuestBook (방명록) 메뉴 레이아웃
+ *
+ * All Ryoon Log List For GitBook theme
  * All depends on page navigation
- * @param {*} props
- * @returns
- */
-const LayoutGuestBook = props => {
-  const { GuestBookPosts } = props
-
-  return (
-    <LayoutBase {...props}>
-      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl dark:text-neutral-300 mb-4 ">GuestBook</div>
-        <div className="flex flex-row">
-          <div className="w-full flex flex-col gap-10 bg-opacity-30 p-10 rounded-lg dark:bg-black dark:bg-opacity-70 bg-white">
-            {Object.keys(GuestBookPosts)?.map(archiveTitle => {
-              return (
-                <GuestBookItem
-                  key={archiveTitle}
-                  archiveTitle={archiveTitle}
-                  archivePosts={GuestBookPosts}
-                />
-              )
-            })}
-          </div>
-        </div>
-      </div>
-    </LayoutBase>
-  )
-}
-
-/**
- * 아카이브 페이지는 거의 사용되지 않습니다.
- * All depends on page navigation
- * allRyoonLogListForGitBook
  * @param {*} props
  * @returns
  */
@@ -500,7 +469,12 @@ const LayoutArchive = props => {
   )
 }
 
-// LayoutTechLog 테크 로그 레이아웃
+/**
+ * TechLog(테크로그) 메뉴 레이아웃
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
 const LayoutTechLog = props => {
   const { techLogPosts } = props
 
@@ -633,7 +607,7 @@ const LayoutTheLog = props => {
 }
 
 /**
- * Read & Write 메뉴 레이아웃
+ * Writing(Writing) 메뉴 레이아웃
  * All depends on page navigation
  * @param {*} props
  * @returns
@@ -687,7 +661,12 @@ const LayoutReadAndWrite = props => {
   )
 }
 
-// LayoutAGiveAwayLog 제작/브랜딩/제안용 레이아웃 -24.06.19
+/**
+ * AGiveAwayLog(능동적 나눔과 기쁨) 메뉴 레이아웃 -24.06.19
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
 const LayoutAGiveAwayLog = props => {
   const { aGiveAwayLogPosts } = props
 
@@ -743,7 +722,7 @@ const LayoutAGiveAwayLog = props => {
 }
 
 /**
- * Inspiration 메뉴 레이아웃
+ * Inspiration(영감기록) 메뉴 레이아웃
  * All depends on page navigation
  * @param {*} props
  * @returns
@@ -796,7 +775,12 @@ const LayoutInspiration = props => {
   )
 }
 
-// Sideproject 메뉴 레이아웃
+/**
+ * Sideproject(Sideproject) 메뉴 레이아웃
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
 const LayoutSideproject = props => {
   const { SideprojectPosts } = props
 
@@ -844,19 +828,6 @@ const LayoutSideproject = props => {
             })}
           </div>
         </div>
-      </div>
-    </LayoutBase>
-  )
-}
-
-/**
- * 404
- */
-const Layout404 = props => {
-  return (
-    <LayoutBase {...props}>
-      <div className="w-full h-96 py-80 flex justify-center items-center">
-        404 Not found.
       </div>
     </LayoutBase>
   )
@@ -927,6 +898,50 @@ const LayoutTagIndex = props => {
             )
           })}
         </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
+/**
+ * GuestBook (방명록) 메뉴 레이아웃
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
+const LayoutGuestBook = props => {
+  const { GuestBookPosts } = props
+
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="text-3xl dark:text-neutral-300 mb-4 ">GuestBook</div>
+        <div className="flex flex-row">
+          <div className="w-full flex flex-col gap-10 bg-opacity-30 p-10 rounded-lg dark:bg-black dark:bg-opacity-70 bg-white">
+            {Object.keys(GuestBookPosts)?.map(archiveTitle => {
+              return (
+                <GuestBookItem
+                  key={archiveTitle}
+                  archiveTitle={archiveTitle}
+                  archivePosts={GuestBookPosts}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
+/**
+ * 404
+ */
+const Layout404 = props => {
+  return (
+    <LayoutBase {...props}>
+      <div className="w-full h-96 py-80 flex justify-center items-center">
+        404 Not found.
       </div>
     </LayoutBase>
   )
