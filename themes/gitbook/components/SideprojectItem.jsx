@@ -3,10 +3,10 @@ import { siteConfig } from '@/lib/config'
 import Image from 'next/image'
 import Link from 'next/link'
 import CONFIG from '../config'
-import { PortfolioCardInfo } from './PortfolioCardInfo'
+import { SideprojectCardInfo } from './SideprojectCardInfo'
 import LazyImage from '@/components/LazyImage'
 
-export default function PortfolioItem({ pIndex, pId, pTitle, pPosts }) {
+export default function SideprojectItem({ pIndex, pId, pTitle, pPosts }) {
   // console.log('pPosts', pPosts)
   const showPreview = false
   // const showPageCover = pPosts?.pageCoverThumbnail && !showPreview
@@ -30,7 +30,7 @@ export default function PortfolioItem({ pIndex, pId, pTitle, pPosts }) {
           }overflow-hidden border dark:border-black rounded-xl bg-white dark:bg-neutral-100`}
         >
           {/* Text content */}
-          <PortfolioCardInfo
+          <SideprojectCardInfo
             index={pIndex}
             post={pPosts}
             showPageCover={showPageCover}

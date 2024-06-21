@@ -54,9 +54,9 @@ export default function TopNavBar(props) {
     },
     {
       icon: 'fa-solid fa-hand-sparkles',
-      name: locale.NAV.PORTFOLIO,
-      to: '/portfolio',
-      show: CONFIG.MENU_PORTFOLIO
+      name: locale.NAV.SIDEPROJECT,
+      to: '/sideproject',
+      show: CONFIG.MENU_SIDEPROJECT
     },
     {
       icon: 'fa-solid fa-palette',

@@ -12,7 +12,7 @@ import { formatDateFmt } from '@/lib/formatDate'
  * @param {*} props
  * @returns
  */
-export default function Portfolio(props) {
+export default function Sideproject(props) {
   const { locale } = useGlobal()
   const { siteInfo } = props
 
@@ -20,10 +20,10 @@ export default function Portfolio(props) {
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {
-    title: `${locale.NAV.PORTFOLIO} | ${siteInfo?.title}`,
+    title: `${locale.NAV.SIDEPROJECT} | ${siteInfo?.title}`,
     description: siteInfo?.description,
     image: siteInfo?.pageCover,
-    slug: 'Portfolio',
+    slug: 'Sideproject',
     type: 'website'
   }
   props = { ...props, meta }
@@ -33,35 +33,19 @@ export default function Portfolio(props) {
 
 export async function getStaticProps() {
   const props = await getGlobalData({
-    from: 'portfolio-index-props',
-    type: 'Portfolio'
+    from: 'sideproject-index-props',
+    type: 'Sideproject'
   })
 
   props.posts = props.allPages?.filter(page => {
     // if (page.type === 'Portfolio') {
     //   //   console.log(page)
     // }
-    return page.type === 'Portfolio' && page.status === 'Published'
+    return page.type === 'Sideproject' && page.status === 'Published'
   })
 
-  // const postsSortByDate = Object.create(props.posts)
-  // postsSortByDate.sort((a, b) => {
-  //   return b?.publishDate - a?.publishDate
-  // })
+  props.SideprojectPosts = props.posts
 
-  // console.log('postsSortByDate', postsSortByDate)
-  // const portfolioPosts = {}
-
-  // postsSortByDate.forEach(post => {
-  //   if (portfolioPosts[post.id]) {
-  //     portfolioPosts[post.id].push(post)
-  //   } else {
-  //     portfolioPosts[post.id] = [post]
-  //   }
-  // })
-
-  props.portfolioPosts = props.posts
-  // console.log('portfolioPosts', portfolioPosts)
   delete props.allPages
 
   return {

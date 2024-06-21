@@ -10,7 +10,7 @@ const CONFIG = {
   MENU_ARCHIVE: true, // show archive
   MENU_SEARCH: true, // show search
   MENU_WRITING: true, // show search
-  MENU_PORTFOLIO: true, // show search
+  MENU_SIDEPROJECT: true, // show search
   MENU_INSPIRATION: true, // show search
   MENU_AGIVEAWAYLOG: true, // show search
   // Widget

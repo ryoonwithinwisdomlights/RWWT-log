@@ -38,7 +38,7 @@ import InspirationItem from './components/InspirationItem'
 import JumpToTopButton from './components/JumpToTopButton'
 import NavPostList from './components/NavPostList'
 import PageNavDrawer from './components/PageNavDrawer'
-import PortfolioItem from './components/PortfolioItem'
+import SideprojectItem from './components/SideprojectItem'
 import ReadAndWriteItem from './components/ReadAndWriteItem'
 import RevolverMaps from './components/RevolverMaps'
 import SearchInput from './components/SearchInput'
@@ -502,7 +502,7 @@ const LayoutArchive = props => {
 // LayoutTechLog 테크 로그 레이아웃
 const LayoutTechLog = props => {
   const { techLogPosts } = props
-  // console.log('portfolioPosts', portfolioPosts)
+
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
@@ -724,7 +724,6 @@ const LayoutAGiveAwayLog = props => {
           <div className="space-y-6 px-2">
             {aGiveAwayLogPosts?.map((item, index) => {
               // console.log('item', item)
-              // console.log(portfolioPosts[item.to])
               return (
                 <AGiveAwayLogItem
                   key={index}
@@ -796,10 +795,10 @@ const LayoutInspiration = props => {
   )
 }
 
-// Portfolio 메뉴 레이아웃
-const LayoutPortfolio = props => {
-  const { portfolioPosts } = props
-  // console.log('portfolioPosts', portfolioPosts)
+// Sideproject 메뉴 레이아웃
+const LayoutSideproject = props => {
+  const { SideprojectPosts } = props
+
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 w-full py-3  min-h-full">
@@ -829,11 +828,11 @@ const LayoutPortfolio = props => {
             </div>
           </div>
           <div className="space-y-6 px-2">
-            {portfolioPosts?.map((item, index) => {
+            {SideprojectPosts?.map((item, index) => {
               // console.log('item', item)
               // console.log(portfolioPosts[item.to])
               return (
-                <PortfolioItem
+                <SideprojectItem
                   key={index}
                   pIndex={index}
                   pId={item.id}
@@ -940,7 +939,7 @@ export {
   LayoutGuestBook,
   LayoutIndex,
   LayoutInspiration,
-  LayoutPortfolio,
+  LayoutSideproject,
   LayoutPostList,
   LayoutReadAndWrite,
   LayoutSearch,

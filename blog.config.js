@@ -207,7 +207,7 @@ const BLOG = {
     type_able_arr: [
       'Post',
       'Writing',
-      'Portfolio',
+      'Sideproject',
       'Inspiration',
       'TheLog',
       'AGiveAwayLog',
@@ -216,7 +216,7 @@ const BLOG = {
     type_able:
       'Post' ||
       'Writing' ||
-      'Portfolio' ||
+      'Sideproject' ||
       'Inspiration' ||
       'TheLog' ||
       'AGiveAwayLog' ||
@@ -225,8 +225,8 @@ const BLOG = {
     type_page: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PAGE || 'Page', // When the type article type is the same as this value, it is a single page.
     type_writing:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_WRITING || 'Writing',
-    type_portfolio:
-      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PORTFOLIO || 'Portfolio',
+    type_sideproject:
+      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_SIDEPROJECT || 'Sideproject',
     type_inspiration:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_INSPIRATION || 'Inspiration',
     type_thelog:

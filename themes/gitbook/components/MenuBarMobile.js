@@ -23,9 +23,9 @@ export const MenuBarMobile = props => {
       show: CONFIG.MENU_WRITING
     },
     {
-      name: locale.NAV.PORTFOLIO,
-      to: '/portfolio',
-      show: CONFIG.MENU_PORTFOLIO
+      name: locale.NAV.SIDEPROJECT,
+      to: '/sideproject',
+      show: CONFIG.MENU_SIDEPROJECT
     },
     {
       name: locale.NAV.AGIVEAWAYLOG,

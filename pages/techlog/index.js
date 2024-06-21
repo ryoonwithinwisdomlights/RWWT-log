@@ -20,7 +20,7 @@ export default function TechLog(props) {
   const Layout = getLayoutByTheme(useRouter())
 
   const meta = {
-    title: `${locale.NAV.PORTFOLIO} | ${siteInfo?.title}`,
+    title: `${locale.NAV.TECHLOG} | ${siteInfo?.title}`,
     description: siteInfo?.description,
     image: siteInfo?.pageCover,
     slug: 'TechLog',
@@ -38,30 +38,11 @@ export async function getStaticProps() {
   })
 
   props.posts = props.allPages?.filter(page => {
-    // if (page.type === 'Portfolio') {
-    //   //   console.log(page)
-    // }
     return page.type === 'TechLog' && page.status === 'Published'
   })
 
-  // const postsSortByDate = Object.create(props.posts)
-  // postsSortByDate.sort((a, b) => {
-  //   return b?.publishDate - a?.publishDate
-  // })
-
-  // console.log('postsSortByDate', postsSortByDate)
-  // const portfolioPosts = {}
-
-  // postsSortByDate.forEach(post => {
-  //   if (portfolioPosts[post.id]) {
-  //     portfolioPosts[post.id].push(post)
-  //   } else {
-  //     portfolioPosts[post.id] = [post]
-  //   }
-  // })
-
   props.techLogPosts = props.posts
-  // console.log('portfolioPosts', portfolioPosts)
+
   delete props.allPages
 
   return {
