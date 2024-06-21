@@ -321,7 +321,7 @@ const LayoutSlug = props => {
               <div className="flex flex-row">
                 <LazyImage
                   src={siteInfo?.icon}
-                  className="rounded-full cursor-pointer"
+                  className="rounded-full cursor-pointer dark:border dark:border-neutral-300"
                   width={20}
                   hight={20}
                   alt={BLOG.AUTHOR}

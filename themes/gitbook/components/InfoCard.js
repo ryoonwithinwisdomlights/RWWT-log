@@ -12,12 +12,12 @@ const InfoCard = props => {
         <div
           className="hover:scale-105 transform duration-200 cursor-pointer flex justify-center"
           onClick={() => {
-            Router.push('/archive')
+            Router.push('/ryoon')
           }}
         >
           <LazyImage
             src={siteInfo?.icon}
-            className="rounded-full"
+            className="rounded-full dark:border dark:border-neutral-300"
             width={120}
             alt={BLOG.AUTHOR}
           />
