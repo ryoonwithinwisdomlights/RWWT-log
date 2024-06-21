@@ -24,7 +24,10 @@ export default function TheLogitem({ archiveTitle, archivePosts }) {
                 href={`${BLOG.SUB_PATH}/${post.slug}`}
                 className="dark:text-neutral-400  dark:hover:text-neutral-300 overflow-x-hidden hover:underline cursor-pointer text-neutral-600"
               >
-                {post.title}
+                {post.title}{' '}
+                <span className="text-xs">
+                  &nbsp;{post.password !== '' && '🔐'}
+                </span>
               </Link>
             </div>
           </li>
