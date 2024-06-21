@@ -444,7 +444,7 @@ const LayoutArchive = props => {
           <div className="w-2/5 mt-20 text-right ml-4 md:mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col ">
             <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-72  ">
               <div className="font-bold text-center items-center  text-orange-500">
-                👩🏻‍💻
+                👩‍💻
                 <br />
                 배움.
               </div>
