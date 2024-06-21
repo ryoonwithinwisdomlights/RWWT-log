@@ -16,7 +16,7 @@ const BlogPostCard = ({ post, className }) => {
     >
       <div className="flex flex-col w-full select-none">
         <Link href={`${BLOG.SUB_PATH}/${post.slug}`} passHref>
-          {post.pageIcon}{' '}
+          <span className="text-xs pr-1">{post.pageIcon} </span>
           {/* {' '}
           {post.title.length > 25
             ? post.title.substr(0, 25) + '...'

@@ -771,6 +771,7 @@ const LayoutReadAndWrite = props => {
 /**
  * 아카이브 페이지는 거의 사용되지 않습니다.
  * All depends on page navigation
+ * allRyoonLogListForGitBook
  * @param {*} props
  * @returns
  */
@@ -784,7 +785,7 @@ const LayoutArchive = props => {
           <div className="text-lg text-stone-400 dark:text-neutral-200">
             경계를 오가며 정직하게 기록되는{' '}
           </div>
-          <div className="w-4/5 font-extrabold  break-words text-stone-700  overflow  text-3xl dark:text-neutral-100 underline decoration-amber-400/30">
+          <div className="w-4/5 font-extrabold  break-words text-stone-700  overflow  text-3xl dark:text-neutral-100 underline decoration-amber-400/30 hover:decoration-amber-300">
             Ryoon.With.Wisdomtrees Logs
             <span className="text-amber-400 "> .</span>{' '}
           </div>
@@ -792,18 +793,42 @@ const LayoutArchive = props => {
         <div className="w-full flex flex-row ">
           <div className="w-2/5 mt-20 text-right ml-4 md:mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col ">
             <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-72  ">
-              <div className="font-bold text-orange-500">배움.</div>
-              <div className=" font-bold text-red-500">일기.</div>
-              <div className=" font-bold text-amber-500 ">글.</div>
-              <div className=" font-bold text-amber-900 dark:text-stone-300">
-                책.
+              <div className="font-bold text-center items-center  text-orange-500">
+                👩🏻‍💻
+                <br />
+                배움.
               </div>
-              <div className=" font-bold text-amber-400">영감.</div>
-              <div className=" font-bold text-orange-400">나눔.</div>
-              <div className=" font-bold text-amber-900 dark:text-stone-200 ">
-                사유.
+              <div className=" font-bold  text-center items-center text-red-500">
+                {' '}
+                📙
+                <br />
+                일기.
               </div>
-              <div className=" font-normal dark:text-neutral-200 text-neutral-700 ">
+              <div className=" font-bold text-center items-center  text-amber-500 ">
+                {' '}
+                📔
+                <br />
+                글.
+              </div>
+              <div className=" font-bold text-center items-center  text-amber-900 dark:text-stone-300">
+                📝
+                <br /> 책.
+              </div>
+              <div className=" font-bold  text-center items-center text-amber-400">
+                💡
+                <br />
+                영감.
+              </div>
+              <div className=" font-bold  text-center items-center text-orange-400">
+                🎨
+                <br />
+                나눔.
+              </div>
+              <div className=" font-bold  text-center items-center text-amber-900 dark:text-stone-200 ">
+                ✏️
+                <br /> 사유.
+              </div>
+              <div className=" font-normal  text-center items-center dark:text-neutral-200 text-neutral-700 ">
                 로 이루어진.
               </div>
             </div>
