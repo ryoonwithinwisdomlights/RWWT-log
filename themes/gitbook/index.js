@@ -419,6 +419,140 @@ const LayoutGuestBook = props => {
 }
 
 /**
+ * 아카이브 페이지는 거의 사용되지 않습니다.
+ * All depends on page navigation
+ * allRyoonLogListForGitBook
+ * @param {*} props
+ * @returns
+ */
+const LayoutArchive = props => {
+  const { archivePosts } = props
+
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20  py-3 w-full flex flex-col min-h-full">
+        <div className="flex flex-col pt-10 ">
+          <div className="text-lg text-stone-600 font-extralight dark:text-neutral-200">
+            경계를 오가며 정직하게 기록되는{' '}
+          </div>
+          <div className="w-4/5 font-extrabold  break-words text-stone-700  overflow  text-3xl dark:text-neutral-100 underline decoration-amber-400/30 hover:decoration-amber-300">
+            Ryoon.With.Wisdomtrees Logs
+            <span className="text-amber-400 "> .</span>{' '}
+          </div>
+        </div>
+        <div className="w-full flex flex-row ">
+          <div className="w-2/5 mt-20 text-right ml-4 md:mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col ">
+            <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-72  ">
+              <div className="font-bold text-center items-center  text-orange-500">
+                👩🏻‍💻
+                <br />
+                배움.
+              </div>
+              <div className=" font-bold  text-center items-center text-red-500">
+                {' '}
+                📙
+                <br />
+                일기.
+              </div>
+              <div className=" font-bold text-center items-center  text-amber-500 ">
+                {' '}
+                📔
+                <br />
+                글.
+              </div>
+              <div className=" font-bold text-center items-center  text-amber-900 dark:text-stone-300">
+                📝
+                <br /> 책.
+              </div>
+              <div className=" font-bold  text-center items-center text-amber-400">
+                💡
+                <br />
+                영감.
+              </div>
+              <div className=" font-bold  text-center items-center text-orange-400">
+                🎨
+                <br />
+                나눔.
+              </div>
+              <div className=" font-bold  text-center items-center text-amber-900 dark:text-stone-200 ">
+                ✏️
+                <br /> 사유.
+              </div>
+              <div className=" font-normal  text-center items-center dark:text-neutral-200 text-neutral-700 ">
+                로 이루어진.
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full flex flex-col gap-10 bg-opacity-30 rounded-lg md:pl-10 dark:bg-black dark:bg-opacity-70 bg-white">
+            {Object.keys(archivePosts)?.map(archiveTitle => (
+              <BlogArchiveItem
+                key={archiveTitle}
+                archiveTitle={archiveTitle}
+                archivePosts={archivePosts}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
+// LayoutTechLog 테크 로그 레이아웃
+const LayoutTechLog = props => {
+  const { techLogPosts } = props
+  // console.log('portfolioPosts', portfolioPosts)
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="flex flex-col">
+          <div className="w-full mb-4 py-6">
+            <div>
+              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
+              {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
+              <div className="text-3xl font-bold dark:text-neutral-100">
+                Tech Logs <span className="text-[#ff6f00]">.</span>
+              </div>
+              <div className=" dark:text-neutral-200 mt-1  flex flex-row p-2 ">
+                <div className="flex flex-row  text-base align-bottom  break-words  text-right">
+                  {' '}
+                  一 개라도 배우는
+                  <div className="font-bold text-[#ff6f00] break-words  text-right">
+                    &nbsp;완료주의
+                  </div>{' '}
+                </div>
+
+                <div className=" text-sm  align-bottom pt-1">
+                  {' '}
+                  &nbsp;&nbsp;&nbsp;&nbsp;{'>'}&nbsp;&nbsp;&nbsp;&nbsp;{' '}
+                </div>
+                <div className="text-xs align-bottom  pt-2 break-words text-right">
+                  완벽하려 꾸물대는 완성주의
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-6 px-2">
+            {techLogPosts?.map((item, index) => {
+              return (
+                <TechLogItem
+                  key={index}
+                  pIndex={index}
+                  pId={item.id}
+                  pTitle={item.title}
+                  pPosts={item}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
+/**
  * TheLog(일상기록) 메뉴 레이아웃
  * All depends on page navigation
  * @param {*} props
@@ -498,102 +632,50 @@ const LayoutTheLog = props => {
 }
 
 /**
- * Inspiration 메뉴 레이아웃
+ * Read & Write 메뉴 레이아웃
  * All depends on page navigation
  * @param {*} props
  * @returns
  */
-const LayoutInspiration = props => {
-  const { InspirationPosts } = props
-
+const LayoutReadAndWrite = props => {
+  const { readAndWritePosts } = props
+  // console.log('readAndWritePosts', readAndWritePosts)
   return (
     <LayoutBase {...props}>
       <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="text-3xl flex flex-row dark:text-neutral-100 mt-4 mb-2">
+          <div className="  font-bold   ">
+            Writing <span className="font-bold text-amber-400">.</span>{' '}
+          </div>
+        </div>
+
         <div className="flex flex-row">
-          <div className="w-1/2 mr-10">
-            <div className="mb-2">
-              <div className=" dark:text-neutral-200 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
-                남에게서 배운 <br />
-                좋은 <span className="font-bold">질</span>투와 <br />부
-                <span className="font-bold">러</span>움
-                <br />
-                <span className=" font-bold">& &nbsp;&nbsp;</span>
-                <br />
-                <span className="font-bold">존</span>경에
-                <br />
-                대한
-                <br />
-                <br />
+          <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-20 ">
+            <div>
+              읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
+            </div>
+            <div className="text-right mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-10 ">
+              <div className="mb-10 "> 륜의</div>
+              <div className="mb-10  ">
+                <span className="font-bold">사유</span>와
               </div>
-              <div className="hidden md:flex text-3xl  font-bold md:px-2  ml-4 text-right   pb-2">
-                영감 기록 <span className="text-amber-500 ">.</span>
+              <div className="mb-10  ">
+                <span className="font-bold">문장과</span>
               </div>
-              <div className="lg:hidden md:hidden text-3xl dark:text-neutral-100 font-bold md:px-2 text-center  flex flex-col  mr-4 pb-2">
-                영감기록 <span className="text-amber-400 text-center">.</span>
+              <div className="mb-10 f ">
+                <span className="font-bold">독서에</span>대한
               </div>
+              <div className="mt-10 t"> 기록.</div>
             </div>
           </div>
           <div className="flex flex-col gap-10">
-            {' '}
-            {Object.keys(InspirationPosts)?.map(archiveTitle => {
+            {Object.keys(readAndWritePosts)?.map(archiveTitle => {
+              // console.log(archiveTitle)
               return (
-                <InspirationItem
+                <ReadAndWriteItem
                   key={archiveTitle}
                   archiveTitle={archiveTitle}
-                  archivePosts={InspirationPosts}
-                />
-              )
-            })}
-          </div>
-        </div>
-      </div>
-    </LayoutBase>
-  )
-}
-
-// LayoutTechLog 테크 로그 레이아웃
-const LayoutTechLog = props => {
-  const { techLogPosts } = props
-  // console.log('portfolioPosts', portfolioPosts)
-  return (
-    <LayoutBase {...props}>
-      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="flex flex-col">
-          <div className="w-full mb-4 py-6">
-            <div>
-              {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
-              {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
-              <div className="text-3xl font-bold dark:text-neutral-100">
-                Tech Logs <span className="text-[#ff6f00]">.</span>
-              </div>
-              <div className=" dark:text-neutral-200 mt-1  flex flex-row p-2 ">
-                <div className="flex flex-row  text-base align-bottom  break-words  text-right">
-                  {' '}
-                  一 개라도 배우는
-                  <div className="font-bold text-[#ff6f00] break-words  text-right">
-                    &nbsp;완료주의
-                  </div>{' '}
-                </div>
-
-                <div className=" text-sm  align-bottom pt-1">
-                  {' '}
-                  &nbsp;&nbsp;&nbsp;&nbsp;{'>'}&nbsp;&nbsp;&nbsp;&nbsp;{' '}
-                </div>
-                <div className="text-xs align-bottom  pt-2 break-words text-right">
-                  완벽하려 꾸물대는 완성주의
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="space-y-6 px-2">
-            {techLogPosts?.map((item, index) => {
-              return (
-                <TechLogItem
-                  key={index}
-                  pIndex={index}
-                  pId={item.id}
-                  pTitle={item.title}
-                  pPosts={item}
+                  archivePosts={readAndWritePosts}
                 />
               )
             })}
@@ -660,6 +742,60 @@ const LayoutAGiveAwayLog = props => {
   )
 }
 
+/**
+ * Inspiration 메뉴 레이아웃
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
+const LayoutInspiration = props => {
+  const { InspirationPosts } = props
+
+  return (
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
+        <div className="flex flex-row">
+          <div className="w-1/2 mr-10">
+            <div className="mb-2">
+              <div className=" dark:text-neutral-200 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
+                남에게서 배운 <br />
+                좋은 <span className="font-bold">질</span>투와 <br />부
+                <span className="font-bold">러</span>움
+                <br />
+                <span className=" font-bold">& &nbsp;&nbsp;</span>
+                <br />
+                <span className="font-bold">존</span>경에
+                <br />
+                대한
+                <br />
+                <br />
+              </div>
+              <div className="hidden md:flex text-3xl  font-bold md:px-2  ml-4 text-right   pb-2">
+                영감 기록 <span className="text-amber-500 ">.</span>
+              </div>
+              <div className="lg:hidden md:hidden text-3xl dark:text-neutral-100 font-bold md:px-2 text-center  flex flex-col  mr-4 pb-2">
+                영감기록 <span className="text-amber-400 text-center">.</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-10">
+            {' '}
+            {Object.keys(InspirationPosts)?.map(archiveTitle => {
+              return (
+                <InspirationItem
+                  key={archiveTitle}
+                  archiveTitle={archiveTitle}
+                  archivePosts={InspirationPosts}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </LayoutBase>
+  )
+}
+
 // Portfolio 메뉴 레이아웃
 const LayoutPortfolio = props => {
   const { portfolioPosts } = props
@@ -706,142 +842,6 @@ const LayoutPortfolio = props => {
                 />
               )
             })}
-          </div>
-        </div>
-      </div>
-    </LayoutBase>
-  )
-}
-
-/**
- * Read & Write 메뉴 레이아웃
- * All depends on page navigation
- * @param {*} props
- * @returns
- */
-const LayoutReadAndWrite = props => {
-  const { readAndWritePosts } = props
-  // console.log('readAndWritePosts', readAndWritePosts)
-  return (
-    <LayoutBase {...props}>
-      <div className="mb-10 pb-20 md:py-12 py-3 w-full  min-h-full">
-        <div className="text-3xl flex flex-row dark:text-neutral-100 mt-4 mb-2">
-          <div className="  font-bold   ">
-            Writing <span className="font-bold text-amber-400">.</span>{' '}
-          </div>
-        </div>
-
-        <div className="flex flex-row">
-          <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-20 ">
-            <div>
-              읽고 쓰는 것은 자신의 세계를, 생각을 확장해 나가는 기록이다.
-            </div>
-            <div className="text-right mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-10 ">
-              <div className="mb-10 "> 륜의</div>
-              <div className="mb-10  ">
-                <span className="font-bold">사유</span>와
-              </div>
-              <div className="mb-10  ">
-                <span className="font-bold">문장과</span>
-              </div>
-              <div className="mb-10 f ">
-                <span className="font-bold">독서에</span>대한
-              </div>
-              <div className="mt-10 t"> 기록.</div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-10">
-            {Object.keys(readAndWritePosts)?.map(archiveTitle => {
-              // console.log(archiveTitle)
-              return (
-                <ReadAndWriteItem
-                  key={archiveTitle}
-                  archiveTitle={archiveTitle}
-                  archivePosts={readAndWritePosts}
-                />
-              )
-            })}
-          </div>
-        </div>
-      </div>
-    </LayoutBase>
-  )
-}
-
-/**
- * 아카이브 페이지는 거의 사용되지 않습니다.
- * All depends on page navigation
- * allRyoonLogListForGitBook
- * @param {*} props
- * @returns
- */
-const LayoutArchive = props => {
-  const { archivePosts } = props
-
-  return (
-    <LayoutBase {...props}>
-      <div className="mb-10 pb-20  py-3 w-full flex flex-col min-h-full">
-        <div className="flex flex-col pt-10 ">
-          <div className="text-lg text-stone-400 dark:text-neutral-200">
-            경계를 오가며 정직하게 기록되는{' '}
-          </div>
-          <div className="w-4/5 font-extrabold  break-words text-stone-700  overflow  text-3xl dark:text-neutral-100 underline decoration-amber-400/30 hover:decoration-amber-300">
-            Ryoon.With.Wisdomtrees Logs
-            <span className="text-amber-400 "> .</span>{' '}
-          </div>
-        </div>
-        <div className="w-full flex flex-row ">
-          <div className="w-2/5 mt-20 text-right ml-4 md:mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col ">
-            <div className="text-left mr-10 dark:text-neutral-200 text-neutral-700 flex flex-col gap-72  ">
-              <div className="font-bold text-center items-center  text-orange-500">
-                👩🏻‍💻
-                <br />
-                배움.
-              </div>
-              <div className=" font-bold  text-center items-center text-red-500">
-                {' '}
-                📙
-                <br />
-                일기.
-              </div>
-              <div className=" font-bold text-center items-center  text-amber-500 ">
-                {' '}
-                📔
-                <br />
-                글.
-              </div>
-              <div className=" font-bold text-center items-center  text-amber-900 dark:text-stone-300">
-                📝
-                <br /> 책.
-              </div>
-              <div className=" font-bold  text-center items-center text-amber-400">
-                💡
-                <br />
-                영감.
-              </div>
-              <div className=" font-bold  text-center items-center text-orange-400">
-                🎨
-                <br />
-                나눔.
-              </div>
-              <div className=" font-bold  text-center items-center text-amber-900 dark:text-stone-200 ">
-                ✏️
-                <br /> 사유.
-              </div>
-              <div className=" font-normal  text-center items-center dark:text-neutral-200 text-neutral-700 ">
-                로 이루어진.
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full flex flex-col gap-10 bg-opacity-30 rounded-lg md:pl-10 dark:bg-black dark:bg-opacity-70 bg-white">
-            {Object.keys(archivePosts)?.map(archiveTitle => (
-              <BlogArchiveItem
-                key={archiveTitle}
-                archiveTitle={archiveTitle}
-                archivePosts={archivePosts}
-              />
-            ))}
           </div>
         </div>
       </div>
