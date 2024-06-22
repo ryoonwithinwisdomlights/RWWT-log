@@ -49,11 +49,12 @@ export const TechLogCardInfo = ({
               <i className="mr-1 far fa-folder" />
               {post.category}
             </Link>
-
-            {/* <TwikooCommentCount
-              className="text-sm hover:text-indigo-700 dark:hover:text-indigo-400"
-              post={post}
-            /> */}
+            <span className="text-xs">
+              &nbsp;&nbsp;&nbsp;{' '}
+              {post.password !== '' && (
+                <i class="fa-solid fa-lock">&nbsp;비공개</i>
+              )}
+            </span>
           </div>
         )}
         {/* Summary */}

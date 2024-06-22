@@ -49,6 +49,12 @@ export const SideprojectCardInfo = ({
               <i className="mr-1 far fa-folder" />
               {post.category}
             </Link>
+            <span className="text-xs">
+              &nbsp;&nbsp;&nbsp;{' '}
+              {post.password !== '' && (
+                <i class="fa-solid fa-lock">&nbsp;비공개</i>
+              )}
+            </span>
           </div>
         )}
 
