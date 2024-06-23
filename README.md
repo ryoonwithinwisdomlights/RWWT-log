@@ -1,5 +1,6 @@
 # 1. Ryoon-gitbook-next
 
+A static blog built with NextJS and Notion API, supporting multiple deployment options. No server required, zero threshold to set up a website. Designed for Notion and all creators
 ![R](../ryoon-gitbook-next//public/RyoonLog.gif)
 
 - [tangly1024](https://github.com/tangly1024)님의 [NotionNext](https://docs.tangly1024.com/about) 블로그에 영감을 받아, 재해석 하여 제작한 Next.js 13와 Notion API기반의 Gitbook레이아웃을 적용한 정적 블로그입니다.
@@ -64,6 +65,7 @@
 ## 3-1. 사용된 기술
 
 - **Technical Framework**: [Next.js](https://nextjs.org/) 13
+- **Deploy**: [Vercel](https://vercel.com/)
 - **Styles**: [Tailwind CSS](https://www.tailwindcss.cn/)
 - **Rendering Tool**: [React-notion-x](https://github.com/NotionX/react-notion-x)
 - **COMMENT**: [Giscus](https://giscus.app/zh-CN)
@@ -78,9 +80,11 @@
 - **Google Site Verification(seo)**: client key만 env에 적용시 바로 사용가능
 - **busuanzi**: 접속 url 별 website reading volume과 방문자 수 바로 확인 가능 (http://busuanzi.ibruce.info/)
 
+
 # + 추가 작업 진행중
 
 - 이 블로그 Format을 누구나 사용할 수 있게 Skeleton 리포지토리 작업 및 상세 명세서 작업을 진행하고 있습니다(24.06월 기준)
+
 
 ## License
 
