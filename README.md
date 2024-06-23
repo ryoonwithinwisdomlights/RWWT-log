@@ -68,9 +68,6 @@
 - **Rendering Tool**: [React-notion-x](https://github.com/NotionX/react-notion-x)
 - **COMMENT**: [Giscus](https://giscus.app/zh-CN)
 - **ICON**: [Fontawesome](https://fontawesome.com/v6/icons/)
-- 개발 기술에 대한 언급이 별도로 많이 없는 이유는
-  - 1. 커밋로그를 보거나
-  - 2. 코드를 보면 바로 알 수 있기 때문입니다. 직접 확인해보세요.
 
 ## 3-1. 지원하는 기능
 
