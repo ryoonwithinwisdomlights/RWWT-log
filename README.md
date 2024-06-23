@@ -1,12 +1,15 @@
 # 1. Ryoon-gitbook-next
 
-- Next.js 14 ver App router based Gitbook themed Notion-Static-Blog.
-- special credit to [tangly1024](https://github.com/tangly1024)'s [NotionNext](https://github.com/tangly1024/NotionNext) for inspiration
-- [tangly1024](https://github.com/tangly1024)님의 [NotionNext](https://docs.tangly1024.com/about) 블로그에 영감을 받아, 재해석 하여 제작한 Next.js와 Notion API기반의 Gitbook레이아웃을 적용한 정적 블로그입니다.
+![R](../ryoon-gitbook-next//public/RyoonLog.gif)
+
+- [tangly1024](https://github.com/tangly1024)님의 [NotionNext](https://docs.tangly1024.com/about) 블로그에 영감을 받아, 재해석 하여 제작한 Next.js 13와 Notion API기반의 Gitbook레이아웃을 적용한 정적 블로그입니다.
 - 블로그가 블로그로서의 본연의 기능을 가장 최적으로 수행할 수 있도록 불필요한 기능과 모듈은 전부 제거하고, 가장 심플하고 essential한 뼈대와 구조만으로 이루어지게 변경하였습니다.
 - 모바일과 PC환경에 친화적이며 간단한 다크모드도 지원합니다.
 - 작년 9월부터 24년도 6월까지 장기간에 걸쳐 틈틈이 개발 및 유지보수 작업을 진행하였습니다.
 - 처음에는 기존과 같이 Multi theme(전체 레이아웃이 바뀌는 기능)을 적용하였으나, 누군가에게 과시적으로 보여주기 위한 용도이기보다는 온전히 저에게 진실되며 또 방문자에게도 진실된 공간으로 만들고자 하는 욕구가 더 컸으므로 과감하게 해당 개발건은 드롭하고 오직 gitbook theme으로 작업을 이어나갔습니다.
+
+- Next.js 13 ver Gitbook themed Notion-Static-Blog.
+- special credit to [tangly1024](https://github.com/tangly1024)'s [NotionNext](https://github.com/tangly1024/NotionNext) for inspiration
 
 # 2. 구성 : 블로그 KV, Color, 배치
 
