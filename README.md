@@ -87,4 +87,4 @@
 
 ## License
 
-The [MIT License](https://github.com/tangly1024/NotionNext).
+The [MIT License](https://github.com/ryoon-with-wisdomtrees/ryoon-gitbook-next).
