@@ -59,7 +59,9 @@
     - 자주 건강하게 질투하고, 부러워하고, 남으로 부터 잘 배워서 저의 인생을 다채롭게 일구어나가곤 합니다. 이에 대한 기록을 볼 수 있는 페이지입니다.
     - Inspiration Log의 메인 컬러는 Yellow이며 이유는 Writing로그와 같습니다.
 
-# 3. 구성 : 사용된 기술 /Technologies Used
+# 3. 구성 : 사용된 기술 / 지원하는 기능
+
+## 3-1. 사용된 기술
 
 - **Technical Framework**: [Next.js](https://nextjs.org/) 13
 - **Styles**: [Tailwind CSS](https://www.tailwindcss.cn/)
@@ -67,8 +69,17 @@
 - **COMMENT**: [Giscus](https://giscus.app/zh-CN)
 - **ICON**: [Fontawesome](https://fontawesome.com/v6/icons/)
 - 개발 기술에 대한 언급이 별도로 많이 없는 이유는
-  - 1.커밋로그를 보거나
+  - 1. 커밋로그를 보거나
   - 2. 코드를 보면 바로 알 수 있기 때문입니다. 직접 확인해보세요.
+
+## 3-1. 지원하는 기능
+
+- **GooGleAdsense**: client key만 env에 적용시 바로 사용가능
+
+### Site statistics
+
+- **Google Site Verification(seo)**: client key만 env에 적용시 바로 사용가능
+- **busuanzi**: 접속 url 별 website reading volume과 방문자 수 바로 확인 가능 (http://busuanzi.ibruce.info/)
 
 # + 추가 작업 진행중
 

@@ -97,7 +97,7 @@ const BLOG = {
   // Whether the sidebar layout is reversed (left to right, right to left) Theme is supported: hexo next medium fukasawa example
   LAYOUT_SIDEBAR_REVERSE: false,
 
-  // START********Code related********
+  // START ********Code related********
   // PrismJs Code related
   PRISM_JS_PATH: 'https://npm.elemecdn.com/prismjs@1.29.0/components/',
   PRISM_JS_AUTO_LOADER:
@@ -188,15 +188,15 @@ const BLOG = {
   // START---->Revenue related
   // google ads
   ADSENSE_GOOGLE_ID: process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_ID || '', // Google Advertising ID e.g ca-pub-xxxxxxxxxxxxxxxx
-  ADSENSE_GOOGLE_TEST: process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_TEST || false, // Google Advertising ID test mode, this mode obtains fake test ads for development https://www.tangly1024.com/article/local-dev-google-adsense
-  ADSENSE_GOOGLE_SLOT_IN_ARTICLE:
-    process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_IN_ARTICLE || '3806269138', // Google AdScene>Advertising>Ads by unit>New in-article ad Paste the data-ad-slot value in the html code
-  ADSENSE_GOOGLE_SLOT_FLOW:
-    process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_FLOW || '1510444138', // Google AdScene>Ads>Ads by unit>New in-feed ad
-  ADSENSE_GOOGLE_SLOT_NATIVE:
-    process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_NATIVE || '4980048999', // Google AdScene>Ads>Ads by unit>New native ad
-  ADSENSE_GOOGLE_SLOT_AUTO:
-    process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_AUTO || '8807314373', // Google AdScene>Ads>Ads by Unit>New Display Ad (Automatic Ad)
+  // ADSENSE_GOOGLE_TEST: process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_TEST || false, // Google Advertising ID test mode, this mode obtains fake test ads for development https://www.tangly1024.com/article/local-dev-google-adsense
+  // ADSENSE_GOOGLE_SLOT_IN_ARTICLE:
+  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_IN_ARTICLE || '3806269138', // Google AdScene>Advertising>Ads by unit>New in-article ad Paste the data-ad-slot value in the html code
+  // ADSENSE_GOOGLE_SLOT_FLOW:
+  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_FLOW || '1510444138', // Google AdScene>Ads>Ads by unit>New in-feed ad
+  // ADSENSE_GOOGLE_SLOT_NATIVE:
+  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_NATIVE || '4980048999', // Google AdScene>Ads>Ads by unit>New native ad
+  // ADSENSE_GOOGLE_SLOT_AUTO:
+  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_AUTO || '8807314373', // Google AdScene>Ads>Ads by Unit>New Display Ad (Automatic Ad)
 
   // END<----Revenue related
 

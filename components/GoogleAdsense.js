@@ -63,7 +63,7 @@ const AdSlot = ({ type = 'show' }) => {
     )
   }
 
-  // 信息流广告
+  // 정보 흐름 광고
   if (type === 'flow') {
     return (
       <ins
@@ -92,7 +92,7 @@ const AdSlot = ({ type = 'show' }) => {
     )
   }
 
-  //  展示广告
+  //  디스플레이광고
   return (
     <ins
       className="adsbygoogle"
