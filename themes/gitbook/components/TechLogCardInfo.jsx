@@ -1,4 +1,3 @@
-import React from 'react'
 import NotionPage from '@/components/NotionPage'
 import Link from 'next/link'
 import TagItemMini from './TagItemMini'

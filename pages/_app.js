@@ -18,6 +18,7 @@ import BLOG from '@/blog.config'
 // Various extensions, animations, etc.
 const ExternalPlugins = dynamic(() => import('@/components/ExternalPlugins'))
 
+// 앱이 DOM 항목 파일을 마운트합니다.
 const MyApp = ({ Component, pageProps }) => {
   // Introduction of custom style css and js
   if (isBrowser) {

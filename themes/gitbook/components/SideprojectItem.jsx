@@ -1,10 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { siteConfig } from '@/lib/config'
-import Image from 'next/image'
-import Link from 'next/link'
-import CONFIG from '../config'
-import { SideprojectCardInfo } from './SideprojectCardInfo'
 import LazyImage from '@/components/LazyImage'
+import Link from 'next/link'
+import { SideprojectCardInfo } from './SideprojectCardInfo'
 
 export default function SideprojectItem({ pIndex, pId, pTitle, pPosts }) {
   const showPreview = false

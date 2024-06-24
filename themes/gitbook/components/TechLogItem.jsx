@@ -1,10 +1,6 @@
-import React from 'react'
 /* eslint-disable no-unused-vars */
-import { siteConfig } from '@/lib/config'
-import Image from 'next/image'
-import Link from 'next/link'
-import CONFIG from '../config'
 import LazyImage from '@/components/LazyImage'
+import Link from 'next/link'
 import { TechLogCardInfo } from './TechLogCardInfo'
 
 export default function TechLogItem({ pIndex, pId, pTitle, pPosts }) {
