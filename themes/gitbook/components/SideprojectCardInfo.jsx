@@ -52,7 +52,7 @@ export const SideprojectCardInfo = ({
             <span className="text-xs">
               &nbsp;&nbsp;&nbsp;{' '}
               {post.password !== '' && (
-                <i class="fa-solid fa-lock">&nbsp;비공개</i>
+                <i className="fa-solid fa-lock">&nbsp;비공개</i>
               )}
             </span>
           </div>

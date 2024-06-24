@@ -28,7 +28,7 @@ export default function TheLogitem({ archiveTitle, archivePosts }) {
                 <span className="text-xs">
                   &nbsp;{' '}
                   {post.password !== '' && (
-                    <i class="fa-solid fa-lock">&nbsp;비공개</i>
+                    <i className="fa-solid fa-lock">&nbsp;비공개</i>
                   )}
                 </span>
               </Link>

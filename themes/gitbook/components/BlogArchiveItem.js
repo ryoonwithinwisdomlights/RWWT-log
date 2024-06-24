@@ -44,7 +44,7 @@ export default function BlogArchiveItem({ archiveTitle, archivePosts }) {
                   {/* &nbsp;{post.password !== '' && '🔐'} */}
                   &nbsp;
                   {post.password !== '' && (
-                    <i class="fa-solid fa-lock">&nbsp;비공개</i>
+                    <i className="fa-solid fa-lock">&nbsp;비공개</i>
                   )}
                 </span>
               </Link>
