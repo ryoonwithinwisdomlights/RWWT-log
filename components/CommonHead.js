@@ -7,7 +7,7 @@ const CommonHead = ({ meta, children }) => {
   let image
   if (meta) {
     url = `${url}/${meta.slug}`
-    image = meta.image || '/ryoon_logo.png'
+    image = meta.image || '/rwwt_lemon.png'
   }
   const title = meta?.title || BLOG.TITLE
   const description = meta?.description || BLOG.DESCRIPTION
@@ -48,14 +48,17 @@ const CommonHead = ({ meta, children }) => {
       {JSON.parse(BLOG.ANALYTICS_BUSUANZI_ENABLE) && (
         <meta name="referrer" content="no-referrer-when-downgrade" />
       )}
-      {meta?.type === 'Post' && (
-        <>
-          <meta property="article:published_time" content={meta.publishDay} />
-          <meta property="article:author" content={BLOG.AUTHOR} />
-          <meta property="article:section" content={category} />
-          <meta property="article:publisher" content={BLOG.FACEBOOK_PAGE} />
-        </>
-      )}
+      {meta?.type !== 'CONFIG' &&
+        meta?.type !== 'Menu' &&
+        meta?.type !== 'SubMenu' &&
+        meta?.type !== 'Notice' &&
+        meta?.type !== 'Page' && (
+          <>
+            <meta property="article:published_time" content={meta.publishDay} />
+            <meta property="article:author" content={BLOG.AUTHOR} />
+            <meta property="article:section" content={category} />
+          </>
+        )}
       {children}
     </Head>
   )
