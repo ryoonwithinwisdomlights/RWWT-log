@@ -1,7 +1,7 @@
-# 1. Ryoon-gitbook-next
+# 1. RWWT-log
 
 A static blog built with NextJS and Notion API, supporting multiple deployment options. No server required, zero threshold to set up a website. Designed for Notion and all creators
-![R](../ryoon-gitbook-next//public/RyoonLog.gif)
+![R](../RWWT-log//public/RyoonLog.gif)
 
 - [tangly1024](https://github.com/tangly1024)님의 [NotionNext](https://docs.tangly1024.com/about) 블로그에 영감을 받아, 재해석 하여 제작한 Next.js 13와 Notion API기반의 Gitbook레이아웃을 적용한 정적 블로그입니다.
 - 블로그가 블로그로서의 본연의 기능을 가장 최적으로 수행할 수 있도록 불필요한 기능과 모듈은 전부 제거하고, 가장 심플하고 essential한 뼈대와 구조만으로 이루어지게 변경하였습니다.
@@ -88,4 +88,4 @@ A static blog built with NextJS and Notion API, supporting multiple deployment o
 
 ## License
 
-The [MIT License](https://github.com/ryoon-with-wisdomtrees/ryoon-gitbook-next).
+The [MIT License](https://github.com/ryoon-with-wisdomtrees/RWWT-log).

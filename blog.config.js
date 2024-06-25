@@ -157,7 +157,7 @@ const BLOG = {
     process.env.NEXT_PUBLIC_POST_DISABLE_GALLERY_CLICK || false, // Clicking is prohibited in the picture album view, making it easier to insert links into the picture album on the friend link page.
 
   // giscus @see https://giscus.app/
-  COMMENT_GISCUS_REPO: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO || '', // Your Github repository name e.g 'ryoon-with-wisdomtrees/ryoon-gitbook-next'
+  COMMENT_GISCUS_REPO: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO || '', // Your Github repository name e.g 'ryoon-with-wisdomtrees/RWWT-log'
   COMMENT_GISCUS_REPO_ID: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO_ID || '', // Your Github Repo ID e.g (you can see it after setting up giscus)
   COMMENT_GISCUS_CATEGORY:
     process.env.NEXT_PUBLIC_COMMENT_GISCUS_CATEGORY || 'General',

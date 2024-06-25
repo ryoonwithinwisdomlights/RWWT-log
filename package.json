@@ -1,11 +1,11 @@
 {
   "name": "notion-next-ryoon",
   "version": "4.0.18",
-  "homepage": "https://github.com/ryoon-with-wisdomtrees/ryoon-gitbook-next.git",
+  "homepage": "https://github.com/ryoon-with-wisdomtrees/RWWT-log.git",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ryoon-with-wisdomtrees/ryoon-gitbook-next.git"
+    "url": "https://github.com/ryoon-with-wisdomtrees/RWWT-log.git"
   },
   "author": {
     "name": "ryoon.with.wisdomtrees",
@@ -79,7 +79,7 @@
     "axios": ">=0.21.1"
   },
   "bugs": {
-    "url": "https://github.com/ryoon-with-wisdomtrees/ryoon-gitbook-next/issues",
+    "url": "https://github.com/ryoon-with-wisdomtrees/RWWT-log/issues",
     "email": "ryoon.with.wisdomtrees@gmail.com"
   }
 }
