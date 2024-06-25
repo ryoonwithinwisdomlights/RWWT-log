@@ -2,7 +2,7 @@ import '@/styles/animate.css' // @see https://animate.style/
 import '@/styles/globals.css'
 import '@/styles/nprogress.css'
 import '@/styles/utility-patterns.css'
-import '@/styles/customCarousel.css'
+// import '@/styles/customCarousel.css'
 // core styles shared by all of react-notion-x (required)
 import 'react-notion-x/src/styles.css'
 import '@/styles/notion.css' //  Override some styles
