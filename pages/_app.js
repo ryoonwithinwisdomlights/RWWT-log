@@ -1,16 +1,16 @@
+'use client'
 import '@/styles/animate.css' // @see https://animate.style/
 import '@/styles/globals.css'
 import '@/styles/nprogress.css'
 import '@/styles/utility-patterns.css'
-// import '@/styles/customCarousel.css'
+// import '@/styles/omnidoc.css'
+
 // core styles shared by all of react-notion-x (required)
 import 'react-notion-x/src/styles.css'
 import '@/styles/notion.css' //  Override some styles
 
 import { GlobalContextProvider } from '@/lib/global'
 
-import AOS from 'aos'
-import 'aos/dist/aos.css' // You can also use <link> for styles
 import dynamic from 'next/dynamic'
 import { isBrowser, loadExternalResource } from '@/lib/utils'
 import BLOG from '@/blog.config'
@@ -21,8 +21,6 @@ const ExternalPlugins = dynamic(() => import('@/components/ExternalPlugins'))
 const MyApp = ({ Component, pageProps }) => {
   // Introduction of custom style css and js
   if (isBrowser) {
-    // Initialize AOS animation
-    AOS.init()
     // Static import of local custom styles
     loadExternalResource('/css/custom.css', 'css')
     loadExternalResource('/js/custom.js', 'js')

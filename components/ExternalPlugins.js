@@ -12,7 +12,9 @@ const Analytics = dynamic(
     }),
   { ssr: false }
 )
-
+const AosAnimation = dynamic(() => import('@/components/AOSAnimation'), {
+  ssr: false
+})
 // const Ackee = dynamic(() => import('@/components/Ackee'), { ssr: false })
 const Gtag = dynamic(() => import('@/components/Gtag'), { ssr: false })
 const Busuanzi = dynamic(() => import('@/components/Busuanzi'), { ssr: false })
@@ -41,6 +43,7 @@ const ExternalPlugin = props => {
       )}
       {!JSON.parse(BLOG.CAN_COPY) && <DisableCopy />}
       <VConsole />
+      <AosAnimation />
     </>
   )
 }

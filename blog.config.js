@@ -204,6 +204,8 @@ const BLOG = {
   NOTION_PROPERTY_NAME: {
     password: process.env.NEXT_PUBLIC_NOTION_PROPERTY_PASSWORD || 'password',
     type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'type', // article type
+    sub_type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'sub type', // article sub type for omnis-doctrina
+
     type_able_arr: [
       'Post',
       'Writing',
@@ -212,7 +214,8 @@ const BLOG = {
       'TechLog',
       'TheLog',
       'AGiveAwayLog',
-      'GuestBook'
+      'GuestBook',
+      'OmniDoc'
     ],
     type_able:
       'Post' ||
@@ -222,7 +225,15 @@ const BLOG = {
       'TheLog' ||
       'TechLog' ||
       'AGiveAwayLog' ||
+      'OmniDoc' ||
       'GuestBook',
+    sub_type_able_arr: [
+      'RenderingPatterns',
+      'DesignPatterns',
+      'PerformancePatterns'
+    ],
+    sub_type_able:
+      'RenderingPatterns' || 'DesignPatterns' || 'PerformancePatterns',
     type_post: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_POST || 'Post', // When the type article type is the same as this value, it is a blog post.
     type_page: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PAGE || 'Page', // When the type article type is the same as this value, it is a single page.
     type_writing:
@@ -240,6 +251,8 @@ const BLOG = {
     type_agiveawaylog:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_AGIVEAWAYLOG ||
       'AGiveAwayLog',
+    type_omnisdoctrina:
+      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_OMNIDOC || 'OmniDoc',
     type_notice:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_NOTICE || 'Notice', // When the type article type is the same as this value, it is an announcement.
     type_menu: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_MENU || 'Menu', // When the type article type is the same as this value, it is a menu.
@@ -265,7 +278,7 @@ const BLOG = {
   MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY || null, // Enable mailichimp email subscription APIkey
 
   // Obsolete configuration
-  AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/notion-avatar.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
+  AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/rwwt_lemon.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
   TITLE: process.env.NEXT_PUBLIC_TITLE || 'R.W.W.Blog', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
   HOME_BANNER_IMAGE:
     process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/bg_image.png', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.

@@ -51,6 +51,8 @@ export const getLayoutNameByPath = path => {
       return 'LayoutAGiveAwayLog'
     case '/inspiration':
       return 'LayoutInspiration'
+    case '/omnis-doctrina':
+      return 'LayoutOmniDoc'
     case '/page/[page]':
     case '/category/[category]':
     case '/category/[category]/page/[page]':

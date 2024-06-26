@@ -49,7 +49,9 @@ import Leeseula from '@/public/images/thelog/leeseula.jpeg'
 import Nogiveup from '@/public/images/thelog/nogiveup.png'
 import CONFIG from './config'
 import { Style } from './style'
-
+import Slider from 'react-slick'
+import SimpleSlider from '@/components/SimpleSlider'
+import CustomedSlider from '@/components/CustomedSlider'
 // Theme global variables
 const ThemeGlobalGitbook = createContext()
 export const useGitBookGlobal = () => useContext(ThemeGlobalGitbook)
@@ -147,6 +149,176 @@ const LayoutBase = props => {
               <div
                 id="container-inner"
                 className="w-full px-7 max-w-3xl justify-center mx-auto"
+              >
+                {slotTop}
+
+                <Transition
+                  show={!onLoading}
+                  appear={true}
+                  enter="transition ease-in-out duration-700 transform order-first"
+                  enterFrom="opacity-0 translate-y-16"
+                  enterTo="opacity-100"
+                  leave="transition ease-in-out duration-300 transform"
+                  leaveFrom="opacity-100 translate-y-0"
+                  leaveTo="opacity-0 -translate-y-16"
+                  unmount={false}
+                >
+                  {children}
+                </Transition>
+
+                {/* Google ads */}
+                <AdSlot type="in-article" />
+
+                {/* Back button */}
+                <JumpToTopButton />
+                <JumpToBackButton />
+              </div>
+
+              {/* bottom */}
+              <div className="md:hidden mb:16">
+                <Footer {...props} />
+              </div>
+            </div>
+          </div>
+
+          {/*  오른쪽 슬라이딩 서랍 */}
+          <div
+            style={{ width: '32rem' }}
+            className={
+              'hidden xl:block dark:border-transparent relative z-10 border-l  border-neutral-200  '
+            }
+          >
+            <div className="py-14 px-6 sticky top-0">
+              <ArticleInfo post={props?.post ? props?.post : props.notice} />
+
+              <div className="py-4 justify-center">
+                <Catalog {...props} />
+                {slotRight}
+
+                <>
+                  <InfoCard {...props} />
+                  {CONFIG.WIDGET_REVOLVER_MAPS === 'true' && <RevolverMaps />}
+                </>
+                {/* gitbook 테마 홈페이지에는 공지사항만 표시됩니다. */}
+
+                <Announcement {...props} className={'justify-center '} />
+              </div>
+
+              <AdSlot type="in-article" />
+            </div>
+          </div>
+        </main>
+
+        {/* Mobile floating directory button */}
+        {showTocButton && !tocVisible && (
+          <div className="md:hidden fixed right-0 bottom-52 z-30 bg-white border-l border-t border-b dark:border-neutral-800 rounded">
+            <FloatTocButton {...props} />
+          </div>
+        )}
+
+        {/* 모바일 탐색 창 */}
+        <PageNavDrawer {...props} filteredNavPages={filteredNavPages} />
+
+        {/* 모바일 하단 탐색 메뉴 */}
+        {/* <BottomMenuBar {...props} className='block md:hidden' /> */}
+      </div>
+    </ThemeGlobalGitbook.Provider>
+  )
+}
+
+/**
+ * 기본 레이아웃
+ * 왼쪽, 오른쪽 레이아웃을 채택하고, 모바일 단말기 상단 내비게이션 바를 활용하세요.
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const LayoutBaseForOmni = props => {
+  const {
+    children,
+    post,
+    allNavPagesForGitBook,
+    slotLeft,
+    slotRight,
+    slotTop,
+    meta
+  } = props
+  const { onLoading } = useGlobal()
+  const router = useRouter()
+  const [tocVisible, changeTocVisible] = useState(false)
+  const [pageNavVisible, changePageNavVisible] = useState(false)
+
+  const [filteredNavPages, setFilteredNavPages] = useState(
+    allNavPagesForGitBook
+  )
+
+  const showTocButton = post?.toc?.length > 1
+
+  useEffect(() => {
+    setFilteredNavPages(allNavPagesForGitBook)
+  }, [post])
+
+  return (
+    <ThemeGlobalGitbook.Provider
+      value={{
+        tocVisible,
+        changeTocVisible,
+        filteredNavPages,
+        setFilteredNavPages,
+        allNavPagesForGitBook,
+        pageNavVisible,
+        changePageNavVisible
+      }}
+    >
+      <CommonHead meta={meta} />
+      <Style />
+
+      <div
+        id="theme-gitbook"
+        className="bg-white dark:bg-hexo-black-neutral- w-full h-full min-h-screen justify-center dark:text-neutral-300 dark:bg-black"
+      >
+        {/* 상단 네비게이션 바 */}
+        <TopNavBar {...props} />
+
+        <main
+          id="wrapper"
+          className={
+            (BLOG.LAYOUT_SIDEBAR_REVERSE ? 'flex-row-reverse' : '') +
+            'relative flex justify-between w-full h-full mx-auto'
+          }
+        >
+          {/* 왼쪽 네브바 */}
+          <div
+            className={
+              'font-sans hidden md:block border-r dark:border-transparent relative z-10 '
+            }
+          >
+            <div className="w-72  px-6 sticky top-0 overflow-y-scroll my-16 h-screen ">
+              {slotLeft}
+              <SearchInput className="my-3 rounded-md" />
+              <div className="mb-20">
+                {/* 모든 기사 목록 */}
+                <NavPostList filteredNavPages={filteredNavPages} />
+              </div>
+            </div>
+
+            <div className="w-72 fixed left-0 bottom-0 z-20 bg-white dark:bg-black">
+              <Footer {...props} />
+            </div>
+          </div>
+
+          <div
+            id="center-wrapper"
+            className="flex flex-col w-full relative z-10 pt-14 min-h-screen"
+          >
+            {/* <div className="w-full justify-center mx-auto  border-b border-neutral-200 ">
+              <div className="w-full max-w-3xl justify-center mx-auto">
+                <RyoonAnnouncement {...props} />
+              </div>
+            </div> */}
+            <div className="flex flex-col justify-between w-full relative z-10  ">
+              <div
+                id="container-inner"
+                className="w-full  max-w-7xl   justify-center mx-auto"
               >
                 {slotTop}
 
@@ -776,6 +948,55 @@ const LayoutInspiration = props => {
 }
 
 /**
+ * Omnis-doctrina
+ * All depends on page navigation
+ * @param {*} props
+ * @returns
+ */
+const LayoutOmniDoc = props => {
+  // const { InspirationPosts } = props
+
+  return (
+    <LayoutBaseForOmni {...props}>
+      <div className="mb-10 pb-20 md:py-12 py-4 w-full  min-h-full">
+        <div className=" px-16 ">
+          <div>
+            {/* <SimpleSlider /> */}
+            <CustomedSlider />
+          </div>
+
+          {/* <div className="w-1/2 mr-10">
+            <div className="mb-2">
+              <div className=" dark:text-neutral-200 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
+                omnis-doctrina
+              </div>
+              <div className="hidden md:flex text-3xl  font-bold md:px-2  ml-4 text-right   pb-2">
+                영감 기록 <span className="text-amber-500 ">.</span>
+              </div>
+              <div className="lg:hidden md:hidden text-3xl dark:text-neutral-100 font-bold md:px-2 text-center  flex flex-col  mr-4 pb-2">
+                영감기록 <span className="text-amber-400 text-center">.</span>
+              </div>
+            </div>
+          </div> */}
+          {/* <div className="flex flex-col gap-10">
+            {' '}
+            {Object.keys(InspirationPosts)?.map(archiveTitle => {
+              return (
+                <InspirationItem
+                  key={archiveTitle}
+                  archiveTitle={archiveTitle}
+                  archivePosts={InspirationPosts}
+                />
+              )
+            })}
+          </div> */}
+        </div>
+      </div>
+    </LayoutBaseForOmni>
+  )
+}
+
+/**
  * Sideproject(Sideproject) 메뉴 레이아웃
  * All depends on page navigation
  * @param {*} props
@@ -959,6 +1180,7 @@ export {
   LayoutReadAndWrite,
   LayoutSearch,
   LayoutSideproject,
+  LayoutOmniDoc,
   LayoutSlug,
   LayoutTagIndex,
   LayoutTechLog,

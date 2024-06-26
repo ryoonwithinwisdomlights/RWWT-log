@@ -36,15 +36,15 @@ export default function SideprojectItem({ pIndex, pId, pTitle, pPosts }) {
 
           {/* Picture cover */}
           {showPageCover && (
-            <div className="md:w-5/12 overflow-hidden">
-              <Link href={`article/${pPosts.slug}`} passHref legacyBehavior>
+            <Link href={`article/${pPosts.slug}`} passHref legacyBehavior>
+              <div className="md:w-5/12 overflow-hidden">
                 <LazyImage
                   priority={pIndex === 1}
                   src={pPosts?.pageCoverThumbnail}
                   className="h-56 w-full object-cover object-center group-hover:scale-110 duration-500"
                 />
-              </Link>
-            </div>
+              </div>
+            </Link>
           )}
         </div>
       </div>

@@ -110,6 +110,16 @@ module.exports = withBundleAnalyzer({
     delete pages['/sitemap.xml']
     return pages
   },
+  compiler: {
+    // ssr and displayName are configured by default
+    styledComponents: {
+      displayName: true,
+      // Enabled by default.
+      ssr: true,
+
+      pure: true
+    }
+  },
   publicRuntimeConfig: {
     // The configuration here can be obtained on the server side or on the browser side.
     NODE_ENV_API: process.env.NODE_ENV_API || 'prod',
