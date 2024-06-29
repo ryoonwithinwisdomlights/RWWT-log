@@ -36,9 +36,9 @@ A static blog built with NextJS and Notion API, supporting multiple deployment o
 
   - Logs by는 글의 Category타입별로 전체 블로그글을 볼 수 있는 메뉴입니다.
   - 전체 5개 메뉴에 대한 디자인/레이아웃 작업을 진행 하였습니다.
-  - **Tech log:**
-    - 개인블로그이긴 하지만 직업으로서의 개발자의 삶을 이루어 나아가고 있음으로 Tech log를 Logs By 메뉴의 가장 선두에 두었습니다.
-    - Tech log의 메인 컬러는 Orange입니다. 불타오르는 오렌지 색상같이 기술은 자칫 딱딱하고 이성적으로만 비춰지곤 하지만 조용하게 끓어오르는 열정으로 주변을 밝히는 전등과도 불씨와도 같다고 생각하기 때문입니다.
+  - **TIL Tech Logs:**
+    - 개인블로그이긴 하지만 직업으로서의 개발자의 삶을 이루어 나아가고 있음으로 TIL Tech Logs를 Logs By 메뉴의 가장 선두에 두었습니다.
+    - TIL Tech Logs의 메인 컬러는 Orange입니다. 불타오르는 오렌지 색상같이 기술은 자칫 딱딱하고 이성적으로만 비춰지곤 하지만 조용하게 끓어오르는 열정으로 주변을 밝히는 전등과도 불씨와도 같다고 생각하기 때문입니다.
     - 완료주의 > 완성주의. 이 진리는 모든 배움에 적용 된다고 생각합니다. 해당 문장을 자주 보면서 개발일지를 적을 수 있도록 상단에 배치하였습니다.
     - 또한 개발글들은 시각적으로 자칫 재미없고 밋밋하게 느껴질 수도 있기 때문에 Photo-card 형식의 목록으로 전체글을 표현할 수 있도록 작업하였습니다.
     - 각 글에 대하여 색상이 적용된 태그값으로 해당 글이 어떤 기술에 대한 글인지 확인할 수 있습니다.
@@ -80,11 +80,9 @@ A static blog built with NextJS and Notion API, supporting multiple deployment o
 - **Google Site Verification(seo)**: client key만 env에 적용시 바로 사용가능
 - **busuanzi**: 접속 url 별 website reading volume과 방문자 수 바로 확인 가능 (http://busuanzi.ibruce.info/)
 
-
 # + 추가 작업 진행중
 
 - 이 블로그 Format을 누구나 사용할 수 있게 Skeleton 리포지토리 작업 및 상세 명세서 작업을 진행하고 있습니다(24.06월 기준)
-
 
 ## License
 

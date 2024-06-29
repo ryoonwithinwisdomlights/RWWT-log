@@ -11,6 +11,10 @@ import NotionPage from '@/components/NotionPage'
 import ShareBar from '@/components/ShareBar'
 import { useGlobal } from '@/lib/global'
 import { isBrowser } from '@/lib/utils'
+import Jadu from '@/public/images/thelog/jadu.jpeg'
+import Latte from '@/public/images/thelog/latte.jpeg'
+import Leeseula from '@/public/images/thelog/leeseula.jpeg'
+import Nogiveup from '@/public/images/thelog/nogiveup.png'
 import { Transition } from '@headlessui/react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -33,6 +37,7 @@ import InspirationItem from './components/InspirationItem'
 import JumpToBackButton from './components/JumpToBackButton'
 import JumpToTopButton from './components/JumpToTopButton'
 import NavPostList from './components/NavPostList'
+import OmnisDoctrinaIntro from './components/OmnisDoctrinaIntro'
 import PageNavDrawer from './components/PageNavDrawer'
 import ReadAndWriteItem from './components/ReadAndWriteItem'
 import RevolverMaps from './components/RevolverMaps'
@@ -43,15 +48,8 @@ import TechLogItem from './components/TechLogItem'
 import TheLogitem from './components/TheLogitem'
 import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
-import Jadu from '@/public/images/thelog/jadu.jpeg'
-import Latte from '@/public/images/thelog/latte.jpeg'
-import Leeseula from '@/public/images/thelog/leeseula.jpeg'
-import Nogiveup from '@/public/images/thelog/nogiveup.png'
 import CONFIG from './config'
 import { Style } from './style'
-import Slider from 'react-slick'
-import SimpleSlider from '@/components/SimpleSlider'
-import CustomedSlider from '@/components/CustomedSlider'
 // Theme global variables
 const ThemeGlobalGitbook = createContext()
 export const useGitBookGlobal = () => useContext(ThemeGlobalGitbook)
@@ -659,7 +657,7 @@ const LayoutTechLog = props => {
               {/* https://nextjs.org/docs/pages/building-your-application/optimizing/images */}
               {/* &gt;<Image src={ReadPic} alt="So-I-Read-And-Write" /> */}
               <div className="text-3xl font-bold dark:text-neutral-100">
-                Tech Logs <span className="text-[#ff6f00]">.</span>
+                TIL Tech Logs <span className="text-[#ff6f00]">.</span>
               </div>
               <div className=" dark:text-neutral-200 mt-1  flex flex-row p-2 ">
                 <div className="flex flex-row  text-base align-bottom  break-words  text-right">
@@ -954,43 +952,13 @@ const LayoutInspiration = props => {
  * @returns
  */
 const LayoutOmniDoc = props => {
-  // const { InspirationPosts } = props
+  const { OmnisDoctrinaLog, subTypeOptions } = props
+  console.log('subTypeOptions ㅎㅎ: ', subTypeOptions)
 
   return (
     <LayoutBaseForOmni {...props}>
       <div className="mb-10 pb-20 md:py-12 py-4 w-full  min-h-full">
-        <div className=" px-16 ">
-          <div>
-            {/* <SimpleSlider /> */}
-            <CustomedSlider />
-          </div>
-
-          {/* <div className="w-1/2 mr-10">
-            <div className="mb-2">
-              <div className=" dark:text-neutral-200 md:px-2 text-neutral-700 mt-1 text-right my-2 mr-4 ">
-                omnis-doctrina
-              </div>
-              <div className="hidden md:flex text-3xl  font-bold md:px-2  ml-4 text-right   pb-2">
-                영감 기록 <span className="text-amber-500 ">.</span>
-              </div>
-              <div className="lg:hidden md:hidden text-3xl dark:text-neutral-100 font-bold md:px-2 text-center  flex flex-col  mr-4 pb-2">
-                영감기록 <span className="text-amber-400 text-center">.</span>
-              </div>
-            </div>
-          </div> */}
-          {/* <div className="flex flex-col gap-10">
-            {' '}
-            {Object.keys(InspirationPosts)?.map(archiveTitle => {
-              return (
-                <InspirationItem
-                  key={archiveTitle}
-                  archiveTitle={archiveTitle}
-                  archivePosts={InspirationPosts}
-                />
-              )
-            })}
-          </div> */}
-        </div>
+        <OmnisDoctrinaIntro props={props} />
       </div>
     </LayoutBaseForOmni>
   )
@@ -1099,7 +1067,7 @@ const LayoutCategoryIndex = props => {
  * tag list
  */
 const LayoutTagIndex = props => {
-  console.log('props Tag:', props)
+  // console.log('props Tag:', props)
   const { tagOptions } = props
   const { locale } = useGlobal()
 
@@ -1176,11 +1144,11 @@ export {
   LayoutGuestBook,
   LayoutIndex,
   LayoutInspiration,
+  LayoutOmniDoc,
   LayoutPostList,
   LayoutReadAndWrite,
   LayoutSearch,
   LayoutSideproject,
-  LayoutOmniDoc,
   LayoutSlug,
   LayoutTagIndex,
   LayoutTechLog,

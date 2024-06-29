@@ -12,8 +12,8 @@ import { getLayoutByTheme } from '@/themes/theme'
 const Tag = props => {
   const { locale } = useGlobal()
   const { tag, siteInfo } = props
-  console.log('siteInfo:', siteInfo)
-  console.log('tag:', tag)
+  // console.log('siteInfo:', siteInfo)
+  // console.log('tag:', tag)
   // Load different Layout files based on page path
   const Layout = getLayoutByTheme(useRouter())
 

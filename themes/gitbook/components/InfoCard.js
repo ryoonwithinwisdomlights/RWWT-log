@@ -16,7 +16,7 @@ const InfoCard = props => {
           }}
         >
           <LazyImage
-            src={siteInfo?.icon}
+            src={'/24.06.Ryoon.png'}
             className="rounded-full dark:border dark:border-neutral-300"
             width={120}
             alt={BLOG.AUTHOR}

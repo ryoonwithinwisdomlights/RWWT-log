@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { useEffect } from 'react'
 import { useGlobal } from '@/lib/global'
@@ -42,15 +43,13 @@ const OmnisDoctrinaIndex = props => {
 }
 
 export async function getStaticProps() {
-  const props = await getGlobalData({ from: 'thelog-index', type: 'TheLog' })
-  // Handle pagination
-  //   console.log('props.allPages', props.allPages)
-  // console.log('getStaticProps')
+  const props = await getGlobalData({ from: 'omnidoc-index', type: 'OmniDoc' })
+  console.log('getStaticProps omni::::', props.subTypeOptions)
   props.posts = props.allPages?.filter(page => {
-    if (page.type === 'TheLog') {
-      //   console.log(page)
+    if (page.type === 'OmniDoc') {
+      console.log('OmniDoc::', page)
     }
-    return page.type === 'TheLog' && page.status === 'Published'
+    return page.type === 'OmniDoc' && page.status === 'Published'
   })
 
   //   console.log('props.posts', props.posts)
@@ -60,25 +59,34 @@ export async function getStaticProps() {
     return b?.publishDate - a?.publishDate
   })
 
-  const theLogPosts = {}
+  const OmnisDoctrinaLog = {}
 
   postsSortByDate.forEach(post => {
-    const date = formatDateFmt(post.publishDate, 'yyyy-MM')
+    // const date = formatDateFmt(post.publishDate, 'yyyy-MM')
 
-    if (date !== '2012-12' && date !== '2013-12' && date !== '2015-07') {
-      if (theLogPosts[date]) {
-        theLogPosts[date].push(post)
-      } else {
-        theLogPosts[date] = [post]
-      }
+    if (OmnisDoctrinaLog[post.sub_type]) {
+      OmnisDoctrinaLog[post.sub_type].push(post)
+    } else {
+      OmnisDoctrinaLog[post.sub_type] = [post]
     }
   })
 
-  props.theLogPosts = theLogPosts
+  // postsSortByDate.forEach(post => {
+  //   const date = formatDateFmt(post.publishDate, 'yyyy-MM')
+
+  //   if (OmnisDoctrinaLog[date]) {
+  //     OmnisDoctrinaLog[date].push(post)
+  //   } else {
+  //     OmnisDoctrinaLog[date] = [post]
+  //   }
+  // })
+
+  console.log('OmnisDoctrinaLog??머얌 ', OmnisDoctrinaLog)
+  props.OmnisDoctrinaLog = OmnisDoctrinaLog
 
   delete props.allPages
 
-  // console.log(' props.theLogPosts', props.theLogPosts)
+  // console.log(' props.OmnisDoctrinaLog', props.OmnisDoctrinaLog)
   return {
     props,
     revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)

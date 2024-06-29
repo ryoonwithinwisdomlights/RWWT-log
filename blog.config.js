@@ -204,7 +204,7 @@ const BLOG = {
   NOTION_PROPERTY_NAME: {
     password: process.env.NEXT_PUBLIC_NOTION_PROPERTY_PASSWORD || 'password',
     type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'type', // article type
-    sub_type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'sub type', // article sub type for omnis-doctrina
+    sub_type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_SUB_TYPE || 'sub_type', // article sub type for omnis-doctrina
 
     type_able_arr: [
       'Post',
@@ -228,12 +228,24 @@ const BLOG = {
       'OmniDoc' ||
       'GuestBook',
     sub_type_able_arr: [
-      'RenderingPatterns',
-      'DesignPatterns',
-      'PerformancePatterns'
+      'frontend',
+      'web',
+      'backend',
+      'scholar',
+      'network',
+      'bizmarketing',
+      'algorithm',
+      'secondlanguage'
     ],
     sub_type_able:
-      'RenderingPatterns' || 'DesignPatterns' || 'PerformancePatterns',
+      'frontend' ||
+      'web' ||
+      'backend' ||
+      'scholar' ||
+      'network' ||
+      'bizmarketing' ||
+      'algorithm' ||
+      'secondlanguage',
     type_post: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_POST || 'Post', // When the type article type is the same as this value, it is a blog post.
     type_page: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PAGE || 'Page', // When the type article type is the same as this value, it is a single page.
     type_writing:
