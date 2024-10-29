@@ -6,8 +6,7 @@ const BLOG = {
   THEME_SWITCH: process.env.NEXT_PUBLIC_THEME_SWITCH || false, // Whether to display the switch theme button
   LANG: process.env.NEXT_PUBLIC_LANG || 'kr-KR', // e.g ,'en-US'  see /lib/lang.js for more.
   APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'light',
-  APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6],
-  // 야간 모드 시작 시간, 시간에 따라 야간 모드 자동 전환을 비활성화하려면 false입니다.
+  APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6], // 야간 모드 시작 시간, 시간에 따라 야간 모드 자동 전환을 비활성화하려면 false입니다.
   // SINCE:  // e.g if leave this empty, current year will be used.
 
   GREETING_WORDS:
@@ -35,11 +34,9 @@ const BLOG = {
   RANDOM_IMAGE_REPLACE_TEXT:
     process.env.NEXT_PUBLIC_RANDOM_IMAGE_NOT_REPLACE_TEXT ||
     'images.unsplash.com',
-  // Random picture API, if the following keywords are not configured,
-  // the homepage cover, avatar, and article cover image will be replaced with random pictures.
+  // Random picture API, if the following keywords are not configured, the homepage cover, avatar, and article cover image will be replaced with random pictures.
 
   // START ************website font*****************
-
   FONT_STYLE: process.env.NEXT_PUBLIC_FONT_STYLE || 'font-sans', // ['font-serif','font-sans'] There are two options, serif and sans-serif: refer to https://www.jianshu.com/p/55e410bd2115
   // Font CSS example https://npm.elemecdn.com/lxgw-wenkai-webfont@1.6.0/style.css
   FONT_URL: [
@@ -48,7 +45,6 @@ const BLOG = {
     'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&display=swap'
   ],
 
-  // Sans serif fonts e.g.'"LXGW WenKai"'
   FONT_SANS: [
     '"PingFang SC"',
     '-apple-system',
@@ -83,7 +79,6 @@ const BLOG = {
     process.env.NEXT_PUBLIC_FONT_AWESOME_PATH ||
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
   // font-awesome Font icon address; optional /css/all.min.css ， https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css
-
   // END ************website font*****************
 
   CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true, // Whether to allow copying of page content is allowed by default. If set to false, copying of content is prohibited in the entire stack.
@@ -93,9 +88,6 @@ const BLOG = {
   // Custom external scripts, external style
   CUSTOM_EXTERNAL_JS: [''], // e.g. ['http://xx.com/script.js','http://xx.com/script.js']
   CUSTOM_EXTERNAL_CSS: [''], // e.g. ['http://xx.com/style.css','http://xx.com/style.css']
-
-  // Whether the sidebar layout is reversed (left to right, right to left) Theme is supported: hexo next medium fukasawa example
-  LAYOUT_SIDEBAR_REVERSE: false,
 
   // START ********Code related********
   // PrismJs Code related
@@ -122,11 +114,6 @@ const BLOG = {
     process.env.NEXT_PUBLIC_CODE_COLLAPSE_EXPAND_DEFAULT || true, // The folded code is in the expanded state by default
 
   // END ********Code related********
-
-  // Mermaid ChartCDN
-  MERMAID_CDN:
-    process.env.NEXT_PUBLIC_MERMAID_CDN ||
-    'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js', // CDN
 
   BACKGROUND_LIGHT: '#eeeeee', // use hex value, don't forget '#' e.g #fffefc
   BACKGROUND_DARK: '#000000', // use hex value, don't forget '#'
@@ -184,21 +171,6 @@ const BLOG = {
   SEO_GOOGLE_SITE_VERIFICATION:
     process.env.NEXT_PUBLIC_SEO_GOOGLE_SITE_VERIFICATION || '', // Remove the value or replace it with your own google site verification code
   // <---- Site statistics
-
-  // START---->Revenue related
-  // google ads
-  ADSENSE_GOOGLE_ID: process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_ID || '', // Google Advertising ID e.g ca-pub-xxxxxxxxxxxxxxxx
-  // ADSENSE_GOOGLE_TEST: process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_TEST || false, // Google Advertising ID test mode, this mode obtains fake test ads for development https://www.tangly1024.com/article/local-dev-google-adsense
-  // ADSENSE_GOOGLE_SLOT_IN_ARTICLE:
-  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_IN_ARTICLE || '3806269138', // Google AdScene>Advertising>Ads by unit>New in-article ad Paste the data-ad-slot value in the html code
-  // ADSENSE_GOOGLE_SLOT_FLOW:
-  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_FLOW || '1510444138', // Google AdScene>Ads>Ads by unit>New in-feed ad
-  // ADSENSE_GOOGLE_SLOT_NATIVE:
-  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_NATIVE || '4980048999', // Google AdScene>Ads>Ads by unit>New native ad
-  // ADSENSE_GOOGLE_SLOT_AUTO:
-  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_AUTO || '8807314373', // Google AdScene>Ads>Ads by Unit>New Display Ad (Automatic Ad)
-
-  // END<----Revenue related
 
   // Custom configuration notification database field name
   NOTION_PROPERTY_NAME: {
@@ -295,13 +267,6 @@ const BLOG = {
   HOME_BANNER_IMAGE:
     process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/bg_image.png', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.
   DESCRIPTION: process.env.NEXT_PUBLIC_DESCRIPTION || 'R.W.W.Blog', // Site description, overridden by the page description in the notice
-
-  // Website pictures
-  IMG_LAZY_LOAD_PLACEHOLDER:
-    process.env.NEXT_PUBLIC_IMG_LAZY_LOAD_PLACEHOLDER ||
-    'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==', // Lazy loading of placeholder image address, supports base64 or url
-  IMG_URL_TYPE: process.env.NEXT_PUBLIC_IMG_TYPE || 'Notion', // This configuration is invalid, please do not use it; the AMAZON solution is no longer supported, only the Notion solution is supported. ['Notion','AMAZON'] Site image prefix Default Notion:(https://notion.so/images/xx) , AMAZON(https://s3.us-west-2.amazonaws.com/xxx)
-  IMG_SHADOW: process.env.NEXT_PUBLIC_IMG_SHADOW || false, // Whether to automatically add shadows to article images
 
   // development related
   NOTION_ACCESS_TOKEN: process.env.NOTION_ACCESS_TOKEN || '', // Useful if you prefer not to make your database public

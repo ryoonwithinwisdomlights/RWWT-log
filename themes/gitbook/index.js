@@ -109,10 +109,7 @@ const LayoutBase = props => {
 
         <main
           id="wrapper"
-          className={
-            (BLOG.LAYOUT_SIDEBAR_REVERSE ? 'flex-row-reverse' : '') +
-            'relative flex justify-between w-full h-full mx-auto'
-          }
+          className={'relative flex justify-between w-full h-full mx-auto'}
         >
           {/* 왼쪽 네브바 */}
           <div
@@ -279,10 +276,7 @@ const LayoutBaseForOmni = props => {
 
         <main
           id="wrapper"
-          className={
-            (BLOG.LAYOUT_SIDEBAR_REVERSE ? 'flex-row-reverse' : '') +
-            'relative flex justify-between w-full h-full mx-auto'
-          }
+          className={'relative flex justify-between w-full h-full mx-auto'}
         >
           {/* 왼쪽 네브바 */}
           <div
