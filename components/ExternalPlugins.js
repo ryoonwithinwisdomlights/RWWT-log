@@ -5,13 +5,13 @@ import dynamic from 'next/dynamic'
 //   ssr: false
 // })
 
-const Analytics = dynamic(
-  () =>
-    import('@vercel/analytics/react').then(async m => {
-      return m.Analytics
-    }),
-  { ssr: false }
-)
+// const Analytics = dynamic(
+//   () =>
+//     import('@vercel/analytics/react').then(async m => {
+//       return m.Analytics
+//     }),
+//   { ssr: false }
+// )
 
 // const Ackee = dynamic(() => import('@/components/Ackee'), { ssr: false })
 const Gtag = dynamic(() => import('@/components/Gtag'), { ssr: false })
@@ -31,7 +31,7 @@ const ExternalPlugin = props => {
   return (
     <>
       {BLOG.ANALYTICS_GOOGLE_ID && <Gtag />}
-      {BLOG.ANALYTICS_VERCEL && <Analytics />}
+      {/* {BLOG.ANALYTICS_VERCEL && <Analytics />} */}
       {JSON.parse(BLOG.ANALYTICS_BUSUANZI_ENABLE) && <Busuanzi />}
       {BLOG.ADSENSE_GOOGLE_ID && <GoogleAdsense />}
       {JSON.parse(BLOG.CUSTOM_RIGHT_CLICK_CONTEXT_MENU) && (
