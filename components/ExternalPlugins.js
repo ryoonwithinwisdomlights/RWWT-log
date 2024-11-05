@@ -1,9 +1,9 @@
 import BLOG from 'blog.config'
 import dynamic from 'next/dynamic'
 
-const DebugPanel = dynamic(() => import('@/components/DebugPanel'), {
-  ssr: false
-})
+// const DebugPanel = dynamic(() => import('@/components/DebugPanel'), {
+//   ssr: false
+// })
 
 const Analytics = dynamic(
   () =>
@@ -19,7 +19,6 @@ const Busuanzi = dynamic(() => import('@/components/Busuanzi'), { ssr: false })
 const GoogleAdsense = dynamic(() => import('@/components/GoogleAdsense'), {
   ssr: false
 })
-const VConsole = dynamic(() => import('@/components/VConsole'), { ssr: false })
 const CustomContextMenu = dynamic(
   () => import('@/components/CustomContextMenu'),
   { ssr: false }
@@ -31,7 +30,6 @@ const DisableCopy = dynamic(() => import('@/components/DisableCopy'), {
 const ExternalPlugin = props => {
   return (
     <>
-      {JSON.parse(BLOG.DEBUG) && <DebugPanel />}
       {BLOG.ANALYTICS_GOOGLE_ID && <Gtag />}
       {BLOG.ANALYTICS_VERCEL && <Analytics />}
       {JSON.parse(BLOG.ANALYTICS_BUSUANZI_ENABLE) && <Busuanzi />}
@@ -40,7 +38,6 @@ const ExternalPlugin = props => {
         <CustomContextMenu {...props} />
       )}
       {!JSON.parse(BLOG.CAN_COPY) && <DisableCopy />}
-      <VConsole />
     </>
   )
 }

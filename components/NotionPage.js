@@ -17,16 +17,16 @@ const Code = dynamic(
   { ssr: false }
 )
 
-const Equation = dynamic(
-  () =>
-    import('@/components/Equation').then(async m => {
-      // chemical equation
+// const Equation = dynamic(
+//   () =>
+//     import('@/components/Equation').then(async m => {
+//       // chemical equation
 
-      await import('@/lib/mhchem')
-      return m.Equation
-    }),
-  { ssr: false }
-)
+//       await import('@/lib/mhchem')
+//       return m.Equation
+//     }),
+//   { ssr: false }
+// )
 
 const Pdf = dynamic(
   () => import('react-notion-x/build/third-party/pdf').then(m => m.Pdf),
@@ -138,7 +138,7 @@ const NotionPage = ({ post, className }) => {
         components={{
           Code,
           Collection,
-          Equation,
+          // Equation,
           Modal,
           Pdf,
           Tweet

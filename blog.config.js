@@ -176,8 +176,6 @@ const BLOG = {
   NOTION_PROPERTY_NAME: {
     password: process.env.NEXT_PUBLIC_NOTION_PROPERTY_PASSWORD || 'password',
     type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'type', // article type
-    sub_type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_SUB_TYPE || 'sub_type', // article sub type for omnis-doctrina
-
     type_able_arr: [
       'Post',
       'Writing',
@@ -186,8 +184,7 @@ const BLOG = {
       'TechLog',
       'TheLog',
       'AGiveAwayLog',
-      'GuestBook',
-      'OmniDoc'
+      'GuestBook'
     ],
     type_able:
       'Post' ||
@@ -197,27 +194,7 @@ const BLOG = {
       'TheLog' ||
       'TechLog' ||
       'AGiveAwayLog' ||
-      'OmniDoc' ||
       'GuestBook',
-    sub_type_able_arr: [
-      'frontend',
-      'web',
-      'backend',
-      'scholar',
-      'network',
-      'bizmarketing',
-      'algorithm',
-      'secondlanguage'
-    ],
-    sub_type_able:
-      'frontend' ||
-      'web' ||
-      'backend' ||
-      'scholar' ||
-      'network' ||
-      'bizmarketing' ||
-      'algorithm' ||
-      'secondlanguage',
     type_post: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_POST || 'Post', // When the type article type is the same as this value, it is a blog post.
     type_page: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PAGE || 'Page', // When the type article type is the same as this value, it is a single page.
     type_writing:
@@ -235,8 +212,6 @@ const BLOG = {
     type_agiveawaylog:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_AGIVEAWAYLOG ||
       'AGiveAwayLog',
-    type_omnisdoctrina:
-      process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_OMNIDOC || 'OmniDoc',
     type_notice:
       process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_NOTICE || 'Notice', // When the type article type is the same as this value, it is an announcement.
     type_menu: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_MENU || 'Menu', // When the type article type is the same as this value, it is a menu.
@@ -270,7 +245,7 @@ const BLOG = {
 
   // development related
   NOTION_ACCESS_TOKEN: process.env.NOTION_ACCESS_TOKEN || '', // Useful if you prefer not to make your database public
-  DEBUG: process.env.NEXT_PUBLIC_DEBUG || false, // Whether to automatically add shadows to article images
+  // DEBUG: process.env.NEXT_PUBLIC_DEBUG || false, // Whether to automatically add shadows to article images
   ENABLE_CACHE:
     process.env.ENABLE_CACHE || process.env.npm_lifecycle_event === 'build', // The cache can be selectively turned on during development, debugging, and packaging. It does not make much sense to turn this feature on during formal deployment.
   isProd: process.env.VERCEL_ENV === 'production', // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)  isProd: process.env.VERCEL_ENV === 'production' // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
