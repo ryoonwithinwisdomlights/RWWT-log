@@ -1,12 +1,29 @@
 import { generateLocaleDict, initLocale } from './lang'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import { THEMES, initDarkMode } from '@/themes/theme'
 import NProgress from 'nprogress'
 import { getQueryVariable, isBrowser } from './utils'
 
-const GlobalContext = createContext()
+interface Gb {
+  onLoading: boolean
+  setOnLoading: any
+  locale: string
+  updateLocale: any
+  isDarkMode: boolean
+  updateDarkMode: any
+  theme: string
+  setTheme: any
+  switchTheme: any
+  siteInfo: string
+  categoryOptions: []
+  subTypeOptions: []
+  tagOptions: []
+}
+
+type globalState = Gb
+const GlobalContext = createContext<globalState>(undefined)
 
 /**
  * Global variable Provider, including language localization, style theme, search terms
@@ -14,7 +31,7 @@ const GlobalContext = createContext()
  * @returns {JSX.Element}
  * @constructor
  */
-export function GlobalContextProvider(props) {
+export function GlobalContextProvider(props: any) {
   const { children, siteInfo, categoryOptions, subTypeOptions, tagOptions } =
     props
   const router = useRouter()

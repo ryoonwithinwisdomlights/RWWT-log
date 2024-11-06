@@ -86,4 +86,4 @@ A static blog built with NextJS and Notion API, supporting multiple deployment o
 
 ## License
 
-The [MIT License](https://github.com/ryoon-with-wisdomtrees/RWWT-log).
+The [MIT License](https://github.com/ryoonwithinwisdomlights/RWWT-log).

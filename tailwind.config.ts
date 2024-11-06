@@ -1,4 +1,4 @@
-const { BLOG } = require('./blog.config')
+const BLOGG = require('./blogG.config')
 const { fontFamilies } = require('./lib/font')
 
 module.exports = {
@@ -8,16 +8,16 @@ module.exports = {
     './layouts/**/*.js',
     './themes/**/*.js'
   ],
-  darkMode: BLOG.APPEARANCE === 'class' ? 'media' : 'class', // or 'media' or 'class'
+  darkMode: BLOGG.APPEARANCE === 'class' ? 'media' : 'class', // or 'media' or 'class'
   theme: {
     fontFamily: fontFamilies,
     extend: {
       colors: {
         day: {
-          DEFAULT: BLOG.BACKGROUND_LIGHT || '#ffffff'
+          DEFAULT: BLOGG.BACKGROUND_LIGHT || '#ffffff'
         },
         night: {
-          DEFAULT: BLOG.BACKGROUND_DARK || '#111827'
+          DEFAULT: BLOGG.BACKGROUND_DARK || '#111827'
         }
         // rwwt: {
         //   'background-gray': '#f5f5f5',

@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 'use client'
 
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import Comment from '@/components/Comment'
 import CommonHead from '@/components/CommonHead'
 import { AdSlot } from '@/components/GoogleAdsense'

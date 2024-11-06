@@ -1,5 +1,6 @@
-import { loadExternalResource } from '@/lib/utils'
-import { useEffect } from 'react'
+import { loadExternalResource } from '@/lib/utils';
+import { useEffect } from 'react';
+
 // import AOS from 'aos'
 
 /**
@@ -9,7 +10,7 @@ import { useEffect } from 'react'
  */
 export default function AOSAnimation() {
   const initAOS = async () => {
-    Promise.all([
+    await Promise.all([
       loadExternalResource(
         'https://cdn.bootcdn.net/ajax/libs/aos/2.3.4/aos.js',
         'js'
@@ -19,12 +20,13 @@ export default function AOSAnimation() {
         'css'
       )
     ]).then(() => {
-      if (window.AOS) {
-        window.AOS.init()
+      if ((window as any).AOS) {
+        (window as any).AOS.init();
       }
-    })
-  }
+    });
+  };
+
   useEffect(() => {
-    initAOS()
-  }, [])
+    initAOS();
+  }, []);
 }

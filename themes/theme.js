@@ -1,5 +1,5 @@
 import cookie from 'react-cookies'
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import { getQueryParam, getQueryVariable } from '../lib/utils'
 import dynamic from 'next/dynamic'
 import getConfig from 'next/config'

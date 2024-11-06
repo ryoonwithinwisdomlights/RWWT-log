@@ -4,7 +4,7 @@ import mediumZoom from '@fisch0920/medium-zoom'
 import React, { useEffect, useRef } from 'react'
 import TweetEmbed from 'react-tweet-embed'
 
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import 'katex/dist/katex.min.css'
 import { mapImgUrl } from '@/lib/notion/mapImage'
 import { isBrowser } from '@/lib/utils'

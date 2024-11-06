@@ -1,4 +1,4 @@
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import { getPostBlocks } from '@/lib/notion'
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { generateRss } from '@/lib/rss'
@@ -69,7 +69,7 @@ export async function getStaticProps() {
   // Generate robotTxt
   generateRobotsTxt()
   // Generate feed subscription
-  if (JSON.parse(BLOG.ENABLE_RSS)) {
+  if (JSON.parse(BLOG.ENABLE_RSS.toString())) {
     generateRss(props?.latestPosts || [])
   }
 
@@ -82,7 +82,7 @@ export async function getStaticProps() {
       meta,
       ...props
     },
-    revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND)
+    revalidate: parseInt(BLOG.NEXT_REVALIDATE_SECOND.toString())
   }
 }
 

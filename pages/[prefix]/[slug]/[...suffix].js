@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import { getPostBlocks } from '@/lib/notion'
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { idToUuid } from 'notion-utils'

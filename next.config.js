@@ -2,7 +2,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 })
 
-const { THEME } = require('./blog.config')
+// const { THEME } = require('./blog.config')
 const fs = require('fs')
 const path = require('path')
 
@@ -94,7 +94,7 @@ module.exports = withBundleAnalyzer({
     config.resolve.alias['@theme-components'] = path.resolve(
       __dirname,
       'themes',
-      THEME
+      'gitbook'
     )
     return config
   },

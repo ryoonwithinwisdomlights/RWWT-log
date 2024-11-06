@@ -12,7 +12,7 @@ const NoFound = props => {
   const { siteInfo } = useGlobal()
   const meta = {
     title: `${props?.siteInfo?.title} | Page not found`,
-    image: siteInfo?.pageCover
+    image: props?.siteInfo?.pageCover
   }
 
   props = { ...props, meta }

@@ -1,5 +1,5 @@
 /* eslint-disable multiline-ternary */
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import { useEffect, useState } from 'react'
 import { useGlobal } from '@/lib/global'
 

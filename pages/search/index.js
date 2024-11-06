@@ -1,7 +1,7 @@
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { useGlobal } from '@/lib/global'
 import { useRouter } from 'next/router'
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import { getLayoutByTheme } from '@/themes/theme'
 
 /**

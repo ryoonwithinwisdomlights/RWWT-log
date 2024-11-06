@@ -5,7 +5,7 @@ import Collapse from '@/components/Collapse'
 import { MenuBarMobile } from './MenuBarMobile'
 import { useGlobal } from '@/lib/global'
 import CONFIG from '../config'
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import { MenuItemDrop } from './MenuItemDrop'
 import DarkModeButton from '@/components/DarkModeButton'
 

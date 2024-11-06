@@ -1,4 +1,4 @@
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import BlogPostCard from './BlogPostCard'
 import NavPostListEmpty from './NavPostListEmpty'
 import PaginationSimple from './PaginationSimple'

@@ -1,4 +1,5 @@
 'use client'
+import type { AppProps } from 'next/app'
 import '@/styles/animate.css' // @see https://animate.style/
 import '@/styles/globals.css'
 import '@/styles/nprogress.css'
@@ -12,12 +13,12 @@ import { GlobalContextProvider } from '@/lib/global'
 
 import dynamic from 'next/dynamic'
 import { isBrowser, loadExternalResource } from '@/lib/utils'
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 
 // Various extensions, animations, etc.
 const ExternalPlugins = dynamic(() => import('@/components/ExternalPlugins'))
 
-const MyApp = ({ Component, pageProps }) => {
+export default function MyApp({ Component, pageProps }: AppProps) {
   // Introduction of custom style css and js
   if (isBrowser) {
     // Static import of local custom styles
@@ -51,5 +52,3 @@ const MyApp = ({ Component, pageProps }) => {
     </GlobalContextProvider>
   )
 }
-
-export default MyApp

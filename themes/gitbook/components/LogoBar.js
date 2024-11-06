@@ -1,4 +1,4 @@
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import LazyImage from '@/components/LazyImage'
 import { useGitBookGlobal } from '@/themes/gitbook'
 import Link from 'next/link'

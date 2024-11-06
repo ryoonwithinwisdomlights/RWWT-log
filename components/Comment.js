@@ -1,4 +1,4 @@
-import BLOG from '@/blog.config'
+import { BLOG } from '@/blog.config'
 import dynamic from 'next/dynamic'
 import Tabs from '@/components/Tabs'
 import { isBrowser } from '@/lib/utils'
