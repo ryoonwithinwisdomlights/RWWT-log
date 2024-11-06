@@ -115,6 +115,11 @@ const BLOG = {
 
   // END ********Code related********
 
+  // Mermaid ChartCDN
+  MERMAID_CDN:
+    process.env.NEXT_PUBLIC_MERMAID_CDN ||
+    'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js', // CDN
+
   BACKGROUND_LIGHT: '#eeeeee', // use hex value, don't forget '#' e.g #fffefc
   BACKGROUND_DARK: '#000000', // use hex value, don't forget '#'
   SUB_PATH: '', // leave this empty unless you want to deploy in a folder
@@ -171,6 +176,21 @@ const BLOG = {
   SEO_GOOGLE_SITE_VERIFICATION:
     process.env.NEXT_PUBLIC_SEO_GOOGLE_SITE_VERIFICATION || '', // Remove the value or replace it with your own google site verification code
   // <---- Site statistics
+
+  // START---->Revenue related
+  // google ads
+  ADSENSE_GOOGLE_ID: process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_ID || '', // Google Advertising ID e.g ca-pub-xxxxxxxxxxxxxxxx
+  // ADSENSE_GOOGLE_TEST: process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_TEST || false, // Google Advertising ID test mode, this mode obtains fake test ads for development https://www.tangly1024.com/article/local-dev-google-adsense
+  // ADSENSE_GOOGLE_SLOT_IN_ARTICLE:
+  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_IN_ARTICLE || '3806269138', // Google AdScene>Advertising>Ads by unit>New in-article ad Paste the data-ad-slot value in the html code
+  // ADSENSE_GOOGLE_SLOT_FLOW:
+  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_FLOW || '1510444138', // Google AdScene>Ads>Ads by unit>New in-feed ad
+  // ADSENSE_GOOGLE_SLOT_NATIVE:
+  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_NATIVE || '4980048999', // Google AdScene>Ads>Ads by unit>New native ad
+  // ADSENSE_GOOGLE_SLOT_AUTO:
+  //   process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_SLOT_AUTO || '8807314373', // Google AdScene>Ads>Ads by Unit>New Display Ad (Automatic Ad)
+
+  // END<----Revenue related
 
   // Custom configuration notification database field name
   NOTION_PROPERTY_NAME: {
@@ -237,11 +257,18 @@ const BLOG = {
   MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY || null, // Enable mailichimp email subscription APIkey
 
   // Obsolete configuration
-  AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/rwwt_lemon.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
+  AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/images/rwwt_lemon.svg', // The author's avatar is covered by the ICON in the notice. If there is no ICON, take avatar.png in the public directory.
   TITLE: process.env.NEXT_PUBLIC_TITLE || 'R.W.W.Blog', // Click title, which will be covered by the page title in the notice; please do not leave a blank here, otherwise the server will not be able to compile
   HOME_BANNER_IMAGE:
-    process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/bg_image.png', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.
+    process.env.NEXT_PUBLIC_HOME_BANNER_IMAGE || '/images/bg_image.png', // The home page background image will be covered by the cover image in the notice. If there is no cover image, the /public/bg_image.jpg file in the code will be used.
   DESCRIPTION: process.env.NEXT_PUBLIC_DESCRIPTION || 'R.W.W.Blog', // Site description, overridden by the page description in the notice
+
+  // Website pictures
+  IMG_LAZY_LOAD_PLACEHOLDER:
+    process.env.NEXT_PUBLIC_IMG_LAZY_LOAD_PLACEHOLDER ||
+    'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==', // Lazy loading of placeholder image address, supports base64 or url
+  IMG_URL_TYPE: process.env.NEXT_PUBLIC_IMG_TYPE || 'Notion', // This configuration is invalid, please do not use it; the AMAZON solution is no longer supported, only the Notion solution is supported. ['Notion','AMAZON'] Site image prefix Default Notion:(https://notion.so/images/xx) , AMAZON(https://s3.us-west-2.amazonaws.com/xxx)
+  IMG_SHADOW: process.env.NEXT_PUBLIC_IMG_SHADOW || false, // Whether to automatically add shadows to article images
 
   // development related
   NOTION_ACCESS_TOKEN: process.env.NOTION_ACCESS_TOKEN || '', // Useful if you prefer not to make your database public
