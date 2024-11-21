@@ -1,9 +1,10 @@
 // pages/sitemap.xml.js
+import { GetServerSidePropsContext } from 'next'
 import { getServerSideSitemap } from 'next-sitemap'
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { BLOG } from '@/blog.config'
 
-export const getServerSideProps = async ctx => {
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const { allPages } = await getGlobalData({ from: 'rss' })
   const defaultFields = [
     {
@@ -92,8 +93,9 @@ export const getServerSideProps = async ctx => {
         priority: '0.7'
       }
     })
-  const fields = defaultFields.concat(postFields)
+  const tempfields = defaultFields.concat(postFields)
 
+  const fields = [...tempfields, ...postFields]
   // cache
   ctx.res.setHeader(
     'Cache-Control',

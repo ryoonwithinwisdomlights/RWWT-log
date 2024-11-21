@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "es5",
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -29,6 +30,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "noImplicitAny": false,      
     "incremental": true,

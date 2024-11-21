@@ -48,7 +48,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <GlobalContextProvider {...pageProps}>
       <Component {...pageProps} />
-      <ExternalPlugins {...pageProps} />
+      {/* <ExternalPlugins {...pageProps} /> */}
     </GlobalContextProvider>
   )
 }
