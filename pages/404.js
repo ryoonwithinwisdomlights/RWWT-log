@@ -1,7 +1,7 @@
+import { siteConfig } from '@/lib/config'
 import { getGlobalData } from '@/lib/notion/getNotionData'
-import { useGlobal } from '@/lib/global'
-import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
+import { useRouter } from 'next/router'
 
 /**
  * 404
@@ -9,16 +9,11 @@ import { getLayoutByTheme } from '@/themes/theme'
  * @returns
  */
 const NoFound = props => {
-  const { siteInfo } = useGlobal()
-  const meta = {
-    title: `${props?.siteInfo?.title} | Page not found`,
-    image: props?.siteInfo?.pageCover
-  }
-
-  props = { ...props, meta }
-
   // Load different Layout files based on page path
-  const Layout = getLayoutByTheme(useRouter())
+  const Layout = getLayoutByTheme({
+    theme: siteConfig('THEME'),
+    router: useRouter()
+  })
 
   return <Layout {...props} />
 }

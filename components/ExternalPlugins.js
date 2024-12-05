@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import dynamic from 'next/dynamic'
 
 // const DebugPanel = dynamic(() => import('@/components/DebugPanel'), {
@@ -33,7 +33,7 @@ const DisableCopy = dynamic(() => import('@/components/DisableCopy'), {
   ssr: false
 })
 
-const ExternalPlugin = (props: any) => {
+const ExternalPlugin = props => {
   return (
     <>
       {BLOG.ANALYTICS_GOOGLE_ID && <Gtag />}
@@ -41,13 +41,10 @@ const ExternalPlugin = (props: any) => {
       {typeof BLOG.ANALYTICS_BUSUANZI_ENABLE === 'string' &&
         JSON.parse(BLOG.ANALYTICS_BUSUANZI_ENABLE) && <Busuanzi />}
       {BLOG.ADSENSE_GOOGLE_ID && <GoogleAdsense />}
-      {typeof BLOG.CUSTOM_RIGHT_CLICK_CONTEXT_MENU === 'string' &&
-        JSON.parse(BLOG.CUSTOM_RIGHT_CLICK_CONTEXT_MENU) && (
-          <CustomContextMenu {...props} />
-        )}
-      {typeof BLOG.CAN_COPY === 'string' && !JSON.parse(BLOG.CAN_COPY) && (
-        <DisableCopy />
+      {JSON.parse(BLOG.CUSTOM_RIGHT_CLICK_CONTEXT_MENU) && (
+        <CustomContextMenu {...props} />
       )}
+      {!JSON.parse(BLOG.CAN_COPY) && <DisableCopy />}
       <VConsole />
       {/* <AosAnimation /> */}
     </>

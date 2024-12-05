@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { getPostBlocks } from '@/lib/notion'
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { idToUuid } from 'notion-utils'
 import { getNotion } from '@/lib/notion/getNotion'
 import Slug, { getRecommendPost } from '..'
-import { exchangeSlugToType } from '@/lib/utils'
+import { checkSlugHasMorThanTwoSlash, exchangeSlugToType } from '@/lib/utils'
 
 /**
  * Access the page according to the notion slug
@@ -31,18 +31,17 @@ export async function getStaticPaths() {
 
   const from = 'slug-paths'
   const { allPages } = await getGlobalData({ from })
+  const paths = allPages
+    ?.filter(row => checkSlugHasMorThanTwoSlash(row))
+    .map(row => ({
+      params: {
+        prefix: row.slug.split('/')[0],
+        slug: row.slug.split('/')[1],
+        suffix: row.slug.split('/').slice(2)
+      }
+    }))
   return {
-    paths: allPages
-      ?.filter(
-        row => hasMultipleSlashes(row.slug) && row.type.indexOf('Menu') < 0
-      )
-      .map(row => ({
-        params: {
-          prefix: row.slug.split('/')[0],
-          slug: row.slug.split('/')[1],
-          suffix: row.slug.split('/').slice(1)
-        }
-      })),
+    paths: paths,
     fallback: true
   }
 }

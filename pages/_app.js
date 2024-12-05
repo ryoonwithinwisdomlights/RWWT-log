@@ -1,5 +1,5 @@
 'use client'
-import '@/styles/animate.css' // @see https://animate.style/
+// import '@/styles/animate.css' // @see https://animate.style/
 import '@/styles/globals.css'
 import '@/styles/nprogress.css'
 import '@/styles/utility-patterns.css'
@@ -10,7 +10,7 @@ import 'react-notion-x/src/styles.css'
 
 import { GlobalContextProvider } from '@/lib/global'
 
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { isBrowser, loadExternalResource } from '@/lib/utils'
 import dynamic from 'next/dynamic'
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import Link from 'next/link'
 
 export default function ReadAndWriteItem({ archiveTitle, archivePosts }) {

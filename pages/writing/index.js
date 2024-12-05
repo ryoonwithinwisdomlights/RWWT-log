@@ -2,18 +2,22 @@
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { useEffect } from 'react'
 import { useGlobal } from '@/lib/global'
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
 import { isBrowser } from '@/lib/utils'
 import { formatDateFmt } from '@/lib/formatDate'
+import { siteConfig } from '@/lib/config'
 
 const ReadandWriteIndex = props => {
   const { siteInfo } = props
   const { locale } = useGlobal()
   // console.log('siteInfo', siteInfo)
   // Load different Layout files based on page path
-  const Layout = getLayoutByTheme(useRouter())
+  const Layout = getLayoutByTheme({
+    theme: siteConfig('THEME'),
+    router: useRouter()
+  })
 
   const meta = {
     title: `${locale.NAV.WRITING} | ${siteInfo?.title}`,

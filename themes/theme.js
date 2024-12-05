@@ -1,28 +1,85 @@
 import cookie from 'react-cookies'
-import { BLOG } from '@/blog.config'
-import { getQueryParam, getQueryVariable } from '../lib/utils'
+import BLOG from '@/blog.config'
+import { getQueryParam, getQueryVariable, isBrowser } from '../lib/utils'
 import dynamic from 'next/dynamic'
 import getConfig from 'next/config'
 import * as ThemeComponents from '@theme-components'
 
 // All themes are scanned in next.config.js
 export const { THEMES = [] } = getConfig().publicRuntimeConfig
+
+export const getThemeConfig = async themeQuery => {
+  if (themeQuery && themeQuery !== BLOG.THEME) {
+    const THEME_CONFIG = await import(`@/themes/${themeQuery}`).then(
+      m => m.THEME_CONFIG
+    )
+    return THEME_CONFIG
+  } else {
+    return ThemeComponents?.THEME_CONFIG
+  }
+}
+
 /**
  * Load theme files
  * in the case of
  * @param {*} router
  * @returns
  */
-export const getLayoutByTheme = router => {
-  const themeQuery = getQueryParam(router.asPath, 'theme') || BLOG.THEME
-  const layout = getLayoutNameByPath(router.pathname)
+// export const getLayoutByTheme = router => {
+//   const themeQuery = getQueryParam(router.asPath, 'theme') || BLOG.THEME
+//   const layout = getLayoutNameByPath(router.pathname)
+//   if (themeQuery !== BLOG.THEME) {
+//     return dynamic(
+//       () => import(`@/themes/${themeQuery}`).then(m => m[layout]),
+//       { ssr: true }
+//     )
+//   } else {
+//     return ThemeComponents[layout]
+//   }
+// }
+export const getGlobalLayoutByTheme = themeQuery => {
   if (themeQuery !== BLOG.THEME) {
     return dynamic(
-      () => import(`@/themes/${themeQuery}`).then(m => m[layout]),
+      () =>
+        import(`@/themes/${themeQuery}`).then(m => m[getLayoutNameByPath(-1)]),
       { ssr: true }
     )
   } else {
-    return ThemeComponents[layout]
+    return ThemeComponents[getLayoutNameByPath('-1')]
+  }
+}
+
+export const getLayoutByTheme = ({ router, theme }) => {
+  const themeQuery = getQueryParam(router.asPath, 'theme') || theme
+  if (themeQuery !== BLOG.THEME) {
+    return dynamic(
+      () =>
+        import(`@/themes/${themeQuery}`).then(m => {
+          setTimeout(() => {
+            checkThemeDOM()
+          }, 500)
+
+          const components =
+            m[getLayoutNameByPath(router.pathname, router.asPath)]
+          if (components) {
+            return components
+          } else {
+            return m.LayoutSlug
+          }
+        }),
+      { ssr: true }
+    )
+  } else {
+    setTimeout(() => {
+      checkThemeDOM()
+    }, 100)
+    const components =
+      ThemeComponents[getLayoutNameByPath(router.pathname, router.asPath)]
+    if (components) {
+      return components
+    } else {
+      return ThemeComponents.LayoutSlug
+    }
   }
 }
 
@@ -69,6 +126,25 @@ export const getLayoutNameByPath = path => {
       return 'LayoutCategoryIndex'
     default:
       return 'LayoutSlug'
+  }
+}
+
+const checkThemeDOM = () => {
+  if (isBrowser) {
+    const elements = document.querySelectorAll('[id^="theme-"]')
+    if (elements?.length > 1) {
+      elements[elements.length - 1].scrollIntoView()
+      // 删除前面的元素，只保留最后一个元素
+      for (let i = 0; i < elements.length - 1; i++) {
+        if (
+          elements[i] &&
+          elements[i].parentNode &&
+          elements[i].parentNode.contains(elements[i])
+        ) {
+          elements[i].parentNode.removeChild(elements[i])
+        }
+      }
+    }
   }
 }
 

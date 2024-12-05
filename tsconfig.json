@@ -3,24 +3,14 @@
     "target": "es5",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/theme/*": [
-        "theme/*"
-      ],
-      "@/data/*": [
-        "data/*"
-      ],
-      "@/lib/*": [
-        "lib/*"
-      ],
-      "@/styles/*": [
-        "styles/*"
-      ]
+      "@/blog.config": ["./blog.config"],
+      "@/components/*": ["components/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/themes/*": ["themes/*"],
+      "@/pages/*": ["pages/*"],
+      "@/data/*": ["data/*"],
+      "@/lib/*": ["lib/*"],
+      "@/styles/*": ["styles/*"]
     },
     "lib": [
       "dom",
@@ -41,15 +31,7 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": [
-    "new-types.d.ts",
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.js",
-    "**/*.tsx",
-    "**/*.jsx"
-  ],
+  "include": ["next-env.d.ts", "**/*.js", "**/*.ts", "**/*.tsx", "**/*.jsx"],
   "exclude": [
     "node_modules"
   ]

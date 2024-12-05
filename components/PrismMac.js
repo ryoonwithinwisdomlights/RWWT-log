@@ -10,7 +10,7 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
 // mermaid diagram
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { loadExternalResource } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 import { useGlobal } from '@/lib/global'

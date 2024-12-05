@@ -1,4 +1,4 @@
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { getPostBlocks } from '@/lib/notion'
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { useEffect, useState } from 'react'
@@ -9,6 +9,7 @@ import { getPageTableOfContents } from '@/lib/notion/getPageTableOfContents'
 import { getLayoutByTheme } from '@/themes/theme'
 import md5 from 'js-md5'
 import { isBrowser } from '@/lib/utils'
+import { siteConfig } from '@/lib/config'
 
 /**
  * Access the page according to the notion's slug
@@ -80,7 +81,10 @@ const Slug = props => {
   }
   props = { ...props, lock, meta, setLock, validPassword }
   // Load different Layout files based on page path
-  const Layout = getLayoutByTheme(useRouter())
+  const Layout = getLayoutByTheme({
+    theme: siteConfig('THEME'),
+    router: useRouter()
+  })
   return <Layout {...props} />
 }
 

@@ -1,5 +1,5 @@
 // pages/sitemap.xml.js
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { getServerSideSitemap } from 'next-sitemap'
 

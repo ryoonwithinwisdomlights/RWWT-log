@@ -1,9 +1,10 @@
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { getPostBlocks } from '@/lib/notion'
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { idToUuid } from 'notion-utils'
 import { getNotion } from '@/lib/notion/getNotion'
 import Slug, { getRecommendPost } from '..'
+import { checkSlugHasOneSlash } from '@/lib/utils'
 
 /**
  *
@@ -26,12 +27,14 @@ export async function getStaticPaths() {
 
   const from = 'slug-paths'
   const { allPages } = await getGlobalData({ from })
+  const paths = allPages
+    ?.filter(row => checkSlugHasOneSlash(row))
+    .map(row => ({
+      params: { prefix: row.slug.split('/')[0], slug: row.slug.split('/')[1] }
+    }))
+
   return {
-    paths: allPages
-      ?.filter(row => row.slug.indexOf('/') > 0 && row.type.indexOf('Menu') < 0)
-      .map(row => ({
-        params: { prefix: row.slug.split('/')[0], slug: row.slug.split('/')[1] }
-      })),
+    paths: paths,
     fallback: true
   }
 }

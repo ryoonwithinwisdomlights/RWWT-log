@@ -1,5 +1,5 @@
-import { loadExternalResource } from '@/lib/utils';
-import { useEffect } from 'react';
+import { loadExternalResource } from '@/lib/utils'
+import { useEffect } from 'react'
 
 // import AOS from 'aos'
 
@@ -20,13 +20,13 @@ export default function AOSAnimation() {
         'css'
       )
     ]).then(() => {
-      if ((window as any).AOS) {
-        (window as any).AOS.init();
+      if (window.AOS) {
+        window.AOS.init()
       }
-    });
-  };
+    })
+  }
 
   useEffect(() => {
-    initAOS();
-  }, []);
+    initAOS()
+  }, [])
 }

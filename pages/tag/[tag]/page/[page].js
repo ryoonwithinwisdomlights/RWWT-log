@@ -1,15 +1,19 @@
 import { useGlobal } from '@/lib/global'
 import { getGlobalData } from '@/lib/notion/getNotionData'
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
+import { siteConfig } from '@/lib/config'
 
 const Tag = props => {
   const { locale } = useGlobal()
   const { tag, siteInfo } = props
 
   // Load different Layout files based on page path
-  const Layout = getLayoutByTheme(useRouter())
+  const Layout = getLayoutByTheme({
+    theme: siteConfig('THEME'),
+    router: useRouter()
+  })
 
   const meta = {
     title: `${tag} | ${locale.COMMON.TAGS} | ${siteInfo?.title}`,

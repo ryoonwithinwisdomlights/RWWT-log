@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState, useRef, useLayoutEffect } from 'react'
 import { useGlobal } from '@/lib/global'
 import { saveDarkModeToCookies } from '@/themes/theme'
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import useWindowSize from '@/hooks/useWindowSize'
 
 /**

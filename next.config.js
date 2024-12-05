@@ -1,10 +1,12 @@
+const { THEME } = require('./blog.config')
+const fs = require('fs')
+const path = require('path')
+// const BLOG = require('./blog.config')
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 })
-
-// const { THEME } = require('./blog.config')
-const fs = require('fs')
-const path = require('path')
+const themes = scanSubdirectories(path.resolve(__dirname, 'themes'))
 
 /**
  * Scan the folder names in the specified directory to obtain how many topics there are currently
@@ -27,8 +29,11 @@ function scanSubdirectories(directory) {
   return subdirectories
 }
 // Scan items /Directory name under themes
-const themes = scanSubdirectories(path.resolve(__dirname, 'themes'))
-module.exports = withBundleAnalyzer({
+
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   images: {
     // Image Compression
     formats: ['image/avif', 'image/webp'],
@@ -82,20 +87,19 @@ module.exports = withBundleAnalyzer({
     ]
   },
   webpack: (config, { dev, isServer }) => {
-    // Replace React with Preact only in client production build
-    // if (!dev && !isServer) {
-    //   Object.assign(config.resolve.alias, {
-    //     react: 'preact/compat',
-    //     'react-dom/test-utils': 'preact/test-utils',
-    //     'react-dom': 'preact/compat'
-    //   })
-    // }
-    // Dynamic theme: Add resolve.alias configuration to map dynamic paths to actual paths
+    config.resolve.alias['@'] = path.resolve(__dirname)
+
+    if (!isServer) {
+      console.log('[기본테마]', path.resolve(__dirname, 'themes', THEME))
+    }
     config.resolve.alias['@theme-components'] = path.resolve(
       __dirname,
       'themes',
       'gitbook'
     )
+    if (process.env.NODE_ENV_API === 'development') {
+      config.devtool = 'source-map'
+    }
     return config
   },
   experimental: {
@@ -125,4 +129,5 @@ module.exports = withBundleAnalyzer({
     NODE_ENV_API: process.env.NODE_ENV_API || 'prod',
     THEMES: themes
   }
-})
+}
+module.exports = withBundleAnalyzer(nextConfig)

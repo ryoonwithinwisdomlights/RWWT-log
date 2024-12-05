@@ -1,10 +1,11 @@
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { getPostBlocks } from '@/lib/notion'
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { generateRss } from '@/lib/rss'
 import { generateRobotsTxt } from '@/lib/robots.txt'
 import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
+import { siteConfig } from '@/lib/config'
 
 /**
  * Home page layout
@@ -13,7 +14,10 @@ import { getLayoutByTheme } from '@/themes/theme'
  */
 const Index = props => {
   // Load different Layout files based on page path
-  const Layout = getLayoutByTheme(useRouter())
+  const Layout = getLayoutByTheme({
+    theme: siteConfig('THEME'),
+    router: useRouter()
+  })
   return <Layout {...props} />
 }
 

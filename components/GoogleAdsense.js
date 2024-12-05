@@ -1,4 +1,4 @@
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { loadExternalResource } from '@/lib/utils'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'

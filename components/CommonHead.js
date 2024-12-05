@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import Head from 'next/head'
 
 const CommonHead = ({ meta, children }) => {

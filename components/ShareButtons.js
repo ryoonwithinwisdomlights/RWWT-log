@@ -1,4 +1,4 @@
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { useGlobal } from '@/lib/global'
 import copy from 'copy-to-clipboard'
 

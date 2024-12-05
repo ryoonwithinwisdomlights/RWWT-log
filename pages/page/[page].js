@@ -1,8 +1,9 @@
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { getPostBlocks } from '@/lib/notion'
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { useRouter } from 'next/router'
 import { getLayoutByTheme } from '@/themes/theme'
+import { siteConfig } from '@/lib/config'
 
 /**
  * Article list pagination
@@ -13,7 +14,10 @@ const Page = props => {
   const { siteInfo } = props
 
   // Load different Layout files based on page path
-  const Layout = getLayoutByTheme(useRouter())
+  const Layout = getLayoutByTheme({
+    theme: siteConfig('THEME'),
+    router: useRouter()
+  })
 
   const meta = {
     title: `${props?.page} | Page | ${siteInfo?.title}`,

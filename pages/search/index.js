@@ -1,8 +1,9 @@
 import { getGlobalData } from '@/lib/notion/getNotionData'
 import { useGlobal } from '@/lib/global'
 import { useRouter } from 'next/router'
-import { BLOG } from '@/blog.config'
+import BLOG from '@/blog.config'
 import { getLayoutByTheme } from '@/themes/theme'
+import { siteConfig } from '@/lib/config'
 
 /**
  * search route
@@ -14,7 +15,10 @@ const Search = props => {
   const { locale } = useGlobal()
 
   // Load different Layout files based on page path
-  const Layout = getLayoutByTheme(useRouter())
+  const Layout = getLayoutByTheme({
+    theme: siteConfig('THEME'),
+    router: useRouter()
+  })
 
   const router = useRouter()
   const keyword = getSearchKey(router)
