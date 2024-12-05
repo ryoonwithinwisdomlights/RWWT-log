@@ -1,10 +1,9 @@
 // pages/sitemap.xml.js
-import { GetServerSidePropsContext } from 'next'
-import { getServerSideSitemap } from 'next-sitemap'
-import { getGlobalData } from '@/lib/notion/getNotionData'
 import { BLOG } from '@/blog.config'
+import { getGlobalData } from '@/lib/notion/getNotionData'
+import { getServerSideSitemap } from 'next-sitemap'
 
-export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+export const getServerSideProps = async ctx => {
   const { allPages } = await getGlobalData({ from: 'rss' })
   const defaultFields = [
     {

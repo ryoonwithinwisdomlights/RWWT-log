@@ -1,24 +1,23 @@
 'use client'
-import type { AppProps } from 'next/app'
 import '@/styles/animate.css' // @see https://animate.style/
 import '@/styles/globals.css'
 import '@/styles/nprogress.css'
 import '@/styles/utility-patterns.css'
 
 // core styles shared by all of react-notion-x (required)
-import 'react-notion-x/src/styles.css'
 import '@/styles/notion.css' //  Override some styles
+import 'react-notion-x/src/styles.css'
 
 import { GlobalContextProvider } from '@/lib/global'
 
-import dynamic from 'next/dynamic'
-import { isBrowser, loadExternalResource } from '@/lib/utils'
 import { BLOG } from '@/blog.config'
+import { isBrowser, loadExternalResource } from '@/lib/utils'
+import dynamic from 'next/dynamic'
 
 // Various extensions, animations, etc.
 const ExternalPlugins = dynamic(() => import('@/components/ExternalPlugins'))
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }) {
   // Introduction of custom style css and js
   if (isBrowser) {
     // Static import of local custom styles
@@ -48,7 +47,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <GlobalContextProvider {...pageProps}>
       <Component {...pageProps} />
-      {/* <ExternalPlugins {...pageProps} /> */}
+      <ExternalPlugins {...pageProps} />
     </GlobalContextProvider>
   )
 }

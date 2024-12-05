@@ -113,10 +113,10 @@ const LayoutBase = props => {
           {/* 왼쪽 네브바 */}
           <div
             className={
-              'font-sans hidden md:block border-r dark:border-transparent relative z-10 '
+              'font-sans hidden w-3/12   md:block border-r dark:border-transparent relative z-10 '
             }
           >
-            <div className="w-72  px-6 sticky top-0 overflow-y-scroll my-16 h-screen ">
+            <div className=" px-6 sticky top-0 overflow-y-scroll my-16 h-screen ">
               {slotLeft}
               <SearchInput className="my-3 rounded-md" />
               <div className="mb-20">
@@ -132,7 +132,7 @@ const LayoutBase = props => {
 
           <div
             id="center-wrapper"
-            className="flex flex-col w-full relative z-10 pt-14 min-h-screen"
+            className="flex flex-col w-6/12  relative z-10 pt-14 min-h-screen"
           >
             {/* <div className="w-full justify-center mx-auto  border-b border-neutral-200 ">
               <div className="w-full max-w-3xl justify-center mx-auto">
@@ -177,9 +177,9 @@ const LayoutBase = props => {
 
           {/*  오른쪽 슬라이딩 서랍 */}
           <div
-            style={{ width: '32rem' }}
+            // style={{ width: '32rem' }}
             className={
-              'hidden xl:block dark:border-transparent relative z-10 border-l  border-neutral-200  '
+              'hidden w-3/12  xl:block dark:border-transparent relative z-10 border-l  border-neutral-200  '
             }
           >
             <div className="py-14 px-6 sticky top-0">
