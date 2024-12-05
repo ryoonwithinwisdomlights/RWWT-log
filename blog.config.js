@@ -141,7 +141,8 @@ const BLOG = {
   POST_RECOMMEND_COUNT: 6, // Number of recommended articles
   POSTS_PER_PAGE: 12, // post counts per page
   POSTS_SORT_BY: process.env.NEXT_PUBLIC_POST_SORT_BY || 'notion', // 정렬 방식은 '날짜'는 시간 기준, '노션'은 알림 기준
-
+  POST_WAITING_TIME_FOR_404:
+    process.env.NEXT_PUBLIC_POST_WAITING_TIME_FOR_404 || '8', // Article loading timeout, in seconds; jump to 404 page after timeout
   PREVIEW_CATEGORY_COUNT: 16, // The maximum number of categories displayed on the homepage, 0 means no limit
   PREVIEW_TAG_COUNT: 16, // The maximum number of tags displayed on the homepage, 0 means no limit
 

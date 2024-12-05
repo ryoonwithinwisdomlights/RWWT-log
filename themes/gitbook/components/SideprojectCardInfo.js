@@ -17,13 +17,11 @@ export const SideprojectCardInfo = ({
 }) => {
   return (
     <div
-      className={`flex flex-col justify-between lg:p-6 p-4  ${
-        showPageCover && !showPreview
-          ? 'md:w-7/12 w-full md:max-h-60'
-          : 'w-full'
+      className={`flex flex-col justify-between lg:p-6 p-4   ${
+        showPageCover && !showPreview ? 'md:w-7/12 w-full  ' : 'w-full'
       }`}
     >
-      <div>
+      <div className="w-full">
         <Link
           href={`${siteConfig('SUB_PATH', '')}/${post.slug}`}
           passHref
@@ -81,7 +79,7 @@ export const SideprojectCardInfo = ({
         )}
       </div>
 
-      <div>
+      <div className="w-full ">
         {/* date label */}
         <div className="text-neutral-400 justify-between flex">
           {/* date */}
@@ -94,7 +92,7 @@ export const SideprojectCardInfo = ({
             {post?.publishDay || post.lastEditedDay}
           </Link>
 
-          <div className="md:flex-nowrap flex-wrap md:justify-start inline-block">
+          <div className="md:flex-nowrap overflow-hidden flex-wrap md:justify-start inline-block">
             <div>
               {' '}
               {post.tagItems?.map(tag => (

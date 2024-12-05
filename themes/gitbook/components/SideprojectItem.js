@@ -21,7 +21,7 @@ export default function SideprojectItem({ pIndex, pId, pTitle, pPosts }) {
           data-aos-once="false"
           data-aos-anchor-placement="top-bottom"
           id="blog-post-card"
-          className={`group md:h-56 w-full flex justify-between md:flex-row flex-col-reverse ${
+          className={`group max-md:h-72  overflow-hidden w-full flex justify-between md:flex-row flex-col-reverse ${
             pIndex % 2 === 1 ? 'md:flex-row-reverse' : ''
           }overflow-hidden border dark:border-black rounded-xl bg-white dark:bg-neutral-100`}
         >
@@ -37,11 +37,11 @@ export default function SideprojectItem({ pIndex, pId, pTitle, pPosts }) {
           {/* Picture cover */}
           {showPageCover && (
             <Link href={`article/${pPosts.slug}`} passHref legacyBehavior>
-              <div className="md:w-5/12 overflow-hidden">
+              <div className="md:w-5/12 ">
                 <LazyImage
                   priority={pIndex === 1}
                   src={pPosts?.pageCoverThumbnail}
-                  className="h-56 w-full object-cover object-center group-hover:scale-110 duration-500"
+                  className=" w-full object-cover object-center group-hover:scale-110 duration-500"
                 />
               </div>
             </Link>

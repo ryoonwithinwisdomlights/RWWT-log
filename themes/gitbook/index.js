@@ -50,6 +50,7 @@ import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
 import CONFIG from './config'
 import { Style } from './style'
+import { siteConfig } from '@/lib/config'
 // Theme global variables
 const ThemeGlobalGitbook = createContext()
 export const useGitBookGlobal = () => useContext(ThemeGlobalGitbook)
@@ -275,7 +276,26 @@ const LayoutPostList = props => {
  */
 const LayoutSlug = props => {
   const { post, prev, next, lock, validPassword, siteInfo } = props
-  const { locale } = useGlobal()
+
+  const router = useRouter()
+  useEffect(() => {
+    // 404
+    if (!post) {
+      setTimeout(
+        () => {
+          if (isBrowser) {
+            const article = document.getElementById('notion-article')
+            if (!article) {
+              router.push('/404').then(() => {
+                console.warn('找不到页面', router.asPath)
+              })
+            }
+          }
+        },
+        siteConfig('POST_WAITING_TIME_FOR_404') * 1000
+      )
+    }
+  }, [post])
   return (
     <LayoutBase {...props}>
       {/* 기사 잠금 */}
